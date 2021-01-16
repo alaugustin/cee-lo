@@ -1,8 +1,12 @@
-const roll = document.getElementById("rollButton");
+const player1Roll = document.getElementById("player1Roll"),
+      player2Roll = document.getElementById("player2Roll");
 
 let win = false;
 
-roll.onclick = function () {
+player1Roll.onclick = function () {
+    randNum();
+};
+player2Roll.onclick = function () {
     randNum();
 };
 
