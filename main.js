@@ -1,14 +1,4 @@
-const player1Roll = document.getElementById("player1Roll"),
-      player2Roll = document.getElementById("player2Roll");
-
 let win = false;
-
-player1Roll.onclick = function () {
-    randNum();
-};
-player2Roll.onclick = function () {
-    randNum();
-};
 
 // GENERATE RANDOM NUMBER
 function randNum() {
@@ -118,3 +108,21 @@ function ceeLo(a, b, c) {
 
     trips();
 }
+
+// -------------------- PLAYER --------------------
+const rollButtonArray = document.getElementsByTagName("button");
+
+for (let index = 0; index < rollButtonArray.length; index++) {
+    const element = rollButtonArray[index];
+
+    console.log(element);
+
+    element.onclick = function () {
+        randNum();
+    };
+    
+}
+
+rollButtonArray.onclick = function () {
+    randNum();
+};
