@@ -6,6 +6,7 @@ roll.onclick = function () {
     randNum();
 };
 
+// GENERATE RANDOM NUMBER
 function randNum() {
     let sides = 6,
         a = Math.floor(Math.random() * sides) + 1,
@@ -17,6 +18,7 @@ function randNum() {
     compare(a, b, c);
 }
 
+// PRINT DICE NUMBERS
 function printDice(a, b, c) {
     document.getElementById("die1").innerHTML = a;
     document.getElementById("die2").innerHTML = b;
@@ -25,6 +27,9 @@ function printDice(a, b, c) {
 
 function compare(a, b, c) {
     // console.log("die1 is " + a, "die2 is " + b, "die3 is " + c);
+// RESET GAME
+// CeeLo DICE ROLLS
+    // TRIPS CONDITION
     function trips() {
 
         if (a === b && b === c) {
@@ -34,6 +39,7 @@ function compare(a, b, c) {
         }
     }
 
+    // POINT CONDITION
     function point() {
         let scoreBoard = document.getElementById("scoreBoard");
         if (a === b) {
@@ -50,6 +56,7 @@ function compare(a, b, c) {
         }
     }
 
+    // 4 5 6 CONDITION
     function fourFiveSix() {
         if (a === 4 && b === 5 && c === 6 || a === 4 && b === 6 && c === 5) {
             console.log("Winner 456");
@@ -62,6 +69,7 @@ function compare(a, b, c) {
         }
     }
 
+    // 1 2 3 CONDITION
     function oneTwoThree() {
         if (a === 1 && b === 2 && c === 3 || a === 1 && b === 3 && c === 2) {
             console.log("Loser 123");
