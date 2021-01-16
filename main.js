@@ -1,7 +1,7 @@
 let win = false,
     scoreBoard = document.getElementById("scoreBoard");
 
-// GENERATE RANDOM NUMBER
+// -------------------- GENERATE RANDOM NUMBER --------------------
 function randNum() {
     let sides = 6,
         a = Math.floor(Math.random() * sides) + 1,
@@ -12,20 +12,20 @@ function randNum() {
     ceeLo(a, b, c);
 }
 
-// PRINT DICE NUMBERS
+// -------------------- PRINT DICE NUMBERS --------------------
 function printDice(a, b, c) {
     document.getElementById("die1").innerHTML = a;
     document.getElementById("die2").innerHTML = b;
     document.getElementById("die3").innerHTML = c;
 }
 
-// RESET GAME
+// -------------------- RESET GAME --------------------
 function resetGame() {
     win = false;
     console.log("Start over.");
 }
 
-// CeeLo DICE ROLLS
+// -------------------- CeeLo DICE ROLLS --------------------
 function ceeLo(a, b, c) {
 
     // TRIPS CONDITION
