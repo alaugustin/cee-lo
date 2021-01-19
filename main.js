@@ -1,13 +1,16 @@
 let win = false,
     scoreBoard = document.getElementById("scoreBoard");
 
+const startButton = document.getElementById("startButton"),
+    resetButton = document.getElementById("resetButton");
+
 // -------------------- GENERATE RANDOM NUMBER --------------------
 function randNum() {
     let sides = 6,
         a = Math.floor(Math.random() * sides) + 1,
         b = Math.floor(Math.random() * sides) + 1,
         c = Math.floor(Math.random() * sides) + 1;
-        
+
     printDice(a, b, c);
     ceeLo(a, b, c);
 }
@@ -17,12 +20,6 @@ function printDice(a, b, c) {
     document.getElementById("die1").innerHTML = a;
     document.getElementById("die2").innerHTML = b;
     document.getElementById("die3").innerHTML = c;
-}
-
-// -------------------- RESET GAME --------------------
-function resetGame() {
-    win = false;
-    console.log("Start over.");
 }
 
 // -------------------- CeeLo DICE ROLLS --------------------
@@ -130,3 +127,21 @@ for (let index = 0; index < rollButtonArray.length; index++) {
         randNum();
     };    
 }
+// -------------------- START GAME --------------------
+function startGame() {
+    console.log("Starting button pressed.");
+    initCLgame();
+}
+startButton.onclick = function () {
+    startGame();
+};
+
+// -------------------- RESET GAME --------------------
+function resetGame() {
+    console.log("Reset button pressed.");
+    win = false;
+    console.log("Reset game win to " + win)
+}
+resetButton.onclick = function () {
+    resetGame();
+};
