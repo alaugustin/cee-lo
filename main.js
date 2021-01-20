@@ -66,10 +66,10 @@ function ceeLo(a, b, c) {
 
     // 4 5 6 CONDITION
     function fourFiveSix() {
-        let array456 = [a, b, c];
-        let array456sort = array456.sort();
-        let array456string = array456sort.toString();        
-        winCode = 3;
+        let array456 = [a, b, c],
+            array456sort = array456.sort(),
+            array456string = array456sort.toString();        
+            winCode = 3;
         
         if (array456string === "4,5,6") {
             win = true;
@@ -85,10 +85,10 @@ function ceeLo(a, b, c) {
 
     // 1 2 3 CONDITION
     function oneTwoThree() {
-        let array123 = [a, b, c];
-        let array123sort = array123.sort();
-        let array123string = array123sort.toString();
-        winCode = 0;
+        let array123 = [a, b, c],
+            array123sort = array123.sort(),
+            array123string = array123sort.toString();
+            winCode = 0;
 
         if (array123string === "1,2,3") {
             win = false;
@@ -111,7 +111,7 @@ let rollButtonArray = document.querySelectorAll(".rollButton"),
     playerCount = document.getElementById("playerCount"),
     howManyPlayers = rollButtonArray.length;
 
-playerCount.innerHTML = howManyPlayers;
+    playerCount.innerHTML = howManyPlayers;
 
 for (let index = 0; index < rollButtonArray.length; index++) {
     const playerRoll = rollButtonArray[index];
