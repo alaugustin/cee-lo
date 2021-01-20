@@ -63,21 +63,14 @@ function ceeLo(a, b, c) {
     // 4 5 6 CONDITION
     function fourFiveSix() {
 
-        if (a === 4 && b === 5 && c === 6 || a === 4 && b === 6 && c === 5) {
-            win = true;
-            console.log("Win is = " + win + ". Instant win.");
-            scoreBoard.innerHTML = "Win - " + a + b + c;
-
-            resetGame();
-
-        } else if (a === 6 && b === 4 && c === 5 || a === 6 && b === 5 && c === 4) {
-            win = true;
-            console.log("Win is = " + win + ". Instant win.");
-            scoreBoard.innerHTML = "Win - " + a + b + c;
-
-            resetGame();
-
-        } else if (a === 5 && b === 6 && c === 4 || a === 5 && b === 4 && c === 6) {
+        if (
+            a === 4 && b === 5 && c === 6 || 
+            a === 4 && b === 6 && c === 5 ||
+            a === 6 && b === 4 && c === 5 || 
+            a === 6 && b === 5 && c === 4 ||
+            a === 5 && b === 6 && c === 4 || 
+            a === 5 && b === 4 && c === 6
+            ) {
             win = true;
             console.log("Win is = " + win + ". Instant win.");
             scoreBoard.innerHTML = "Win - " + a + b + c;
@@ -92,15 +85,14 @@ function ceeLo(a, b, c) {
     // 1 2 3 CONDITION
     function oneTwoThree() {
 
-        if (a === 1 && b === 2 && c === 3 || a === 1 && b === 3 && c === 2) {
-            console.log("Win is = " + win + ". Instant loss.");
-            scoreBoard.innerHTML = a + b + c;
-
-        } else if (a === 3 && b === 1 && c === 2 || a === 3 && b === 2 && c === 1) {
-            console.log("Win is = " + win + ". Instant loss.");
-            scoreBoard.innerHTML = a + b + c;
-
-        } else if (a === 2 && b === 3 && c === 1 || a === 2 && b === 1 && c === 3) {
+        if (
+            a === 1 && b === 2 && c === 3 || 
+            a === 1 && b === 3 && c === 2 ||
+            a === 3 && b === 1 && c === 2 || 
+            a === 3 && b === 2 && c === 1 ||
+            a === 2 && b === 3 && c === 1 || 
+            a === 2 && b === 1 && c === 3
+            ) {
             console.log("Win is = " + win + ". Instant loss.");
             scoreBoard.innerHTML = a + b + c;
 
