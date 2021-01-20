@@ -115,6 +115,8 @@ function ceeLo(a, b, c) {
 
 // -------------------- PLAYER --------------------
 const rollButtonArray = document.getElementsByTagName("button");
+    playerCount = document.getElementById("playerCount"),
+playerCount.innerHTML = howManyPlayers;
 
 let players = document.getElementsByClassName("playerHolder").length;
 
