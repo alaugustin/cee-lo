@@ -115,6 +115,8 @@ playerCount.innerHTML = howManyPlayers;
 for (let index = 0; index < rollButtonArray.length; index++) {
     const playerRoll = rollButtonArray[index];
 
+    rollButtonArray[index].disabled = true;
+
     playerRoll.onclick = function () {
         randNum();
     };
@@ -154,9 +156,9 @@ startButton.onclick = function () {
 
 // -------------------- RESET GAME --------------------
 function resetGame() {
-    console.log("Reset button pressed.");
     win = false;
-    console.log("Reset game win to " + win)
+    console.log("Reset button pressed.");
+    console.log("Reset game win status to " + win);
 }
 resetButton.onclick = function () {
     resetGame();
