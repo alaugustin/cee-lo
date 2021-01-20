@@ -62,7 +62,10 @@ function ceeLo(a, b, c) {
 
     // 4 5 6 CONDITION
     function fourFiveSix() {
-
+        let array456 = [a, b, c];
+        let array456sort = array456.sort();
+        let array456string = array456sort.toString();
+      
         if (
             a === 4 && b === 5 && c === 6 || 
             a === 4 && b === 6 && c === 5 ||
@@ -84,7 +87,6 @@ function ceeLo(a, b, c) {
 
     // 1 2 3 CONDITION
     function oneTwoThree() {
-
         if (
             a === 1 && b === 2 && c === 3 || 
             a === 1 && b === 3 && c === 2 ||
@@ -97,7 +99,7 @@ function ceeLo(a, b, c) {
             scoreBoard.innerHTML = a + b + c;
 
         } else {
-            console.log("Roll again. Win is = " + win);
+            console.log("Roll again.");
             scoreBoard.innerHTML = "Null";
         }
     }
@@ -136,9 +138,6 @@ function initCLgame() {
 
 for (let index = 0; index < rollButtonArray.length; index++) {
     const playerRoll = rollButtonArray[index];
-
-    // rollButtonArray[0].disabled = false;
-    // rollButtonArray[index].disabled = true;
 
     playerRoll.onclick = function () {
         randNum();
