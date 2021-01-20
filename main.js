@@ -72,6 +72,7 @@ function ceeLo(a, b, c) {
             console.log("Win is = " + win + ". 4 5 6 Instant win.");
             scoreBoard.innerHTML = "Win - " + a + b + c;
 
+            disableButtons();
             resetGame();
         } else {
             oneTwoThree();
@@ -89,6 +90,9 @@ function ceeLo(a, b, c) {
             win = false;
             console.log("Win is = " + win + ". 1 2 3 Instant loss.");
             scoreBoard.innerHTML = "Loose - " + a + b + c;
+
+            disableButtons();
+            resetGame();
         } else {
             console.log("Roll again.");
             scoreBoard.innerHTML = "Null";
@@ -114,6 +118,14 @@ for (let index = 0; index < rollButtonArray.length; index++) {
 }
 
 // -------------------- GAME --------------------
+function disableButtons() {
+
+    for (let index = 0; index < rollButtonArray.length; index++) {
+
+        rollButtonArray[index].disabled = true;
+    }
+}
+
 function initCLgame() {
     console.log("init game");  
     
@@ -124,7 +136,7 @@ function initCLgame() {
     }
 }
 
-
+// -------------------- ROLL DICE --------------------
 for (let index = 0; index < rollButtonArray.length; index++) {
     const playerRoll = rollButtonArray[index];
 
@@ -151,3 +163,5 @@ function resetGame() {
 resetButton.onclick = function () {
     resetGame();
 };
+
+disableButtons();
