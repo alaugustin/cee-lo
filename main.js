@@ -62,28 +62,17 @@ function ceeLo(a, b, c) {
 
     // 4 5 6 CONDITION
     function fourFiveSix() {
+        let array456 = [a, b, c];
+        let array456sort = array456.sort();
+        let array456string = array456sort.toString();
 
-        if (a === 4 && b === 5 && c === 6 || a === 4 && b === 6 && c === 5) {
+
+        if (array456string === "4,5,6") {
             win = true;
-            console.log("Win is = " + win + ". Instant win.");
+            console.log("Win is = " + win + ". 4 5 6 Instant win.");
             scoreBoard.innerHTML = "Win - " + a + b + c;
 
             resetGame();
-
-        } else if (a === 6 && b === 4 && c === 5 || a === 6 && b === 5 && c === 4) {
-            win = true;
-            console.log("Win is = " + win + ". Instant win.");
-            scoreBoard.innerHTML = "Win - " + a + b + c;
-
-            resetGame();
-
-        } else if (a === 5 && b === 6 && c === 4 || a === 5 && b === 4 && c === 6) {
-            win = true;
-            console.log("Win is = " + win + ". Instant win.");
-            scoreBoard.innerHTML = "Win - " + a + b + c;
-
-            resetGame();
-
         } else {
             oneTwoThree();
         }
@@ -91,21 +80,17 @@ function ceeLo(a, b, c) {
 
     // 1 2 3 CONDITION
     function oneTwoThree() {
+        let array123 = [a, b, c];
+        let array123sort = array123.sort();
+        let array123string = array123sort.toString();
 
-        if (a === 1 && b === 2 && c === 3 || a === 1 && b === 3 && c === 2) {
-            console.log("Win is = " + win + ". Instant loss.");
-            scoreBoard.innerHTML = a + b + c;
 
-        } else if (a === 3 && b === 1 && c === 2 || a === 3 && b === 2 && c === 1) {
-            console.log("Win is = " + win + ". Instant loss.");
-            scoreBoard.innerHTML = a + b + c;
-
-        } else if (a === 2 && b === 3 && c === 1 || a === 2 && b === 1 && c === 3) {
-            console.log("Win is = " + win + ". Instant loss.");
-            scoreBoard.innerHTML = a + b + c;
-
+        if (array123string === "1,2,3") {
+            win = false;
+            console.log("Win is = " + win + ". 1 2 3 Instant loss.");
+            scoreBoard.innerHTML = "Loose - " + a + b + c;
         } else {
-            console.log("Roll again. Win is = " + win);
+            console.log("Roll again.");
             scoreBoard.innerHTML = "Null";
         }
     }
@@ -143,9 +128,6 @@ function initCLgame() {
 for (let index = 0; index < rollButtonArray.length; index++) {
     const playerRoll = rollButtonArray[index];
 
-    // rollButtonArray[0].disabled = false;
-    // rollButtonArray[index].disabled = true;
-
     playerRoll.onclick = function () {
         randNum();
     };
@@ -162,8 +144,8 @@ startButton.onclick = function () {
 
 // -------------------- RESET GAME --------------------
 function resetGame() {
-    console.log("Reset button pressed.");
     win = false;
+    console.log("Reset button pressed.");
     console.log("Reset game win to " + win)
 }
 resetButton.onclick = function () {
