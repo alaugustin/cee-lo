@@ -67,21 +67,21 @@ function ceeLo(a, b, c) {
             win = true;
             console.log("Win is = " + win + ". Instant win.");
             scoreBoard.innerHTML = "Win - " + a + b + c;
-            
+
             resetGame();
 
         } else if (a === 6 && b === 4 && c === 5 || a === 6 && b === 5 && c === 4) {
             win = true;
             console.log("Win is = " + win + ". Instant win.");
             scoreBoard.innerHTML = "Win - " + a + b + c;
-            
+
             resetGame();
 
         } else if (a === 5 && b === 6 && c === 4 || a === 5 && b === 4 && c === 6) {
             win = true;
             console.log("Win is = " + win + ". Instant win.");
             scoreBoard.innerHTML = "Win - " + a + b + c;
-            
+
             resetGame();
 
         } else {
@@ -114,21 +114,43 @@ function ceeLo(a, b, c) {
 }
 
 // -------------------- PLAYER --------------------
-const rollButtonArray = document.getElementsByTagName("button");
+let rollButtonArray = document.querySelectorAll(".rollButton"),
     playerCount = document.getElementById("playerCount"),
+    howManyPlayers = rollButtonArray.length;
+
 playerCount.innerHTML = howManyPlayers;
-
-let players = document.getElementsByClassName("playerHolder").length;
-
-// console.log(players);
 
 for (let index = 0; index < rollButtonArray.length; index++) {
     const playerRoll = rollButtonArray[index];
 
     playerRoll.onclick = function () {
         randNum();
-    };    
+    };
 }
+
+// -------------------- GAME --------------------
+function initCLgame() {
+    console.log("init game");  
+    
+    for (let index = 0; index < rollButtonArray.length; index++) {
+
+        rollButtonArray[0].disabled = false;
+        rollButtonArray[index].disabled = true;
+    }
+}
+
+
+for (let index = 0; index < rollButtonArray.length; index++) {
+    const playerRoll = rollButtonArray[index];
+
+    // rollButtonArray[0].disabled = false;
+    // rollButtonArray[index].disabled = true;
+
+    playerRoll.onclick = function () {
+        randNum();
+    };
+}
+
 // -------------------- START GAME --------------------
 function startGame() {
     console.log("Starting button pressed.");
