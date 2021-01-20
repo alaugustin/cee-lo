@@ -1,5 +1,6 @@
 let win = false,
-    scoreBoard = document.getElementById("scoreBoard");
+    scoreBoard = document.getElementById("scoreBoard"),
+    winCode;
 
 const startButton = document.getElementById("startButton"),
     resetButton = document.getElementById("resetButton");
@@ -27,10 +28,12 @@ function ceeLo(a, b, c) {
 
     // TRIPS CONDITION
     function trips() {
+        winCode = 2;
 
         if (a === b && b === c) {
-            console.log("Trips - " + a + b + c + ". Win is = " + win);
+            winCode;
             scoreBoard.innerHTML = "Trips - " + a + b + c;
+            console.log("Trips - " + a + b + c + ". Win is = " + win + ". Wincode is " + winCode);
 
         } else {
             point();
@@ -39,21 +42,22 @@ function ceeLo(a, b, c) {
 
     // POINT CONDITION
     function point() {
+        winCode = 1;
 
         if (a === b) {
-            console.log("point - " + c);
             scoreBoard.innerHTML = c;
-            console.log("Win is = " + win);
+            winCode;
+            console.log("Point - " + c + ". Wincode is " + winCode);
 
         } else if (a === c) {
-            console.log("point - " + b);
             scoreBoard.innerHTML = b;
-            console.log("Win is = " + win);
+            winCode;
+            console.log("Point - " + b + ". Wincode is " + winCode);
 
         } else if (b === c) {
-            console.log("point - " + a);
             scoreBoard.innerHTML = a;
-            console.log("Win is = " + win);
+            winCode;
+            console.log("Point - " + a + ". Wincode is " + winCode);
 
         } else {
             fourFiveSix();
@@ -64,13 +68,13 @@ function ceeLo(a, b, c) {
     function fourFiveSix() {
         let array456 = [a, b, c];
         let array456sort = array456.sort();
-        let array456string = array456sort.toString();
-
-
+        let array456string = array456sort.toString();        
+        winCode = 3;
+        
         if (array456string === "4,5,6") {
             win = true;
-            console.log("Win is = " + win + ". 4 5 6 Instant win.");
-            scoreBoard.innerHTML = "Win - " + a + b + c;
+            winCode;
+            console.log("Win is = " + win + ". 4 5 6 Instant win. Wincode is " + winCode);
 
             disableButtons();
             resetGame();
@@ -84,12 +88,12 @@ function ceeLo(a, b, c) {
         let array123 = [a, b, c];
         let array123sort = array123.sort();
         let array123string = array123sort.toString();
-
+        winCode = 0;
 
         if (array123string === "1,2,3") {
             win = false;
-            console.log("Win is = " + win + ". 1 2 3 Instant loss.");
-            scoreBoard.innerHTML = "Loose - " + a + b + c;
+            winCode;
+            console.log("Win is = " + win + ". 1 2 3 Instant loss. Wincode is " + winCode);
 
             disableButtons();
             resetGame();
