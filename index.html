@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>CEE-LO</title>
 </head>
+
 <body>
+    <h1>Cee Lo</h1>
+    <div>Die 1: <span id="die1">4</span></div>
+    <div>Die 2: <span id="die2">5</span></div>
+    <div>Die 3: <span id="die3">6</span></div>
+
+    <hr>
+
+    <div>Players: <span id="playerCount"></span></div>
 
     <div>
-        Die 1: <span id="die1">4</span>
+        <button id="startButton">Start</button>
+        <button id="resetButton">Reset</button>
     </div>
-    <div>
-        Die 2: <span id="die2">5</span>
-    </div>
-    <div>
-        Die 3: <span id="die3">6</span>
-    </div>
+    
+    <div>Roll: <span id="scoreBoard">Null</span></div>
+    
     <hr>
-    <div>Score: <span id="scoreBoard"></span></div>    
-    <button id="rollButton">Roll dice</button>
+    
+    <div id="player0" class="playerHolder">
+        <h2>Player 1</h2>
+        <div id="playerScore0">Null</div>
+        <button id="player0Roll" class="rollButton">Roll dice</button>
+    </div>
+    <div id="player1" class="playerHolder">
+        <h2>Player 2</h2>
+        <div id="playerScore1">Null</div>
+        <button id="player1Roll" class="rollButton">Roll dice</button>
+    </div>
     
     <script src="main.js"></script>
 </body>
+
 </html>

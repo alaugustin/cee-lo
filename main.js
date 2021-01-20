@@ -1,43 +1,36 @@
-const roll = document.getElementById("rollButton");
+let win = false,
+    scoreBoard = document.getElementById("scoreBoard");
 
-let win = false;
+const startButton = document.getElementById("startButton"),
+    resetButton = document.getElementById("resetButton");
 
-roll.onclick = function () {
-    randNum();
-};
-
-// GENERATE RANDOM NUMBER
+// -------------------- GENERATE RANDOM NUMBER --------------------
 function randNum() {
     let sides = 6,
         a = Math.floor(Math.random() * sides) + 1,
         b = Math.floor(Math.random() * sides) + 1,
         c = Math.floor(Math.random() * sides) + 1;
-        
+
     printDice(a, b, c);
     ceeLo(a, b, c);
 }
 
-// PRINT DICE NUMBERS
+// -------------------- PRINT DICE NUMBERS --------------------
 function printDice(a, b, c) {
     document.getElementById("die1").innerHTML = a;
     document.getElementById("die2").innerHTML = b;
     document.getElementById("die3").innerHTML = c;
 }
 
-// RESET GAME
-function resetGame() {
-    win = false;
-    console.log("Start over.");
-}
-
-// CeeLo DICE ROLLS
+// -------------------- CeeLo DICE ROLLS --------------------
 function ceeLo(a, b, c) {
 
     // TRIPS CONDITION
     function trips() {
 
         if (a === b && b === c) {
-            console.log("Trips - " + a + b + c + "Win is = " + win);
+            console.log("Trips - " + a + b + c + ". Win is = " + win);
+            scoreBoard.innerHTML = "Trips - " + a + b + c;
 
         } else {
             point();
@@ -46,22 +39,20 @@ function ceeLo(a, b, c) {
 
     // POINT CONDITION
     function point() {
-        
-        let scoreBoard = document.getElementById("scoreBoard");
 
         if (a === b) {
             console.log("point - " + c);
-            document.getElementById("scoreBoard").innerHTML = c;
+            scoreBoard.innerHTML = c;
             console.log("Win is = " + win);
 
         } else if (a === c) {
             console.log("point - " + b);
-            document.getElementById("scoreBoard").innerHTML = b;
+            scoreBoard.innerHTML = b;
             console.log("Win is = " + win);
 
         } else if (b === c) {
             console.log("point - " + a);
-            document.getElementById("scoreBoard").innerHTML = a;
+            scoreBoard.innerHTML = a;
             console.log("Win is = " + win);
 
         } else {
@@ -75,19 +66,22 @@ function ceeLo(a, b, c) {
         if (a === 4 && b === 5 && c === 6 || a === 4 && b === 6 && c === 5) {
             win = true;
             console.log("Win is = " + win + ". Instant win.");
-            
+            scoreBoard.innerHTML = "Win - " + a + b + c;
+
             resetGame();
 
         } else if (a === 6 && b === 4 && c === 5 || a === 6 && b === 5 && c === 4) {
             win = true;
             console.log("Win is = " + win + ". Instant win.");
-            
+            scoreBoard.innerHTML = "Win - " + a + b + c;
+
             resetGame();
 
         } else if (a === 5 && b === 6 && c === 4 || a === 5 && b === 4 && c === 6) {
             win = true;
             console.log("Win is = " + win + ". Instant win.");
-            
+            scoreBoard.innerHTML = "Win - " + a + b + c;
+
             resetGame();
 
         } else {
@@ -100,17 +94,78 @@ function ceeLo(a, b, c) {
 
         if (a === 1 && b === 2 && c === 3 || a === 1 && b === 3 && c === 2) {
             console.log("Win is = " + win + ". Instant loss.");
+            scoreBoard.innerHTML = a + b + c;
 
         } else if (a === 3 && b === 1 && c === 2 || a === 3 && b === 2 && c === 1) {
             console.log("Win is = " + win + ". Instant loss.");
+            scoreBoard.innerHTML = a + b + c;
 
         } else if (a === 2 && b === 3 && c === 1 || a === 2 && b === 1 && c === 3) {
             console.log("Win is = " + win + ". Instant loss.");
+            scoreBoard.innerHTML = a + b + c;
 
         } else {
             console.log("Roll again. Win is = " + win);
+            scoreBoard.innerHTML = "Null";
         }
     }
 
     trips();
 }
+
+// -------------------- PLAYER --------------------
+let rollButtonArray = document.querySelectorAll(".rollButton"),
+    playerCount = document.getElementById("playerCount"),
+    howManyPlayers = rollButtonArray.length;
+
+playerCount.innerHTML = howManyPlayers;
+
+for (let index = 0; index < rollButtonArray.length; index++) {
+    const playerRoll = rollButtonArray[index];
+
+    playerRoll.onclick = function () {
+        randNum();
+    };
+}
+
+// -------------------- GAME --------------------
+function initCLgame() {
+    console.log("init game");  
+    
+    for (let index = 0; index < rollButtonArray.length; index++) {
+
+        rollButtonArray[0].disabled = false;
+        rollButtonArray[index].disabled = true;
+    }
+}
+
+
+for (let index = 0; index < rollButtonArray.length; index++) {
+    const playerRoll = rollButtonArray[index];
+
+    // rollButtonArray[0].disabled = false;
+    // rollButtonArray[index].disabled = true;
+
+    playerRoll.onclick = function () {
+        randNum();
+    };
+}
+
+// -------------------- START GAME --------------------
+function startGame() {
+    console.log("Starting button pressed.");
+    initCLgame();
+}
+startButton.onclick = function () {
+    startGame();
+};
+
+// -------------------- RESET GAME --------------------
+function resetGame() {
+    console.log("Reset button pressed.");
+    win = false;
+    console.log("Reset game win to " + win)
+}
+resetButton.onclick = function () {
+    resetGame();
+};
