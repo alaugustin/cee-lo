@@ -210,15 +210,18 @@ function resetGame() {
 
     win = false;
     scoreBoard.innerHTML = "Null";
+    disableButtons();
+    console.log("Reset button pressed. Reset game win to " + win);
+}
+function resetDie() {
     document.getElementById("die1").innerHTML = 4;
     document.getElementById("die2").innerHTML = 5;
     document.getElementById("die3").innerHTML = 6;
-    disableButtons();
-    console.log("Reset button pressed. Reset game win to " + win);
 }
 resetButton.onclick = function () {
 
     resetGame();
+    resetDie();
 };
 
 disableButtons();
