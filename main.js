@@ -1,6 +1,7 @@
 let win = false,
     scoreBoard = document.getElementById("scoreBoard"),
-    winCode;
+    winCode,
+    rollPoint;
 
 const startButton = document.getElementById("startButton"),
     resetButton = document.getElementById("resetButton");
@@ -33,7 +34,7 @@ function ceeLo(a, b, c) {
         if (a === b && b === c) {
 
             scoreBoard.innerHTML = "Trips - " + a + b + c;
-            
+
             processRoll();
 
         } else {
@@ -48,19 +49,19 @@ function ceeLo(a, b, c) {
         if (a === b) {
             scoreBoard.innerHTML = c;
             winCode;
-            console.log("Point - " + c + ". Wincode is " + winCode);
+            rollPoint = c;
             processRoll();
 
         } else if (a === c) {
             scoreBoard.innerHTML = b;
             winCode;
-            console.log("Point - " + b + ". Wincode is " + winCode);
+            rollPoint = b;
             processRoll();
 
         } else if (b === c) {
             scoreBoard.innerHTML = a;
             winCode;
-            console.log("Point - " + a + ". Wincode is " + winCode);
+            rollPoint = a;
             processRoll();
 
         } else {
@@ -72,11 +73,11 @@ function ceeLo(a, b, c) {
     function fourFiveSix() {
         let array456 = [a, b, c],
             array456sort = array456.sort(),
-            array456string = array456sort.toString();        
-            winCode = 3;
-        
+            array456string = array456sort.toString();
+        winCode = 3;
+
         if (array456string === "4,5,6") {
-            
+
             processRoll();
         } else {
             oneTwoThree();
@@ -88,10 +89,10 @@ function ceeLo(a, b, c) {
         let array123 = [a, b, c],
             array123sort = array123.sort(),
             array123string = array123sort.toString();
-            winCode = 0;
+        winCode = 0;
 
         if (array123string === "1,2,3") {
-            
+
             processRoll();
         } else {
             console.log("Roll again.");
@@ -107,7 +108,7 @@ let rollButtonArray = document.querySelectorAll(".rollButton"),
     playerCount = document.getElementById("playerCount"),
     howManyPlayers = rollButtonArray.length;
 
-    playerCount.innerHTML = howManyPlayers;
+playerCount.innerHTML = howManyPlayers;
 
 for (let index = 0; index < rollButtonArray.length; index++) {
     const playerRoll = rollButtonArray[index];
@@ -127,8 +128,8 @@ function disableButtons() {
 }
 
 function initCLgame() {
-    console.log("init game");  
-    
+    console.log("init game");
+
     for (let index = 0; index < rollButtonArray.length; index++) {
 
         rollButtonArray[0].disabled = false;
@@ -148,37 +149,35 @@ for (let index = 0; index < rollButtonArray.length; index++) {
 function processRoll() {
     switch (winCode) {
         case 3:
-            // console.log("4 5 6")
             win = true;
             winCode;
-            console.log("processRoll() - Win is = " + win + ". 4 5 6 Instant win. Wincode is " + winCode);
+            console.log("Win is = " + win + ". 4 5 6 Instant win. Wincode is " + winCode);
 
             disableButtons();
             resetGame();
 
             break;
         case 2:
-            // console.log("Trips")
             win = false;
             winCode;
-            console.log("processRoll() - Trips - Win is = " + win + ". Wincode is " + winCode);
+            console.log("Trips - Win is = " + win + ". Wincode is " + winCode);
 
             break;
         case 1:
-            console.log("Points");
+            win = false;
+            console.log("Point - " + rollPoint + ". Wincode is " + winCode);
 
             break;
         case 0:
-            // console.log("1 2 3")
             win = false;
             winCode;
-            console.log("processRoll() - Win is = " + win + ". 1 2 3 Instant loss. Wincode is " + winCode);
+            console.log("Win is = " + win + ". 1 2 3 Instant loss. Wincode is " + winCode);
 
             disableButtons();
             resetGame();
-            
+
             break;
-    
+
         default:
             break;
     }
