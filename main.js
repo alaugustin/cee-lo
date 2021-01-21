@@ -31,9 +31,10 @@ function ceeLo(a, b, c) {
         winCode = 2;
 
         if (a === b && b === c) {
-            winCode;
+
             scoreBoard.innerHTML = "Trips - " + a + b + c;
-            console.log("Trips - " + a + b + c + ". Win is = " + win + ". Wincode is " + winCode);
+            
+            processRoll();
 
         } else {
             point();
@@ -48,16 +49,19 @@ function ceeLo(a, b, c) {
             scoreBoard.innerHTML = c;
             winCode;
             console.log("Point - " + c + ". Wincode is " + winCode);
+            processRoll();
 
         } else if (a === c) {
             scoreBoard.innerHTML = b;
             winCode;
             console.log("Point - " + b + ". Wincode is " + winCode);
+            processRoll();
 
         } else if (b === c) {
             scoreBoard.innerHTML = a;
             winCode;
             console.log("Point - " + a + ". Wincode is " + winCode);
+            processRoll();
 
         } else {
             fourFiveSix();
@@ -72,12 +76,8 @@ function ceeLo(a, b, c) {
             winCode = 3;
         
         if (array456string === "4,5,6") {
-            win = true;
-            winCode;
-            console.log("Win is = " + win + ". 4 5 6 Instant win. Wincode is " + winCode);
-
-            disableButtons();
-            resetGame();
+            
+            processRoll();
         } else {
             oneTwoThree();
         }
@@ -91,12 +91,8 @@ function ceeLo(a, b, c) {
             winCode = 0;
 
         if (array123string === "1,2,3") {
-            win = false;
-            winCode;
-            console.log("Win is = " + win + ". 1 2 3 Instant loss. Wincode is " + winCode);
-
-            disableButtons();
-            resetGame();
+            
+            processRoll();
         } else {
             console.log("Roll again.");
             scoreBoard.innerHTML = "Null";
@@ -147,6 +143,45 @@ for (let index = 0; index < rollButtonArray.length; index++) {
     playerRoll.onclick = function () {
         randNum();
     };
+}
+
+function processRoll() {
+    switch (winCode) {
+        case 3:
+            // console.log("4 5 6")
+            win = true;
+            winCode;
+            console.log("processRoll() - Win is = " + win + ". 4 5 6 Instant win. Wincode is " + winCode);
+
+            disableButtons();
+            resetGame();
+
+            break;
+        case 2:
+            // console.log("Trips")
+            win = false;
+            winCode;
+            console.log("processRoll() - Trips - Win is = " + win + ". Wincode is " + winCode);
+
+            break;
+        case 1:
+            console.log("Points");
+
+            break;
+        case 0:
+            // console.log("1 2 3")
+            win = false;
+            winCode;
+            console.log("processRoll() - Win is = " + win + ". 1 2 3 Instant loss. Wincode is " + winCode);
+
+            disableButtons();
+            resetGame();
+            
+            break;
+    
+        default:
+            break;
+    }
 }
 
 // -------------------- START GAME --------------------
