@@ -1,5 +1,15 @@
 let win = false,
-    scoreBoard = document.getElementById("scoreBoard");
+    scoreBoard = document.getElementById("scoreBoard"),
+    sides,
+    rollCode,
+    rollPoint,
+    array456,
+    array456sort,
+    array456string,
+    array123,
+    array123sort,
+    array123string,
+    playerRoll;
 
 const startButton = document.getElementById("startButton"),
     resetButton = document.getElementById("resetButton");
@@ -27,45 +37,50 @@ function ceeLo(a, b, c) {
 
     // TRIPS CONDITION
     function trips() {
+        rollCode = 2;
 
         if (a === b && b === c) {
-            console.log("Trips - " + a + b + c + ". Win is = " + win);
+
             scoreBoard.innerHTML = "Trips - " + a + b + c;
 
+            processRoll();
+
         } else {
+
             point();
         }
     }
 
     // POINT CONDITION
     function point() {
+        rollCode = 1;
 
         if (a === b) {
-            console.log("point - " + c);
             scoreBoard.innerHTML = c;
-            console.log("Win is = " + win);
+            rollPoint = c;
+            rollCode;
+            processRoll();
 
         } else if (a === c) {
-            console.log("point - " + b);
             scoreBoard.innerHTML = b;
-            console.log("Win is = " + win);
+            rollPoint = b;
+            rollCode;
+            processRoll();
 
         } else if (b === c) {
-            console.log("point - " + a);
             scoreBoard.innerHTML = a;
-            console.log("Win is = " + win);
+            rollPoint = a;
+            rollCode;
+            processRoll();
 
         } else {
+
             fourFiveSix();
         }
     }
 
     // 4 5 6 CONDITION
-    function fourFiveSix() {
-        let array456 = [a, b, c];
-        let array456sort = array456.sort();
-        let array456string = array456sort.toString();
-      
+    function fourFiveSix() {      
         if (
             a === 4 && b === 5 && c === 6 || 
             a === 4 && b === 6 && c === 5 ||
@@ -79,8 +94,8 @@ function ceeLo(a, b, c) {
             scoreBoard.innerHTML = "Win - " + a + b + c;
 
             resetGame();
-
         } else {
+
             oneTwoThree();
         }
     }
@@ -97,8 +112,8 @@ function ceeLo(a, b, c) {
             ) {
             console.log("Win is = " + win + ". Instant loss.");
             scoreBoard.innerHTML = a + b + c;
-
         } else {
+
             console.log("Roll again.");
             scoreBoard.innerHTML = "Null";
         }
@@ -125,9 +140,17 @@ for (let index = 0; index < rollButtonArray.length; index++) {
 }
 
 // -------------------- GAME --------------------
+function disableButtons() {
+
+    for (let index = 0; index < rollButtonArray.length; index++) {
+
+        rollButtonArray[index].disabled = true;
+    }
+}
+
 function initCLgame() {
-    console.log("init game");  
-    
+    console.log("init game");
+
     for (let index = 0; index < rollButtonArray.length; index++) {
 
         rollButtonArray[0].disabled = false;
@@ -135,7 +158,7 @@ function initCLgame() {
     }
 }
 
-
+// -------------------- ROLL DICE --------------------
 for (let index = 0; index < rollButtonArray.length; index++) {
     const playerRoll = rollButtonArray[index];
 
@@ -144,21 +167,62 @@ for (let index = 0; index < rollButtonArray.length; index++) {
     };
 }
 
+function processRoll() {
+    switch (rollCode) {
+        case 3:
+            win = true;
+            console.log("Win is = " + win + ". 4 5 6 Instant win. Wincode is " + rollCode);
+
+            disableButtons();
+            resetGame();
+
+            break;
+        case 2:
+            win = false;
+            console.log("Trips - Win is = " + win + ". Wincode is " + rollCode);
+
+            break;
+        case 1:
+            win = false;
+            console.log("Point - " + rollPoint + ". Wincode is " + rollCode);
+
+            break;
+        case 0:
+            win = false;
+            console.log("Win is = " + win + ". 1 2 3 Instant loss. Wincode is " + rollCode);
+
+            disableButtons();
+            resetGame();
+
+            break;
+
+        default:
+            break;
+    }
+}
+
 // -------------------- START GAME --------------------
 function startGame() {
+
     console.log("Starting button pressed.");
     initCLgame();
 }
 startButton.onclick = function () {
+
     startGame();
 };
 
 // -------------------- RESET GAME --------------------
 function resetGame() {
+
     win = false;
     console.log("Reset button pressed.");
     console.log("Reset game win status to " + win);
 }
 resetButton.onclick = function () {
+
     resetGame();
+    resetDie();
 };
+
+disableButtons();
