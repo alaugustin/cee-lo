@@ -1,7 +1,15 @@
 let win = false,
     scoreBoard = document.getElementById("scoreBoard"),
+    sides,
     rollCode,
-    rollPoint;
+    rollPoint,
+    array456,
+    array456sort,
+    array456string,
+    array123,
+    array123sort,
+    array123string,
+    playerRoll;
 
 const startButton = document.getElementById("startButton"),
     resetButton = document.getElementById("resetButton");
@@ -49,20 +57,20 @@ function ceeLo(a, b, c) {
 
         if (a === b) {
             scoreBoard.innerHTML = c;
-            rollCode;
             rollPoint = c;
+            rollCode;
             processRoll();
 
         } else if (a === c) {
             scoreBoard.innerHTML = b;
-            rollCode;
             rollPoint = b;
+            rollCode;
             processRoll();
 
         } else if (b === c) {
             scoreBoard.innerHTML = a;
-            rollCode;
             rollPoint = a;
+            rollCode;
             processRoll();
 
         } else {
