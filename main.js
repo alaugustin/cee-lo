@@ -38,6 +38,7 @@ function ceeLo(a, b, c) {
             processRoll();
 
         } else {
+
             point();
         }
     }
@@ -65,6 +66,7 @@ function ceeLo(a, b, c) {
             processRoll();
 
         } else {
+
             fourFiveSix();
         }
     }
@@ -80,6 +82,7 @@ function ceeLo(a, b, c) {
 
             processRoll();
         } else {
+
             oneTwoThree();
         }
     }
@@ -95,6 +98,7 @@ function ceeLo(a, b, c) {
 
             processRoll();
         } else {
+
             console.log("Roll again.");
             scoreBoard.innerHTML = "Null";
         }
@@ -185,20 +189,28 @@ function processRoll() {
 
 // -------------------- START GAME --------------------
 function startGame() {
+
     console.log("Starting button pressed.");
     initCLgame();
 }
 startButton.onclick = function () {
+
     startGame();
 };
 
 // -------------------- RESET GAME --------------------
 function resetGame() {
+
     win = false;
-    console.log("Reset button pressed.");
-    console.log("Reset game win to " + win)
+    scoreBoard.innerHTML = "Null";
+    document.getElementById("die1").innerHTML = 4;
+    document.getElementById("die2").innerHTML = 5;
+    document.getElementById("die3").innerHTML = 6;
+    disableButtons();
+    console.log("Reset button pressed. Reset game win to " + win);
 }
 resetButton.onclick = function () {
+
     resetGame();
 };
 
