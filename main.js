@@ -87,6 +87,7 @@ function ceeLo(a, b, c) {
         rollCode = 3;
 
         if (array456string === "4,5,6") {
+            rollCode;
 
             processRoll();
         } else {
@@ -103,6 +104,7 @@ function ceeLo(a, b, c) {
         rollCode = 0;
 
         if (array123string === "1,2,3") {
+            rollCode;
 
             processRoll();
         } else {
@@ -162,7 +164,6 @@ function processRoll() {
     switch (rollCode) {
         case 3:
             win = true;
-            rollCode;
             console.log("Win is = " + win + ". 4 5 6 Instant win. Wincode is " + rollCode);
 
             disableButtons();
@@ -171,7 +172,6 @@ function processRoll() {
             break;
         case 2:
             win = false;
-            rollCode;
             console.log("Trips - Win is = " + win + ". Wincode is " + rollCode);
 
             break;
@@ -182,7 +182,6 @@ function processRoll() {
             break;
         case 0:
             win = false;
-            rollCode;
             console.log("Win is = " + win + ". 1 2 3 Instant loss. Wincode is " + rollCode);
 
             disableButtons();
