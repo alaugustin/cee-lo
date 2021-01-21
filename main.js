@@ -1,6 +1,6 @@
 let win = false,
     scoreBoard = document.getElementById("scoreBoard"),
-    winCode,
+    rollCode,
     rollPoint;
 
 const startButton = document.getElementById("startButton"),
@@ -29,7 +29,7 @@ function ceeLo(a, b, c) {
 
     // TRIPS CONDITION
     function trips() {
-        winCode = 2;
+        rollCode = 2;
 
         if (a === b && b === c) {
 
@@ -44,23 +44,23 @@ function ceeLo(a, b, c) {
 
     // POINT CONDITION
     function point() {
-        winCode = 1;
+        rollCode = 1;
 
         if (a === b) {
             scoreBoard.innerHTML = c;
-            winCode;
+            rollCode;
             rollPoint = c;
             processRoll();
 
         } else if (a === c) {
             scoreBoard.innerHTML = b;
-            winCode;
+            rollCode;
             rollPoint = b;
             processRoll();
 
         } else if (b === c) {
             scoreBoard.innerHTML = a;
-            winCode;
+            rollCode;
             rollPoint = a;
             processRoll();
 
@@ -74,7 +74,7 @@ function ceeLo(a, b, c) {
         let array456 = [a, b, c],
             array456sort = array456.sort(),
             array456string = array456sort.toString();
-        winCode = 3;
+        rollCode = 3;
 
         if (array456string === "4,5,6") {
 
@@ -89,7 +89,7 @@ function ceeLo(a, b, c) {
         let array123 = [a, b, c],
             array123sort = array123.sort(),
             array123string = array123sort.toString();
-        winCode = 0;
+        rollCode = 0;
 
         if (array123string === "1,2,3") {
 
@@ -147,11 +147,11 @@ for (let index = 0; index < rollButtonArray.length; index++) {
 }
 
 function processRoll() {
-    switch (winCode) {
+    switch (rollCode) {
         case 3:
             win = true;
-            winCode;
-            console.log("Win is = " + win + ". 4 5 6 Instant win. Wincode is " + winCode);
+            rollCode;
+            console.log("Win is = " + win + ". 4 5 6 Instant win. Wincode is " + rollCode);
 
             disableButtons();
             resetGame();
@@ -159,19 +159,19 @@ function processRoll() {
             break;
         case 2:
             win = false;
-            winCode;
-            console.log("Trips - Win is = " + win + ". Wincode is " + winCode);
+            rollCode;
+            console.log("Trips - Win is = " + win + ". Wincode is " + rollCode);
 
             break;
         case 1:
             win = false;
-            console.log("Point - " + rollPoint + ". Wincode is " + winCode);
+            console.log("Point - " + rollPoint + ". Wincode is " + rollCode);
 
             break;
         case 0:
             win = false;
-            winCode;
-            console.log("Win is = " + win + ". 1 2 3 Instant loss. Wincode is " + winCode);
+            rollCode;
+            console.log("Win is = " + win + ". 1 2 3 Instant loss. Wincode is " + rollCode);
 
             disableButtons();
             resetGame();
