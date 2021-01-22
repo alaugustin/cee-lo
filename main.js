@@ -43,7 +43,7 @@ function ceeLo(a, b, c) {
 
             scoreBoard.innerHTML = "Trips - " + a + b + c;
 
-            processRoll();
+            determineRollType();
 
         } else {
 
@@ -59,19 +59,19 @@ function ceeLo(a, b, c) {
             scoreBoard.innerHTML = c;
             rollPoint = c;
             rollCode;
-            processRoll();
+            determineRollType();
 
         } else if (a === c) {
             scoreBoard.innerHTML = b;
             rollPoint = b;
             rollCode;
-            processRoll();
+            determineRollType();
 
         } else if (b === c) {
             scoreBoard.innerHTML = a;
             rollPoint = a;
             rollCode;
-            processRoll();
+            determineRollType();
 
         } else {
 
@@ -89,7 +89,7 @@ function ceeLo(a, b, c) {
         if (array456string === "4,5,6") {
             rollCode;
 
-            processRoll();
+            determineRollType();
         } else {
 
             oneTwoThree();
@@ -106,7 +106,7 @@ function ceeLo(a, b, c) {
         if (array123string === "1,2,3") {
             rollCode;
 
-            processRoll();
+            determineRollType();
         } else {
 
             console.log("Roll again.");
@@ -160,7 +160,7 @@ for (let index = 0; index < rollButtonArray.length; index++) {
     };
 }
 
-function processRoll() {
+function determineRollType() {
     switch (rollCode) {
         case 3:
             win = true;
