@@ -1,5 +1,8 @@
-let win = false,
+let playerArray = document.querySelectorAll(".playerHolder"),
     scoreBoardArray = document.querySelectorAll(".playerScoreBoard"),
+    rollButtonArray = document.querySelectorAll(".rollButton"),
+    playerCount = document.getElementById("playerCount"),
+    win = false,
     sides,
     rollCode,
     rollPoint,
@@ -117,9 +120,7 @@ function ceeLo(a, b, c) {
 }
 
 // -------------------- PLAYER --------------------
-let rollButtonArray = document.querySelectorAll(".rollButton"),
-    playerCount = document.getElementById("playerCount"),
-    howManyPlayers = rollButtonArray.length;
+let    howManyPlayers = rollButtonArray.length;
 playerCount.innerHTML = howManyPlayers;
 
 // -------------------- ROLL DICE --------------------
