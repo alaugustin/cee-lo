@@ -120,7 +120,7 @@ function ceeLo(a, b, c) {
 }
 
 // -------------------- PLAYER --------------------
-let    howManyPlayers = rollButtonArray.length;
+let howManyPlayers = playerArray.length;
 playerCount.innerHTML = howManyPlayers;
 
 // -------------------- ROLL DICE --------------------
