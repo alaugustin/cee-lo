@@ -140,7 +140,7 @@ for (let index = 0; index < rollButtonArray.length; index++) {
         console.log(rollCode);
 
 
-        rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here.";
+        rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + win;
     }
 }
 
@@ -148,28 +148,28 @@ function determineRollType() {
     switch (rollCode) {
         case 3:
             win = true;
-            console.log("Win is = " + win + ". 4 5 6 Instant win. Wincode is " + rollCode);
+            console.log(". 4 5 6 Instant win. Rollcode is " + rollCode);
 
             disableButtons();
-            resetGame();
+            // resetGame();
 
             break;
         case 2:
             win = false;
-            console.log("Trips - Win is = " + win + ". Wincode is " + rollCode);
+            console.log("Trips. Rollcode is " + rollCode);
 
             break;
         case 1:
             win = false;
-            console.log("Point - " + rollPoint + ". Wincode is " + rollCode);
+            console.log("Point - " + rollPoint + ". Rollcode is " + rollCode);
 
             break;
         case 0:
             win = false;
-            console.log("Win is = " + win + ". 1 2 3 Instant loss. Wincode is " + rollCode);
+            console.log("1 2 3 Instant loss. Rollcode is " + rollCode);
 
             disableButtons();
-            resetGame();
+            // resetGame();
 
             break;
     }
