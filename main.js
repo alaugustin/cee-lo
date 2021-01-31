@@ -1,5 +1,5 @@
 let win = false,
-    scoreBoard = document.getElementById("scoreBoard"),
+    scoreBoardArray = document.querySelectorAll(".playerScoreBoard"),
     sides,
     rollCode,
     rollPoint,
