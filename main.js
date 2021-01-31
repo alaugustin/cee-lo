@@ -8,8 +8,7 @@ let win = false,
     array456string,
     array123,
     array123sort,
-    array123string,
-    playerRoll;
+    array123string;
 
 const startButton = document.getElementById("startButton"),
     resetButton = document.getElementById("resetButton");
@@ -121,35 +120,7 @@ function ceeLo(a, b, c) {
 let rollButtonArray = document.querySelectorAll(".rollButton"),
     playerCount = document.getElementById("playerCount"),
     howManyPlayers = rollButtonArray.length;
-
 playerCount.innerHTML = howManyPlayers;
-
-for (let index = 0; index < rollButtonArray.length; index++) {
-    const playerRoll = rollButtonArray[index];
-
-    playerRoll.onclick = function () {
-        randNum();
-    };
-}
-
-// -------------------- GAME --------------------
-function disableButtons() {
-
-    for (let index = 0; index < rollButtonArray.length; index++) {
-
-        rollButtonArray[index].disabled = true;
-    }
-}
-
-function initCLgame() {
-    console.log("init game");
-
-    for (let index = 0; index < rollButtonArray.length; index++) {
-
-        rollButtonArray[0].disabled = false;
-        rollButtonArray[index].disabled = true;
-    }
-}
 
 // -------------------- ROLL DICE --------------------
 for (let index = 0; index < rollButtonArray.length; index++) {
@@ -157,7 +128,19 @@ for (let index = 0; index < rollButtonArray.length; index++) {
 
     playerRoll.onclick = function () {
         randNum();
+        playerScoreBoard();
+        // console.log()
     };
+
+    function playerScoreBoard() {
+        let players = [index],
+            playerNumber = players[0] + 1;
+
+        console.log(rollCode);
+
+
+        rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here.";
+    }
 }
 
 function determineRollType() {
@@ -188,9 +171,25 @@ function determineRollType() {
             resetGame();
 
             break;
+    }
+}
 
-        default:
-            break;
+// -------------------- GAME --------------------
+function disableButtons() {
+
+    for (let index = 0; index < rollButtonArray.length; index++) {
+
+        rollButtonArray[index].disabled = true;
+    }
+}
+
+function initCLgame() {
+    console.log("init game");
+
+    for (let index = 0; index < rollButtonArray.length; index++) {
+
+        rollButtonArray[0].disabled = false;
+        rollButtonArray[index].disabled = true;
     }
 }
 
@@ -224,4 +223,4 @@ resetButton.onclick = function () {
     resetDie();
 };
 
-disableButtons();
+// disableButtons();
