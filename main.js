@@ -42,14 +42,12 @@ let ceeLo = (a, b, c) => {
         rollCode = 2;        
 
         if (a === b && b === c) {
-
             scoreBoard.innerHTML = "Trips - " + a + b + c;
-
             determineRollType();
 
         } else {
-
             point();
+
         }
     }
 
@@ -76,7 +74,6 @@ let ceeLo = (a, b, c) => {
             determineRollType();
 
         } else {
-
             fourFiveSix();
         }
     }
@@ -90,10 +87,9 @@ let ceeLo = (a, b, c) => {
 
         if (array456string === "4,5,6") {
             rollCode;
-
             determineRollType();
-        } else {
 
+        } else {
             oneTwoThree();
         }
     }
@@ -107,15 +103,14 @@ let ceeLo = (a, b, c) => {
 
         if (array123string === "1,2,3") {
             rollCode;
-
             determineRollType();
-        } else {
 
+        } else {
             console.log("Roll again.");
             scoreBoard.innerHTML = "Nothing";
+
         }
     }
-
     trips();
 }
 
@@ -130,16 +125,14 @@ for (let index = 0; index < rollButtonArray.length; index++) {
     playerRoll.onclick = function () {
         randNum();
         playerScoreBoard();
-        // console.log()
     };
 
     let playerScoreBoard = () => {
         let players = [index],
             playerNumber = players[0] + 1;
-
+        rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + win;
         console.log(rollCode);
 
-        rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + win;
     }
 }
 
@@ -148,7 +141,6 @@ let determineRollType = () => {
         case 3:
             win = true;
             console.log("4 5 6 Instant win. Rollcode is " + rollCode);
-
             disableButtons();
             // resetGame();
 
@@ -166,7 +158,6 @@ let determineRollType = () => {
         case 0:
             win = false;
             console.log("1 2 3 Instant loss. Rollcode is " + rollCode);
-
             disableButtons();
             // resetGame();
 
@@ -176,10 +167,9 @@ let determineRollType = () => {
 
 // -------------------- GAME --------------------
 let disableButtons = () => {
-
     for (let index = 0; index < rollButtonArray.length; index++) {
-
         rollButtonArray[index].disabled = true;
+
     }
 }
 
@@ -187,22 +177,22 @@ let initCLgame = () => {
     console.log("init game");
 
     for (let index = 0; index < rollButtonArray.length; index++) {
-
         rollButtonArray[0].disabled = false;
         rollButtonArray[index].disabled = true;
+
     }
 }
 
 // -------------------- START GAME --------------------
 let startGame = () => {
-
     console.log("Start button pressed.");
     initCLgame();
+
 }
 
 startButton.onclick = function () {
-
     startGame();
+
 };
 
 // -------------------- RESET GAME --------------------
@@ -211,18 +201,20 @@ let resetGame = () => {
     scoreBoard.innerHTML = "Please roll";
     disableButtons();
     console.log("Reset button pressed. Reset game win to " + win);
+
 }
 
 let resetDie = () => {
     document.getElementById("die1").innerHTML = 4;
     document.getElementById("die2").innerHTML = 5;
     document.getElementById("die3").innerHTML = 6;
+
 }
 
 resetButton.onclick = function () {
-
     resetGame();
     resetDie();
+    
 };
 
 disableButtons();
