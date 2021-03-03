@@ -112,7 +112,7 @@ function ceeLo(a, b, c) {
         } else {
 
             console.log("Roll again.");
-            scoreBoard.innerHTML = "Null";
+            scoreBoard.innerHTML = "Nothing";
         }
     }
 
@@ -148,7 +148,7 @@ function determineRollType() {
     switch (rollCode) {
         case 3:
             win = true;
-            console.log(". 4 5 6 Instant win. Rollcode is " + rollCode);
+            console.log("4 5 6 Instant win. Rollcode is " + rollCode);
 
             disableButtons();
             // resetGame();
@@ -209,7 +209,7 @@ startButton.onclick = function () {
 function resetGame() {
 
     win = false;
-    scoreBoard.innerHTML = "Null";
+    scoreBoard.innerHTML = "Please roll";
     disableButtons();
     console.log("Reset button pressed. Reset game win to " + win);
 }
