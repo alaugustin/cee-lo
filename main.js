@@ -1,7 +1,6 @@
 let playerArray = document.querySelectorAll(".playerHolder"),
     scoreBoardArray = document.querySelectorAll(".playerScoreBoard"),
     rollButtonArray = document.querySelectorAll(".rollButton"),
-    playerCount = document.getElementById("playerCount"),
     win = false,
     sides,
     rollCode,
@@ -14,7 +13,8 @@ let playerArray = document.querySelectorAll(".playerHolder"),
     array123string;
 
 const startButton = document.getElementById("startButton"),
-    resetButton = document.getElementById("resetButton");
+    resetButton = document.getElementById("resetButton"),
+    playerCount = document.getElementById("playerCount");
 
 // -------------------- GENERATE RANDOM NUMBER --------------------
 function randNum() {
@@ -224,4 +224,4 @@ resetButton.onclick = function () {
     resetDie();
 };
 
-// disableButtons();
+disableButtons();
