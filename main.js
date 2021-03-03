@@ -17,29 +17,29 @@ const startButton = document.getElementById("startButton"),
     playerCount = document.getElementById("playerCount");
 
 // -------------------- GENERATE RANDOM NUMBER --------------------
-function randNum() {
+let randNum = () => {
     let sides = 6,
         a = Math.floor(Math.random() * sides) + 1,
         b = Math.floor(Math.random() * sides) + 1,
         c = Math.floor(Math.random() * sides) + 1;
 
     printDice(a, b, c);
-    ceeLo(a, b, c);
+    ceeLo(a, b, c);    
 }
 
 // -------------------- PRINT DICE NUMBERS --------------------
-function printDice(a, b, c) {
+let printDice = (a, b, c) => {
     document.getElementById("die1").innerHTML = a;
     document.getElementById("die2").innerHTML = b;
     document.getElementById("die3").innerHTML = c;
 }
 
 // -------------------- CeeLo DICE ROLLS --------------------
-function ceeLo(a, b, c) {
+let ceeLo = (a, b, c) => {
 
     // TRIPS CONDITION
-    function trips() {
-        rollCode = 2;
+    let trips = () => {
+        rollCode = 2;        
 
         if (a === b && b === c) {
 
@@ -54,7 +54,7 @@ function ceeLo(a, b, c) {
     }
 
     // POINT CONDITION
-    function point() {
+    let point = () => {
         rollCode = 1;
 
         if (a === b) {
@@ -82,7 +82,7 @@ function ceeLo(a, b, c) {
     }
 
     // 4 5 6 CONDITION
-    function fourFiveSix() {
+    let fourFiveSix = () => {
         let array456 = [a, b, c],
             array456sort = array456.sort(),
             array456string = array456sort.toString();
@@ -99,7 +99,7 @@ function ceeLo(a, b, c) {
     }
 
     // 1 2 3 CONDITION
-    function oneTwoThree() {
+    let oneTwoThree = () => {
         let array123 = [a, b, c],
             array123sort = array123.sort(),
             array123string = array123sort.toString();
@@ -133,18 +133,17 @@ for (let index = 0; index < rollButtonArray.length; index++) {
         // console.log()
     };
 
-    function playerScoreBoard() {
+    let playerScoreBoard = () => {
         let players = [index],
             playerNumber = players[0] + 1;
 
         console.log(rollCode);
 
-
         rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + win;
     }
 }
 
-function determineRollType() {
+let determineRollType = () => {
     switch (rollCode) {
         case 3:
             win = true;
@@ -176,7 +175,7 @@ function determineRollType() {
 }
 
 // -------------------- GAME --------------------
-function disableButtons() {
+let disableButtons = () => {
 
     for (let index = 0; index < rollButtonArray.length; index++) {
 
@@ -184,7 +183,7 @@ function disableButtons() {
     }
 }
 
-function initCLgame() {
+let initCLgame = () => {
     console.log("init game");
 
     for (let index = 0; index < rollButtonArray.length; index++) {
@@ -195,29 +194,31 @@ function initCLgame() {
 }
 
 // -------------------- START GAME --------------------
-function startGame() {
+let startGame = () => {
 
-    console.log("Starting button pressed.");
+    console.log("Start button pressed.");
     initCLgame();
 }
+
 startButton.onclick = function () {
 
     startGame();
 };
 
 // -------------------- RESET GAME --------------------
-function resetGame() {
-
+let resetGame = () => {
     win = false;
     scoreBoard.innerHTML = "Please roll";
     disableButtons();
     console.log("Reset button pressed. Reset game win to " + win);
 }
-function resetDie() {
+
+let resetDie = () => {
     document.getElementById("die1").innerHTML = 4;
     document.getElementById("die2").innerHTML = 5;
     document.getElementById("die3").innerHTML = 6;
 }
+
 resetButton.onclick = function () {
 
     resetGame();
