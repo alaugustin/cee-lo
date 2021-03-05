@@ -156,7 +156,6 @@ let determineRollType = () => {
             break;
         case 0:
             console.log("1 2 3 Instant loss.");
-            disableButtons();
             lossConditon();
             // resetGame();
 
@@ -173,6 +172,7 @@ let winConditon = () => {
 let lossConditon = () => {
     win = false;
     console.log("loss | rollcode = " + rollCode);
+    disableButtons();
 }
 
 // -------------------- GAME --------------------
