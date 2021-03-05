@@ -136,6 +136,7 @@ for (let index = 0; index < rollButtonArray.length; index++) {
     }
 }
 
+    console.log("* ---------- *");
 let determineRollType = () => {
     switch (rollCode) {
         case 3:
@@ -192,6 +193,7 @@ let disableButtons = () => {
 
 let initCLgame = () => {
     console.log("init game");
+    console.log("* ---------- *");
 
     for (let index = 0; index < rollButtonArray.length; index++) {
         rollButtonArray[0].disabled = false;
