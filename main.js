@@ -142,6 +142,7 @@ let determineRollType = () => {
         case 3:
             console.log("4 5 6 Instant win.");
             disableButtons();
+            winConditon();
             // resetGame();
 
             break;
@@ -156,10 +157,22 @@ let determineRollType = () => {
         case 0:
             console.log("1 2 3 Instant loss.");
             disableButtons();
+            lossConditon();
             // resetGame();
 
             break;
     }
+}
+
+// -------------------- WIN/LOSS --------------------
+let winConditon = () => {
+    win = true;
+    console.log("win | rollecode = " +rollCode);
+}
+
+let lossConditon = () => {
+    win = false;
+    console.log("loss | rollcode = " + rollCode);
 }
 
 // -------------------- GAME --------------------
@@ -183,6 +196,7 @@ let initCLgame = () => {
 // -------------------- START GAME --------------------
 let startGame = () => {
     console.log("Start button pressed.");
+    scoreBoard.innerHTML = "Player 1 roll";
     initCLgame();
 
 }
