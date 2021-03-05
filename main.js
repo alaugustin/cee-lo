@@ -132,11 +132,15 @@ for (let index = 0; index < rollButtonArray.length; index++) {
         let players = [index],
             playerNumber = players[0] + 1;
         rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + win;
-        console.log("Player " + playerNumber + " roll code = " + rollCode)
+        storePlayerScore(playerNumber);
     }
 }
 
+let storePlayerScore = (playerNumber) => {
+    console.log("Player " + playerNumber + " roll code = " + rollCode);
     console.log("* ---------- *");
+}
+
 let determineRollType = () => {
     switch (rollCode) {
         case 3:
