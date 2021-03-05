@@ -106,8 +106,9 @@ let ceeLo = (a, b, c) => {
             determineRollType();
 
         } else {
+            scoreBoard.innerHTML = "Roll again.";
             console.log("Roll again.");
-            scoreBoard.innerHTML = "Nothing";
+
 
         }
     }
@@ -131,7 +132,7 @@ for (let index = 0; index < rollButtonArray.length; index++) {
         let players = [index],
             playerNumber = players[0] + 1;
         rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + win;
-        console.log(rollCode);
+        console.log("Rollcode is = " +rollCode);
 
     }
 }
@@ -139,25 +140,21 @@ for (let index = 0; index < rollButtonArray.length; index++) {
 let determineRollType = () => {
     switch (rollCode) {
         case 3:
-            win = true;
-            console.log("4 5 6 Instant win. Rollcode is " + rollCode);
+            console.log("4 5 6 Instant win.");
             disableButtons();
             // resetGame();
 
             break;
         case 2:
-            win = false;
-            console.log("Trips. Rollcode is " + rollCode);
+            console.log("Trips.");
 
             break;
         case 1:
-            win = false;
-            console.log("Point - " + rollPoint + ". Rollcode is " + rollCode);
+            console.log("Point - " + rollPoint + ".");
 
             break;
         case 0:
-            win = false;
-            console.log("1 2 3 Instant loss. Rollcode is " + rollCode);
+            console.log("1 2 3 Instant loss.");
             disableButtons();
             // resetGame();
 
@@ -214,7 +211,8 @@ let resetDie = () => {
 resetButton.onclick = function () {
     resetGame();
     resetDie();
-    
+
 };
 
 disableButtons();
+scoreBoard.innerHTML = "Please press start";
