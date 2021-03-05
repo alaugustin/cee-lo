@@ -132,8 +132,7 @@ for (let index = 0; index < rollButtonArray.length; index++) {
         let players = [index],
             playerNumber = players[0] + 1;
         rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + win;
-        console.log("Rollcode is = " +rollCode);
-
+        console.log("Player " + playerNumber + " roll code = " + rollCode)
     }
 }
 
@@ -141,20 +140,28 @@ let determineRollType = () => {
     switch (rollCode) {
         case 3:
             console.log("4 5 6 Instant win.");
+            rollType = "4 5 6";
+            console.log("Roll type is = " + rollType);
             disableButtons();
             winConditon();
             // resetGame();
 
             break;
         case 2:
+            rollType = "Trips";
+            console.log("Roll type is = " + rollType);
             console.log("Trips.");
 
             break;
         case 1:
+            rollType = "Roll Point";
+            console.log("Roll type is = " + rollType);
             console.log("Point - " + rollPoint + ".");
 
             break;
         case 0:
+            rollType = "1 2 3";
+            console.log("Roll type is = " + rollType);
             console.log("1 2 3 Instant loss.");
             lossConditon();
             // resetGame();
