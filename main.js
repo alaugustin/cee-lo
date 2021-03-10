@@ -244,7 +244,6 @@ resetButton.onclick = function () {
 };
 
 disableButtons();
-scoreBoard.innerHTML = "Please press start";
 
 /* -------------------- new JS template below -------------------- */
 var ceeLoGame = {
@@ -292,6 +291,7 @@ var ceeLoGame = {
         let howManyPlayers = ceeLoGame.config.playerArray.length;
         playerCount.innerHTML = howManyPlayers;
 
+        scoreBoard.innerHTML = "Please press start";
 
 
 
