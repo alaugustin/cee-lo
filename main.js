@@ -246,17 +246,17 @@ resetButton.onclick = function () {
 disableButtons();
 scoreBoard.innerHTML = "Please press start";
 
-/* new JS template below */
+/* -------------------- new JS template below -------------------- */
 var ceeLoGame = {
     version: '1.0',
     author: 'Al Augustin',
     project: 'Cee-Lo web dice game',
     Date: '2021',
 
-    //initialization 
+    // INITIALIZATION --------------------
     init: function () {
         var context = this;
-        //Global variables
+        // GLOBAL VARIABLES --------------------
         context.config = {
             playerArray: document.querySelectorAll(".playerHolder"),
             scoreBoardArray: document.querySelectorAll(".playerScoreBoard"),
@@ -286,7 +286,7 @@ var ceeLoGame = {
     onDomReady: function () {
         var context = this;
 
-        //Load all functions
+        // LOAD ALL FUNCTIONS --------------------
 
         // -------------------- PLAYER --------------------
         let howManyPlayers = ceeLoGame.config.playerArray.length;
