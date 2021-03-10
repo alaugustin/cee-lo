@@ -1,20 +1,22 @@
-let playerArray = document.querySelectorAll(".playerHolder"),
-    scoreBoardArray = document.querySelectorAll(".playerScoreBoard"),
-    rollButtonArray = document.querySelectorAll(".rollButton"),
-    win = false,
-    sides,
-    rollCode,
-    rollPoint,
-    array456,
-    array456sort,
-    array456string,
-    array123,
-    array123sort,
-    array123string;
+let
 
-const startButton = document.getElementById("startButton"),
-    resetButton = document.getElementById("resetButton"),
-    playerCount = document.getElementById("playerCount");
+    // playerArray = document.querySelectorAll(".playerHolder"),
+    // scoreBoardArray = document.querySelectorAll(".playerScoreBoard"),
+        rollButtonArray = document.querySelectorAll(".rollButton"),
+        win = false,
+        sides,
+        rollCode,
+        rollPoint,
+        array456,
+        array456sort,
+        array456string,
+        array123,
+        array123sort,
+        array123string;
+
+// const startButton = document.getElementById("startButton"),
+//     resetButton = document.getElementById("resetButton"),
+//     playerCount = document.getElementById("playerCount");
 
 // -------------------- GENERATE RANDOM NUMBER --------------------
 let randNum = () => {
@@ -116,8 +118,8 @@ let ceeLo = (a, b, c) => {
 }
 
 // -------------------- PLAYER --------------------
-let howManyPlayers = playerArray.length;
-playerCount.innerHTML = howManyPlayers;
+// let howManyPlayers = playerArray.length;
+// playerCount.innerHTML = howManyPlayers;
 
 // -------------------- ROLL DICE --------------------
 for (let index = 0; index < rollButtonArray.length; index++) {
@@ -243,3 +245,84 @@ resetButton.onclick = function () {
 
 disableButtons();
 scoreBoard.innerHTML = "Please press start";
+
+/* new JS template below */
+var ceeLoGame = {
+    version: '1.0',
+    author: 'Al Augustin',
+    project: 'Cee-Lo web dice game',
+    Date: '2021',
+
+    //initialization 
+    init: function () {
+        var context = this;
+        //Global variables
+        context.config = {
+            playerArray: document.querySelectorAll(".playerHolder"),
+            scoreBoardArray: document.querySelectorAll(".playerScoreBoard"),
+            rollButtonArray: document.querySelectorAll(".rollButton"),
+            win: false,
+            diceSides: 6,
+            rollCode: undefined,
+            rollPoint: undefined,
+            array456: undefined,
+            array456sort: undefined,
+            array456string: undefined,
+            array123: undefined,
+            array123sort: undefined,
+            array123string: undefined,
+
+            startButton : document.getElementById("startButton"),
+            resetButton : document.getElementById("resetButton"),
+            playerCount : document.getElementById("playerCount"),
+        };
+
+        //Call DOM invoking functions here
+        context.onDomReady();
+        context.eventHandlers();
+
+    },
+
+    onDomReady: function () {
+        var context = this;
+
+        //Load all functions
+
+        // -------------------- PLAYER --------------------
+        let howManyPlayers = ceeLoGame.config.playerArray.length;
+        playerCount.innerHTML = howManyPlayers;
+
+
+
+
+
+
+
+
+
+
+        var sideNav = context.config.sidebarNavigationMenu,
+            skipLink = context.config.skipLinkAnchor,
+            mainContentBlock = context.config.sidebarNavPageContentBlock,
+            boolPageBannerExists = context.config.pageBannerExists;
+
+        if (sideNav && mainContentBlock && skipLink.length && !boolPageBannerExists) {
+            sideNav.setAttribute("tabindex", "-1");
+            for (i = 0; i < skipLink.length; i++) {
+                skipLink[i].setAttribute("href", "#sidebar-navigation");
+            }
+        }
+
+    },
+
+    //Handle all page level events
+    eventHandlers: function () {
+        var context = this;
+
+        // All event functions here
+    },
+};
+
+window.addEventListener("load", function () {
+    ceeLoGame.init();
+});
