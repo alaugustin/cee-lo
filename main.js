@@ -99,10 +99,6 @@ let ceeLo = (a, b, c) => {
     trips();
 }
 
-// -------------------- PLAYER --------------------
-// let howManyPlayers = playerArray.length;
-// playerCount.innerHTML = howManyPlayers;
-
 // -------------------- ROLL DICE --------------------
 for (let index = 0; index < rollButtonArray.length; index++) {
     const playerRoll = rollButtonArray[index];
@@ -226,8 +222,6 @@ resetButton.onclick = function () {
 
 };
 
-disableButtons();
-
 /* -------------------- new JS template below -------------------- */
 var ceeLoGame = {
     version: '1.0',
@@ -256,7 +250,7 @@ var ceeLoGame = {
 
             startButton : document.getElementById("startButton"),
             resetButton : document.getElementById("resetButton"),
-            playerCount : document.getElementById("playerCount"),
+            playerCount : document.getElementById("playerCount"),            
         };
 
         // CALL DOM INVOKING FUNCTIONS HERE --------------------
@@ -269,6 +263,7 @@ var ceeLoGame = {
         var context = this;
 
         // LOAD ALL FUNCTIONS --------------------
+        console.log("Load all functions here");
 
         // -------------------- PLAYER --------------------
         let howManyPlayers = ceeLoGame.config.playerArray.length;
@@ -276,25 +271,17 @@ var ceeLoGame = {
 
         scoreBoard.innerHTML = "Please press start";
 
+        // var sideNav = context.config.sidebarNavigationMenu,
+        //     skipLink = context.config.skipLinkAnchor,
+        //     mainContentBlock = context.config.sidebarNavPageContentBlock,
+        //     boolPageBannerExists = context.config.pageBannerExists;
 
-
-
-
-
-
-
-
-        var sideNav = context.config.sidebarNavigationMenu,
-            skipLink = context.config.skipLinkAnchor,
-            mainContentBlock = context.config.sidebarNavPageContentBlock,
-            boolPageBannerExists = context.config.pageBannerExists;
-
-        if (sideNav && mainContentBlock && skipLink.length && !boolPageBannerExists) {
-            sideNav.setAttribute("tabindex", "-1");
-            for (i = 0; i < skipLink.length; i++) {
-                skipLink[i].setAttribute("href", "#sidebar-navigation");
-            }
-        }
+        // if (sideNav && mainContentBlock && skipLink.length && !boolPageBannerExists) {
+        //     sideNav.setAttribute("tabindex", "-1");
+        //     for (i = 0; i < skipLink.length; i++) {
+        //         skipLink[i].setAttribute("href", "#sidebar-navigation");
+        //     }
+        // }
 
     },
 
@@ -303,6 +290,7 @@ var ceeLoGame = {
         var context = this;
 
         // ALL EVENT FUNCTIONS HERE --------------------
+        console.log("Event handlers here");
     },
 };
 
