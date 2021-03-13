@@ -1,22 +1,4 @@
-let
-
-    // playerArray = document.querySelectorAll(".playerHolder"),
-    // scoreBoardArray = document.querySelectorAll(".playerScoreBoard"),
-        rollButtonArray = document.querySelectorAll(".rollButton"),
-        win = false,
-        sides,
-        rollCode,
-        rollPoint,
-        array456,
-        array456sort,
-        array456string,
-        array123,
-        array123sort,
-        array123string;
-
-// const startButton = document.getElementById("startButton"),
-//     resetButton = document.getElementById("resetButton"),
-//     playerCount = document.getElementById("playerCount");
+let rollButtonArray = document.querySelectorAll(".rollButton");
 
 // -------------------- GENERATE RANDOM NUMBER --------------------
 let randNum = () => {
@@ -260,7 +242,7 @@ var ceeLoGame = {
         context.config = {
             playerArray: document.querySelectorAll(".playerHolder"),
             scoreBoardArray: document.querySelectorAll(".playerScoreBoard"),
-            rollButtonArray: document.querySelectorAll(".rollButton"),
+            // rollButtonArray: document.querySelectorAll(".rollButton"),
             win: false,
             diceSides: 6,
             rollCode: undefined,
