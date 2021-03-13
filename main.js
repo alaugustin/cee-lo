@@ -39,7 +39,7 @@ let printDice = (a, b, c) => {
 // -------------------- CeeLo DICE ROLLS --------------------
 let ceeLo = (a, b, c) => {
 
-    // TRIPS CONDITION
+    // TRIPS CONDITION --------------------
     let trips = () => {
         rollCode = 2;        
 
@@ -53,7 +53,7 @@ let ceeLo = (a, b, c) => {
         }
     }
 
-    // POINT CONDITION
+    // POINT CONDITION --------------------
     let point = () => {
         rollCode = 1;
 
@@ -80,7 +80,7 @@ let ceeLo = (a, b, c) => {
         }
     }
 
-    // 4 5 6 CONDITION
+    // 4 5 6 CONDITION --------------------
     let fourFiveSix = () => {
         let array456 = [a, b, c],
             array456sort = array456.sort(),
@@ -96,7 +96,7 @@ let ceeLo = (a, b, c) => {
         }
     }
 
-    // 1 2 3 CONDITION
+    // 1 2 3 CONDITION --------------------
     let oneTwoThree = () => {
         let array123 = [a, b, c],
             array123sort = array123.sort(),
@@ -138,6 +138,7 @@ for (let index = 0; index < rollButtonArray.length; index++) {
     }
 }
 
+// -------------------- PLAYER SCORE--------------------
 let storePlayerScore = (playerNumber) => {
     console.log("Player " + playerNumber + " roll code = " + rollCode);
     console.log("* ---------- *");
@@ -276,7 +277,7 @@ var ceeLoGame = {
             playerCount : document.getElementById("playerCount"),
         };
 
-        //Call DOM invoking functions here
+        // CALL DOM INVOKING FUNCTIONS HERE --------------------
         context.onDomReady();
         context.eventHandlers();
 
@@ -315,11 +316,11 @@ var ceeLoGame = {
 
     },
 
-    //Handle all page level events
+    // HANDLE ALL PAGE LEVEL EVENTS --------------------
     eventHandlers: function () {
         var context = this;
 
-        // All event functions here
+        // ALL EVENT FUNCTIONS HERE --------------------
     },
 };
 
