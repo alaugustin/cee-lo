@@ -235,8 +235,6 @@ resetButton.onclick = function () {
 
 };
 
-disableButtons();
-
 /* -------------------- new JS template below -------------------- */
 var ceeLoGame = {
     version: '1.0',
@@ -251,7 +249,7 @@ var ceeLoGame = {
         context.config = {
             playerArray: document.querySelectorAll(".playerHolder"),
             scoreBoardArray: document.querySelectorAll(".playerScoreBoard"),
-            // rollButtonArray: document.querySelectorAll(".rollButton"),
+            rollButtonArray: document.querySelectorAll(".rollButton"),
             win: false,
             diceSides: 6,
             rollCode: undefined,
@@ -271,6 +269,9 @@ var ceeLoGame = {
         // CALL DOM INVOKING FUNCTIONS HERE --------------------
         context.onDomReady();
         context.eventHandlers();
+
+        disableButtons();
+        console.log(ceeLoGame.config);
 
     },
 
