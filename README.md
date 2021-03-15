@@ -1,3 +1,3 @@
 # cee-lo
 
-The HTML, JS version
+HTML, JS version of the dice game.
