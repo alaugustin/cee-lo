@@ -119,8 +119,18 @@ for (let index = 0; index < rollButtonArray.length; index++) {
 
 // -------------------- PLAYER SCORE--------------------
 let storePlayerScore = (playerNumber) => {
+    switch (rollCode) {
+        case 2:
+            console.log("Player " + playerNumber + " roll code = " + rollCode + " with " + rollPoint + " points");
             console.log("* ---------- *");
+
+            break;
+        case 1:
+            console.log("Player " + playerNumber + " roll code = " + rollCode + " with a score of " + rollPoint);
             console.log("* ---------- *");
+
+            break;
+    }
 }
 
 let determineRollType = () => {
@@ -129,7 +139,6 @@ let determineRollType = () => {
             console.log("4 5 6 Instant win.");
             rollType = "4 5 6";
             console.log("Roll type is = " + rollType);
-            disableButtons();
             winConditon();
             // resetGame();
 
@@ -162,6 +171,7 @@ let winConditon = () => {
     win = true;
     console.log("win | rollecode = " +rollCode);
     console.log("* ---------- *");
+    disableButtons();
 }
 
 let lossConditon = () => {
@@ -224,6 +234,8 @@ resetButton.onclick = function () {
     resetDie();
 
 };
+
+disableButtons();
 
 /* -------------------- new JS template below -------------------- */
 var ceeLoGame = {
