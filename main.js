@@ -92,6 +92,7 @@ let ceeLo = (a, b, c) => {
         } else {
             scoreBoard.innerHTML = "Roll again.";
             console.log("Roll again.");
+            console.log("* ---------- *");
 
 
         }
@@ -118,8 +119,8 @@ for (let index = 0; index < rollButtonArray.length; index++) {
 
 // -------------------- PLAYER SCORE--------------------
 let storePlayerScore = (playerNumber) => {
-    console.log("Player " + playerNumber + " roll code = " + rollCode);
-    console.log("* ---------- *");
+            console.log("* ---------- *");
+            console.log("* ---------- *");
 }
 
 let determineRollType = () => {
@@ -160,11 +161,13 @@ let determineRollType = () => {
 let winConditon = () => {
     win = true;
     console.log("win | rollecode = " +rollCode);
+    console.log("* ---------- *");
 }
 
 let lossConditon = () => {
     win = false;
     console.log("loss | rollcode = " + rollCode);
+    console.log("* ---------- *");
     disableButtons();
 }
 
