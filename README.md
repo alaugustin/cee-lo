@@ -149,8 +149,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <!--See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).-->
 ### Sprint 1
-Move legacy code into JS template
-
+Move legacy code into JS template.
+### Sprint 2
+Store player roll when they get trips or points.
 
 <!-- CONTRIBUTING
 ## Contributing
