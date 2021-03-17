@@ -87,14 +87,14 @@ for (let index = 0; index < rollButtonArray.length; index++) {
     const playerRoll = rollButtonArray[index];
 
     playerRoll.onclick = function () {
-        randNum();
+        ceeLoGame.randNum();
         playerScoreBoard();
     };
 
     let playerScoreBoard = () => {
         let players = [index],
             playerNumber = players[0] + 1;
-        rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + win;
+        rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + ceeLoGame.config.win;
         storePlayerScore(playerNumber);
     }
 }
@@ -121,8 +121,7 @@ let determineRollType = () => {
             console.log("4 5 6 Instant win.");
             rollType = "4 5 6";
             console.log("Roll type is = " + rollType);
-            winConditon();
-            // resetGame();
+            ceeLoGame.winConditon();
 
             break;
         case 2:
@@ -141,35 +140,34 @@ let determineRollType = () => {
             rollType = "1 2 3";
             console.log("Roll type is = " + rollType);
             console.log("1 2 3 Instant loss.");
-            lossConditon();
-            // resetGame();
+            ceeLoGame.lossConditon();
 
             break;
     }
 }
 
 // -------------------- WIN/LOSS --------------------
-let winConditon = () => {
-    win = true;
-    console.log("win | rollecode = " +rollCode);
-    console.log("* ---------- *");
-    disableButtons();
-}
+// let winConditon = () => {
+//     win = true;
+//     console.log("win | rollecode = " +rollCode);
+//     console.log("* ---------- *");
+//     disableButtons();
+// }
 
-let lossConditon = () => {
-    win = false;
-    console.log("loss | rollcode = " + rollCode);
-    console.log("* ---------- *");
-    disableButtons();
-}
+// let lossConditon = () => {
+//     win = false;
+//     console.log("loss | rollcode = " + rollCode);
+//     console.log("* ---------- *");
+//     disableButtons();
+// }
 
 // -------------------- GAME --------------------
-let disableButtons = () => {
-    for (let index = 0; index < rollButtonArray.length; index++) {
-        rollButtonArray[index].disabled = true;
+// let disableButtons = () => {
+//     for (let index = 0; index < rollButtonArray.length; index++) {
+//         rollButtonArray[index].disabled = true;
 
-    }
-}
+//     }
+// }
 
 let initCLgame = () => {
     console.log("init game");
@@ -215,9 +213,7 @@ var ceeLoGame = {
 
         // CALL DOM INVOKING FUNCTIONS HERE --------------------
         context.onDomReady();
-        context.eventHandlers();
-
-        disableButtons();
+        context.eventHandlers();        
         console.log(ceeLoGame.config);
 
     },
@@ -280,9 +276,17 @@ var ceeLoGame = {
 
         win = false;
         scoreBoard.innerHTML = "Please roll";
-        disableButtons();
+        ceeLoGame.disableButtons();
         console.log("Reset button pressed. Reset game win to " + win);
 
+    },
+    
+    // -------------------- GAME --------------------
+    disableButtons: function () {
+        for (let index = 0; index < rollButtonArray.length; index++) {
+            rollButtonArray[index].disabled = true;
+
+        }
     },
 
     // -------------------- GENERATE RANDOM NUMBER --------------------
@@ -294,8 +298,23 @@ var ceeLoGame = {
             b = Math.floor(Math.random() * sides) + 1,
             c = Math.floor(Math.random() * sides) + 1;
 
-        printDice(a, b, c);
+        ceeLoGame.printDice(a, b, c);
         ceeLo(a, b, c);
+    },
+
+    // -------------------- WIN/LOSS --------------------
+    winConditon:  function () {
+        win = true;
+        console.log("win | rollecode = " + rollCode);
+        console.log("* ---------- *");
+        ceeLoGame.disableButtons();
+    },
+
+    lossConditon: function () {
+        win = false;
+        console.log("loss | rollcode = " + rollCode);
+        console.log("* ---------- *");
+        ceeLoGame.disableButtons();
     },
 
     // HANDLE ALL PAGE LEVEL EVENTS --------------------
@@ -322,4 +341,5 @@ window.addEventListener("load", function () {
     ceeLoGame.printDice();
     ceeLoGame.resetDie();
     ceeLoGame.eventHandlers();
+    ceeLoGame.disableButtons();
 });
