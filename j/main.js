@@ -1,38 +1,3 @@
-let rollButtonArray = document.querySelectorAll(".rollButton");
-
-// -------------------- ROLL DICE --------------------
-for (let index = 0; index < rollButtonArray.length; index++) {
-    const playerRoll = rollButtonArray[index];
-
-    playerRoll.onclick = function () {
-        ceeLoGame.randNum();
-        playerScoreBoard();
-    };
-
-    let playerScoreBoard = () => {
-        let players = [index],
-            playerNumber = players[0] + 1;
-        rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + ceeLoGame.config.win;
-        storePlayerScore(playerNumber);
-    }
-}
-
-// -------------------- PLAYER SCORE--------------------
-let storePlayerScore = (playerNumber) => {
-    switch (rollCode) {
-        case 2:
-            console.log("Player " + playerNumber + " roll code = " + rollCode + " with " + rollPoint + " points");
-            console.log("* ---------- *");
-
-            break;
-        case 1:
-            console.log("Player " + playerNumber + " roll code = " + rollCode + " with a score of " + rollPoint);
-            console.log("* ---------- *");
-
-            break;
-    }
-}
-
 /* -------------------- new JS template below -------------------- */
 var ceeLoGame = {
     version: '1.0',
@@ -45,6 +10,7 @@ var ceeLoGame = {
         var context = this;
         // GLOBAL VARIABLES --------------------
         context.config = {
+            // let
             playerArray: document.querySelectorAll(".playerHolder"),
             scoreBoardArray: document.querySelectorAll(".playerScoreBoard"),
             rollButtonArray: document.querySelectorAll(".rollButton"),
@@ -59,6 +25,7 @@ var ceeLoGame = {
             array123sort: undefined,
             array123string: undefined,
 
+            // const
             startButton : document.getElementById("startButton"),
             resetButton : document.getElementById("resetButton"),
             playerCount : document.getElementById("playerCount"),            
@@ -66,7 +33,6 @@ var ceeLoGame = {
 
         // CALL DOM INVOKING FUNCTIONS HERE --------------------
         context.onDomReady();
-        context.eventHandlers();        
         console.log(ceeLoGame.config);
 
     },
@@ -83,18 +49,6 @@ var ceeLoGame = {
 
         scoreBoard.innerHTML = "Please press start";
 
-        // var sideNav = context.config.sidebarNavigationMenu,
-        //     skipLink = context.config.skipLinkAnchor,
-        //     mainContentBlock = context.config.sidebarNavPageContentBlock,
-        //     boolPageBannerExists = context.config.pageBannerExists;
-
-        // if (sideNav && mainContentBlock && skipLink.length && !boolPageBannerExists) {
-        //     sideNav.setAttribute("tabindex", "-1");
-        //     for (i = 0; i < skipLink.length; i++) {
-        //         skipLink[i].setAttribute("href", "#sidebar-navigation");
-        //     }
-        // }
-
     },
 
     // -------------------- PRINT DICE NUMBERS --------------------
@@ -108,6 +62,8 @@ var ceeLoGame = {
 
     // -------------------- START GAME --------------------
     startGame: function () {
+        var context = this;
+
         console.log("Start button pressed.");
         scoreBoard.innerHTML = "Player 1 roll";
         ceeLoGame.initCLgame();
@@ -127,6 +83,8 @@ var ceeLoGame = {
 
     // -------------------- INIT GAME --------------------
     initCLgame: function () {
+        var context = this;
+
         console.log("init game");
         console.log("* ---------- *");
 
@@ -148,8 +106,10 @@ var ceeLoGame = {
     
     // -------------------- GAME --------------------
     disableButtons: function () {
-        for (let index = 0; index < rollButtonArray.length; index++) {
-            rollButtonArray[index].disabled = true;
+        var context = this;
+
+        for (let index = 0; index < ceeLoGame.config.rollButtonArray.length; index++) {
+            ceeLoGame.config.rollButtonArray[index].disabled = true;
 
         }
     },
@@ -168,20 +128,25 @@ var ceeLoGame = {
     },
 
     // -------------------- WIN/LOSS --------------------
-    winConditon:  function () {
-        win = true;
+    winConditon: function () {
+        var context = this;
+
+        ceeLoGame.config.win = true;
         console.log("win | rollecode = " + rollCode);
         console.log("* ---------- *");
         ceeLoGame.disableButtons();
     },
 
     lossConditon: function () {
-        win = false;
+        var context = this;
+
+        ceeLoGame.config.win = false;
         console.log("loss | rollcode = " + rollCode);
         console.log("* ---------- *");
         ceeLoGame.disableButtons();
     },
 
+    // -------------------- DETERMINE ROLL TYPE --------------------
     determineRollType: function () {
         switch (rollCode) {
             case 3:
@@ -295,6 +260,22 @@ var ceeLoGame = {
         trips();
     },
 
+    // -------------------- PLAYER SCORE--------------------
+    storePlayerScore: function (playerNumber) {
+        switch (rollCode) {
+            case 2:
+                console.log("Player " + playerNumber + " roll code = " + rollCode + " with " + rollPoint + " points");
+                console.log("* ---------- *");
+
+                break;
+            case 1:
+                console.log("Player " + playerNumber + " roll code = " + rollCode + " with a score of " + rollPoint);
+                console.log("* ---------- *");
+
+                break;
+        }
+    },
+
     // HANDLE ALL PAGE LEVEL EVENTS --------------------
     eventHandlers: function () {
         var context = this;
@@ -311,6 +292,23 @@ var ceeLoGame = {
             ceeLoGame.startGame();
 
         };
+
+        // -------------------- ROLL DICE --------------------
+        for (let index = 0; index < ceeLoGame.config.rollButtonArray.length; index++) {
+            const playerRoll = ceeLoGame.config.rollButtonArray[index];
+
+            playerRoll.onclick = function () {
+                ceeLoGame.randNum();
+                playerScoreBoard();
+            };
+
+            let playerScoreBoard = () => {
+                let players = [index],
+                    playerNumber = players[0] + 1;
+                rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + ceeLoGame.config.win;
+                ceeLoGame.storePlayerScore(playerNumber);
+            }
+        }
     },
 };
 
