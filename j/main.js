@@ -87,14 +87,14 @@ for (let index = 0; index < rollButtonArray.length; index++) {
     const playerRoll = rollButtonArray[index];
 
     playerRoll.onclick = function () {
-        randNum();
+        ceeLoGame.randNum();
         playerScoreBoard();
     };
 
     let playerScoreBoard = () => {
         let players = [index],
             playerNumber = players[0] + 1;
-        rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + win;
+        rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + ceeLoGame.config.win;
         storePlayerScore(playerNumber);
     }
 }
@@ -294,7 +294,7 @@ var ceeLoGame = {
             b = Math.floor(Math.random() * sides) + 1,
             c = Math.floor(Math.random() * sides) + 1;
 
-        printDice(a, b, c);
+        ceeLoGame.printDice(a, b, c);
         ceeLo(a, b, c);
     },
 
