@@ -1,87 +1,5 @@
 let rollButtonArray = document.querySelectorAll(".rollButton");
 
-// -------------------- CeeLo DICE ROLLS --------------------
-let ceeLo = (a, b, c) => {
-
-    // TRIPS CONDITION --------------------
-    let trips = () => {
-        rollCode = 2;        
-
-        if (a === b && b === c) {
-            scoreBoard.innerHTML = "Trips - " + a + b + c;
-            determineRollType();
-
-        } else {
-            point();
-
-        }
-    }
-
-    // POINT CONDITION --------------------
-    let point = () => {
-        rollCode = 1;
-
-        if (a === b) {
-            scoreBoard.innerHTML = c;
-            rollPoint = c;
-            rollCode;
-            determineRollType();
-
-        } else if (a === c) {
-            scoreBoard.innerHTML = b;
-            rollPoint = b;
-            rollCode;
-            determineRollType();
-
-        } else if (b === c) {
-            scoreBoard.innerHTML = a;
-            rollPoint = a;
-            rollCode;
-            determineRollType();
-
-        } else {
-            fourFiveSix();
-        }
-    }
-
-    // 4 5 6 CONDITION --------------------
-    let fourFiveSix = () => {
-        let array456 = [a, b, c],
-            array456sort = array456.sort(),
-            array456string = array456sort.toString();
-        rollCode = 3;
-
-        if (array456string === "4,5,6") {
-            rollCode;
-            determineRollType();
-
-        } else {
-            oneTwoThree();
-        }
-    }
-
-    // 1 2 3 CONDITION --------------------
-    let oneTwoThree = () => {
-        let array123 = [a, b, c],
-            array123sort = array123.sort(),
-            array123string = array123sort.toString();
-        rollCode = 0;
-
-        if (array123string === "1,2,3") {
-            rollCode;
-            determineRollType();
-
-        } else {
-            scoreBoard.innerHTML = "Roll again.";
-            console.log("Roll again.");
-            console.log("* ---------- *");
-
-
-        }
-    }
-    trips();
-}
-
 // -------------------- ROLL DICE --------------------
 for (let index = 0; index < rollButtonArray.length; index++) {
     const playerRoll = rollButtonArray[index];
@@ -110,37 +28,6 @@ let storePlayerScore = (playerNumber) => {
         case 1:
             console.log("Player " + playerNumber + " roll code = " + rollCode + " with a score of " + rollPoint);
             console.log("* ---------- *");
-
-            break;
-    }
-}
-
-let determineRollType = () => {
-    switch (rollCode) {
-        case 3:
-            console.log("4 5 6 Instant win.");
-            rollType = "4 5 6";
-            console.log("Roll type is = " + rollType);
-            ceeLoGame.winConditon();
-
-            break;
-        case 2:
-            rollType = "Trips";
-            console.log("Roll type is = " + rollType);
-            console.log("Trips.");
-
-            break;
-        case 1:
-            rollType = "Roll Point";
-            console.log("Roll type is = " + rollType);
-            console.log("Point - " + rollPoint + ".");
-
-            break;
-        case 0:
-            rollType = "1 2 3";
-            console.log("Roll type is = " + rollType);
-            console.log("1 2 3 Instant loss.");
-            ceeLoGame.lossConditon();
 
             break;
     }
@@ -277,7 +164,7 @@ var ceeLoGame = {
             c = Math.floor(Math.random() * sides) + 1;
 
         ceeLoGame.printDice(a, b, c);
-        ceeLo(a, b, c);
+        ceeLoGame.ceeLo(a, b, c);
     },
 
     // -------------------- WIN/LOSS --------------------
@@ -293,6 +180,119 @@ var ceeLoGame = {
         console.log("loss | rollcode = " + rollCode);
         console.log("* ---------- *");
         ceeLoGame.disableButtons();
+    },
+
+    determineRollType: function () {
+        switch (rollCode) {
+            case 3:
+                console.log("4 5 6 Instant win.");
+                rollType = "4 5 6";
+                console.log("Roll type is = " + rollType);
+                ceeLoGame.winConditon();
+
+                break;
+            case 2:
+                rollType = "Trips";
+                console.log("Roll type is = " + rollType);
+                console.log("Trips.");
+
+                break;
+            case 1:
+                rollType = "Roll Point";
+                console.log("Roll type is = " + rollType);
+                console.log("Point - " + rollPoint + ".");
+
+                break;
+            case 0:
+                rollType = "1 2 3";
+                console.log("Roll type is = " + rollType);
+                console.log("1 2 3 Instant loss.");
+                ceeLoGame.lossConditon();
+
+                break;
+        }
+    },
+
+    // -------------------- CeeLo DICE ROLLS --------------------
+    ceeLo: function (a, b, c) {
+
+        // TRIPS CONDITION --------------------
+        let trips = () => {
+            rollCode = 2;
+
+            if (a === b && b === c) {
+                scoreBoard.innerHTML = "Trips - " + a + b + c;
+                ceeLoGame.determineRollType();
+
+            } else {
+                point();
+
+            }
+        }
+
+        // POINT CONDITION --------------------
+        let point = () => {
+            rollCode = 1;
+
+            if (a === b) {
+                scoreBoard.innerHTML = c;
+                rollPoint = c;
+                rollCode;
+                ceeLoGame.determineRollType();
+
+            } else if (a === c) {
+                scoreBoard.innerHTML = b;
+                rollPoint = b;
+                rollCode;
+                ceeLoGame.determineRollType();
+
+            } else if (b === c) {
+                scoreBoard.innerHTML = a;
+                rollPoint = a;
+                rollCode;
+                ceeLoGame.determineRollType();
+
+            } else {
+                fourFiveSix();
+            }
+        }
+
+        // 4 5 6 CONDITION --------------------
+        let fourFiveSix = () => {
+            let array456 = [a, b, c],
+                array456sort = array456.sort(),
+                array456string = array456sort.toString();
+            rollCode = 3;
+
+            if (array456string === "4,5,6") {
+                rollCode;
+                ceeLoGame.determineRollType();
+
+            } else {
+                oneTwoThree();
+            }
+        }
+
+        // 1 2 3 CONDITION --------------------
+        let oneTwoThree = () => {
+            let array123 = [a, b, c],
+                array123sort = array123.sort(),
+                array123string = array123sort.toString();
+            rollCode = 0;
+
+            if (array123string === "1,2,3") {
+                rollCode;
+                ceeLoGame.determineRollType();
+
+            } else {
+                scoreBoard.innerHTML = "Roll again.";
+                console.log("Roll again.");
+                console.log("* ---------- *");
+
+
+            }
+        }
+        trips();
     },
 
     // HANDLE ALL PAGE LEVEL EVENTS --------------------
