@@ -58,6 +58,7 @@ var ceeLoGame = {
         document.getElementById("die1").innerHTML = a;
         document.getElementById("die2").innerHTML = b;
         document.getElementById("die3").innerHTML = c;
+
     },
 
     // -------------------- START GAME --------------------
@@ -102,6 +103,7 @@ var ceeLoGame = {
         document.getElementById("die1").innerHTML = 4;
         document.getElementById("die2").innerHTML = 5;
         document.getElementById("die3").innerHTML = 6;
+
     },
     
     // -------------------- GAME --------------------
@@ -125,6 +127,7 @@ var ceeLoGame = {
 
         ceeLoGame.printDice(a, b, c);
         ceeLoGame.ceeLo(a, b, c);
+
     },
 
     // -------------------- WIN/LOSS --------------------
@@ -135,6 +138,7 @@ var ceeLoGame = {
         console.log("win | rollecode = " + rollCode);
         console.log("* ---------- *");
         ceeLoGame.disableButtons();
+
     },
 
     lossConditon: function () {
@@ -144,10 +148,13 @@ var ceeLoGame = {
         console.log("loss | rollcode = " + rollCode);
         console.log("* ---------- *");
         ceeLoGame.disableButtons();
+
     },
 
     // -------------------- DETERMINE ROLL TYPE --------------------
     determineRollType: function () {
+        var context = this;
+
         switch (rollCode) {
             case 3:
                 console.log("4 5 6 Instant win.");
@@ -175,6 +182,7 @@ var ceeLoGame = {
                 ceeLoGame.lossConditon();
 
                 break;
+
         }
     },
 
@@ -219,6 +227,7 @@ var ceeLoGame = {
 
             } else {
                 fourFiveSix();
+
             }
         }
 
@@ -235,6 +244,7 @@ var ceeLoGame = {
 
             } else {
                 oneTwoThree();
+
             }
         }
 
@@ -254,7 +264,6 @@ var ceeLoGame = {
                 console.log("Roll again.");
                 console.log("* ---------- *");
 
-
             }
         }
         trips();
@@ -273,6 +282,7 @@ var ceeLoGame = {
                 console.log("* ---------- *");
 
                 break;
+
         }
     },
 
@@ -286,6 +296,7 @@ var ceeLoGame = {
         resetButton.onclick = function () {
             ceeLoGame.resetGame();
             ceeLoGame.resetDie();
+
         };
 
         startButton.onclick = function () {
@@ -307,6 +318,7 @@ var ceeLoGame = {
                     playerNumber = players[0] + 1;
                 rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + ceeLoGame.config.win;
                 ceeLoGame.storePlayerScore(playerNumber);
+                
             }
         }
     },
