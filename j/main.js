@@ -146,40 +146,6 @@ let determineRollType = () => {
     }
 }
 
-// -------------------- WIN/LOSS --------------------
-// let winConditon = () => {
-//     win = true;
-//     console.log("win | rollecode = " +rollCode);
-//     console.log("* ---------- *");
-//     disableButtons();
-// }
-
-// let lossConditon = () => {
-//     win = false;
-//     console.log("loss | rollcode = " + rollCode);
-//     console.log("* ---------- *");
-//     disableButtons();
-// }
-
-// -------------------- GAME --------------------
-// let disableButtons = () => {
-//     for (let index = 0; index < rollButtonArray.length; index++) {
-//         rollButtonArray[index].disabled = true;
-
-//     }
-// }
-
-let initCLgame = () => {
-    console.log("init game");
-    console.log("* ---------- *");
-
-    for (let index = 0; index < rollButtonArray.length; index++) {
-        rollButtonArray[0].disabled = false;
-        rollButtonArray[index].disabled = true;
-
-    }
-}
-
 /* -------------------- new JS template below -------------------- */
 var ceeLoGame = {
     version: '1.0',
@@ -257,17 +223,8 @@ var ceeLoGame = {
     startGame: function () {
         console.log("Start button pressed.");
         scoreBoard.innerHTML = "Player 1 roll";
-        initCLgame();
+        ceeLoGame.initCLgame();
 
-    },
-
-    // -------------------- RESET DICE NUMBERS --------------------
-    resetDie: function () {
-        var context = this;
-
-        document.getElementById("die1").innerHTML = 4;
-        document.getElementById("die2").innerHTML = 5;
-        document.getElementById("die3").innerHTML = 6;
     },
 
     // -------------------- RESET GAME --------------------
@@ -279,6 +236,27 @@ var ceeLoGame = {
         ceeLoGame.disableButtons();
         console.log("Reset button pressed. Reset game win to " + win);
 
+    },
+
+    // -------------------- INIT GAME --------------------
+    initCLgame: function () {
+        console.log("init game");
+        console.log("* ---------- *");
+
+        for (let index = 0; index < rollButtonArray.length; index++) {
+            rollButtonArray[0].disabled = false;
+            rollButtonArray[index].disabled = true;
+
+        }
+    },
+
+    // -------------------- RESET DICE NUMBERS --------------------
+    resetDie: function () {
+        var context = this;
+
+        document.getElementById("die1").innerHTML = 4;
+        document.getElementById("die2").innerHTML = 5;
+        document.getElementById("die3").innerHTML = 6;
     },
     
     // -------------------- GAME --------------------
