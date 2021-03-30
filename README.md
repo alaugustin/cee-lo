@@ -149,9 +149,22 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <!--See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).-->
 ### Sprint 1
-Move legacy code into JS template.
-### Sprint 2
-Store player roll when they get trips or points.
+
+<ol>
+  <li>Move legacy code into JS template</li>
+</ol>
+
+#### Sprint 1.1
+Code review tasks
+
+<ol>
+  <li>add single quotes to define undefined variables</li>
+  <li>change var to let/const</li>
+  <li>remove unnecessary context var from non-global variables</li>
+  <li>add default case to switch statement</li>
+  <li>add default case to switch statement</li>
+  <li>use event listener for rest and start button element.</li>
+</ol>
 
 <!-- CONTRIBUTING
 ## Contributing
