@@ -172,6 +172,8 @@ let ceeLoGame = {
                 ceeLoGame.lossConditon();
 
                 break;
+            default:
+                console.log("--- Please roll again ---");
 
         }
     },
