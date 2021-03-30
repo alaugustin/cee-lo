@@ -263,18 +263,14 @@ let ceeLoGame = {
 
     // -------------------- PLAYER SCORE--------------------
     storePlayerScore: function (playerNumber) {
-        switch (rollCode) {
-            case 2:
-                console.log("Player " + playerNumber + " roll code = " + rollCode + " with " + rollPoint + " points");
-                console.log("* ---------- *");
+        if (rollCode == 2) {
+            console.log("Player " + playerNumber + " roll code = " + rollCode + " with " + rollPoint + " points");
+            console.log("* ---------- *");
+        }
 
-                break;
-            case 1:
-                console.log("Player " + playerNumber + " roll code = " + rollCode + " with a score of " + rollPoint);
-                console.log("* ---------- *");
-
-                break;
-
+        if (rollCode == 1) {
+            console.log("Player " + playerNumber + " roll code = " + rollCode + " with a score of " + rollPoint);
+            console.log("* ---------- *");
         }
     },
 
