@@ -85,9 +85,9 @@ let ceeLoGame = {
         console.log("init game");
         console.log("* ---------- *");
 
-        for (let index = 0; index < rollButtonArray.length; index++) {
-            rollButtonArray[0].disabled = false;
-            rollButtonArray[index].disabled = true;
+        for (let index = 0; index < ceeLoGame.config.rollButtonArray.length; index++) {
+            ceeLoGame.config.rollButtonArray[0].disabled = false;
+            ceeLoGame.config.rollButtonArray[index].disabled = true;
 
         }
     },
@@ -305,7 +305,7 @@ let ceeLoGame = {
             let playerScoreBoard = () => {
                 let players = [index],
                     playerNumber = players[0] + 1;
-                rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + ceeLoGame.config.win;
+                ceeLoGame.config.rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + ceeLoGame.config.win;
                 ceeLoGame.storePlayerScore(playerNumber);
                 
             }
