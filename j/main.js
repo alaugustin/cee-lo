@@ -282,25 +282,26 @@ let ceeLoGame = {
         // ALL EVENT FUNCTIONS HERE --------------------
         console.log("Event handlers here");
 
-        resetButton.onclick = function () {
+        resetButton.addEventListener("click", function () {
             ceeLoGame.resetGame();
             ceeLoGame.resetDie();
 
-        };
+        });
 
-        startButton.onclick = function () {
+        startButton.addEventListener("click", function () {
             ceeLoGame.startGame();
 
-        };
+        });
 
         // -------------------- ROLL DICE --------------------
         for (let index = 0; index < ceeLoGame.config.rollButtonArray.length; index++) {
             const playerRoll = ceeLoGame.config.rollButtonArray[index];
 
-            playerRoll.onclick = function () {
+            playerRoll.addEventListener("click", function () {
                 ceeLoGame.randNum();
                 playerScoreBoard();
-            };
+
+            });
 
             let playerScoreBoard = () => {
                 let players = [index],
