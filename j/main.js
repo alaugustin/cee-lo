@@ -1,5 +1,5 @@
 /* -------------------- new JS template below -------------------- */
-var ceeLoGame = {
+let ceeLoGame = {
     version: '1.0',
     author: 'Al Augustin',
     project: 'Cee-Lo web dice game',
@@ -7,7 +7,8 @@ var ceeLoGame = {
 
     // INITIALIZATION --------------------
     init: function () {
-        var context = this;
+        let context = this;
+
         // GLOBAL VARIABLES --------------------
         context.config = {
             // let
