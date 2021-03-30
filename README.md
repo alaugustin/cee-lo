@@ -69,7 +69,13 @@ An HTML, JS version of the dice game.
       </ul>
     </li> -->
     <li><a href="#built-with">Built With</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
+    <li>
+      <a href="#roadmap">Roadmap</a>
+      <ol>
+        <li><a href="#sprint-1">Sprint 1</a></li>
+        <li><a href="#sprint-2">Sprint 2</a></li>
+      </ol>
+    </li>
     <!-- <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li> -->
@@ -166,6 +172,10 @@ Code review tasks
   <li>use event listener for rest and start button element.</li>
 </ol>
 
+### Sprint 2
+<ol>
+  <li>Score storage function</li>
+</ol>
 <!-- CONTRIBUTING
 ## Contributing
 
