@@ -38,7 +38,6 @@ var ceeLoGame = {
     },
 
     onDomReady: function () {
-        var context = this;
 
         // LOAD ALL FUNCTIONS --------------------
         console.log("Load all functions here");
@@ -53,7 +52,6 @@ var ceeLoGame = {
 
     // -------------------- PRINT DICE NUMBERS --------------------
     printDice: function (a, b, c) {
-        var context = this;
 
         document.getElementById("die1").innerHTML = a;
         document.getElementById("die2").innerHTML = b;
@@ -63,7 +61,6 @@ var ceeLoGame = {
 
     // -------------------- START GAME --------------------
     startGame: function () {
-        var context = this;
 
         console.log("Start button pressed.");
         scoreBoard.innerHTML = "Player 1 roll";
@@ -73,7 +70,6 @@ var ceeLoGame = {
 
     // -------------------- RESET GAME --------------------
     resetGame: function () {
-        var context = this;
 
         win = false;
         scoreBoard.innerHTML = "Please roll";
@@ -84,7 +80,6 @@ var ceeLoGame = {
 
     // -------------------- INIT GAME --------------------
     initCLgame: function () {
-        var context = this;
 
         console.log("init game");
         console.log("* ---------- *");
@@ -98,7 +93,6 @@ var ceeLoGame = {
 
     // -------------------- RESET DICE NUMBERS --------------------
     resetDie: function () {
-        var context = this;
 
         document.getElementById("die1").innerHTML = 4;
         document.getElementById("die2").innerHTML = 5;
@@ -108,7 +102,6 @@ var ceeLoGame = {
     
     // -------------------- GAME --------------------
     disableButtons: function () {
-        var context = this;
 
         for (let index = 0; index < ceeLoGame.config.rollButtonArray.length; index++) {
             ceeLoGame.config.rollButtonArray[index].disabled = true;
@@ -118,7 +111,6 @@ var ceeLoGame = {
 
     // -------------------- GENERATE RANDOM NUMBER --------------------
     randNum: function () {
-        var context = this;
 
         let sides = 6,
             a = Math.floor(Math.random() * sides) + 1,
@@ -132,7 +124,6 @@ var ceeLoGame = {
 
     // -------------------- WIN/LOSS --------------------
     winConditon: function () {
-        var context = this;
 
         ceeLoGame.config.win = true;
         console.log("win | rollecode = " + rollCode);
@@ -142,7 +133,6 @@ var ceeLoGame = {
     },
 
     lossConditon: function () {
-        var context = this;
 
         ceeLoGame.config.win = false;
         console.log("loss | rollcode = " + rollCode);
@@ -153,7 +143,6 @@ var ceeLoGame = {
 
     // -------------------- DETERMINE ROLL TYPE --------------------
     determineRollType: function () {
-        var context = this;
 
         switch (rollCode) {
             case 3:
@@ -288,7 +277,6 @@ var ceeLoGame = {
 
     // HANDLE ALL PAGE LEVEL EVENTS --------------------
     eventHandlers: function () {
-        var context = this;
 
         // ALL EVENT FUNCTIONS HERE --------------------
         console.log("Event handlers here");
