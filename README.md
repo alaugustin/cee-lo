@@ -166,6 +166,10 @@ Code review tasks
   <li>use event listener for rest and start button element.</li>
 </ol>
 
+### Sprint 2
+<ol>
+  <li>Score storage function</li>
+</ol>
 <!-- CONTRIBUTING
 ## Contributing
 
