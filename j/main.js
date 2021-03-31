@@ -181,6 +181,23 @@ let ceeLoGame = {
     // -------------------- CeeLo DICE ROLLS --------------------
     ceeLo: function (a, b, c) {
 
+        // 4 5 6 CONDITION --------------------
+        let fourFiveSix = () => {
+            let array456 = [a, b, c],
+                array456sort = array456.sort(),
+                array456string = array456sort.toString();
+            rollCode = 3;
+
+            if (array456string === "4,5,6") {
+                rollCode;
+                ceeLoGame.determineRollType();
+
+            } else {
+                trips();
+
+            }
+        }
+
         // TRIPS CONDITION --------------------
         let trips = () => {
             rollCode = 2;
@@ -218,23 +235,6 @@ let ceeLoGame = {
                 ceeLoGame.determineRollType();
 
             } else {
-                fourFiveSix();
-
-            }
-        }
-
-        // 4 5 6 CONDITION --------------------
-        let fourFiveSix = () => {
-            let array456 = [a, b, c],
-                array456sort = array456.sort(),
-                array456string = array456sort.toString();
-            rollCode = 3;
-
-            if (array456string === "4,5,6") {
-                rollCode;
-                ceeLoGame.determineRollType();
-
-            } else {
                 oneTwoThree();
 
             }
@@ -258,7 +258,7 @@ let ceeLoGame = {
 
             }
         }
-        trips();
+        fourFiveSix();
     },
 
     // -------------------- PLAYER SCORE--------------------
