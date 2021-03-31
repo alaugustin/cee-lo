@@ -145,32 +145,33 @@ let ceeLoGame = {
     // -------------------- DETERMINE ROLL TYPE --------------------
     determineRollType: function () {
 
+        let roleTyperollCode = () => {
+            console.log("Roll type is = " + rollType);
+            console.log("Roll code is = " + rollCode);
+        }
+
         switch (rollCode) {
             case 3:
-                rollType = "4 5 6";
-                console.log("Roll type is = " + rollType);
-                console.log("Roll code is = " + rollCode);
+                rollType = "4 5 6";                
                 ceeLoGame.winConditon();
+                roleTyperollCode();
                 
                 break;
             case 2:
                 rollType = "Trips";
-                console.log("Roll type is = " + rollType);
-                console.log("Roll code is = " + rollCode);
                 console.log("Roll point is = " + rollPoint);
+                roleTyperollCode();
                 
                 break;
             case 1:
                 rollType = "Roll Point";
-                console.log("Roll type is = " + rollType);
-                console.log("Roll code is = " + rollCode);
                 console.log("Roll point is = " + rollPoint);
+                roleTyperollCode();
                 
                 break;
             case 0:
                 rollType = "1 2 3";
-                console.log("Roll type is = " + rollType);
-                console.log("Roll code is = " + rollCode);
+                roleTyperollCode();
                 ceeLoGame.lossConditon();
 
                 break;
