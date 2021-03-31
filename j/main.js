@@ -127,7 +127,7 @@ let ceeLoGame = {
     winConditon: function () {
 
         ceeLoGame.config.win = true;
-        console.log("win | rollecode = " + rollCode);
+        console.log("instant win");
         console.log("* ---------- *");
         ceeLoGame.disableButtons();
 
@@ -136,7 +136,7 @@ let ceeLoGame = {
     lossConditon: function () {
 
         ceeLoGame.config.win = false;
-        console.log("loss | rollcode = " + rollCode);
+        console.log("instant loss");
         console.log("* ---------- *");
         ceeLoGame.disableButtons();
 
@@ -147,28 +147,30 @@ let ceeLoGame = {
 
         switch (rollCode) {
             case 3:
-                console.log("4 5 6 Instant win.");
                 rollType = "4 5 6";
                 console.log("Roll type is = " + rollType);
+                console.log("Roll code is = " + rollCode);
                 ceeLoGame.winConditon();
-
+                
                 break;
             case 2:
                 rollType = "Trips";
                 console.log("Roll type is = " + rollType);
-                console.log("Trips.");
-
+                console.log("Roll code is = " + rollCode);
+                console.log("Roll point is = " + rollPoint);
+                
                 break;
             case 1:
                 rollType = "Roll Point";
                 console.log("Roll type is = " + rollType);
-                console.log("Point - " + rollPoint + ".");
-
+                console.log("Roll code is = " + rollCode);
+                console.log("Roll point is = " + rollPoint);
+                
                 break;
             case 0:
                 rollType = "1 2 3";
                 console.log("Roll type is = " + rollType);
-                console.log("1 2 3 Instant loss.");
+                console.log("Roll code is = " + rollCode);
                 ceeLoGame.lossConditon();
 
                 break;
@@ -203,6 +205,8 @@ let ceeLoGame = {
             rollCode = 2;
 
             if (a === b && b === c) {
+                rollCode;
+                rollPoint = a;
                 scoreBoard.innerHTML = "Trips - " + a + b + c;
                 ceeLoGame.determineRollType();
 
