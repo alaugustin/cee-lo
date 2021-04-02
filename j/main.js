@@ -268,18 +268,20 @@ let ceeLoGame = {
     },
 
     // -------------------- PLAYER SCORE--------------------
-    storePlayerScore: function (playerNumber) {
+    storePlayerScore: function (playerNumber, highScores) {
         if (rollCode == 2) {
             ceeLoGame.config.highScores.push({ "Player": playerNumber, "Roll code": rollCode, "Roll point": rollPoint });
-            // console.log("Player " + playerNumber + " roll code = " + rollCode + " with " + rollPoint + " points");            
-            // console.log(ceeLoGame.config.highScores);
+            // console.log("Player " + playerNumber + " roll code = " + rollCode + " with " + rollPoint + " points");
+            console.log(ceeLoGame.config.highScores);
+            localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
             console.log("* ---------- *");
         }
 
         if (rollCode == 1) {
             ceeLoGame.config.highScores.push({ "Player": playerNumber, "Roll code": rollCode, "Roll point": rollPoint });
-            // console.log("Player " + playerNumber + " roll code = " + rollCode + " with a score of " + rollPoint);            
-            // console.log(ceeLoGame.config.highScores);            
+            console.log(ceeLoGame.config.highScores);
+            localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
+            // console.log("Player " + playerNumber + " roll code = " + rollCode + " with a score of " + rollPoint);
             console.log("* ---------- *");
         }
     },
