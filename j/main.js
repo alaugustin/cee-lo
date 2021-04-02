@@ -28,9 +28,9 @@ let ceeLoGame = {
             highScores: [],
 
             // const
-            startButton : document.getElementById("startButton"),
-            resetButton : document.getElementById("resetButton"),
-            playerCount : document.getElementById("playerCount"),            
+            startButton: document.getElementById("startButton"),
+            resetButton: document.getElementById("resetButton"),
+            playerCount: document.getElementById("playerCount"),
         };
 
         // CALL DOM INVOKING FUNCTIONS HERE --------------------
@@ -101,7 +101,7 @@ let ceeLoGame = {
         document.getElementById("die3").innerHTML = 6;
 
     },
-    
+
     // -------------------- GAME --------------------
     disableButtons: function () {
 
@@ -153,22 +153,22 @@ let ceeLoGame = {
 
         switch (rollCode) {
             case 3:
-                rollType = "4 5 6";                
+                rollType = "4 5 6";
                 ceeLoGame.winConditon();
                 roleTyperollCode();
-                
+
                 break;
             case 2:
                 rollType = "Trips";
                 console.log("Roll point is = " + rollPoint);
                 roleTyperollCode();
-                
+
                 break;
             case 1:
                 rollType = "Roll Point";
                 console.log("Roll point is = " + rollPoint);
                 roleTyperollCode();
-                
+
                 break;
             case 0:
                 rollType = "1 2 3";
@@ -316,7 +316,7 @@ let ceeLoGame = {
                     playerNumber = players[0] + 1;
                 ceeLoGame.config.rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + ceeLoGame.config.win;
                 ceeLoGame.storePlayerScore(playerNumber);
-                
+
             }
         }
     },
