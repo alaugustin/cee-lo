@@ -25,6 +25,7 @@ let ceeLoGame = {
             array123: '',
             array123sort: '',
             array123string: '',
+            highScores: [],
 
             // const
             startButton : document.getElementById("startButton"),
@@ -269,12 +270,16 @@ let ceeLoGame = {
     // -------------------- PLAYER SCORE--------------------
     storePlayerScore: function (playerNumber) {
         if (rollCode == 2) {
-            console.log("Player " + playerNumber + " roll code = " + rollCode + " with " + rollPoint + " points");
+            ceeLoGame.config.highScores.push({ "Player": playerNumber, "Roll code": rollCode, "Roll point": rollPoint });
+            // console.log("Player " + playerNumber + " roll code = " + rollCode + " with " + rollPoint + " points");            
+            // console.log(ceeLoGame.config.highScores);
             console.log("* ---------- *");
         }
 
         if (rollCode == 1) {
-            console.log("Player " + playerNumber + " roll code = " + rollCode + " with a score of " + rollPoint);
+            ceeLoGame.config.highScores.push({ "Player": playerNumber, "Roll code": rollCode, "Roll point": rollPoint });
+            // console.log("Player " + playerNumber + " roll code = " + rollCode + " with a score of " + rollPoint);            
+            // console.log(ceeLoGame.config.highScores);            
             console.log("* ---------- *");
         }
     },
