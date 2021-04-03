@@ -259,26 +259,21 @@ let ceeLoGame = {
 
     // -------------------- PLAYER SCORE--------------------
     storePlayerScore: function (playerNumber, highScores) {
-        if (rollCode == 2) {
+        var populateLsScore = () => {
             ceeLoGame.config.highScores.push({ "Player": playerNumber, "Roll code": rollCode, "Roll point": rollPoint });
             // console.log("Player " + playerNumber + " roll code = " + rollCode + " with " + rollPoint + " points");
             console.log(ceeLoGame.config.highScores);
             localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
             console.log("* ---------- *");
-        }
+        };
 
-        if (rollCode == 1) {
-            ceeLoGame.config.highScores.push({ "Player": playerNumber, "Roll code": rollCode, "Roll point": rollPoint });
-            console.log(ceeLoGame.config.highScores);
-            localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
-            // console.log("Player " + playerNumber + " roll code = " + rollCode + " with a score of " + rollPoint);
-            console.log("* ---------- *");
+        if (rollCode == 3 || rollCode == 2 || rollCode == 1 || rollCode == 0) {
+            populateLsScore();
         }
     },
 
     // HANDLE ALL PAGE LEVEL EVENTS --------------------
     eventHandlers: function () {
-
         // ALL EVENT FUNCTIONS HERE --------------------
         console.log("Event handlers here");
 
