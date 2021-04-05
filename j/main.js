@@ -259,7 +259,7 @@ let ceeLoGame = {
 
     // -------------------- PLAYER SCORE--------------------
     storePlayerScore: function (playerNumber, highScores) {
-        var populateLsScore = () => {
+        let populateLsScore = () => {
             ceeLoGame.config.highScores.push({ "Player": playerNumber, "Roll code": rollCode, "Roll point": rollPoint });
             // console.log("Player " + playerNumber + " roll code = " + rollCode + " with " + rollPoint + " points");
             console.log(ceeLoGame.config.highScores);
@@ -269,8 +269,26 @@ let ceeLoGame = {
 
         if (rollCode == 3 || rollCode == 2 || rollCode == 1 || rollCode == 0) {
             populateLsScore();
+            ceeLoGame.advancePlayer();
         }
     },
+
+
+
+
+
+
+    advancePlayer: function () {
+        console.log("advancePlayer function");
+        console.log(ceeLoGame.config.playerArray);
+    },
+
+
+
+
+
+
+
 
     // HANDLE ALL PAGE LEVEL EVENTS --------------------
     eventHandlers: function () {
@@ -314,5 +332,5 @@ window.addEventListener("load", function () {
     ceeLoGame.printDice();
     ceeLoGame.resetDie();
     ceeLoGame.eventHandlers();
-    ceeLoGame.disableButtons();
+    // ceeLoGame.disableButtons();
 });
