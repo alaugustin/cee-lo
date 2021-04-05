@@ -185,7 +185,7 @@ let ceeLoGame = {
 
             if (array456string === "4,5,6") {
                 rollCode;
-                ceeLoGame.determineRollType();
+                ceeLoGame.determineRollType(rollPoint);
 
             } else {
                 trips();
@@ -201,7 +201,7 @@ let ceeLoGame = {
                 rollCode;
                 rollPoint = a;
                 scoreBoard.innerHTML = "Trips - " + a + b + c;
-                ceeLoGame.determineRollType();
+                ceeLoGame.determineRollType(rollPoint);
 
             } else {
                 point();
@@ -217,19 +217,19 @@ let ceeLoGame = {
                 scoreBoard.innerHTML = c;
                 rollPoint = c;
                 rollCode;
-                ceeLoGame.determineRollType();
+                ceeLoGame.determineRollType(rollPoint);
 
             } else if (a === c) {
                 scoreBoard.innerHTML = b;
                 rollPoint = b;
                 rollCode;
-                ceeLoGame.determineRollType();
+                ceeLoGame.determineRollType(rollPoint);
 
             } else if (b === c) {
                 scoreBoard.innerHTML = a;
                 rollPoint = a;
                 rollCode;
-                ceeLoGame.determineRollType();
+                ceeLoGame.determineRollType(rollPoint);
 
             } else {
                 oneTwoThree();
@@ -247,7 +247,7 @@ let ceeLoGame = {
 
             if (array123string === "1,2,3") {
                 rollCode;
-                ceeLoGame.determineRollType();
+                ceeLoGame.determineRollType(rollPoint);
 
             } else {
                 scoreBoard.innerHTML = "Roll again.";
