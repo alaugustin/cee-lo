@@ -342,5 +342,5 @@ window.addEventListener("load", function () {
     ceeLoGame.printDice();
     ceeLoGame.resetDie();
     ceeLoGame.eventHandlers();
-    // ceeLoGame.disableButtons();
+    ceeLoGame.disableButtons();
 });
