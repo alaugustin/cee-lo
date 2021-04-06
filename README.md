@@ -5,8 +5,6 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -22,7 +20,6 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 -->
-
 
 <!-- PROJECT LOGO
 <br />
@@ -49,6 +46,7 @@
 -->
 
 # cee-lo
+
 An HTML, JS version of the dice game.
 
 <!-- TABLE OF CONTENTS -->
@@ -83,8 +81,6 @@ An HTML, JS version of the dice game.
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT
 ## About The Project
 
@@ -101,13 +97,13 @@ Of course, no one template will serve all projects since your needs may be diffe
 
 A list of commonly used resources that I find helpful are listed in the acknowledgements.
  -->
+
 ## Built With
 
 <!--This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.-->
-* [JavaScript](https://en.wikipedia.org/wiki/ECMAScript)
-* [HTML](https://en.wikipedia.org/wiki/HTML)
 
-
+- [JavaScript](https://en.wikipedia.org/wiki/ECMAScript)
+- [HTML](https://en.wikipedia.org/wiki/HTML)
 
 <!-- GETTING STARTED
 ## Getting Started
@@ -140,7 +136,6 @@ This is an example of how to list things you need to use the software and how to
    ```
 -->
 
-
 <!-- USAGE EXAMPLES
 ## Usage
 
@@ -149,11 +144,12 @@ Use this space to show useful examples of how a project can be used. Additional 
 _For more examples, please refer to the [Documentation](https://example.com)_
  -->
 
-
 <!-- ROADMAP -->
+
 ## Roadmap
 
 <!--See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).-->
+
 ### Sprint 1
 
 <ol>
@@ -161,6 +157,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 </ol>
 
 #### Sprint 1.1
+
 Code review tasks
 
 <ol>
@@ -168,11 +165,11 @@ Code review tasks
   <li>change var to let/const</li>
   <li>remove unnecessary context var from non-global variables</li>
   <li>add default case to switch statement</li>
-  <li>add default case to switch statement</li>
   <li>use event listener for rest and start button element.</li>
 </ol>
 
 ### Sprint 2
+
 <ol>
   <li>Score storage function</li>
 </ol>
@@ -186,15 +183,13 @@ Contributions are what make the open source community such an amazing place to b
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
- -->
-
+   -->
 
 <!-- LICENSE
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 -->
-
 
 <!-- CONTACT
 ## Contact
@@ -204,18 +199,14 @@ Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.c
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 -->
 
-
-
 <!-- ACKNOWLEDGEMENTS -->
+
 ## Acknowledgements
-* [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 
-
-
-
+- [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links 
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
@@ -230,13 +221,3 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
 -->
-
-
-
-
-
-
-
-
-
-
