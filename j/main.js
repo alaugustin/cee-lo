@@ -103,7 +103,6 @@ let ceeLoGame = {
             ceeLoGame.config.rollButtonArray[index].disabled = true;
 
         }
-
     },
 
     // -------------------- GENERATE RANDOM NUMBER --------------------
@@ -182,6 +181,7 @@ let ceeLoGame = {
                 array456sort = array456.sort(),
                 array456string = array456sort.toString();
             rollCode = 3;
+            rollPoint = 3;
 
             if (array456string === "4,5,6") {
                 rollCode;
@@ -262,10 +262,17 @@ let ceeLoGame = {
     // -------------------- PLAYER SCORE--------------------
     storePlayerScore: function (playerNumber) {
         let populateLsScore = () => {
-            ceeLoGame.config.highScores.push({ "Player": playerNumber, "Roll code": rollCode, "Roll point": rollPoint });
-            // console.log("Player " + playerNumber + " roll code = " + rollCode + " with " + rollPoint + " points");
+            let hst = document.getElementById("highscores");
+
+            ceeLoGame.config.highScores.push({ "player": playerNumber, "roll_code": rollCode, "roll_point": rollPoint });
             console.log(ceeLoGame.config.highScores);
             localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
+
+            let retrievedScores = JSON.parse(localStorage.getItem("highscores"));
+
+            for (let i = 0; i < retrievedScores.length; i++) {
+                hst.innerHTML += "<tr><td>" + retrievedScores[i].player + "</td><td>" + retrievedScores[i].roll_code + "</td><td>" + retrievedScores[i].roll_point + "</td></tr>";
+            }
             console.log("* ---------- *");
         };
 
