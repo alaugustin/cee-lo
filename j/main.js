@@ -40,9 +40,6 @@ let ceeLoGame = {
     },
 
     onDomReady: function () {
-        // LOAD ALL FUNCTIONS --------------------
-        console.log("Load all functions here");
-
         // -------------------- PLAYER --------------------
         let howManyPlayers = ceeLoGame.config.playerArray.length;
         playerCount.innerHTML = howManyPlayers;
@@ -282,22 +279,26 @@ let ceeLoGame = {
         }
     },
 
-
-
-
-
-
     advancePlayer: function () {
         console.log("advancePlayer function");
         console.log(ceeLoGame.config.playerArray);
+
+        for (let index = 0; index < ceeLoGame.config.rollButtonArray.length; index++) {
+
+            // console.log(ceeLoGame.config.rollButtonArray[index]);
+
+            if (ceeLoGame.config.rollButtonArray[index].disabled) {
+
+                ceeLoGame.config.rollButtonArray[0].disabled = true;
+                ceeLoGame.config.rollButtonArray[index].disabled = false;
+            } else {
+
+                ceeLoGame.config.rollButtonArray[0].disabled = false;
+                ceeLoGame.config.rollButtonArray[index].disabled = true;
+            }
+
+        }
     },
-
-
-
-
-
-
-
 
     // HANDLE ALL PAGE LEVEL EVENTS --------------------
     eventHandlers: function () {
