@@ -317,6 +317,7 @@ let ceeLoGame = {
     },
 
     advancePlayer: () => {
+        // TODO: MAKE THIS SUPPORT MOR THAN TWO PLAYERS
         for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
 
             if (ceeLoGame.config.rollButtonArray[i].disabled) {
