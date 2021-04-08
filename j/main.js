@@ -75,9 +75,9 @@ let ceeLoGame = {
 
     // -------------------- INIT GAME --------------------
     initCLgame: function () {
-        for (let index = 0; index < ceeLoGame.config.rollButtonArray.length; index++) {
+        for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
             ceeLoGame.config.rollButtonArray[0].disabled = false;
-            ceeLoGame.config.rollButtonArray[index].disabled = true;
+            ceeLoGame.config.rollButtonArray[i].disabled = true;
 
         }
 
@@ -96,8 +96,8 @@ let ceeLoGame = {
 
     // -------------------- GAME --------------------
     disableButtons: function () {
-        for (let index = 0; index < ceeLoGame.config.rollButtonArray.length; index++) {
-            ceeLoGame.config.rollButtonArray[index].disabled = true;
+        for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
+            ceeLoGame.config.rollButtonArray[i].disabled = true;
 
         }
     },
@@ -321,18 +321,16 @@ let ceeLoGame = {
         console.log("advancePlayer function");
         console.log(ceeLoGame.config.playerArray);
 
-        for (let index = 0; index < ceeLoGame.config.rollButtonArray.length; index++) {
+        for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
 
-            // console.log(ceeLoGame.config.rollButtonArray[index]);
-
-            if (ceeLoGame.config.rollButtonArray[index].disabled) {
+            if (ceeLoGame.config.rollButtonArray[i].disabled) {
 
                 ceeLoGame.config.rollButtonArray[0].disabled = true;
-                ceeLoGame.config.rollButtonArray[index].disabled = false;
+                ceeLoGame.config.rollButtonArray[i].disabled = false;
             } else {
 
                 ceeLoGame.config.rollButtonArray[0].disabled = false;
-                ceeLoGame.config.rollButtonArray[index].disabled = true;
+                ceeLoGame.config.rollButtonArray[i].disabled = true;
             }
 
         }
@@ -355,19 +353,18 @@ let ceeLoGame = {
         });
 
         // -------------------- ROLL DICE --------------------
-        for (let index = 0; index < ceeLoGame.config.rollButtonArray.length; index++) {
-            const playerRoll = ceeLoGame.config.rollButtonArray[index];
+        for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
+            const playerRoll = ceeLoGame.config.rollButtonArray[i];
 
             playerRoll.addEventListener("click", function () {
                 ceeLoGame.randNum();
                 playerScoreBoard();
-
             });
 
             let playerScoreBoard = () => {
-                let players = [index],
+                let players = [i],
                     playerNumber = players[0] + 1;
-                ceeLoGame.config.rollButtonArray[index].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + ceeLoGame.config.win;
+                ceeLoGame.config.rollButtonArray[i].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + ceeLoGame.config.win;
                 ceeLoGame.storePlayerScore(playerNumber);
 
             }
