@@ -259,17 +259,11 @@ let ceeLoGame = {
     // -------------------- PLAYER SCORE--------------------
     storePlayerScore: function (playerNumber) {
         let populateLsScore = () => {
-            let hst = document.getElementById("highscores");
 
             ceeLoGame.config.highScores.push({ "player": playerNumber, "roll_code": rollCode, "roll_point": rollPoint });
             console.log(ceeLoGame.config.highScores);
             localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
-
-            let retrievedScores = JSON.parse(localStorage.getItem("highscores"));
-
-            for (let i = 0; i < retrievedScores.length; i++) {
-                hst.innerHTML += "<tr><td>" + retrievedScores[i].player + "</td><td>" + retrievedScores[i].roll_code + "</td><td>" + retrievedScores[i].roll_point + "</td></tr>";
-            }
+            ceeLoGame.playerScoreTable();
             console.log("* ---------- *");
         };
 
@@ -277,6 +271,50 @@ let ceeLoGame = {
             populateLsScore();
             ceeLoGame.advancePlayer();
         }
+    },
+
+    playerScoreTable: function () {
+        // the json data.
+        const playerScoreData = JSON.parse(localStorage.getItem("highscores"));
+
+        // Extract value from table header.
+        // ('Book ID', 'Book Name', 'Category' and 'Price')
+        let col = [];
+        for (let i = 0; i < playerScoreData.length; i++) {
+            for (let key in playerScoreData[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+
+        // Create a table.
+        const table = document.createElement("table");
+
+        // Create table header row using the extracted headers above.
+        let tr = table.insertRow(-1); // table row.
+
+        for (let i = 0; i < col.length; i++) {
+            let th = document.createElement("th"); // table header.
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+        // add json data to the table as rows.
+        for (let i = 0; i < playerScoreData.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (let j = 0; j < col.length; j++) {
+                let tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = playerScoreData[i][col[j]];
+            }
+        }
+
+        // Now, add the newly created table with json data, to a container.
+        const divShowData = document.getElementById('showData');
+        divShowData.innerHTML = "";
+        divShowData.appendChild(table);
     },
 
     advancePlayer: function () {
