@@ -204,6 +204,7 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 ## Acknowledgements
 
 - [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
+- [Convert JSON Data Dynamically to HTML Table using JavaScript](https://www.encodedna.com/javascript/practice-ground/default.htm?pg=convert_json_to_table_javascript)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links
