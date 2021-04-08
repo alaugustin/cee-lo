@@ -350,6 +350,8 @@ let ceeLoGame = {
         });
 
         // -------------------- ROLL DICE --------------------
+        console.log(ceeLoGame.config.rollButtonArray);
+
         for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
             const playerRoll = ceeLoGame.config.rollButtonArray[i];
 
