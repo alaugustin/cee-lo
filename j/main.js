@@ -169,6 +169,7 @@ let ceeLoGame = {
 
             if (array456string === "4,5,6") {
                 rollCode;
+                scoreBoard.innerHTML = "You win";
                 // ceeLoGame.determineRollType(rollPoint);
 
             } else {
@@ -198,19 +199,19 @@ let ceeLoGame = {
             rollCode = 2;
 
             if (a === b) {
-                scoreBoard.innerHTML = c;
+                scoreBoard.innerHTML = "Points - " + c;
                 rollPoint = c;
                 rollCode;
                 // ceeLoGame.determineRollType(rollPoint);
 
             } else if (a === c) {
-                scoreBoard.innerHTML = b;
+                scoreBoard.innerHTML = "Points - " + b;
                 rollPoint = b;
                 rollCode;
                 // ceeLoGame.determineRollType(rollPoint);
 
             } else if (b === c) {
-                scoreBoard.innerHTML = a;
+                scoreBoard.innerHTML = "Points - " + a;
                 rollPoint = a;
                 rollCode;
                 // ceeLoGame.determineRollType(rollPoint);
@@ -231,6 +232,7 @@ let ceeLoGame = {
 
             if (array123string === "1,2,3") {
                 rollCode;
+                scoreBoard.innerHTML = "You loose";
                 // ceeLoGame.determineRollType(rollPoint);
 
             } else {
