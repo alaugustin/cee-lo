@@ -21,24 +21,32 @@
         <button id="startButton">Start</button>
         <button id="resetButton">Reset</button>
     </div>
-    
+
     <div>Roll: <span id="scoreBoard">Null</span></div>
-    
+    <div id="showData"></div>
+    <!-- <table id="highscores">
+        <tr>
+            <td>Player</td>
+            <td>Rollcode</td>
+            <td>Score</td>
+        </tr>
+    </table> -->
+
     <hr>
 
-    <button onclick="myFunction()">Testing button</button>
-    
+    <button id="testButton" onclick="ceeLoGame.advancePlayer()">Testing button</button>
+
     <div id="player0" class="playerHolder">
         <h2>Player 1</h2>
-        <div id="playerScore0" class="playerScoreBoard">Null</div>
+        <!-- <div id="playerScore0" class="playerScoreBoard">Null</div> -->
         <button id="player0Roll" class="rollButton">Roll dice</button>
     </div>
     <div id="player1" class="playerHolder">
         <h2>Player 2</h2>
-        <div id="playerScore1" class="playerScoreBoard">Null</div>
+        <!-- <div id="playerScore1" class="playerScoreBoard">Null</div> -->
         <button id="player1Roll" class="rollButton">Roll dice</button>
     </div>
-    
+
     <script src="j/main.js"></script>
 </body>
 
