@@ -389,3 +389,5 @@ window.addEventListener("load", () => {
     ceeLoGame.eventHandlers();
     ceeLoGame.disableButtons();
 });
+
+// -------------------- THIS IS A TEST TO BE REMOVED LATER --------------------
