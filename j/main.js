@@ -130,34 +130,6 @@ let ceeLoGame = {
 
     },
 
-    // -------------------- DETERMINE ROLL TYPE --------------------
-    // determineRollType: () => {
-
-    //     switch (rollCode) {
-    //         case 3:
-    //             rollType = "4 5 6";
-    //             ceeLoGame.winConditon();
-
-    //             break;
-    //         case 2:
-    //             rollType = "Trips";
-
-    //             break;
-    //         case 1:
-    //             rollType = "Roll Point";
-
-    //             break;
-    //         case 0:
-    //             rollType = "1 2 3";
-    //             ceeLoGame.lossConditon();
-
-    //             break;
-    //         default:
-    //             console.log("--- Please roll again ---");
-
-    //     }
-    // },
-
     // -------------------- CeeLo DICE ROLLS --------------------
     ceeLo: (a, b, c) => {
         // 4 5 6 CONDITION --------------------
@@ -345,6 +317,7 @@ let ceeLoGame = {
 
             };
 
+            // -------------------- DETERMINE ROLL TYPE --------------------
             let determineRollType = () => {
                 switch (rollCode) {
                     case 4:
