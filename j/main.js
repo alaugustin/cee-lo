@@ -69,9 +69,9 @@ let ceeLoGame = {
         win = false;
         ceeLoGame.config.resetButtonPress;
         scoreBoard.innerHTML = "Please roll";
+        document.getElementById("showData").innerHTML = "";
         ceeLoGame.disableButtons();
         localStorage.clear();
-        document.getElementById("showData").innerHTML = "";
         console.log("Reset button pressed. Reset game win to " + win);
 
     },
@@ -291,7 +291,6 @@ let ceeLoGame = {
             }
 
         }
-
     },
 
     // -------------------- ROLL DICE --------------------
