@@ -301,11 +301,7 @@ let ceeLoGame = {
     },
 
     advancePlayer: () => {
-<<<<<<< HEAD
-        // TODO: MAKE THIS SUPPORT MOR THAN TWO PLAYERS
-=======
         // TODO: MAKE THIS SUPPORT MORE THAN TWO PLAYERS
->>>>>>> sprint-2
         for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
 
             if (ceeLoGame.config.rollButtonArray[i].disabled) {
