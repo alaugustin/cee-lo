@@ -69,9 +69,9 @@ let ceeLoGame = {
         win = false;
         ceeLoGame.config.resetButtonPress;
         scoreBoard.innerHTML = "Please roll";
+        document.getElementById("showData").innerHTML = "";
         ceeLoGame.disableButtons();
         localStorage.clear();
-        document.getElementById("showData").innerHTML = "";
         console.log("Reset button pressed. Reset game win to " + win);
 
     },
@@ -291,7 +291,6 @@ let ceeLoGame = {
             }
 
         }
-
     },
 
     // -------------------- ROLL DICE --------------------
@@ -322,31 +321,36 @@ let ceeLoGame = {
                 switch (rollCode) {
                     case 4:
                         rollType = "4 5 6";
-                        console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
                         ceeLoGame.winConditon();
+                        console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
+                        console.log("* ---------- *");
 
                         break;
                     case 3:
                         rollType = "Trips";
-                        console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
                         countButtonPress();
+                        console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
+                        console.log("* ---------- *");
 
                         break;
                     case 2:
                         rollType = "Roll Point";
-                        console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
                         countButtonPress();
+                        console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
+                        console.log("* ---------- *");
 
                         break;
                     case 1:
                         rollType = "1 2 3";
-                        console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
                         ceeLoGame.lossConditon();
+                        console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
+                        console.log("* ---------- *");
 
                         break;
                     default:
                         rollType = "No dice";
                         console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
+                        console.log("* ---------- *");
 
                 }
             };
@@ -357,8 +361,10 @@ let ceeLoGame = {
                     ceeLoGame.disableButtons();
                     console.log("roll code is " + rollCode + ' and roll point is ' + rollPoint);
                     console.log(JSON.parse(localStorage.getItem("highscores")));
+                    console.log("* ---------- *");
                 } else {
                     console.log("roll code is " + rollCode + ' and roll point is ' + rollPoint);
+                    console.log("* ---------- *");
                 }
 
             };
