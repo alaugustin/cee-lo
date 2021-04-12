@@ -69,6 +69,7 @@ let ceeLoGame = {
         scoreBoard.innerHTML = "Please roll";
         ceeLoGame.disableButtons();
         localStorage.clear();
+        document.getElementById("showData").innerHTML = "";
         console.log("Reset button pressed. Reset game win to " + win);
 
     },
