@@ -17,6 +17,7 @@ let ceeLoGame = {
             rollButtonArray: document.querySelectorAll(".rollButton"),
             win: false,
             diceSides: 6,
+            resetButtonPress: 0,
             rollCode: '',
             rollPoint: '',
             array456: '',
@@ -66,7 +67,7 @@ let ceeLoGame = {
     // -------------------- RESET GAME --------------------
     resetGame: () => {
         win = false;
-        buttonPressCount = 0;
+        ceeLoGame.config.resetButtonPress;
         scoreBoard.innerHTML = "Please roll";
         ceeLoGame.disableButtons();
         localStorage.clear();
@@ -324,7 +325,7 @@ let ceeLoGame = {
     // -------------------- ROLL DICE --------------------
     rollDice: () => {
 
-        let buttonPressCount = 0;
+        let buttonPressCount = ceeLoGame.config.resetButtonPress;
 
         for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
             const playerRoll = ceeLoGame.config.rollButtonArray[i];
