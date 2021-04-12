@@ -335,24 +335,12 @@ let ceeLoGame = {
 
     },
 
-    // HANDLE ALL PAGE LEVEL EVENTS --------------------
-    eventHandlers: () => {
-        // ALL EVENT FUNCTIONS HERE --------------------
         // console.log("Event handlers here");
+    // -------------------- ROLL DICE --------------------
+    rollDice: () => {
 
-        resetButton.addEventListener("click", () => {
-            ceeLoGame.resetGame();
-            ceeLoGame.resetDie();
-
-        });
-
-        startButton.addEventListener("click", () => {
-            ceeLoGame.startGame();
-
-        });
-
-        // -------------------- ROLL DICE --------------------
         // console.log(ceeLoGame.config.rollButtonArray);
+        let count = 0;
 
         for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
             const playerRoll = ceeLoGame.config.rollButtonArray[i];
@@ -360,6 +348,13 @@ let ceeLoGame = {
             playerRoll.addEventListener("click", () => {
                 ceeLoGame.randNum();
                 playerScoreBoard();
+
+                count++;
+
+                if (count == ceeLoGame.config.rollButtonArray.length) {
+                    ceeLoGame.disableButtons();
+                }
+
             });
 
             let playerScoreBoard = () => {
@@ -371,12 +366,28 @@ let ceeLoGame = {
             }
         }
     },
+
+    // HANDLE ALL PAGE LEVEL EVENTS --------------------
+    eventHandlers: () => {
+
+        resetButton.addEventListener("click", () => {
+            ceeLoGame.resetGame();
+            ceeLoGame.resetDie();
+
+        });
+
+        startButton.addEventListener("click", () => {
+            ceeLoGame.startGame();
+
+        });
+    },
 };
 
 window.addEventListener("load", () => {
     ceeLoGame.init();
     ceeLoGame.printDice();
     ceeLoGame.resetDie();
+    ceeLoGame.rollDice();
     ceeLoGame.eventHandlers();
     ceeLoGame.disableButtons();
 });
