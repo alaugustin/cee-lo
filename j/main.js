@@ -340,7 +340,7 @@ let ceeLoGame = {
     rollDice: () => {
 
         // console.log(ceeLoGame.config.rollButtonArray);
-        let count = 0;
+        let buttonPressCount = 0;
 
         for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
             const playerRoll = ceeLoGame.config.rollButtonArray[i];
@@ -348,12 +348,7 @@ let ceeLoGame = {
             playerRoll.addEventListener("click", () => {
                 ceeLoGame.randNum();
                 playerScoreBoard();
-
-                count++;
-
-                if (count == ceeLoGame.config.rollButtonArray.length) {
-                    ceeLoGame.disableButtons();
-                }
+                countButtonPress();
 
             });
 
@@ -363,7 +358,18 @@ let ceeLoGame = {
                 ceeLoGame.config.rollButtonArray[i].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + ceeLoGame.config.win;
                 ceeLoGame.storePlayerScore(playerNumber);
 
-            }
+            };
+
+            let countButtonPress = () => {
+                buttonPressCount++;
+                // console.log("button has been pushed " + count + " times");
+
+                if (buttonPressCount == ceeLoGame.config.rollButtonArray.length) {
+                    ceeLoGame.disableButtons();
+                    console.log(JSON.parse(localStorage.getItem("highscores")))
+                }
+
+            };
         }
     },
 
