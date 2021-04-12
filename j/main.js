@@ -312,7 +312,7 @@ let ceeLoGame = {
             let playerScoreBoard = () => {
                 let players = [i],
                     playerNumber = players[0] + 1;
-                ceeLoGame.config.rollButtonArray[i].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + ceeLoGame.config.win;
+                // ceeLoGame.config.rollButtonArray[i].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + ceeLoGame.config.win;
                 ceeLoGame.storePlayerScore(playerNumber);
 
             };
