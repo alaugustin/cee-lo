@@ -54,6 +54,7 @@ let ceeLoGame = {
         document.getElementById("die1").innerHTML = a;
         document.getElementById("die2").innerHTML = b;
         document.getElementById("die3").innerHTML = c;
+
     },
 
     // -------------------- START GAME --------------------
@@ -215,6 +216,7 @@ let ceeLoGame = {
             }
         }
         fourFiveSix();
+
     },
 
     // -------------------- PLAYER SCORE--------------------
@@ -229,6 +231,7 @@ let ceeLoGame = {
         if (rollCode == 4 || rollCode == 3 || rollCode == 2 || rollCode == 1) {
             populateLScore();
             ceeLoGame.advancePlayer();
+
         }
     },
 
@@ -249,7 +252,6 @@ let ceeLoGame = {
 
         // Create a table.
         const table = document.createElement("table");
-
         // Create table header row using the extracted headers above.
         let tr = table.insertRow(-1); // table row.
 
@@ -257,6 +259,7 @@ let ceeLoGame = {
             let th = document.createElement("th"); // table header.
             th.innerHTML = col[i];
             tr.appendChild(th);
+
         }
 
         // add json data to the table as rows.
@@ -274,6 +277,7 @@ let ceeLoGame = {
         const divShowData = document.getElementById('showData');
         divShowData.innerHTML = "";
         divShowData.appendChild(table);
+
     },
 
     advancePlayer: () => {
@@ -281,15 +285,14 @@ let ceeLoGame = {
         for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
 
             if (ceeLoGame.config.rollButtonArray[i].disabled) {
-
                 ceeLoGame.config.rollButtonArray[0].disabled = true;
                 ceeLoGame.config.rollButtonArray[i].disabled = false;
-            } else {
 
+            } else {
                 ceeLoGame.config.rollButtonArray[0].disabled = false;
                 ceeLoGame.config.rollButtonArray[i].disabled = true;
-            }
 
+            }
         }
     },
 
@@ -362,11 +365,12 @@ let ceeLoGame = {
                     console.log("roll code is " + rollCode + ' and roll point is ' + rollPoint);
                     console.log(JSON.parse(localStorage.getItem("highscores")));
                     console.log("* ---------- *");
+
                 } else {
                     console.log("roll code is " + rollCode + ' and roll point is ' + rollPoint);
                     console.log("* ---------- *");
-                }
 
+                }
             };
         }
     },
