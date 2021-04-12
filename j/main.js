@@ -66,6 +66,7 @@ let ceeLoGame = {
     // -------------------- RESET GAME --------------------
     resetGame: () => {
         win = false;
+        buttonPressCount = 0;
         scoreBoard.innerHTML = "Please roll";
         ceeLoGame.disableButtons();
         localStorage.clear();
@@ -250,9 +251,9 @@ let ceeLoGame = {
 
         };
 
-            ceeLoGame.advancePlayer();
         if (rollCode == 4 || rollCode == 3 || rollCode == 2 || rollCode == 1) {
             populateLScore();
+            ceeLoGame.advancePlayer();
         }
     },
 
@@ -346,7 +347,7 @@ let ceeLoGame = {
                     case 4:
                         rollType = "4 5 6";
                         console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
-                        countButtonPress();
+                        ceeLoGame.winConditon();
 
                         break;
                     case 3:
@@ -364,7 +365,7 @@ let ceeLoGame = {
                     case 1:
                         rollType = "1 2 3";
                         console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
-                        countButtonPress();
+                        ceeLoGame.lossConditon();
 
                         break;
                     default:
