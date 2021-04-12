@@ -405,7 +405,6 @@ let ceeLoGame = {
 };
 
 window.addEventListener("load", () => {
-    // FOOOOOOO DELETE THIS LATER --- --- --- --- ---
     ceeLoGame.init();
     ceeLoGame.printDice();
     ceeLoGame.resetDie();
