@@ -128,32 +128,32 @@ let ceeLoGame = {
     },
 
     // -------------------- DETERMINE ROLL TYPE --------------------
-    determineRollType: (rollPoint) => {
+    // determineRollType: () => {
 
-        switch (rollCode) {
-            case 3:
-                rollType = "4 5 6";
-                ceeLoGame.winConditon();
+    //     switch (rollCode) {
+    //         case 3:
+    //             rollType = "4 5 6";
+    //             ceeLoGame.winConditon();
 
-                break;
-            case 2:
-                rollType = "Trips";
+    //             break;
+    //         case 2:
+    //             rollType = "Trips";
 
-                break;
-            case 1:
-                rollType = "Roll Point";
+    //             break;
+    //         case 1:
+    //             rollType = "Roll Point";
 
-                break;
-            case 0:
-                rollType = "1 2 3";
-                ceeLoGame.lossConditon();
+    //             break;
+    //         case 0:
+    //             rollType = "1 2 3";
+    //             ceeLoGame.lossConditon();
 
-                break;
-            default:
-                console.log("--- Please roll again ---");
+    //             break;
+    //         default:
+    //             console.log("--- Please roll again ---");
 
-        }
-    },
+    //     }
+    // },
 
     // -------------------- CeeLo DICE ROLLS --------------------
     ceeLo: (a, b, c) => {
@@ -162,12 +162,12 @@ let ceeLoGame = {
             let array456 = [a, b, c],
                 array456sort = array456.sort(),
                 array456string = array456sort.toString();
-            rollCode = 3;
+            rollCode = 4;
             rollPoint = 3;
 
             if (array456string === "4,5,6") {
                 rollCode;
-                ceeLoGame.determineRollType(rollPoint);
+                // ceeLoGame.determineRollType(rollPoint);
 
             } else {
                 trips();
@@ -177,13 +177,13 @@ let ceeLoGame = {
 
         // TRIPS CONDITION --------------------
         let trips = () => {
-            rollCode = 2;
+            rollCode = 3;
 
             if (a === b && b === c) {
                 rollCode;
                 rollPoint = a;
                 scoreBoard.innerHTML = "Trips - " + a + b + c;
-                ceeLoGame.determineRollType(rollPoint);
+                // ceeLoGame.determineRollType(rollPoint);
 
             } else {
                 point();
@@ -193,25 +193,25 @@ let ceeLoGame = {
 
         // POINT CONDITION --------------------
         let point = () => {
-            rollCode = 1;
+            rollCode = 2;
 
             if (a === b) {
                 scoreBoard.innerHTML = c;
                 rollPoint = c;
                 rollCode;
-                ceeLoGame.determineRollType(rollPoint);
+                // ceeLoGame.determineRollType(rollPoint);
 
             } else if (a === c) {
                 scoreBoard.innerHTML = b;
                 rollPoint = b;
                 rollCode;
-                ceeLoGame.determineRollType(rollPoint);
+                // ceeLoGame.determineRollType(rollPoint);
 
             } else if (b === c) {
                 scoreBoard.innerHTML = a;
                 rollPoint = a;
                 rollCode;
-                ceeLoGame.determineRollType(rollPoint);
+                // ceeLoGame.determineRollType(rollPoint);
 
             } else {
                 oneTwoThree();
@@ -224,14 +224,15 @@ let ceeLoGame = {
             let array123 = [a, b, c],
                 array123sort = array123.sort(),
                 array123string = array123sort.toString();
-            rollCode = 0;
+            rollCode = 1;
             rollPoint = 0;
 
             if (array123string === "1,2,3") {
                 rollCode;
-                ceeLoGame.determineRollType(rollPoint);
+                // ceeLoGame.determineRollType(rollPoint);
 
             } else {
+                rollCode = 0;
                 scoreBoard.innerHTML = "Roll again.";
 
             }
@@ -327,7 +328,7 @@ let ceeLoGame = {
             playerRoll.addEventListener("click", () => {
                 ceeLoGame.randNum();
                 playerScoreBoard();
-                countButtonPress();
+                determineRollType();
 
             });
 
@@ -339,13 +340,47 @@ let ceeLoGame = {
 
             };
 
+            let determineRollType = () => {
+                switch (rollCode) {
+                    case 4:
+                        rollType = "4 5 6";
+                        console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
+                        countButtonPress();
+
+                        break;
+                    case 3:
+                        rollType = "Trips";
+                        console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
+                        countButtonPress();
+
+                        break;
+                    case 2:
+                        rollType = "Roll Point";
+                        console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
+                        countButtonPress();
+
+                        break;
+                    case 1:
+                        rollType = "1 2 3";
+                        console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
+                        countButtonPress();
+
+                        break;
+                    default:
+                        rollType = "No dice";
+                        console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
+
+                }
+            };
+
             let countButtonPress = () => {
                 buttonPressCount++;
-                // console.log("button has been pushed " + count + " times");
-
                 if (buttonPressCount == ceeLoGame.config.rollButtonArray.length) {
                     ceeLoGame.disableButtons();
-                    console.log(JSON.parse(localStorage.getItem("highscores")))
+                    console.log("roll code is " + rollCode + ' and roll point is ' + rollPoint);
+                    console.log(JSON.parse(localStorage.getItem("highscores")));
+                } else {
+                    console.log("roll code is " + rollCode + ' and roll point is ' + rollPoint);
                 }
 
             };
