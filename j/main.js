@@ -243,16 +243,16 @@ let ceeLoGame = {
 
     // -------------------- PLAYER SCORE--------------------
     storePlayerScore: (playerNumber) => {
-        let populateLsScore = () => {
+        let populateLScore = () => {
             ceeLoGame.config.highScores.push({ "player": playerNumber, "roll_code": rollCode, "roll_point": rollPoint });
             localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
             ceeLoGame.playerScoreTable();
 
         };
 
-        if (rollCode == 3 || rollCode == 2 || rollCode == 1 || rollCode == 0) {
-            populateLsScore();
             ceeLoGame.advancePlayer();
+        if (rollCode == 4 || rollCode == 3 || rollCode == 2 || rollCode == 1) {
+            populateLScore();
         }
     },
 
