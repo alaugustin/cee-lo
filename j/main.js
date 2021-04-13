@@ -376,6 +376,8 @@ let ceeLoGame = {
     },
 
     playerPosition: () => {
+        let foo = JSON.parse(localStorage.getItem("highscores"));
+        console.log(foo);
         console.log("Compare rolls");
         console.log("* ---------- *");
     },
