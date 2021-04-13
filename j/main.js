@@ -363,9 +363,8 @@ let ceeLoGame = {
                 buttonPressCount++;
                 if (buttonPressCount == ceeLoGame.config.rollButtonArray.length) {
                     ceeLoGame.disableButtons();
-                    console.log("roll code is " + rollCode + ' and roll point is ' + rollPoint);
                     console.log(JSON.parse(localStorage.getItem("highscores")));
-                    console.log("* ---------- *");
+                    ceeLoGame.playerPosition();
 
                 } else {
                     console.log("roll code is " + rollCode + ' and roll point is ' + rollPoint);
@@ -374,6 +373,11 @@ let ceeLoGame = {
                 }
             };
         }
+    },
+
+    playerPosition: () => {
+        console.log("Compare rolls");
+        console.log("* ---------- *");
     },
 
     // HANDLE ALL PAGE LEVEL EVENTS --------------------
