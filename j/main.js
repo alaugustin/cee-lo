@@ -71,6 +71,7 @@ let ceeLoGame = {
         ceeLoGame.config.resetButtonPress;
         scoreBoard.innerHTML = "Please roll";
         document.getElementById("showData").innerHTML = "";
+        window.location.href = window.location.href;
         ceeLoGame.disableButtons();
         localStorage.clear();
         console.log("Reset button pressed. Reset game win to " + win);
