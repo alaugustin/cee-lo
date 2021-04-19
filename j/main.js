@@ -325,7 +325,8 @@ let ceeLoGame = {
                 switch (rollCode) {
                     case 4:
                         rollType = "4 5 6";
-                        ceeLoGame.winConditon();
+                        // ceeLoGame.winConditon();
+                        ceeLoGame.playerPosition();
 
                         break;
                     case 3:
@@ -340,7 +341,8 @@ let ceeLoGame = {
                         break;
                     case 1:
                         rollType = "1 2 3";
-                        ceeLoGame.lossConditon();
+                        // ceeLoGame.lossConditon();
+                        ceeLoGame.playerPosition();
 
                         break;
                     default:
@@ -366,9 +368,21 @@ let ceeLoGame = {
     },
 
     playerPosition: () => {
-        let foo = JSON.parse(localStorage.getItem("highscores"));
-        console.log(foo);
-        console.log("Compare rolls");
+        let foo = JSON.parse(localStorage.getItem("highscores")),
+            player1Data = foo[0],
+            player2Data = foo[1];
+
+        let compare = (player1Data, player2Data) => {
+            if (player1Data.roll_code > player2Data.roll_code) {
+                console.log("player 1 wins");
+            } else if (player1Data.roll_code < player2Data.roll_code) {
+                console.log("player 2 wins");
+            } else {
+                console.log("compare roll points");
+            }
+        }
+
+        compare(player1Data, player2Data);
         console.log("* ---------- *");
     },
 
