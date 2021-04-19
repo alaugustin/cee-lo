@@ -326,35 +326,25 @@ let ceeLoGame = {
                     case 4:
                         rollType = "4 5 6";
                         ceeLoGame.winConditon();
-                        console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
-                        console.log("* ---------- *");
 
                         break;
                     case 3:
                         rollType = "Trips";
                         countButtonPress();
-                        console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
-                        console.log("* ---------- *");
 
                         break;
                     case 2:
                         rollType = "Roll Point";
                         countButtonPress();
-                        console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
-                        console.log("* ---------- *");
 
                         break;
                     case 1:
                         rollType = "1 2 3";
                         ceeLoGame.lossConditon();
-                        console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
-                        console.log("* ---------- *");
 
                         break;
                     default:
                         rollType = "No dice";
-                        console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
-                        console.log("* ---------- *");
 
                 }
             };
