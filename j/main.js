@@ -354,12 +354,12 @@ let ceeLoGame = {
             let countButtonPress = () => {
                 buttonPressCount++;
                 if (buttonPressCount == ceeLoGame.config.rollButtonArray.length) {
+                    console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
                     ceeLoGame.disableButtons();
-                    console.log(JSON.parse(localStorage.getItem("highscores")));
                     ceeLoGame.playerPosition();
 
                 } else {
-                    console.log("roll code is " + rollCode + ' and roll point is ' + rollPoint);
+                    console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
                     console.log("* ---------- *");
 
                 }
