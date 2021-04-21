@@ -374,11 +374,57 @@ let ceeLoGame = {
 
         let compare = (player1Data, player2Data) => {
             if (player1Data.roll_code > player2Data.roll_code) {
-                console.log("player 1 wins");
+                switch (player1Data.roll_code) {
+                    case 4:
+                        console.log("456 player 1 goes first");
+
+                        break;
+                    case 3:
+                        console.log("player 1 goes first");
+
+                        break;
+                    case 2:
+                        console.log("player 1 goes first");
+
+                        break;
+                    case 1:
+                        console.log("123 player 1 goes last");
+
+                        break;
+                    default:
+                        console.log("No dice player 1");
+
+                }
             } else if (player1Data.roll_code < player2Data.roll_code) {
-                console.log("player 2 wins");
+                switch (player2Data.roll_code) {
+                    case 4:
+                        console.log("456 player 2 goes first");
+
+                        break;
+                    case 3:
+                        console.log("player 2 goes first");
+
+                        break;
+                    case 2:
+                        console.log("player 2 goes first");
+
+                        break;
+                    case 1:
+                        console.log("123 player 2 goes last");
+
+                        break;
+                    default:
+                        console.log("No dice player 2");
+
+                }
             } else {
-                console.log("compare roll points");
+                if (player1Data.roll_point > player2Data.roll_point) {
+                    console.log("player 1 goes first");
+                } else if (player1Data.roll_point < player2Data.roll_point) {
+                    console.log("player 2 goes first");
+                } else {
+                    console.log("roll again");
+                }
             }
         }
 
