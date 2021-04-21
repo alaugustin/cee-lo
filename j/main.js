@@ -326,7 +326,7 @@ let ceeLoGame = {
                     case 4:
                         rollType = "4 5 6";
                         // ceeLoGame.winConditon();
-                        ceeLoGame.playerPosition();
+                        countButtonPress();
 
                         break;
                     case 3:
@@ -341,8 +341,8 @@ let ceeLoGame = {
                         break;
                     case 1:
                         rollType = "1 2 3";
+                        countButtonPress();
                         // ceeLoGame.lossConditon();
-                        ceeLoGame.playerPosition();
 
                         break;
                     default:
