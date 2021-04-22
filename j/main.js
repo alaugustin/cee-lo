@@ -376,19 +376,19 @@ let ceeLoGame = {
             if (player1Data.roll_code > player2Data.roll_code) {
                 switch (player1Data.roll_code) {
                     case 4:
-                        console.log("456 player 1 goes first");
+                        player1first();
 
                         break;
                     case 3:
-                        console.log("player 1 goes first");
+                        player1first();
 
                         break;
                     case 2:
-                        console.log("player 1 goes first");
+                        player1first();
 
                         break;
                     case 1:
-                        console.log("123 player 1 goes last");
+                        player2first();
 
                         break;
                     default:
@@ -398,19 +398,19 @@ let ceeLoGame = {
             } else if (player1Data.roll_code < player2Data.roll_code) {
                 switch (player2Data.roll_code) {
                     case 4:
-                        console.log("456 player 2 goes first");
+                        player2first();
 
                         break;
                     case 3:
-                        console.log("player 2 goes first");
+                        player2first();
 
                         break;
                     case 2:
-                        console.log("player 2 goes first");
+                        player2first();
 
                         break;
                     case 1:
-                        console.log("123 player 2 goes last");
+                        player1first();
 
                         break;
                     default:
@@ -419,13 +419,23 @@ let ceeLoGame = {
                 }
             } else {
                 if (player1Data.roll_point > player2Data.roll_point) {
-                    console.log("player 1 goes first");
+                    player1first();
                 } else if (player1Data.roll_point < player2Data.roll_point) {
-                    console.log("player 2 goes first");
+                    player2first();
                 } else {
-                    console.log("roll again");
+                    tieRoll();
                 }
             }
+        }
+
+        let player1first = () => {
+            scoreBoard.innerHTML = "player 1 goes first";
+        }
+        let player2first = () => {
+            scoreBoard.innerHTML = "player 2 goes first";
+        }
+        let tieRoll = () => {
+            scoreBoard.innerHTML = "Tie. Roll again";
         }
 
         compare(player1Data, player2Data);
