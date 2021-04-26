@@ -60,6 +60,7 @@ let ceeLoGame = {
     // -------------------- START GAME --------------------
     startGame: () => {
         scoreBoard.innerHTML = "Player 1 roll";
+        localStorage.clear();
         ceeLoGame.initCLgame();
         console.log("Start button pressed.");
 
