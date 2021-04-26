@@ -445,11 +445,11 @@ let ceeLoGame = {
     // HANDLE ALL PAGE LEVEL EVENTS --------------------
     eventHandlers: () => {
 
-        resetButton.addEventListener("click", () => {
-            ceeLoGame.resetGame();
-            ceeLoGame.resetDie();
+        // resetButton.addEventListener("click", () => {
+        //     ceeLoGame.resetGame();
+        //     ceeLoGame.resetDie();
 
-        });
+        // });
 
         startButton.addEventListener("click", () => {
             ceeLoGame.startGame();
