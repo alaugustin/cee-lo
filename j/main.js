@@ -279,6 +279,9 @@ let ceeLoGame = {
         divShowData.innerHTML = "";
         divShowData.appendChild(table);
 
+
+        ceeLoGame.playerPosition();
+
     },
 
     advancePlayer: () => {
@@ -356,7 +359,6 @@ let ceeLoGame = {
                 if (buttonPressCount == ceeLoGame.config.rollButtonArray.length) {
                     console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
                     ceeLoGame.disableButtons();
-                    ceeLoGame.playerPosition();
 
                 } else {
                     console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
