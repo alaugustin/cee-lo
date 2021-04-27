@@ -128,13 +128,11 @@ let ceeLoGame = {
     // -------------------- WIN/LOSS --------------------
     winConditon: () => {
         ceeLoGame.config.win = true;
-        ceeLoGame.disableButtons();
 
     },
 
     lossConditon: () => {
         ceeLoGame.config.win = false;
-        ceeLoGame.disableButtons();
 
     },
 
@@ -364,7 +362,6 @@ let ceeLoGame = {
                 buttonPressCount++;
                 if (buttonPressCount == ceeLoGame.config.rollButtonArray.length) {
                     console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
-                    ceeLoGame.disableButtons();
 
                 } else {
                     console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
