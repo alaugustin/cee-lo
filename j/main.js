@@ -149,7 +149,6 @@ let ceeLoGame = {
             if (array456string === "4,5,6") {
                 rollCode;
                 scoreBoard.innerHTML = "You win";
-                // ceeLoGame.determineRollType(rollPoint);
 
             } else {
                 trips();
@@ -165,7 +164,6 @@ let ceeLoGame = {
                 rollCode;
                 rollPoint = a;
                 scoreBoard.innerHTML = "Trips - " + a + b + c;
-                // ceeLoGame.determineRollType(rollPoint);
 
             } else {
                 point();
@@ -181,19 +179,16 @@ let ceeLoGame = {
                 scoreBoard.innerHTML = "Points - " + c;
                 rollPoint = c;
                 rollCode;
-                // ceeLoGame.determineRollType(rollPoint);
 
             } else if (a === c) {
                 scoreBoard.innerHTML = "Points - " + b;
                 rollPoint = b;
                 rollCode;
-                // ceeLoGame.determineRollType(rollPoint);
 
             } else if (b === c) {
                 scoreBoard.innerHTML = "Points - " + a;
                 rollPoint = a;
                 rollCode;
-                // ceeLoGame.determineRollType(rollPoint);
 
             } else {
                 oneTwoThree();
@@ -212,7 +207,6 @@ let ceeLoGame = {
             if (array123string === "1,2,3") {
                 rollCode;
                 scoreBoard.innerHTML = "You loose";
-                // ceeLoGame.determineRollType(rollPoint);
 
             } else {
                 rollCode = 0;
@@ -321,7 +315,6 @@ let ceeLoGame = {
             let playerScoreBoard = () => {
                 let players = [i],
                     playerNumber = players[0] + 1;
-                // ceeLoGame.config.rollButtonArray[i].previousElementSibling.innerHTML = "Player " + playerNumber + " score goes here. Win is = " + ceeLoGame.config.win;
                 ceeLoGame.storePlayerScore(playerNumber);
 
             };
@@ -331,7 +324,6 @@ let ceeLoGame = {
                 switch (rollCode) {
                     case 4:
                         rollType = "4 5 6";
-                        // ceeLoGame.winConditon();
                         countButtonPress();
 
                         break;
@@ -348,7 +340,6 @@ let ceeLoGame = {
                     case 1:
                         rollType = "1 2 3";
                         countButtonPress();
-                        // ceeLoGame.lossConditon();
 
                         break;
                     default:
@@ -452,15 +443,11 @@ let ceeLoGame = {
                         scoreBoard.innerHTML = "player 1 goes first";
                         ceeLoGame.config.rollButtonArray[0].disabled = false;
                         ceeLoGame.config.rollButtonArray[1].disabled = true;
-                        // ceeLoGame.config.rollButtonArray[0].disabled = false;
-                        // ceeLoGame.config.rollButtonArray[1].disabled = true;
                     }
                     let player2first = () => {
                         scoreBoard.innerHTML = "player 2 goes first";
                         ceeLoGame.config.rollButtonArray[1].disabled = false;
-                        ceeLoGame.config.rollButtonArray[0].disabled = false;
-                        // ceeLoGame.config.rollButtonArray[1].disabled = false;
-                        // ceeLoGame.config.rollButtonArray[0].disabled = true;
+                        ceeLoGame.config.rollButtonArray[0].disabled = true;
                     }
                     let tieRoll = () => {
                         player1first();
