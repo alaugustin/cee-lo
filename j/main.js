@@ -283,7 +283,6 @@ let ceeLoGame = {
         divShowData.innerHTML = "";
         divShowData.appendChild(table);
 
-
         ceeLoGame.playerPosition();
 
     },
@@ -373,14 +372,12 @@ let ceeLoGame = {
     },
 
     playerPosition: () => {
-        console.log("clicked");
-        let playerScores = JSON.parse(localStorage.getItem("highscores"));
+        let playerScores = JSON.parse(localStorage.getItem("highscores")),
+            player1Data = playerScores[0],
+            player2Data = playerScores[1];
         console.log(playerScores);
 
         playerScores.forEach(element => {
-            console.log(element.player);
-            console.log(element.roll_code);
-            console.log(element.roll_point);
 
             if (element.roll_code == 4) {
                 console.log("this player goes first");
@@ -390,78 +387,90 @@ let ceeLoGame = {
                 scoreBoard.innerHTML = "player " + element.player + " goes last bar";
             } else {
                 console.log("compare rolls");
+
+                if (typeof player2Data === 'undefined') {
+                    return;
+
+                } else {
+                    let compare = (player1Data, player2Data) => {
+                        if (player1Data.roll_code > player2Data.roll_code) {
+                            switch (player1Data.roll_code) {
+                                case 4:
+                                    player1first();
+
+                                    break;
+                                case 3:
+                                    player1first();
+
+                                    break;
+                                case 2:
+                                    player1first();
+
+                                    break;
+                                case 1:
+                                    player2first();
+
+                                    break;
+                                default:
+                                    console.log("No dice player 1");
+
+                            }
+                        } else if (player1Data.roll_code < player2Data.roll_code) {
+                            switch (player2Data.roll_code) {
+                                case 4:
+                                    player2first();
+
+                                    break;
+                                case 3:
+                                    player2first();
+
+                                    break;
+                                case 2:
+                                    player2first();
+
+                                    break;
+                                case 1:
+                                    player1first();
+
+                                    break;
+                                default:
+                                    console.log("No dice player 2");
+
+                            }
+                        } else {
+                            if (player1Data.roll_point > player2Data.roll_point) {
+                                player1first();
+                            } else if (player1Data.roll_point < player2Data.roll_point) {
+                                player2first();
+                            } else {
+                                tieRoll();
+                            }
+                        }
+                    }
+
+                    let player1first = () => {
+                        scoreBoard.innerHTML = "player 1 goes first";
+                        ceeLoGame.config.rollButtonArray[0].disabled = false;
+                        ceeLoGame.config.rollButtonArray[1].disabled = true;
+                        // ceeLoGame.config.rollButtonArray[0].disabled = false;
+                        // ceeLoGame.config.rollButtonArray[1].disabled = true;
+                    }
+                    let player2first = () => {
+                        scoreBoard.innerHTML = "player 2 goes first";
+                        ceeLoGame.config.rollButtonArray[1].disabled = false;
+                        ceeLoGame.config.rollButtonArray[0].disabled = false;
+                        // ceeLoGame.config.rollButtonArray[1].disabled = false;
+                        // ceeLoGame.config.rollButtonArray[0].disabled = true;
+                    }
+                    let tieRoll = () => {
+                        player1first();
+                        scoreBoard.innerHTML = "Tie. Roll again";
+                    }
+
+                    compare(player1Data, player2Data);
+                }
             }
         });
-        //     player1Data = foo[0],
-        //     player2Data = foo[1];
-
-        // let compare = (player1Data, player2Data) => {
-        //     if (player1Data.roll_code > player2Data.roll_code) {
-        //         switch (player1Data.roll_code) {
-        //             case 4:
-        //                 player1first();
-
-        //                 break;
-        //             case 3:
-        //                 player1first();
-
-        //                 break;
-        //             case 2:
-        //                 player1first();
-
-        //                 break;
-        //             case 1:
-        //                 player2first();
-
-        //                 break;
-        //             default:
-        //                 console.log("No dice player 1");
-
-        //         }
-        //     } else if (player1Data.roll_code < player2Data.roll_code) {
-        //         switch (player2Data.roll_code) {
-        //             case 4:
-        //                 player2first();
-
-        //                 break;
-        //             case 3:
-        //                 player2first();
-
-        //                 break;
-        //             case 2:
-        //                 player2first();
-
-        //                 break;
-        //             case 1:
-        //                 player1first();
-
-        //                 break;
-        //             default:
-        //                 console.log("No dice player 2");
-
-        //         }
-        //     } else {
-        //         if (player1Data.roll_point > player2Data.roll_point) {
-        //             player1first();
-        //         } else if (player1Data.roll_point < player2Data.roll_point) {
-        //             player2first();
-        //         } else {
-        //             tieRoll();
-        //         }
-        //     }
-        // }
-
-        // let player1first = () => {
-        //     scoreBoard.innerHTML = "player 1 goes first";
-        // }
-        // let player2first = () => {
-        //     scoreBoard.innerHTML = "player 2 goes first";
-        // }
-        // let tieRoll = () => {
-        //     scoreBoard.innerHTML = "Tie. Roll again";
-        // }
-
-        // compare(player1Data, player2Data);
         console.log("* ---------- *");
     },
 
