@@ -306,7 +306,7 @@ let ceeLoGame = {
 
         let buttonPressCount = ceeLoGame.config.resetButtonPress;
 
-        for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
+        for (let i = 0; i < ceeLoGame.config.playerArray.length; i++) {
             const playerRoll = ceeLoGame.config.rollButtonArray[i];
 
             playerRoll.addEventListener("click", () => {
