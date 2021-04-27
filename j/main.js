@@ -384,8 +384,10 @@ let ceeLoGame = {
 
             if (element.roll_code == 4) {
                 console.log("this player goes first");
+                scoreBoard.innerHTML = "player " + element.player + " goes first foo";
             } else if (element.roll_code == 1) {
                 console.log("this player goes last");
+                scoreBoard.innerHTML = "player " + element.player + " goes last bar";
             } else {
                 console.log("compare rolls");
             }
