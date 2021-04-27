@@ -35,7 +35,12 @@ let ceeLoGame = {
         };
 
         // CALL DOM INVOKING FUNCTIONS HERE --------------------
-        context.onDomReady();
+        ceeLoGame.onDomReady();
+        ceeLoGame.printDice();
+        ceeLoGame.resetDie();
+        ceeLoGame.rollDice();
+        ceeLoGame.eventHandlers();
+        ceeLoGame.disableButtons();
         console.log(ceeLoGame.config);
 
     },
@@ -479,9 +484,4 @@ let ceeLoGame = {
 
 window.addEventListener("load", () => {
     ceeLoGame.init();
-    ceeLoGame.printDice();
-    ceeLoGame.resetDie();
-    ceeLoGame.rollDice();
-    ceeLoGame.eventHandlers();
-    ceeLoGame.disableButtons();
 });
