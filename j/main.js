@@ -359,15 +359,40 @@ let ceeLoGame = {
         console.log(playerScores);
 
         playerScores.forEach(element => {
+          let playerName = element.player +1;
 
             if (element.roll_code == 4) {
                 console.log("this player goes first");
-                scoreBoard.innerHTML = "player " + element.player + " goes first foo";
+                scoreBoard.innerHTML = "4️⃣5️⃣6️⃣ player " + playerName + " goes first";
                 scoreBoard.classList.add("alert-success");
+
+                if (element.player == 0) {
+
+                  ceeLoGame.config.rollButtonArray[0].disabled = false;
+                  ceeLoGame.config.rollButtonArray[1].disabled = true;
+                } else {
+
+                  ceeLoGame.config.rollButtonArray[0].disabled = true;
+                  ceeLoGame.config.rollButtonArray[1].disabled = false;
+
+                }
             } else if (element.roll_code == 1) {
                 console.log("this player goes last");
-                scoreBoard.innerHTML = "player " + element.player + " goes last bar";
+                scoreBoard.innerHTML = "1️⃣️2️⃣3️⃣ player " + playerName + " goes last";
                 scoreBoard.classList.add("alert-danger");
+
+
+
+                if (element.player == 0) {
+
+                  ceeLoGame.config.rollButtonArray[0].disabled = true;
+                  ceeLoGame.config.rollButtonArray[1].disabled = false;
+                } else {
+
+                  ceeLoGame.config.rollButtonArray[0].disabled = false;
+                  ceeLoGame.config.rollButtonArray[1].disabled = true;
+
+                }
             } else {
                 console.log("compare rolls");
 
@@ -432,20 +457,20 @@ let ceeLoGame = {
                     }
 
                     let player1first = () => {
-                        scoreBoard.innerHTML = "player 1 goes first";
+                        scoreBoard.innerHTML = "player 1️⃣ goes first";
                         scoreBoard.classList.add("alert-primary");
                         ceeLoGame.config.rollButtonArray[0].disabled = false;
                         ceeLoGame.config.rollButtonArray[1].disabled = true;
                     }
                     let player2first = () => {
-                        scoreBoard.innerHTML = "player 2 goes first";
-                        ceeLoGame.config.rollButtonArray[1].disabled = false;
+                        scoreBoard.innerHTML = "player 2️⃣ goes first";
                         scoreBoard.classList.add("alert-primary");
                         ceeLoGame.config.rollButtonArray[0].disabled = true;
+                        ceeLoGame.config.rollButtonArray[1].disabled = false;
                     }
                     let tieRoll = () => {
                         player1first();
-                        scoreBoard.innerHTML = "Tie. Roll again";
+                        scoreBoard.innerHTML = "Tie. Roll again 🔁";
                         scoreBoard.classList.add("alert-warning");
                     }
 
