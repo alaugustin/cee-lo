@@ -363,9 +363,11 @@ let ceeLoGame = {
             if (element.roll_code == 4) {
                 console.log("this player goes first");
                 scoreBoard.innerHTML = "player " + element.player + " goes first foo";
+                scoreBoard.classList.add("alert-success");
             } else if (element.roll_code == 1) {
                 console.log("this player goes last");
                 scoreBoard.innerHTML = "player " + element.player + " goes last bar";
+                scoreBoard.classList.add("alert-danger");
             } else {
                 console.log("compare rolls");
 
@@ -431,17 +433,20 @@ let ceeLoGame = {
 
                     let player1first = () => {
                         scoreBoard.innerHTML = "player 1 goes first";
+                        scoreBoard.classList.add("alert-primary");
                         ceeLoGame.config.rollButtonArray[0].disabled = false;
                         ceeLoGame.config.rollButtonArray[1].disabled = true;
                     }
                     let player2first = () => {
                         scoreBoard.innerHTML = "player 2 goes first";
                         ceeLoGame.config.rollButtonArray[1].disabled = false;
+                        scoreBoard.classList.add("alert-primary");
                         ceeLoGame.config.rollButtonArray[0].disabled = true;
                     }
                     let tieRoll = () => {
                         player1first();
                         scoreBoard.innerHTML = "Tie. Roll again";
+                        scoreBoard.classList.add("alert-warning");
                     }
 
                     compare(player1Data, player2Data);
