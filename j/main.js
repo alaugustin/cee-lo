@@ -5,7 +5,7 @@ let ceeLoGame = {
     project: 'Cee-Lo web dice game',
     Date: '2021',
 
-    // INITIALIZATION --------------------
+    // -------------------- INITIALIZATION --------------------
     init: function () {
         let context = this;
 
@@ -256,7 +256,7 @@ let ceeLoGame = {
 
     },
 
-    // -------------------- PLAYER SCORE--------------------
+    // -------------------- PLAYER SCORE --------------------
     storePlayerScore: (playerNumber) => {
         let populateLScore = () => {
             ceeLoGame.config.highScores.push({ "player": playerNumber, "roll_code": rollCode, "roll_point": rollPoint });
@@ -273,6 +273,7 @@ let ceeLoGame = {
         }
     },
 
+    // -------------------- PLAYER SCORE TABLE --------------------
     playerScoreTable: () => {
         // the json data.
         const playerScoreData = JSON.parse(localStorage.getItem("highscores"));
@@ -318,6 +319,7 @@ let ceeLoGame = {
 
     },
 
+    // -------------------- ADVANCE PLAYER --------------------
     advancePlayer: () => {
         // TODO: MAKE THIS DYNAMICALLY SUPPORT MORE THAN TWO PLAYERS
         for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
@@ -334,6 +336,7 @@ let ceeLoGame = {
         }
     },
 
+    // -------------------- PLAYER POSITION --------------------
     playerPosition: () => {
         let playerScores = JSON.parse(localStorage.getItem("highscores")),
             player1Data = playerScores[0],
@@ -463,6 +466,7 @@ let ceeLoGame = {
         console.log("* ---------- *");
     },
 
+    // -------------------- FINAL ROUND --------------------
     finalRound: () => {
       alert("finalRound()");
     },
@@ -478,7 +482,7 @@ let ceeLoGame = {
 
     },
 
-    // HANDLE ALL PAGE LEVEL EVENTS --------------------
+    // -------------------- HANDLE ALL PAGE LEVEL EVENTS --------------------
     eventHandlers: () => {
 
         // resetButton.addEventListener("click", () => {
