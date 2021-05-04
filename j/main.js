@@ -140,38 +140,22 @@ let ceeLoGame = {
                 switch (rollCode) {
                     case 4:
                         rollType = "4 5 6";
-                        // countButtonPress();
 
                         break;
                     case 3:
                         rollType = "Trips";
-                        // countButtonPress();
 
                         break;
                     case 2:
                         rollType = "Roll Point";
-                        // countButtonPress();
 
                         break;
                     case 1:
                         rollType = "1 2 3";
-                        // countButtonPress();
 
                         break;
                     default:
                         rollType = "No dice";
-
-                }
-            };
-
-            let countButtonPress = () => {
-                buttonPressCount++;
-                if (buttonPressCount == ceeLoGame.config.rollButtonArray.length) {
-                    console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
-
-                } else {
-                    console.log(rollType + " | roll code is " + rollCode + ' and roll point is ' + rollPoint);
-                    console.log("* ---------- *");
 
                 }
             };
