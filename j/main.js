@@ -133,8 +133,6 @@ let ceeLoGame = {
                     playerNumber = players[0];
                 ceeLoGame.storePlayerScore(playerNumber);
 
-                // console.log(players);
-
             };
 
             // -------------------- DETERMINE ROLL TYPE --------------------
@@ -356,7 +354,6 @@ let ceeLoGame = {
         let playerScores = JSON.parse(localStorage.getItem("highscores")),
             player1Data = playerScores[0],
             player2Data = playerScores[1];
-        console.log(playerScores);
 
         playerScores.forEach(element => {
           let playerName = element.player +1;
@@ -394,7 +391,6 @@ let ceeLoGame = {
 
                 }
             } else {
-                console.log("compare rolls");
 
                 if (typeof player2Data === 'undefined') {
                     return;
@@ -420,7 +416,7 @@ let ceeLoGame = {
 
                                     break;
                                 default:
-                                    console.log("No dice player 1");
+                                    return;
 
                             }
                         } else if (player1Data.roll_code < player2Data.roll_code) {
@@ -442,7 +438,7 @@ let ceeLoGame = {
 
                                     break;
                                 default:
-                                    console.log("No dice player 2");
+                                    return;
 
                             }
                         } else {
