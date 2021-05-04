@@ -348,13 +348,14 @@ let ceeLoGame = {
                 scoreBoard.classList.add("alert-success");
 
                 if (element.player == 0) {
-
                   ceeLoGame.config.rollButtonArray[0].disabled = false;
                   ceeLoGame.config.rollButtonArray[1].disabled = true;
-                } else {
+                  ceeLoGame.finalRound();
 
+                } else {
                   ceeLoGame.config.rollButtonArray[0].disabled = true;
                   ceeLoGame.config.rollButtonArray[1].disabled = false;
+                  ceeLoGame.finalRound();
 
                 }
             } else if (element.roll_code == 1) {
@@ -362,16 +363,15 @@ let ceeLoGame = {
                 scoreBoard.innerHTML = "1️⃣️2️⃣3️⃣ player " + playerName + " goes last";
                 scoreBoard.classList.add("alert-danger");
 
-
-
                 if (element.player == 0) {
-
                   ceeLoGame.config.rollButtonArray[0].disabled = true;
                   ceeLoGame.config.rollButtonArray[1].disabled = false;
-                } else {
+                  ceeLoGame.finalRound();
 
+                } else {
                   ceeLoGame.config.rollButtonArray[0].disabled = false;
                   ceeLoGame.config.rollButtonArray[1].disabled = true;
+                  ceeLoGame.finalRound();
 
                 }
             } else {
@@ -441,12 +441,14 @@ let ceeLoGame = {
                         scoreBoard.classList.add("alert-primary");
                         ceeLoGame.config.rollButtonArray[0].disabled = false;
                         ceeLoGame.config.rollButtonArray[1].disabled = true;
+                        ceeLoGame.finalRound();
                     }
                     let player2first = () => {
                         scoreBoard.innerHTML = "player 2️⃣ goes first";
                         scoreBoard.classList.add("alert-primary");
                         ceeLoGame.config.rollButtonArray[0].disabled = true;
                         ceeLoGame.config.rollButtonArray[1].disabled = false;
+                        ceeLoGame.finalRound();
                     }
                     let tieRoll = () => {
                         player1first();
@@ -459,6 +461,10 @@ let ceeLoGame = {
             }
         });
         console.log("* ---------- *");
+    },
+
+    finalRound: () => {
+      alert("finalRound()");
     },
 
     // -------------------- WIN/LOSS --------------------
