@@ -173,8 +173,8 @@ let ceeLoGame = {
             b = Math.floor(Math.random() * sides) + 1,
             c = Math.floor(Math.random() * sides) + 1;
 
-        ceeLoGame.printDice(a, b, c);
         ceeLoGame.ceeLo(a, b, c);
+        ceeLoGame.printDice(a, b, c);
 
     },
 
