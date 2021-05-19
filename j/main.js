@@ -136,6 +136,7 @@ let ceeLoGame = {
 
             let playerScoreBoard = (playerNumber) => {
                 ceeLoGame.storePlayerScore(playerNumber);
+                //test entry
 
             };
 
