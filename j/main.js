@@ -122,15 +122,19 @@ let ceeLoGame = {
             const playerRoll = ceeLoGame.config.rollButtonArray[i];
 
             playerRoll.addEventListener("click", () => {
-                ceeLoGame.randNum();
-                playerScoreBoard();
-                // determineRollType();
 
+                // GET PLAYER NUMBER
+                var regexDigit = /\d+/;
+                var playerId = playerRoll.id;
+                var playerNumber = playerId.match(regexDigit)[0];
+                // END GET PLAYER NUMBER
+
+                ceeLoGame.randNum();
+                playerScoreBoard(playerNumber);
+                // determineRollType();
             });
 
-            let playerScoreBoard = () => {
-                let players = [i],
-                    playerNumber = players[0];
+            let playerScoreBoard = (playerNumber) => {
                 ceeLoGame.storePlayerScore(playerNumber);
 
             };
