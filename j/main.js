@@ -472,7 +472,14 @@ let ceeLoGame = {
 
     // -------------------- FINAL ROUND --------------------
     finalRound: () => {
-      alert("finalRound()");
+        alert("finalRound()");
+        localStorage.clear();
+        playerScoreData = {};
+        document.getElementById("showData").innerHTML = "";
+
+        buttonPressCount = ceeLoGame.config.resetButtonPress;
+
+        console.log(playerScoreData);
     },
 
     // -------------------- WIN/LOSS --------------------
