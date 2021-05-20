@@ -267,13 +267,11 @@ let ceeLoGame = {
             ceeLoGame.config.highScores.push({ "player": playerNumber, "roll_code": rollCode, "roll_point": rollPoint });
             localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
 
+            ceeLoGame.playerScoreTable();
         };
 
         if (rollCode == 4 || rollCode == 3 || rollCode == 2 || rollCode == 1) {
             populateLScore();
-            ceeLoGame.playerScoreTable();
-            ceeLoGame.advancePlayer();
-            ceeLoGame.playerPosition();
 
         }
     },
@@ -322,6 +320,8 @@ let ceeLoGame = {
         divShowData.innerHTML = "";
         divShowData.appendChild(table);
 
+        ceeLoGame.advancePlayer();
+
     },
 
     // -------------------- ADVANCE PLAYER --------------------
@@ -337,6 +337,7 @@ let ceeLoGame = {
                 ceeLoGame.config.rollButtonArray[0].disabled = false;
                 ceeLoGame.config.rollButtonArray[i].disabled = true;
 
+                ceeLoGame.playerPosition();
             }
         }
     },
