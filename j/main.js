@@ -181,6 +181,38 @@ let ceeLoGame = {
 
     // -------------------- CeeLo DICE ROLLS --------------------
     ceeLo: (a, b, c) => {
+        // 4 5 6 CONDITION --------------------
+        let fourFiveSix = () => {
+            let array456 = [a, b, c],
+                array456sort = array456.sort(),
+                array456string = array456sort.toString();
+            rollCode = 4;
+            rollPoint = 3;
+
+            if (array456string === "4,5,6") {
+                rollCode;
+                scoreBoard.innerHTML = "You win";
+
+            } else {
+                trips();
+
+            }
+        }
+
+        // TRIPS CONDITION --------------------
+        let trips = () => {
+            rollCode = 3;
+
+            if (a === b && b === c) {
+                rollCode;
+                rollPoint = a;
+                scoreBoard.innerHTML = "Trips - " + a + b + c;
+
+            } else {
+                point();
+
+            }
+        }
 
         // POINT CONDITION --------------------
         let point = () => {
@@ -200,39 +232,6 @@ let ceeLoGame = {
                 scoreBoard.innerHTML = "Points - " + a;
                 rollPoint = a;
                 rollCode;
-
-            } else {
-                trips();
-
-            }
-        }
-
-        // TRIPS CONDITION --------------------
-        let trips = () => {
-            rollCode = 3;
-
-            if (a === b && b === c) {
-                rollCode;
-                rollPoint = a;
-                scoreBoard.innerHTML = "Trips - " + a + b + c;
-
-            } else {
-                fourFiveSix();
-
-            }
-        }
-
-        // 4 5 6 CONDITION --------------------
-        let fourFiveSix = () => {
-            let array456 = [a, b, c],
-                array456sort = array456.sort(),
-                array456string = array456sort.toString();
-            rollCode = 4;
-            rollPoint = 3;
-
-            if (array456string === "4,5,6") {
-                rollCode;
-                scoreBoard.innerHTML = "You win";
 
             } else {
                 oneTwoThree();
@@ -255,9 +254,10 @@ let ceeLoGame = {
             } else {
                 rollCode = 0;
                 scoreBoard.innerHTML = "Roll again.";
+
             }
         }
-        point();
+        fourFiveSix();
 
     },
 
