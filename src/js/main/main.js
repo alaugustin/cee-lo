@@ -141,29 +141,29 @@ let ceeLoGame = {
             };
 
             // -------------------- DETERMINE ROLL TYPE --------------------
-            let determineRollType = () => {
-                switch (rollCode) {
-                    case 4:
-                        rollType = "4 5 6";
-
-                        break;
-                    case 3:
-                        rollType = "Trips";
-
-                        break;
-                    case 2:
-                        rollType = "Roll Point";
-
-                        break;
-                    case 1:
-                        rollType = "1 2 3";
-
-                        break;
-                    default:
-                        rollType = "No dice";
-
-                }
-            };
+            // let determineRollType = () => {
+            //     switch (rollCode) {
+            //         case 4:
+            //             rollType = "4 5 6";
+            //
+            //             break;
+            //         case 3:
+            //             rollType = "Trips";
+            //
+            //             break;
+            //         case 2:
+            //             rollType = "Roll Point";
+            //
+            //             break;
+            //         case 1:
+            //             rollType = "1 2 3";
+            //
+            //             break;
+            //         default:
+            //             rollType = "No dice";
+            //
+            //     }
+            // };
         }
     },
 
@@ -190,21 +190,19 @@ let ceeLoGame = {
             rollPoint = 3;
 
             if (array456string === "4,5,6") {
-                rollCode;
                 scoreBoard.innerHTML = "You win";
 
             } else {
                 trips();
 
             }
-        }
+        };
 
         // TRIPS CONDITION --------------------
         let trips = () => {
             rollCode = 3;
 
             if (a === b && b === c) {
-                rollCode;
                 rollPoint = a;
                 scoreBoard.innerHTML = "Trips - " + a + b + c;
 
@@ -212,7 +210,7 @@ let ceeLoGame = {
                 point();
 
             }
-        }
+        };
 
         // POINT CONDITION --------------------
         let point = () => {
@@ -221,23 +219,20 @@ let ceeLoGame = {
             if (a === b) {
                 scoreBoard.innerHTML = "Points - " + c;
                 rollPoint = c;
-                rollCode;
 
             } else if (a === c) {
                 scoreBoard.innerHTML = "Points - " + b;
                 rollPoint = b;
-                rollCode;
 
             } else if (b === c) {
                 scoreBoard.innerHTML = "Points - " + a;
                 rollPoint = a;
-                rollCode;
 
             } else {
                 oneTwoThree();
 
             }
-        }
+        };
 
         // 1 2 3 CONDITION --------------------
         let oneTwoThree = () => {
@@ -248,7 +243,6 @@ let ceeLoGame = {
             rollPoint = 0;
 
             if (array123string === "1,2,3") {
-                rollCode;
                 scoreBoard.innerHTML = "You loose";
 
             } else {
@@ -256,7 +250,7 @@ let ceeLoGame = {
                 scoreBoard.innerHTML = "Roll again.";
 
             }
-        }
+        };            
         fourFiveSix();
 
     },
