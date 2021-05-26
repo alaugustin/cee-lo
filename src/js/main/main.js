@@ -326,6 +326,7 @@ let ceeLoGame = {
 
     // -------------------- ADVANCE PLAYER --------------------
     advancePlayer: () => {
+
         // TODO: MAKE THIS DYNAMICALLY SUPPORT MORE THAN TWO PLAYERS
         for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
 
@@ -344,131 +345,97 @@ let ceeLoGame = {
 
     // -------------------- PLAYER POSITION --------------------
     playerPosition: () => {
+        console.log("playerPosition() executed");
+        ceeLoGame.disableButtons();
         let playerScores = JSON.parse(localStorage.getItem("highscores")),
             player1Data = playerScores[0],
             player2Data = playerScores[1];
 
-        playerScores.forEach(element => {
-          let playerName = element.player +1;
 
-            if (element.roll_code == 4) {
-                console.log("this player goes first");
-                scoreBoard.innerHTML = "4️⃣5️⃣6️⃣ player " + playerName + " goes first";
-                scoreBoard.classList.add("alert-success");
+        let player1first = () => {
+            scoreBoard.innerHTML = "player 1️⃣ goes first";
+            scoreBoard.classList.add("alert-primary");
+            ceeLoGame.config.rollButtonArray[0].disabled = false;
+            ceeLoGame.config.rollButtonArray[1].disabled = true;
+            ceeLoGame.finalRound();
+        }
+        let player2first = () => {
+            scoreBoard.innerHTML = "player 2️⃣ goes first";
+            scoreBoard.classList.add("alert-primary");
+            ceeLoGame.config.rollButtonArray[0].disabled = true;
+            ceeLoGame.config.rollButtonArray[1].disabled = false;
+            ceeLoGame.finalRound();
+        }
+        let tieRoll = () => {
+            player1first();
+            scoreBoard.innerHTML = "Tie. Roll again 🔁";
+            scoreBoard.classList.add("alert-warning");
+        }
 
-                if (element.player == 0) {
-                  ceeLoGame.config.rollButtonArray[0].disabled = false;
-                  ceeLoGame.config.rollButtonArray[1].disabled = true;
-                  ceeLoGame.finalRound();
+
+
+        if (player1Data.roll_code == 4) {// CHECK IF PLAYER 1 ROLLS 456
+            console.log("instant win player 1️⃣");
+            player1first();
+            ceeLoGame.disableButtons();
+
+
+        } else if (player1Data.roll_code == 1) {// CHECK IF PLAYER 1 ROLLS 123
+            console.log("instant loss player 1️⃣");
+            player2first();
+            ceeLoGame.disableButtons();
+
+        } else {
+            if (player1Data && player2Data) {
+
+                if (player2Data.roll_code == 4) {// CHECK IF PLAYER 2 ROLLS 456
+                    console.log("instant win player 2️⃣");
+                    player2first();
+                    ceeLoGame.disableButtons();
+
+
+                } else if (player2Data.roll_code == 1) {// CHECK IF PLAYER 2 ROLLS 123
+                    console.log("instant loss player 2️⃣");
+                    player1first();
+                    ceeLoGame.disableButtons();
 
                 } else {
-                  ceeLoGame.config.rollButtonArray[0].disabled = true;
-                  ceeLoGame.config.rollButtonArray[1].disabled = false;
-                  ceeLoGame.finalRound();
+                    console.log(player1Data);
+                    console.log(player2Data);
 
-                }
-            } else if (element.roll_code == 1) {
-                console.log("this player goes last");
-                scoreBoard.innerHTML = "1️⃣️2️⃣3️⃣ player " + playerName + " goes last";
-                scoreBoard.classList.add("alert-danger");
+                    if (player1Data.roll_code == player2Data.roll_code) {// CHECK IF PLAYER AND 2 HAVE THE SAME ROLL CODE
+                        if (player1Data.roll_point == player2Data.roll_point) {// CHECK IF PLAYER AND 2 HAVE THE SAME ROLL POINT
+                            console.log("tie roll");
 
-                if (element.player == 0) {
-                  ceeLoGame.config.rollButtonArray[0].disabled = true;
-                  ceeLoGame.config.rollButtonArray[1].disabled = false;
-                  ceeLoGame.finalRound();
+                            tieRoll();
+                        } else if (player1Data.roll_point > player2Data.roll_point) {
+                            console.log("player 1️⃣ goes first");
+                            ceeLoGame.disableButtons();
+                            player1first();
 
-                } else {
-                  ceeLoGame.config.rollButtonArray[0].disabled = false;
-                  ceeLoGame.config.rollButtonArray[1].disabled = true;
-                  ceeLoGame.finalRound();
-
-                }
-            } else {
-
-                if (typeof player2Data === 'undefined') {
-                    return;
-
-                } else {
-                    let compare = (player1Data, player2Data) => {
-                        if (player1Data.roll_code > player2Data.roll_code) {
-                            switch (player1Data.roll_code) {
-                                case 4:
-                                    player1first();
-
-                                    break;
-                                case 3:
-                                    player1first();
-
-                                    break;
-                                case 2:
-                                    player1first();
-
-                                    break;
-                                case 1:
-                                    player2first();
-
-                                    break;
-                                default:
-                                    return;
-
-                            }
-                        } else if (player1Data.roll_code < player2Data.roll_code) {
-                            switch (player2Data.roll_code) {
-                                case 4:
-                                    player2first();
-
-                                    break;
-                                case 3:
-                                    player2first();
-
-                                    break;
-                                case 2:
-                                    player2first();
-
-                                    break;
-                                case 1:
-                                    player1first();
-
-                                    break;
-                                default:
-                                    return;
-
-                            }
                         } else {
-                            if (player1Data.roll_point > player2Data.roll_point) {
-                                player1first();
-                            } else if (player1Data.roll_point < player2Data.roll_point) {
-                                player2first();
-                            } else {
-                                tieRoll();
-                            }
+                            console.log("player 2️⃣ goes first");
+                            ceeLoGame.disableButtons();
+                            player2first();
+
                         }
-                    }
 
-                    let player1first = () => {
-                        scoreBoard.innerHTML = "player 1️⃣ goes first";
-                        scoreBoard.classList.add("alert-primary");
-                        ceeLoGame.config.rollButtonArray[0].disabled = false;
-                        ceeLoGame.config.rollButtonArray[1].disabled = true;
-                        ceeLoGame.finalRound();
-                    }
-                    let player2first = () => {
-                        scoreBoard.innerHTML = "player 2️⃣ goes first";
-                        scoreBoard.classList.add("alert-primary");
-                        ceeLoGame.config.rollButtonArray[0].disabled = true;
-                        ceeLoGame.config.rollButtonArray[1].disabled = false;
-                        ceeLoGame.finalRound();
-                    }
-                    let tieRoll = () => {
+                    } else if (player1Data.roll_code > player2Data.roll_code) {
+                        console.log("player 1️⃣ goes first");
+                            ceeLoGame.disableButtons();
                         player1first();
-                        scoreBoard.innerHTML = "Tie. Roll again 🔁";
-                        scoreBoard.classList.add("alert-warning");
-                    }
 
-                    compare(player1Data, player2Data);
+                    } else {
+                        console.log("player 2️⃣ goes first");
+                            ceeLoGame.disableButtons();
+                        player2first();
+
+                    }
                 }
             }
-        });
+        }
+
+
         console.log("* ---------- *");
     },
 
