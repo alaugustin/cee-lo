@@ -82,7 +82,7 @@ let ceeLoGame = {
             ceeLoGame.config.rollButtonArray[0].disabled = false;
             ceeLoGame.config.rollButtonArray[i].disabled = true;
 
-        }
+        };
 
         console.log("init game");
         console.log("* ---------- *");
@@ -94,7 +94,7 @@ let ceeLoGame = {
         for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
             ceeLoGame.config.rollButtonArray[i].disabled = true;
 
-        }
+        };
     },
 
     // -------------------- PRINT DICE NUMBERS --------------------
@@ -136,7 +136,6 @@ let ceeLoGame = {
 
             let playerScoreBoard = (playerNumber) => {
                 ceeLoGame.storePlayerScore(playerNumber);
-                //test entry
 
             };
 
@@ -164,7 +163,7 @@ let ceeLoGame = {
             //
             //     }
             // };
-        }
+        };
     },
 
     // -------------------- GENERATE RANDOM NUMBER --------------------
@@ -195,7 +194,7 @@ let ceeLoGame = {
             } else {
                 trips();
 
-            }
+            };
         };
 
         // TRIPS CONDITION --------------------
@@ -209,7 +208,7 @@ let ceeLoGame = {
             } else {
                 point();
 
-            }
+            };
         };
 
         // POINT CONDITION --------------------
@@ -231,7 +230,7 @@ let ceeLoGame = {
             } else {
                 oneTwoThree();
 
-            }
+            };
         };
 
         // 1 2 3 CONDITION --------------------
@@ -249,8 +248,8 @@ let ceeLoGame = {
                 rollCode = 0;
                 scoreBoard.innerHTML = "Roll again.";
 
-            }
-        };            
+            };
+        };
         fourFiveSix();
 
     },
@@ -267,7 +266,7 @@ let ceeLoGame = {
         if (rollCode == 4 || rollCode == 3 || rollCode == 2 || rollCode == 1) {
             populateLScore();
 
-        }
+        };
     },
 
     // -------------------- PLAYER SCORE TABLE --------------------
@@ -282,9 +281,9 @@ let ceeLoGame = {
             for (let key in playerScoreData[i]) {
                 if (col.indexOf(key) === -1) {
                     col.push(key);
-                }
-            }
-        }
+                };
+            };
+        };
 
         // Create a table.
         const table = document.createElement("table");
@@ -296,7 +295,7 @@ let ceeLoGame = {
             th.innerHTML = col[i];
             tr.appendChild(th);
 
-        }
+        };
 
         // add json data to the table as rows.
         for (let i = 0; i < playerScoreData.length; i++) {
@@ -306,8 +305,8 @@ let ceeLoGame = {
             for (let j = 0; j < col.length; j++) {
                 let tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = playerScoreData[i][col[j]];
-            }
-        }
+            };
+        };
 
         // Now, add the newly created table with json data, to a container.
         const divShowData = document.getElementById('showData');
@@ -333,8 +332,8 @@ let ceeLoGame = {
                 ceeLoGame.config.rollButtonArray[i].disabled = true;
 
                 ceeLoGame.playerPosition();
-            }
-        }
+            };
+        };
     },
 
     // -------------------- PLAYER POSITION --------------------
@@ -352,21 +351,21 @@ let ceeLoGame = {
             ceeLoGame.config.rollButtonArray[0].disabled = false;
             ceeLoGame.config.rollButtonArray[1].disabled = true;
             ceeLoGame.finalRound();
-        }
+        };
+
         let player2first = () => {
             scoreBoard.innerHTML = "player 2️⃣ goes first";
             scoreBoard.classList.add("alert-primary");
             ceeLoGame.config.rollButtonArray[0].disabled = true;
             ceeLoGame.config.rollButtonArray[1].disabled = false;
             ceeLoGame.finalRound();
-        }
+        };
+
         let tieRoll = () => {
             player1first();
             scoreBoard.innerHTML = "Tie. Roll again 🔁";
             scoreBoard.classList.add("alert-warning");
-        }
-
-
+        };
 
         if (player1Data.roll_code == 4) {// CHECK IF PLAYER 1 ROLLS 456
             console.log("instant win player 1️⃣");
@@ -412,7 +411,7 @@ let ceeLoGame = {
                             ceeLoGame.disableButtons();
                             player2first();
 
-                        }
+                        };
 
                     } else if (player1Data.roll_code > player2Data.roll_code) {
                         console.log("player 1️⃣ goes first");
@@ -424,10 +423,10 @@ let ceeLoGame = {
                             ceeLoGame.disableButtons();
                         player2first();
 
-                    }
-                }
-            }
-        }
+                    };
+                };
+            };
+        };
 
 
         console.log("* ---------- *");
