@@ -458,6 +458,16 @@ let ceeLoGame = {
     // -------------------- HANDLE ALL PAGE LEVEL EVENTS --------------------
     eventHandlers: () => {
 
+        // TESTING BUTTON *************************
+        let testButton = document.getElementById("testButton");
+        testButton.addEventListener("click", () => {
+            console.log(this);
+        });
+
+        // console.log(testButton);
+        //*************************
+
+
         // resetButton.addEventListener("click", () => {
         //     ceeLoGame.resetGame();
         //     ceeLoGame.resetDie();
