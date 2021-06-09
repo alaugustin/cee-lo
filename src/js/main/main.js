@@ -47,6 +47,16 @@ let ceeLoGame = {
 
     },
 
+
+
+
+
+
+
+
+
+
+
     onDomReady: () => {
         // -------------------- PLAYER --------------------
         let howManyPlayers = ceeLoGame.config.playerArray.length;
@@ -55,6 +65,16 @@ let ceeLoGame = {
         scoreBoard.innerHTML = "Please press start";
 
     },
+
+
+
+
+
+
+
+
+
+
 
     // -------------------- START GAME --------------------
     startGame: () => {
@@ -66,6 +86,16 @@ let ceeLoGame = {
         ceeLoGame.gameRound();
 
     },
+
+
+
+
+
+
+
+
+
+
 
     // -------------------- RESET GAME --------------------
     resetGame: () => {
@@ -80,6 +110,16 @@ let ceeLoGame = {
 
     },
 
+
+
+
+
+
+
+
+
+
+
     // -------------------- INIT GAME --------------------
     initCLgame: () => {
         for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
@@ -90,6 +130,16 @@ let ceeLoGame = {
 
     },
 
+
+
+
+
+
+
+
+
+
+
     // -------------------- GAME --------------------
     disableButtons: () => {
         for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
@@ -97,6 +147,16 @@ let ceeLoGame = {
 
         };
     },
+
+
+
+
+
+
+
+
+
+
 
     // -------------------- PRINT DICE NUMBERS --------------------
     printDice: (a, b, c) => {
@@ -106,6 +166,16 @@ let ceeLoGame = {
 
     },
 
+
+
+
+
+
+
+
+
+
+
     // -------------------- RESET DICE NUMBERS --------------------
     resetDie: () => {
         document.getElementById("die1").innerHTML = 4;
@@ -113,6 +183,16 @@ let ceeLoGame = {
         document.getElementById("die3").innerHTML = 6;
 
     },
+
+
+
+
+
+
+
+
+
+
 
     // -------------------- ROLL DICE --------------------
     rollDice: () => {
@@ -166,6 +246,16 @@ let ceeLoGame = {
             // };
         };
     },
+
+
+
+
+
+
+
+
+
+
 
     // -------------------- GENERATE RANDOM NUMBER --------------------
     randNum: () => {
@@ -299,6 +389,16 @@ let ceeLoGame = {
 
     },
 
+
+
+
+
+
+
+
+
+
+
     // -------------------- PLAYER SCORE --------------------
     storePlayerScore: (playerNumber) => {
         let populateLScore = () => {
@@ -313,6 +413,16 @@ let ceeLoGame = {
 
         };
     },
+
+
+
+
+
+
+
+
+
+
 
     // -------------------- PLAYER SCORE TABLE --------------------
     playerScoreTable: () => {
@@ -362,6 +472,16 @@ let ceeLoGame = {
 
     },
 
+
+
+
+
+
+
+
+
+
+
     // -------------------- ADVANCE PLAYER --------------------
     advancePlayer: () => {
 
@@ -380,6 +500,16 @@ let ceeLoGame = {
             };
         };
     },
+
+
+
+
+
+
+
+
+
+
 
     // -------------------- PLAYER POSITION --------------------
     playerPosition: () => {
@@ -477,6 +607,16 @@ let ceeLoGame = {
         console.log("* ---------- *");
     },
 
+
+
+
+
+
+
+
+
+
+
     // -------------------- FINAL ROUND --------------------
     finalRound: () => {
         console.log("finalRound()");
@@ -491,6 +631,16 @@ let ceeLoGame = {
         // console.log(playerScoreData);
     },
 
+
+
+
+
+
+
+
+
+
+
     // -------------------- WIN/LOSS --------------------
     winConditon: () => {
         ceeLoGame.config.win = true;
@@ -501,6 +651,16 @@ let ceeLoGame = {
         ceeLoGame.config.win = false;
 
     },
+
+
+
+
+
+
+
+
+
+
 
     // -------------------- HANDLE ALL PAGE LEVEL EVENTS --------------------
     eventHandlers: () => {
