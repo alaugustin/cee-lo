@@ -278,7 +278,7 @@ let ceeLoGame = {
 
 
 
-
+    // -------------------- GAME ROUNDS --------------------
     gameRound: () => {
         // console.log(roundNum);
 
@@ -289,18 +289,27 @@ let ceeLoGame = {
                 break;
             case 1:
 
-                console.log("initCLgame() game executed");
-                console.log("round 1");
-                console.log("* ---------- *");
+                ceeLoGame.placementRound();
                 break;
             case 2:
-                console.log("round 2");
+                ceeLoGame.finalRound();
                 break;
 
             default:
                 console.log("nope");
                 break;
         }
+    },
+
+    placementRound: () => {
+        console.log("placementRound() game executed");
+        console.log("round 1");
+        console.log("* ---------- *");
+    },
+
+    finalRound: () => {
+        console.log("finalRound() game executed");
+        console.log("round 2");
     },
 
 
@@ -605,30 +614,6 @@ let ceeLoGame = {
 
 
         console.log("* ---------- *");
-    },
-
-
-
-
-
-
-
-
-
-
-
-    // -------------------- FINAL ROUND --------------------
-    finalRound: () => {
-        console.log("finalRound()");
-        ceeLoGame.config.roundNum++;
-        ceeLoGame.gameRound();
-        // localStorage.clear();
-        // playerScoreData = {};
-        // document.getElementById("showData").innerHTML = "";
-
-        // buttonPressCount = ceeLoGame.config.resetButtonPress;
-
-        // console.log(playerScoreData);
     },
 
 
