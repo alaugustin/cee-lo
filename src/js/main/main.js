@@ -27,6 +27,7 @@ let ceeLoGame = {
             array123sort: '',
             array123string: '',
             highScores: [],
+            roundNum: 0,
 
             // const
             startButton: document.getElementById("startButton"),
@@ -40,6 +41,7 @@ let ceeLoGame = {
         ceeLoGame.disableButtons();
         ceeLoGame.printDice();
         ceeLoGame.resetDie();
+        ceeLoGame.gameRound();
         ceeLoGame.rollDice();
         console.log(ceeLoGame.config);
 
@@ -60,6 +62,8 @@ let ceeLoGame = {
         localStorage.clear();
         ceeLoGame.initCLgame();
         console.log("Start button pressed.");
+        ceeLoGame.config.roundNum++;
+        ceeLoGame.gameRound();
 
     },
 
@@ -83,9 +87,6 @@ let ceeLoGame = {
             ceeLoGame.config.rollButtonArray[i].disabled = true;
 
         };
-
-        console.log("init game");
-        console.log("* ---------- *");
 
     },
 
@@ -177,6 +178,50 @@ let ceeLoGame = {
         ceeLoGame.printDice(a, b, c);
 
     },
+
+
+
+
+
+
+
+
+
+
+
+    gameRound: () => {
+        // console.log(roundNum);
+
+
+        switch (ceeLoGame.config.roundNum) {
+            case 0:
+                console.log("start game");
+                break;
+            case 1:
+
+                console.log("initCLgame() game executed");
+                console.log("round 1");
+                console.log("* ---------- *");
+                break;
+            case 2:
+                console.log("round 2");
+                break;
+
+            default:
+                console.log("nope");
+                break;
+        }
+    },
+
+
+
+
+
+
+
+
+
+
 
     // -------------------- CeeLo DICE ROLLS --------------------
     ceeLo: (a, b, c) => {
@@ -434,14 +479,16 @@ let ceeLoGame = {
 
     // -------------------- FINAL ROUND --------------------
     finalRound: () => {
-        alert("finalRound()");
-        localStorage.clear();
-        playerScoreData = {};
-        document.getElementById("showData").innerHTML = "";
+        console.log("finalRound()");
+        ceeLoGame.config.roundNum++;
+        ceeLoGame.gameRound();
+        // localStorage.clear();
+        // playerScoreData = {};
+        // document.getElementById("showData").innerHTML = "";
 
-        buttonPressCount = ceeLoGame.config.resetButtonPress;
+        // buttonPressCount = ceeLoGame.config.resetButtonPress;
 
-        console.log(playerScoreData);
+        // console.log(playerScoreData);
     },
 
     // -------------------- WIN/LOSS --------------------
@@ -461,7 +508,8 @@ let ceeLoGame = {
         // TESTING BUTTON *************************
         let testButton = document.getElementById("testButton");
         testButton.addEventListener("click", () => {
-            console.log(this);
+            // console.log(this);
+            ceeLoGame.gameRound();
         });
 
         // console.log(testButton);
@@ -481,6 +529,7 @@ let ceeLoGame = {
     },
 };
 
+// -------------------- LOAD init() --------------------
 window.addEventListener("load", () => {
     ceeLoGame.init();
 });
