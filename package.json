@@ -1,16 +1,16 @@
 {
-	"name": "project-name",
+	"name": "Cee-lo web dice game",
 	"version": "0.0.1",
-	"description": "A description for your project.",
-	"main": "./dist/your-main-js-file.js",
+	"description": "Cee-lo created with HTML and CSS.",
+	"main": "gulpfile.js",
 	"author": {
-		"name": "YOUR NAME",
+		"name": "Al Augustin",
 		"url": "http://link-to-your-website.com"
 	},
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "http://link-to-your-git-repo.com"
+		"url": "https://github.com/alaugustin/cee-lo"
 	},
 	"boilerplate": {
 		"version": "2.2.6",
