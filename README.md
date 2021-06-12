@@ -73,6 +73,7 @@ An HTML, JS version of the dice game.
         <li><a href="#sprint-1">Sprint 1</a></li>
         <li><a href="#sprint-2">Sprint 2</a></li>
         <li><a href="#sprint-3">Sprint 3</a></li>
+        <li><a href="#sprint-4">Sprint 4</a></li>
       </ol>
     </li>
     <!-- <li><a href="#contributing">Contributing</a></li>
@@ -179,6 +180,12 @@ Code review tasks
 
 <ol>
   <li>Compare roll function</li>
+</ol>
+
+### Sprint 4
+
+<ol>
+  <li>Determine winner</li>
 </ol>
 <!-- CONTRIBUTING
 ## Contributing

@@ -1,0 +1,52 @@
+{
+	"name": "Cee-lo web dice game",
+	"version": "0.0.1",
+	"description": "Cee-lo created with HTML and CSS.",
+	"main": "gulpfile.js",
+	"author": {
+		"name": "Al Augustin",
+		"url": "http://link-to-your-website.com"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/alaugustin/cee-lo"
+	},
+	"boilerplate": {
+		"version": "2.2.6",
+		"author": "Chris Ferdinandi",
+		"url": "https://gomakethings.com",
+		"repo": "http://github.com/cferdinandi/gulp-boilerplate"
+	},
+	"browserslist": [
+		"last 2 versions",
+		"> 0.25%"
+	],
+	"devDependencies": {
+		"autoprefixer": "^10.2.6",
+		"browser-sync": "^2.26.14",
+		"browsersync": "0.0.1-security",
+		"cssnano": "^5.0.6",
+		"gulp": "4.0.2",
+		"gulp-concat": "^2.6.1",
+		"gulp-flatmap": "^1.0.2",
+		"gulp-header": "^2.0.9",
+		"gulp-jshint": "^2.1.0",
+		"gulp-optimize-js": "^1.1.0",
+		"gulp-postcss": "^9.0.0",
+		"gulp-rename": "^2.0.0",
+		"gulp-sass": "^4.1.0",
+		"gulp-svgmin": "^3.0.0",
+		"gulp-terser": "^2.0.1",
+		"jshint": "^2.13.0",
+		"jshint-stylish": "^2.2.1",
+		"lazypipe": "^1.0.2",
+		"node-sass": "4.13.0",
+		"postcss": "^8.3.2"
+	},
+	"dependencies": {
+		"bootstrap": "^4.6.0",
+		"del": "^6.0.0",
+		"react-bootstrap": "^1.6.0"
+	}
+}
