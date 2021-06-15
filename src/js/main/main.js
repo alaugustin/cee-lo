@@ -42,7 +42,7 @@ let ceeLoGame = {
         ceeLoGame.printDice();
         ceeLoGame.resetDie();
         ceeLoGame.gameRound();
-        ceeLoGame.rollDice();
+        // ceeLoGame.rollDice();
         console.log(ceeLoGame.config);
 
     },
@@ -195,7 +195,7 @@ let ceeLoGame = {
 
 
     // -------------------- ROLL DICE --------------------
-    rollDice: () => {
+    rollDice: (rameRoundFlag) => {
 
         let buttonPressCount = ceeLoGame.config.resetButtonPress;
 
@@ -213,6 +213,8 @@ let ceeLoGame = {
                 ceeLoGame.randNum();
                 playerScoreBoard(playerNumber);
                 // determineRollType();
+
+                console.log(rameRoundFlag);
             });
 
             let playerScoreBoard = (playerNumber) => {
@@ -305,11 +307,13 @@ let ceeLoGame = {
         console.log("placementRound() game executed");
         console.log("round 1");
         console.log("* ---------- *");
+        ceeLoGame.rollDice(5);
     },
 
     finalRound: () => {
         console.log("finalRound() game executed");
         console.log("round 2");
+        ceeLoGame.rollDice(10);
     },
 
 
