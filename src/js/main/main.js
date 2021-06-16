@@ -108,8 +108,8 @@ let ceeLoGame = {
 
 
 
+    // -------------------- onDomReady() --------------------
     onDomReady: () => {
-        // -------------------- PLAYER --------------------
         let howManyPlayers = ceeLoGame.config.playerArray.length;
         playerCount.innerHTML = howManyPlayers;
 
@@ -262,7 +262,6 @@ let ceeLoGame = {
 
                 ceeLoGame.randNum();
                 playerScoreBoard(playerNumber);
-                // determineRollType();
 
                 console.log(rameRoundFlag);
             });
@@ -271,31 +270,6 @@ let ceeLoGame = {
                 ceeLoGame.storePlayerScore(playerNumber);
 
             };
-
-            // -------------------- DETERMINE ROLL TYPE --------------------
-            // let determineRollType = () => {
-            //     switch (rollCode) {
-            //         case 4:
-            //             rollType = "4 5 6";
-            //
-            //             break;
-            //         case 3:
-            //             rollType = "Trips";
-            //
-            //             break;
-            //         case 2:
-            //             rollType = "Roll Point";
-            //
-            //             break;
-            //         case 1:
-            //             rollType = "1 2 3";
-            //
-            //             break;
-            //         default:
-            //             rollType = "No dice";
-            //
-            //     }
-            // };
         };
     },
 
