@@ -83,18 +83,18 @@ let ceeLoGame = {
     },
 
     placementRound: () => {
+        gameRoundIs = 1;
         console.log("placementRound() executed");
-        console.log("round 1");
         console.log("* ---------- *");
-        ceeLoGame.rollDice(5);
+        ceeLoGame.rollDice(gameRoundIs);
 
     },
 
     finalRound: () => {
+        gameRoundIs = 2;
         console.log("finalRound() executed");
-        console.log("round 2");
         console.log("* ---------- *");
-        ceeLoGame.rollDice(10);
+        ceeLoGame.rollDice(gameRoundIs);
 
     },
 
@@ -245,7 +245,7 @@ let ceeLoGame = {
 
 
     // -------------------- ROLL DICE --------------------
-    rollDice: (rameRoundFlag) => {
+    rollDice: (gameRoundFlag) => {
 
         let buttonPressCount = ceeLoGame.config.resetButtonPress;
 
@@ -263,7 +263,7 @@ let ceeLoGame = {
                 ceeLoGame.randNum();
                 playerScoreBoard(playerNumber);
 
-                console.log(rameRoundFlag);
+                console.log("game round is " + gameRoundFlag);
             });
 
             let playerScoreBoard = (playerNumber) => {
