@@ -652,6 +652,7 @@ let ceeLoGame = {
 
         startButton.addEventListener("click", () => {
             ceeLoGame.startGame();
+            startButton.disabled = true;
 
         });
     },
