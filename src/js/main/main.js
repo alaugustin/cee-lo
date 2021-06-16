@@ -36,14 +36,65 @@ let ceeLoGame = {
         };
 
         // CALL DOM INVOKING FUNCTIONS HERE --------------------
-        ceeLoGame.onDomReady();
         ceeLoGame.eventHandlers();
-        ceeLoGame.disableButtons();
-        ceeLoGame.printDice();
-        ceeLoGame.resetDie();
         ceeLoGame.gameRound();
-        // ceeLoGame.rollDice();
         console.log(ceeLoGame.config);
+
+    },
+
+
+
+
+
+
+
+
+
+
+    // -------------------- GAME ROUNDS --------------------
+    gameRound: () => {
+        // console.log(roundNum);
+
+
+        switch (ceeLoGame.config.roundNum) {
+            case 0:
+                ceeLoGame.insertCoin();
+                break;
+            case 1:
+
+                ceeLoGame.placementRound();
+                break;
+            case 2:
+                ceeLoGame.finalRound();
+                break;
+
+            default:
+                console.log("nope");
+                break;
+        }
+    },
+
+    insertCoin: () => {
+        console.log("start game");
+        ceeLoGame.onDomReady();
+        ceeLoGame.disableButtons();
+        ceeLoGame.resetDie();
+
+    },
+
+    placementRound: () => {
+        console.log("placementRound() executed");
+        console.log("round 1");
+        console.log("* ---------- *");
+        ceeLoGame.rollDice(5);
+
+    },
+
+    finalRound: () => {
+        console.log("finalRound() executed");
+        console.log("round 2");
+        console.log("* ---------- *");
+        ceeLoGame.rollDice(10);
 
     },
 
@@ -127,7 +178,6 @@ let ceeLoGame = {
             ceeLoGame.config.rollButtonArray[i].disabled = true;
 
         };
-
     },
 
 
@@ -269,51 +319,6 @@ let ceeLoGame = {
         ceeLoGame.ceeLo(a, b, c);
         ceeLoGame.printDice(a, b, c);
 
-    },
-
-
-
-
-
-
-
-
-
-
-    // -------------------- GAME ROUNDS --------------------
-    gameRound: () => {
-        // console.log(roundNum);
-
-
-        switch (ceeLoGame.config.roundNum) {
-            case 0:
-                console.log("start game");
-                break;
-            case 1:
-
-                ceeLoGame.placementRound();
-                break;
-            case 2:
-                ceeLoGame.finalRound();
-                break;
-
-            default:
-                console.log("nope");
-                break;
-        }
-    },
-
-    placementRound: () => {
-        console.log("placementRound() game executed");
-        console.log("round 1");
-        console.log("* ---------- *");
-        ceeLoGame.rollDice(5);
-    },
-
-    finalRound: () => {
-        console.log("finalRound() game executed");
-        console.log("round 2");
-        ceeLoGame.rollDice(10);
     },
 
 
