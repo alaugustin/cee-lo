@@ -126,6 +126,7 @@ let ceeLoGame = {
 
 
 
+
     // -------------------- onDomReady() --------------------
     onDomReady: () => {
         let howManyPlayers = ceeLoGame.config.playerArray.length;
@@ -278,10 +279,10 @@ let ceeLoGame = {
                 var playerNumber = playerId.match(regexDigit)[0];
                 // END GET PLAYER NUMBER
 
-                ceeLoGame.randNum();
-                playerScoreBoard(playerNumber);
+                ceeLoGame.randNum(playerNumber);
+                // playerScoreBoard(playerNumber);
 
-                console.log("game round is " + gameRoundFlag);
+                console.log("player " + playerNumber + " game round is " + gameRoundFlag);
             });
 
             let playerScoreBoard = (playerNumber) => {
@@ -302,7 +303,7 @@ let ceeLoGame = {
 
 
     // -------------------- GENERATE RANDOM NUMBER --------------------
-    randNum: () => {
+    randNum: (playerNumber) => {
         let sides = 6,
             a = Math.floor(Math.random() * sides) + 1,
             b = Math.floor(Math.random() * sides) + 1,
@@ -310,6 +311,8 @@ let ceeLoGame = {
 
         ceeLoGame.ceeLo(a, b, c);
         ceeLoGame.printDice(a, b, c);
+
+        console.log(playerNumber);
 
     },
 
