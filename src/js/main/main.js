@@ -85,10 +85,9 @@ let ceeLoGame = {
     placementRound: () => {
         gameRoundIs = 1;
         console.log("placementRound() executed");
-        console.log("player 1 goes first");
-        console.log("player 1 rolls");
-        console.log("is good roll");
-        console.log("no - roll again");
+
+        ceeLoGame.rollDice(gameRoundIs);
+
         console.log("yes - store roll code and roll point");
         console.log("player 2 rolls");
         console.log("is good roll");
@@ -96,9 +95,7 @@ let ceeLoGame = {
         console.log("yes - store roll code and roll point");
         console.log("compare roll");
         console.log("winning player goes first");
-
-        ceeLoGame.rollDice(gameRoundIs);
-
+        
     },
 
     finalRound: () => {
