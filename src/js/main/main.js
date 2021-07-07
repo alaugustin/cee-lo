@@ -104,8 +104,12 @@ let ceeLoGame = {
         console.log("placementRound winner goes first");
         console.log("placementRound winner rolls");
         console.log("is good roll");
+        console.log("no - roll again");
+        console.log("yes - store roll code and roll point");
         console.log("other player rolls");
         console.log("is good roll");
+        console.log("no - roll again");
+        console.log("yes - store roll code and roll point");
         console.log("compare roll");
         console.log("winning player goes wins");
 
