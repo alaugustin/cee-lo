@@ -95,7 +95,7 @@ let ceeLoGame = {
         console.log("yes - store roll code and roll point");
         console.log("compare roll");
         console.log("winning player goes first");
-        
+
     },
 
     finalRound: () => {
@@ -281,9 +281,9 @@ let ceeLoGame = {
                 // END GET PLAYER NUMBER
 
                 ceeLoGame.randNum(playerNumber);
-                // playerScoreBoard(playerNumber);
+                playerScoreBoard(playerNumber);
 
-                console.log("player " + playerNumber + " game round is " + gameRoundFlag);
+                console.log("game round is " + gameRoundFlag);
             });
 
             let playerScoreBoard = (playerNumber) => {
@@ -310,10 +310,8 @@ let ceeLoGame = {
             b = Math.floor(Math.random() * sides) + 1,
             c = Math.floor(Math.random() * sides) + 1;
 
-        ceeLoGame.ceeLo(a, b, c);
+        ceeLoGame.ceeLo(a, b, c, playerNumber);
         ceeLoGame.printDice(a, b, c);
-
-        console.log(playerNumber);
 
     },
 
@@ -328,9 +326,9 @@ let ceeLoGame = {
 
 
     // -------------------- CeeLo DICE ROLLS --------------------
-    ceeLo: (a, b, c) => {
+    ceeLo: (a, b, c, playerNumber) => {
         // 4 5 6 CONDITION --------------------
-        let fourFiveSix = () => {
+        let fourFiveSix = (playerNumber) => {
             let array456 = [a, b, c],
                 array456sort = array456.sort(),
                 array456string = array456sort.toString();
@@ -339,51 +337,56 @@ let ceeLoGame = {
 
             if (array456string === "4,5,6") {
                 scoreBoard.innerHTML = "You win";
+                console.log("player number is " + playerNumber);
 
             } else {
-                trips();
+                trips(playerNumber);
 
             };
         };
 
         // TRIPS CONDITION --------------------
-        let trips = () => {
+        let trips = (playerNumber) => {
             rollCode = 3;
 
             if (a === b && b === c) {
                 rollPoint = a;
                 scoreBoard.innerHTML = "Trips - " + a + b + c;
+                console.log("player number is " + playerNumber);
 
             } else {
-                point();
+                point(playerNumber);
 
             };
         };
 
         // POINT CONDITION --------------------
-        let point = () => {
+        let point = (playerNumber) => {
             rollCode = 2;
 
             if (a === b) {
                 scoreBoard.innerHTML = "Points - " + c;
                 rollPoint = c;
+                console.log("player number is " + playerNumber);
 
             } else if (a === c) {
                 scoreBoard.innerHTML = "Points - " + b;
                 rollPoint = b;
+                console.log("player number is " + playerNumber);
 
             } else if (b === c) {
                 scoreBoard.innerHTML = "Points - " + a;
                 rollPoint = a;
+                console.log("player number is " + playerNumber);
 
             } else {
-                oneTwoThree();
+                oneTwoThree(playerNumber);
 
             };
         };
 
         // 1 2 3 CONDITION --------------------
-        let oneTwoThree = () => {
+        let oneTwoThree = (playerNumber) => {
             let array123 = [a, b, c],
                 array123sort = array123.sort(),
                 array123string = array123sort.toString();
@@ -392,14 +395,16 @@ let ceeLoGame = {
 
             if (array123string === "1,2,3") {
                 scoreBoard.innerHTML = "You loose";
+                console.log("player number is " + playerNumber);
 
             } else {
                 rollCode = 0;
                 scoreBoard.innerHTML = "Roll again.";
+                console.log("player number is " + playerNumber);
 
             };
         };
-        fourFiveSix();
+        fourFiveSix(playerNumber);
 
     },
 
