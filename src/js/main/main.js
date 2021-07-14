@@ -561,6 +561,8 @@ let ceeLoGame = {
             scoreBoard.classList.add("alert-warning");
         };
 
+        // CONSIDER SWITCH STATEMENT FOR BELOW
+
         if (player1Data.roll_code == 4) {// CHECK IF PLAYER 1 ROLLS 456
             console.log("instant win player 1️⃣");
             player1first();
