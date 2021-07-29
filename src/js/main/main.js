@@ -281,15 +281,13 @@ let ceeLoGame = {
                 // END GET PLAYER NUMBER
 
                 ceeLoGame.randNum(playerNumber);
-                playerScoreBoard(playerNumber);
-
-                console.log("game round is " + gameRoundFlag);
+                // playerScoreBoard(playerNumber);
             });
 
-            let playerScoreBoard = (playerNumber) => {
-                ceeLoGame.storePlayerScore(playerNumber);
+            // let playerScoreBoard = (playerNumber) => {
+            //     ceeLoGame.storePlayerScore(playerNumber);
 
-            };
+            // };
         };
     },
 
@@ -327,6 +325,10 @@ let ceeLoGame = {
 
     // -------------------- CeeLo DICE ROLLS --------------------
     ceeLo: (a, b, c, playerNumber) => {
+        let printRoll = () => {
+            return a + " " + b + " " + c;
+        };
+
         // 4 5 6 CONDITION --------------------
         let fourFiveSix = (playerNumber) => {
             let array456 = [a, b, c],
@@ -337,7 +339,8 @@ let ceeLoGame = {
 
             if (array456string === "4,5,6") {
                 scoreBoard.innerHTML = "You win";
-                console.log("player number is " + playerNumber);
+
+                console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs);
 
             } else {
                 trips(playerNumber);
@@ -352,7 +355,7 @@ let ceeLoGame = {
             if (a === b && b === c) {
                 rollPoint = a;
                 scoreBoard.innerHTML = "Trips - " + a + b + c;
-                console.log("player number is " + playerNumber);
+                console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs);
 
             } else {
                 point(playerNumber);
@@ -367,17 +370,18 @@ let ceeLoGame = {
             if (a === b) {
                 scoreBoard.innerHTML = "Points - " + c;
                 rollPoint = c;
-                console.log("player number is " + playerNumber);
+
+                console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs);
 
             } else if (a === c) {
                 scoreBoard.innerHTML = "Points - " + b;
                 rollPoint = b;
-                console.log("player number is " + playerNumber);
+                console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs);
 
             } else if (b === c) {
                 scoreBoard.innerHTML = "Points - " + a;
                 rollPoint = a;
-                console.log("player number is " + playerNumber);
+                console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs);
 
             } else {
                 oneTwoThree(playerNumber);
@@ -395,12 +399,12 @@ let ceeLoGame = {
 
             if (array123string === "1,2,3") {
                 scoreBoard.innerHTML = "You loose";
-                console.log("player number is " + playerNumber);
+                console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs);
 
             } else {
                 rollCode = 0;
                 scoreBoard.innerHTML = "Roll again.";
-                console.log("player number is " + playerNumber);
+                console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs);
 
             };
         };
@@ -611,12 +615,12 @@ let ceeLoGame = {
 
                     } else if (player1Data.roll_code > player2Data.roll_code) {
                         console.log("player 1️⃣ goes first");
-                            ceeLoGame.disableButtons();
+                        ceeLoGame.disableButtons();
                         player1first();
 
                     } else {
                         console.log("player 2️⃣ goes first");
-                            ceeLoGame.disableButtons();
+                        ceeLoGame.disableButtons();
                         player2first();
 
                     };
