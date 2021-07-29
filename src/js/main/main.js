@@ -425,17 +425,18 @@ let ceeLoGame = {
         console.log("yes - store roll code and roll point");
         console.log("compare roll");
         console.log("winning player goes first");
-        // let populateLScore = () => {
-        //     ceeLoGame.config.highScores.push({ "player": playerNumber, "roll_code": rollCode, "roll_point": rollPoint });
-        //     localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
 
-        //     ceeLoGame.playerScoreTable();
-        // };
+        let populateLScore = () => {
+            ceeLoGame.config.highScores.push({ "player": playerNumber, "roll_code": rollCode, "roll_point": rollPoint });
+            localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
 
-        // if (rollCode == 4 || rollCode == 3 || rollCode == 2 || rollCode == 1) {
-        //     populateLScore();
+            // ceeLoGame.playerScoreTable();
+        };
 
-        // };
+        if (rollCode == 4 || rollCode == 3 || rollCode == 2 || rollCode == 1) {
+            populateLScore();
+
+        };
     },
 
 
