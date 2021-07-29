@@ -85,16 +85,7 @@ let ceeLoGame = {
     placementRound: () => {
         gameRoundIs = 1;
         console.log("placementRound() executed");
-
         ceeLoGame.rollDice(gameRoundIs);
-
-        console.log("yes - store roll code and roll point");
-        console.log("player 2 rolls");
-        console.log("is good roll");
-        console.log("no - roll again");
-        console.log("yes - store roll code and roll point");
-        console.log("compare roll");
-        console.log("winning player goes first");
 
     },
 
@@ -339,8 +330,7 @@ let ceeLoGame = {
 
             if (array456string === "4,5,6") {
                 scoreBoard.innerHTML = "You win";
-
-                console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs);
+                ceeLoGame.storePlayerScore(playerNumber, printRoll);
 
             } else {
                 trips(playerNumber);
@@ -355,7 +345,7 @@ let ceeLoGame = {
             if (a === b && b === c) {
                 rollPoint = a;
                 scoreBoard.innerHTML = "Trips - " + a + b + c;
-                console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs);
+                ceeLoGame.storePlayerScore(playerNumber, printRoll);
 
             } else {
                 point(playerNumber);
@@ -368,20 +358,19 @@ let ceeLoGame = {
             rollCode = 2;
 
             if (a === b) {
-                scoreBoard.innerHTML = "Points - " + c;
                 rollPoint = c;
-
-                console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs);
+                scoreBoard.innerHTML = "Points - " + c;
+                ceeLoGame.storePlayerScore(playerNumber, printRoll);
 
             } else if (a === c) {
-                scoreBoard.innerHTML = "Points - " + b;
                 rollPoint = b;
-                console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs);
+                scoreBoard.innerHTML = "Points - " + b;
+                ceeLoGame.storePlayerScore(playerNumber, printRoll);
 
             } else if (b === c) {
-                scoreBoard.innerHTML = "Points - " + a;
                 rollPoint = a;
-                console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs);
+                scoreBoard.innerHTML = "Points - " + a;
+                ceeLoGame.storePlayerScore(playerNumber, printRoll);
 
             } else {
                 oneTwoThree(playerNumber);
@@ -399,12 +388,11 @@ let ceeLoGame = {
 
             if (array123string === "1,2,3") {
                 scoreBoard.innerHTML = "You loose";
-                console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs);
+                ceeLoGame.storePlayerScore(playerNumber, printRoll);
 
             } else {
                 rollCode = 0;
                 scoreBoard.innerHTML = "Roll again.";
-                console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs);
 
             };
         };
@@ -423,17 +411,60 @@ let ceeLoGame = {
 
 
     // -------------------- PLAYER SCORE --------------------
-    storePlayerScore: (playerNumber) => {
+    storePlayerScore: (playerNumber, printRoll) => {
+        console.log("storePlayerScore() executed");
+        // console.log("player " + playerNumber + " rolled  in round " + gameRoundIs);
+        console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs);
+
+        ceeLoGame.advancePlayer();
+
         let populateLScore = () => {
             ceeLoGame.config.highScores.push({ "player": playerNumber, "roll_code": rollCode, "roll_point": rollPoint });
             localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
 
-            ceeLoGame.playerScoreTable();
+            // ceeLoGame.playerScoreTable();
         };
 
         if (rollCode == 4 || rollCode == 3 || rollCode == 2 || rollCode == 1) {
             populateLScore();
 
+        };
+
+        console.log("yes - store roll code and roll point");
+        console.log("player 2 rolls");
+        console.log("is good roll");
+        console.log("no - roll again");
+        console.log("yes - store roll code and roll point");
+        console.log("compare roll");
+        console.log("winning player goes first");
+    },
+
+
+
+
+
+
+
+
+
+
+
+    // -------------------- ADVANCE PLAYER --------------------
+    advancePlayer: () => {
+
+        // TODO: MAKE THIS DYNAMICALLY SUPPORT MORE THAN TWO PLAYERS
+        for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
+
+            if (ceeLoGame.config.rollButtonArray[i].disabled) {
+                ceeLoGame.config.rollButtonArray[0].disabled = true;
+                ceeLoGame.config.rollButtonArray[i].disabled = false;
+
+            } else {
+                ceeLoGame.config.rollButtonArray[0].disabled = false;
+                ceeLoGame.config.rollButtonArray[i].disabled = true;
+
+                // ceeLoGame.playerPosition();
+            };
         };
     },
 
@@ -491,37 +522,8 @@ let ceeLoGame = {
         divShowData.innerHTML = "";
         divShowData.appendChild(table);
 
-        ceeLoGame.advancePlayer();
+        // ceeLoGame.advancePlayer();
 
-    },
-
-
-
-
-
-
-
-
-
-
-
-    // -------------------- ADVANCE PLAYER --------------------
-    advancePlayer: () => {
-
-        // TODO: MAKE THIS DYNAMICALLY SUPPORT MORE THAN TWO PLAYERS
-        for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
-
-            if (ceeLoGame.config.rollButtonArray[i].disabled) {
-                ceeLoGame.config.rollButtonArray[0].disabled = true;
-                ceeLoGame.config.rollButtonArray[i].disabled = false;
-
-            } else {
-                ceeLoGame.config.rollButtonArray[0].disabled = false;
-                ceeLoGame.config.rollButtonArray[i].disabled = true;
-
-                ceeLoGame.playerPosition();
-            };
-        };
     },
 
 
