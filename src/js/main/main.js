@@ -53,9 +53,6 @@ let ceeLoGame = {
 
     // -------------------- GAME ROUNDS --------------------
     gameRound: () => {
-        // console.log(roundNum);
-
-
         switch (ceeLoGame.config.roundNum) {
             case 0:
                 ceeLoGame.insertCoin();
@@ -92,17 +89,18 @@ let ceeLoGame = {
     finalRound: () => {
         gameRoundIs = 2;
         console.log("finalRound() executed");
-        console.log("placementRound winner goes first");
-        console.log("placementRound winner rolls");
-        console.log("is good roll");
-        console.log("no - roll again");
-        console.log("yes - store roll code and roll point");
-        console.log("other player rolls");
-        console.log("is good roll");
-        console.log("no - roll again");
-        console.log("yes - store roll code and roll point");
-        console.log("compare roll");
-        console.log("winning player goes wins");
+        console.log("game round is " + gameRoundIs);
+        // console.log("placementRound winner goes first");
+        // console.log("placementRound winner rolls");
+        // console.log("is good roll");
+        // console.log("no - roll again");
+        // console.log("yes - store roll code and roll point");
+        // console.log("other player rolls");
+        // console.log("is good roll");
+        // console.log("no - roll again");
+        // console.log("yes - store roll code and roll point");
+        // console.log("compare roll");
+        // console.log("winning player goes wins");
 
         // ceeLoGame.rollDice(gameRoundIs);
 
@@ -427,7 +425,6 @@ let ceeLoGame = {
                 ceeLoGame.playerPosition();
 
             } else {
-                console.log("roll again");
                 ceeLoGame.advancePlayer();
 
             }
