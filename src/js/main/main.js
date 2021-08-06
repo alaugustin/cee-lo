@@ -183,8 +183,9 @@ let ceeLoGame = {
     // -------------------- INIT GAME --------------------
     initCLgame: () => {
         for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
-            ceeLoGame.config.rollButtonArray[0].disabled = false;
-            ceeLoGame.config.rollButtonArray[i].disabled = true;
+            ceeLoGame.disablePlayer2();
+            // ceeLoGame.config.rollButtonArray[0].disabled = false;
+            // ceeLoGame.config.rollButtonArray[i].disabled = true;
 
         };
     },
@@ -203,6 +204,22 @@ let ceeLoGame = {
     disableButtons: () => {
         for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
             ceeLoGame.config.rollButtonArray[i].disabled = true;
+
+        };
+    },
+
+    disablePlayer1: () => {
+        for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
+            ceeLoGame.config.rollButtonArray[0].disabled = true;
+            ceeLoGame.config.rollButtonArray[1].disabled = false;
+
+        };
+    },
+
+    disablePlayer2: () => {
+        for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
+            ceeLoGame.config.rollButtonArray[0].disabled = false;
+            ceeLoGame.config.rollButtonArray[1].disabled = true;
 
         };
     },
@@ -453,12 +470,14 @@ let ceeLoGame = {
         for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
 
             if (ceeLoGame.config.rollButtonArray[i].disabled) {
-                ceeLoGame.config.rollButtonArray[0].disabled = true;
-                ceeLoGame.config.rollButtonArray[i].disabled = false;
+                ceeLoGame.disablePlayer1();
+                // ceeLoGame.config.rollButtonArray[0].disabled = true;
+                // ceeLoGame.config.rollButtonArray[i].disabled = false;
 
             } else {
-                ceeLoGame.config.rollButtonArray[0].disabled = false;
-                ceeLoGame.config.rollButtonArray[i].disabled = true;
+                ceeLoGame.disablePlayer2();
+                // ceeLoGame.config.rollButtonArray[0].disabled = false;
+                // ceeLoGame.config.rollButtonArray[i].disabled = true;
 
             };
         };
@@ -682,8 +701,9 @@ let ceeLoGame = {
         scoreBoard.innerHTML = "player 1️⃣ goes first";
         scoreBoard.classList.add("alert-primary");
         console.log("player 1 goes first");
-        ceeLoGame.config.rollButtonArray[0].disabled = false;
-        ceeLoGame.config.rollButtonArray[1].disabled = true;
+        ceeLoGame.disablePlayer2();
+        // ceeLoGame.config.rollButtonArray[0].disabled = false;
+        // ceeLoGame.config.rollButtonArray[1].disabled = true;
         ceeLoGame.finalRound();
     },
 
@@ -691,8 +711,9 @@ let ceeLoGame = {
         scoreBoard.innerHTML = "player 2️⃣ goes first";
         scoreBoard.classList.add("alert-primary");
         console.log("player 2 goes first");
-        ceeLoGame.config.rollButtonArray[0].disabled = true;
-        ceeLoGame.config.rollButtonArray[1].disabled = false;
+        ceeLoGame.disablePlayer1();
+        // ceeLoGame.config.rollButtonArray[0].disabled = true;
+        // ceeLoGame.config.rollButtonArray[1].disabled = false;
         ceeLoGame.finalRound();
     },
 
