@@ -414,21 +414,16 @@ let ceeLoGame = {
     storePlayerScore: (playerNumber, printRoll) => {
         console.log("storePlayerScore() executed");
         // console.log("player " + playerNumber + " rolled  in round " + gameRoundIs);
-        console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs);
+        console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs + ". " + "The roll code is: " + rollCode + " The roll point is: " + rollPoint);
 
         ceeLoGame.advancePlayer();
-
-        console.log("yes - store roll code and roll point");
-        console.log("player 2 rolls");
-        console.log("is good roll");
-        console.log("no - roll again");
-        console.log("yes - store roll code and roll point");
-        console.log("compare roll");
-        console.log("winning player goes first");
 
         let populateLScore = () => {
             ceeLoGame.config.highScores.push({ "player": playerNumber, "roll_code": rollCode, "roll_point": rollPoint });
             localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
+
+            console.log("compare roll");
+            console.log("winning player goes first");
 
             // ceeLoGame.playerScoreTable();
         };
