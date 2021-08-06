@@ -579,42 +579,22 @@ let ceeLoGame = {
             //     player1first();
         };
 
-        let compareRoundData = () => {
-            console.log("compareRoundData() executed");
 
-            if (player1Data.roll_code == player2Data.roll_code) {
-                console.log("compare roll points");
 
-                if (player1Data.roll_point == player2Data.roll_point) {
-                    tieRoll();
 
-                } else if (player1Data.roll_point > player2Data.roll_point) {
-                    player1first();
 
-                } else {
-                    player2first();
 
-                }
 
-            } else if (player1Data.rollCode > player2Data.rollCode) {
-                player1first();
-
-            } else {
-                player2first();
-
-            }
-        }
 
 
         if (ppGameRound == 1) {
-            console.log("compare the placementRound");
-            compareRoundData();
+            ceeLoGame.compareRoundData(player1Data, player2Data);
         }
 
 
         if (ppGameRound == 2) {
             console.log("this is finalRound");
-            compareRoundData();
+            ceeLoGame.compareRoundData();
         }
 
         // CONSIDER SWITCH STATEMENT FOR BELOW
@@ -684,6 +664,27 @@ let ceeLoGame = {
         console.log("* ---------- *");
     },
 
+    compareRoundData: (player1Data, player2Data) => {
+        if (player1Data.roll_code == player2Data.roll_code) {
+            if (player1Data.roll_point == player2Data.roll_point) {
+                ceeLoGame.tieRoll();
+
+            } else if (player1Data.roll_point > player2Data.roll_point) {
+                ceeLoGame.player1first();
+
+            } else {
+                ceeLoGame.player2first();
+
+            }
+
+        } else if (player1Data.roll_code > player2Data.roll_code) {
+            ceeLoGame.player1first();
+
+        } else {
+            ceeLoGame.player2first();
+
+        }
+    },
 
 
 
