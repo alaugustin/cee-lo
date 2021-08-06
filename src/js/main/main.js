@@ -414,11 +414,10 @@ let ceeLoGame = {
             console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs + ". " + "The roll code is: " + rollCode + " The roll point is: " + rollPoint);
 
             if (rollCode == 1) {
-                console.log("1 2 3 was rolled");
-                ceeLoGame.disableButtons();
+                ceeLoGame.the123Roll();
+
             } else if (rollCode == 4) {
-                console.log("4 5 6 was rolled");
-                ceeLoGame.disableButtons();
+                ceeLoGame.the456Roll();
 
             } else {
                 if (ceeLoGame.config.highScores.length == 2) {
@@ -526,6 +525,19 @@ let ceeLoGame = {
 
 
     // -------------------- PLAYER POSITION --------------------
+
+    the456Roll: () => {
+        ceeLoGame.disableButtons();
+        scoreBoard.innerHTML = "4 5 6 roll";
+        console.log("4 5 6 was rolled");
+    },
+
+    the123Roll: () => {
+        ceeLoGame.disableButtons();
+        scoreBoard.innerHTML = "1 2 3 roll";
+        console.log("1 2 3 was rolled");
+    },
+
     playerPosition: () => {
         let ppGameRound = ceeLoGame.config.roundNum;
 
