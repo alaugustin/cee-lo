@@ -549,7 +549,6 @@ let ceeLoGame = {
             ceeLoGame.player2first();
 
         } else {
-            s
             ceeLoGame.player1first();
 
         }
