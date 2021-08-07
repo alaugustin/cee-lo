@@ -88,21 +88,20 @@ let ceeLoGame = {
 
     finalRound: () => {
         gameRoundIs = 2;
-        console.log("finalRound() executed");
-        console.log("game round is " + gameRoundIs);
-        // console.log("placementRound winner goes first");
-        // console.log("placementRound winner rolls");
-        // console.log("is good roll");
-        // console.log("no - roll again");
-        // console.log("yes - store roll code and roll point");
-        // console.log("other player rolls");
-        // console.log("is good roll");
-        // console.log("no - roll again");
-        // console.log("yes - store roll code and roll point");
-        // console.log("compare roll");
-        // console.log("winning player goes wins");
+        localStorage.clear();
+        console.log("* ---------- * finalRound() executed * ---------- *");
+        console.log("placementRound winner rolls");
+        console.log("is good roll");
+        console.log("no - roll again");
+        console.log("yes - store roll code and roll point");
+        console.log("other player rolls");
+        console.log("is good roll");
+        console.log("no - roll again");
+        console.log("yes - store roll code and roll point");
+        console.log("compare roll");
+        console.log("winning player goes wins");
 
-        // ceeLoGame.rollDice(gameRoundIs);
+        ceeLoGame.rollDice(gameRoundIs);
 
     },
 
@@ -430,19 +429,41 @@ let ceeLoGame = {
 
             // console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs + ". " + "The roll code is: " + rollCode + " The roll point is: " + rollPoint);
 
-            if (rollCode == 1) {
-                ceeLoGame.the123Roll(playerNumber);
+            if (gameRoundIs == 1) {
+                console.log("do placement round stuff");
+                if (rollCode == 1) {
+                    ceeLoGame.the123Roll(playerNumber);
 
-            } else if (rollCode == 4) {
-                ceeLoGame.the456Roll(playerNumber);
-
-            } else {
-                if (ceeLoGame.config.highScores.length == 2) {
-                    ceeLoGame.playerPosition();
+                } else if (rollCode == 4) {
+                    ceeLoGame.the456Roll(playerNumber);
 
                 } else {
-                    ceeLoGame.advancePlayer();
+                    if (ceeLoGame.config.highScores.length == 2) {
+                        ceeLoGame.playerPosition();
 
+                    } else {
+                        ceeLoGame.advancePlayer();
+
+                    }
+                }
+            }
+
+            if (gameRoundIs == 2) {
+                console.log("do final round stuff");
+                if (rollCode == 1) {
+                    ceeLoGame.the123Roll(playerNumber);
+
+                } else if (rollCode == 4) {
+                    ceeLoGame.the456Roll(playerNumber);
+
+                } else {
+                    if (ceeLoGame.config.highScores.length == 2) {
+                        ceeLoGame.determineWinner();
+
+                    } else {
+                        ceeLoGame.advancePlayer();
+
+                    }
                 }
             }
         };
@@ -470,14 +491,12 @@ let ceeLoGame = {
         for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
 
             if (ceeLoGame.config.rollButtonArray[i].disabled) {
-                ceeLoGame.disablePlayer1();
-                // ceeLoGame.config.rollButtonArray[0].disabled = true;
-                // ceeLoGame.config.rollButtonArray[i].disabled = false;
+                ceeLoGame.config.rollButtonArray[0].disabled = true;
+                ceeLoGame.config.rollButtonArray[i].disabled = false;
 
             } else {
-                ceeLoGame.disablePlayer2();
-                // ceeLoGame.config.rollButtonArray[0].disabled = false;
-                // ceeLoGame.config.rollButtonArray[i].disabled = true;
+                ceeLoGame.config.rollButtonArray[0].disabled = false;
+                ceeLoGame.config.rollButtonArray[i].disabled = true;
 
             };
         };
@@ -585,28 +604,17 @@ let ceeLoGame = {
             player1Data = playerScores[0],
             player2Data = playerScores[1];
 
+        // if (ppGameRound == 1) {
+        console.log(player1Data);
+        console.log(player2Data);
 
+        ceeLoGame.compareRoundData(player1Data, player2Data);
+        // }
 
-
-
-
-
-
-
-
-
-        if (ppGameRound == 1) {
-            console.log(player1Data);
-            console.log(player2Data);
-
-            ceeLoGame.compareRoundData(player1Data, player2Data);
-        }
-
-
-        if (ppGameRound == 2) {
-            console.log("this is finalRound");
-            ceeLoGame.compareRoundData();
-        }
+        // if (ppGameRound == 2) {
+        //     console.log("this is finalRound");
+        //     ceeLoGame.compareRoundData();
+        // }
 
         // CONSIDER SWITCH STATEMENT FOR BELOW
 
@@ -672,6 +680,11 @@ let ceeLoGame = {
         // };
 
 
+        console.log("* ---------- *");
+    },
+
+    determineWinner: () => {
+        console.log("determineWinner() executed");
         console.log("* ---------- *");
     },
 
