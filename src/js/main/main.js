@@ -447,8 +447,6 @@ let ceeLoGame = {
                 } else {
                     if (ceeLoGame.config.highScores.length == 2) {
                         ceeLoGame.playerPosition();
-
-                    } else {
                         ceeLoGame.advancePlayer();
 
                     }
@@ -599,7 +597,7 @@ let ceeLoGame = {
 
     // -------------------- PLAYER POSITION --------------------
     playerPosition: () => {
-        let ppGameRound = ceeLoGame.config.roundNum;
+        ceeLoGame.disableButtons();
 
         console.log("playerPosition() executed");
 
