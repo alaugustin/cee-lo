@@ -270,9 +270,7 @@ let ceeLoGame = {
 
 
     // -------------------- ROLL DICE --------------------
-    rollDice: (gameRoundFlag) => {
-
-        let buttonPressCount = ceeLoGame.config.resetButtonPress;
+    rollDice: () => {
 
         for (let i = 0; i < ceeLoGame.config.playerArray.length; i++) {
             const playerRoll = ceeLoGame.config.rollButtonArray[i];
@@ -339,6 +337,7 @@ let ceeLoGame = {
             if (array456string === "4,5,6") {
                 scoreBoard.innerHTML = "You win";
                 ceeLoGame.storePlayerScore(playerNumber, printRoll);
+                ceeLoGame.advancePlayer();
 
             } else {
                 trips(playerNumber);
@@ -354,6 +353,7 @@ let ceeLoGame = {
                 rollPoint = a;
                 scoreBoard.innerHTML = "Trips - " + a + b + c;
                 ceeLoGame.storePlayerScore(playerNumber, printRoll);
+                ceeLoGame.advancePlayer();
 
             } else {
                 point(playerNumber);
@@ -369,16 +369,19 @@ let ceeLoGame = {
                 rollPoint = c;
                 scoreBoard.innerHTML = "Points - " + c;
                 ceeLoGame.storePlayerScore(playerNumber, printRoll);
+                ceeLoGame.advancePlayer();
 
             } else if (a === c) {
                 rollPoint = b;
                 scoreBoard.innerHTML = "Points - " + b;
                 ceeLoGame.storePlayerScore(playerNumber, printRoll);
+                ceeLoGame.advancePlayer();
 
             } else if (b === c) {
                 rollPoint = a;
                 scoreBoard.innerHTML = "Points - " + a;
                 ceeLoGame.storePlayerScore(playerNumber, printRoll);
+                ceeLoGame.advancePlayer();
 
             } else {
                 oneTwoThree(playerNumber);
@@ -397,6 +400,7 @@ let ceeLoGame = {
             if (array123string === "1,2,3") {
                 scoreBoard.innerHTML = "You loose";
                 ceeLoGame.storePlayerScore(playerNumber, printRoll);
+                ceeLoGame.advancePlayer();
 
             } else {
                 rollCode = 0;
@@ -486,17 +490,15 @@ let ceeLoGame = {
 
     // -------------------- ADVANCE PLAYER --------------------
     advancePlayer: () => {
+        let playerRollButton = ceeLoGame.config.rollButtonArray;
 
-        // TODO: MAKE THIS DYNAMICALLY SUPPORT MORE THAN TWO PLAYERS
-        for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
+        for (let i = 0; i < playerRollButton.length; i++) {
 
-            if (ceeLoGame.config.rollButtonArray[i].disabled) {
-                ceeLoGame.config.rollButtonArray[0].disabled = true;
-                ceeLoGame.config.rollButtonArray[i].disabled = false;
+            if (playerRollButton[i].disabled == true) {
+                playerRollButton[i].disabled = false;
 
             } else {
-                ceeLoGame.config.rollButtonArray[0].disabled = false;
-                ceeLoGame.config.rollButtonArray[i].disabled = true;
+                playerRollButton[i].disabled = true;
 
             };
         };
