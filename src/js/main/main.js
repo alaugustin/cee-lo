@@ -31,7 +31,7 @@ let ceeLoGame = {
 
             // const
             startButton: document.getElementById("startButton"),
-            resetButton: document.getElementById("resetButton"),
+            // resetButton: document.getElementById("resetButton"),
             playerCount: document.getElementById("playerCount"),
         };
 
@@ -99,7 +99,7 @@ let ceeLoGame = {
         console.log("no - roll again");
         console.log("yes - store roll code and roll point");
         console.log("compare roll");
-        console.log("winning player goes wins");
+        console.log("winning player wins");
 
         ceeLoGame.rollDice(gameRoundIs);
 
@@ -431,10 +431,13 @@ let ceeLoGame = {
 
             localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
 
-            // console.log("player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs + ". " + "The roll code is: " + rollCode + " The roll point is: " + rollPoint);
+
 
             if (gameRoundIs == 1) {
-                console.log("do placement round stuff");
+                console.log("do placement round stuff | player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs + ". " + "The roll code is: " + rollCode + " The roll point is: " + rollPoint);
+
+
+
                 if (rollCode == 1) {
                     ceeLoGame.the123Roll(playerNumber);
 
@@ -453,7 +456,7 @@ let ceeLoGame = {
             }
 
             if (gameRoundIs == 2) {
-                console.log("do final round stuff");
+                console.log("do final round stuff | player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs + ". " + "The roll code is: " + rollCode + " The roll point is: " + rollPoint);
                 if (rollCode == 1) {
                     ceeLoGame.the123Roll(playerNumber);
 
@@ -598,8 +601,6 @@ let ceeLoGame = {
     playerPosition: () => {
         let ppGameRound = ceeLoGame.config.roundNum;
 
-        ceeLoGame.disableButtons();
-
         console.log("playerPosition() executed");
 
         let playerScores = JSON.parse(localStorage.getItem("highscores")),
@@ -716,20 +717,20 @@ let ceeLoGame = {
         scoreBoard.innerHTML = "player 1️⃣ goes first";
         scoreBoard.classList.add("alert-primary");
         console.log("player 1 goes first");
-        ceeLoGame.disablePlayer2();
+        // ceeLoGame.disablePlayer2();
         // ceeLoGame.config.rollButtonArray[0].disabled = false;
         // ceeLoGame.config.rollButtonArray[1].disabled = true;
-        ceeLoGame.finalRound();
+        // ceeLoGame.finalRound();
     },
 
     player2first: () => {
         scoreBoard.innerHTML = "player 2️⃣ goes first";
         scoreBoard.classList.add("alert-primary");
         console.log("player 2 goes first");
-        ceeLoGame.disablePlayer1();
+        // ceeLoGame.disablePlayer1();
         // ceeLoGame.config.rollButtonArray[0].disabled = true;
         // ceeLoGame.config.rollButtonArray[1].disabled = false;
-        ceeLoGame.finalRound();
+        // ceeLoGame.finalRound();
     },
 
     tieRoll: () => {
