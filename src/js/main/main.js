@@ -567,30 +567,52 @@ let ceeLoGame = {
 
     // -------------------- 4 5 6 ROLL --------------------
     the456Roll: (playerNumber) => {
-        ceeLoGame.disableButtons();
         scoreBoard.innerHTML = "4 5 6 roll";
         console.log("4 5 6 was rolled by player " + playerNumber);
 
         if (playerNumber == 1) {
-            ceeLoGame.player1first();
+            ceeLoGame.compareRoundData({
+                        player: "1",
+                        roll_code: 4,
+                        roll_point: 0
+                    }, {
+                        player: "2",
+                        roll_code:0,
+                        roll_point:0
+                    });
+            // ceeLoGame.disableButtons();
+            // ceeLoGame.player1first();
 
         } else {
-            ceeLoGame.player2first();
+            ceeLoGame.compareRoundData(player1Data, player2Data);
+            // ceeLoGame.disableButtons();
+            // ceeLoGame.player2first();
 
         }
     },
 
     // -------------------- 1 2 3 ROLL --------------------
     the123Roll: (playerNumber) => {
-        ceeLoGame.disableButtons();
         scoreBoard.innerHTML = "1 2 3 roll";
         console.log("1 2 3 was rolled by player " + playerNumber);
 
         if (playerNumber == 1) {
-            ceeLoGame.player2first();
+            ceeLoGame.compareRoundData({
+                player: "1",
+                roll_code: 0,
+                roll_point: 0
+            }, {
+                player: "2",
+                roll_code: 1,
+                roll_point: 0
+            });
+            // ceeLoGame.disableButtons();
+            // ceeLoGame.player2first();
 
         } else {
-            ceeLoGame.player1first();
+            ceeLoGame.compareRoundData(player1Data, player2Data);
+            // ceeLoGame.disableButtons();
+            // ceeLoGame.player1first();
 
         }
     },
