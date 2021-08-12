@@ -671,6 +671,11 @@ let ceeLoGame = {
         scoreBoard.innerHTML = "player 1️⃣ goes first";
         scoreBoard.classList.add("alert-primary");
         console.log("player 1 goes first");
+        ceeLoGame.disablePlayer2();
+        gameRoundIs++;
+        ceeLoGame.config.resetButtonPress;
+        localStorage.clear();
+        console.log(gameRoundIs)
 
     },
 
@@ -678,6 +683,11 @@ let ceeLoGame = {
         scoreBoard.innerHTML = "player 2️⃣ goes first";
         scoreBoard.classList.add("alert-primary");
         console.log("player 2 goes first");
+        ceeLoGame.disablePlayer1();
+        gameRoundIs++;
+        ceeLoGame.config.resetButtonPress;
+        localStorage.clear();
+        console.log(gameRoundIs)
 
     },
 
