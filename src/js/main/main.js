@@ -183,8 +183,6 @@ let ceeLoGame = {
     initCLgame: () => {
         for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
             ceeLoGame.disablePlayer2();
-            // ceeLoGame.config.rollButtonArray[0].disabled = false;
-            // ceeLoGame.config.rollButtonArray[i].disabled = true;
 
         };
     },
@@ -581,8 +579,6 @@ let ceeLoGame = {
                 roll_point:0
             });
             console.log("the game round is " + gameRoundIs); // WILL NEED THIS LATER TO DO FINAL ROUND STUFF
-            // ceeLoGame.disableButtons();
-            // ceeLoGame.player1first();
 
         } else {
             let playerScores = JSON.parse(localStorage.getItem("highscores")),
@@ -590,8 +586,6 @@ let ceeLoGame = {
                 player2Data = playerScores[1];
 
             ceeLoGame.compareRoundData(player1Data, player2Data);
-            // ceeLoGame.disableButtons();
-            // ceeLoGame.player2first();
 
         }
     },
@@ -612,8 +606,6 @@ let ceeLoGame = {
                 roll_point: 0
             });
             console.log("the game round is " + gameRoundIs); // WILL NEED THIS LATER TO DO FINAL ROUND STUFF
-            // ceeLoGame.disableButtons();
-            // ceeLoGame.player2first();
 
         } else {
             let playerScores = JSON.parse(localStorage.getItem("highscores")),
@@ -621,8 +613,6 @@ let ceeLoGame = {
                 player2Data = playerScores[1];
 
             ceeLoGame.compareRoundData(player1Data, player2Data);
-            // ceeLoGame.disableButtons();
-            // ceeLoGame.player1first();
 
         }
     },
@@ -643,76 +633,6 @@ let ceeLoGame = {
 
         ceeLoGame.compareRoundData(player1Data, player2Data);
         // }
-
-        // if (ppGameRound == 2) {
-        //     console.log("this is finalRound");
-        //     ceeLoGame.compareRoundData();
-        // }
-
-        // CONSIDER SWITCH STATEMENT FOR BELOW
-
-        // if (player1Data.roll_code == 4) {// CHECK IF PLAYER 1 ROLLS 456
-        //     console.log("instant win player 1️⃣");
-        //     player1first();
-        //     ceeLoGame.disableButtons();
-
-
-        // } else if (player1Data.roll_code == 1) {// CHECK IF PLAYER 1 ROLLS 123
-        //     console.log("instant loss player 1️⃣");
-        //     player2first();
-        //     ceeLoGame.disableButtons();
-
-        // } else {
-        //     if (player1Data && player2Data) {
-
-        //         if (player2Data.roll_code == 4) {// CHECK IF PLAYER 2 ROLLS 456
-        //             console.log("instant win player 2️⃣");
-        //             player2first();
-        //             ceeLoGame.disableButtons();
-
-
-        //         } else if (player2Data.roll_code == 1) {// CHECK IF PLAYER 2 ROLLS 123
-        //             console.log("instant loss player 2️⃣");
-        //             player1first();
-        //             ceeLoGame.disableButtons();
-
-        //         } else {
-        //             console.log(player1Data);
-        //             console.log(player2Data);
-
-        //             if (player1Data.roll_code == player2Data.roll_code) {// CHECK IF PLAYER AND 2 HAVE THE SAME ROLL CODE
-        //                 if (player1Data.roll_point == player2Data.roll_point) {// CHECK IF PLAYER AND 2 HAVE THE SAME ROLL POINT
-        //                     console.log("tie roll");
-
-        //                     tieRoll();
-        //                 } else if (player1Data.roll_point > player2Data.roll_point) {
-        //                     console.log("player 1️⃣ goes first");
-        //                     ceeLoGame.disableButtons();
-        //                     player1first();
-
-        //                 } else {
-        //                     console.log("player 2️⃣ goes first");
-        //                     ceeLoGame.disableButtons();
-        //                     player2first();
-
-        //                 };
-
-        //             } else if (player1Data.roll_code > player2Data.roll_code) {
-        //                 console.log("player 1️⃣ goes first");
-        //                 ceeLoGame.disableButtons();
-        //                 player1first();
-
-        //             } else {
-        //                 console.log("player 2️⃣ goes first");
-        //                 ceeLoGame.disableButtons();
-        //                 player2first();
-
-        //             };
-        //         };
-        //     };
-        // };
-
-
         console.log("* ---------- *");
     },
 
@@ -751,20 +671,14 @@ let ceeLoGame = {
         scoreBoard.innerHTML = "player 1️⃣ goes first";
         scoreBoard.classList.add("alert-primary");
         console.log("player 1 goes first");
-        // ceeLoGame.disablePlayer2();
-        // ceeLoGame.config.rollButtonArray[0].disabled = false;
-        // ceeLoGame.config.rollButtonArray[1].disabled = true;
-        // ceeLoGame.finalRound();
+
     },
 
     player2first: () => {
         scoreBoard.innerHTML = "player 2️⃣ goes first";
         scoreBoard.classList.add("alert-primary");
         console.log("player 2 goes first");
-        // ceeLoGame.disablePlayer1();
-        // ceeLoGame.config.rollButtonArray[0].disabled = true;
-        // ceeLoGame.config.rollButtonArray[1].disabled = false;
-        // ceeLoGame.finalRound();
+
     },
 
     tieRoll: () => {
@@ -772,9 +686,6 @@ let ceeLoGame = {
         scoreBoard.classList.add("alert-warning");
         console.log("tie roll start over");
 
-        // --------------------
-        // HANDLE THE TIE ROLL ACTION
-        // --------------------
     },
 
 
