@@ -647,22 +647,22 @@ let ceeLoGame = {
                 ceeLoGame.tieRoll();
 
             } else if (player1Data.roll_point > player2Data.roll_point) {
-                console.log("player 1 goes first");
                 ceeLoGame.disableButtons();
+                ceeLoGame.player1first();
 
             } else {
-                console.log("player 2 goes first");
                 ceeLoGame.disableButtons();
+                ceeLoGame.player2first();
 
             }
 
         } else if (player1Data.roll_code > player2Data.roll_code) {
-            console.log("player 1 goes first");
             ceeLoGame.disableButtons();
+            ceeLoGame.player1first();
 
         } else {
-            console.log("player 2 goes first");
             ceeLoGame.disableButtons();
+            ceeLoGame.player2first();
 
         }
     },
