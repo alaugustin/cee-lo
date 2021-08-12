@@ -572,18 +572,23 @@ let ceeLoGame = {
 
         if (playerNumber == 1) {
             ceeLoGame.compareRoundData({
-                        player: "1",
-                        roll_code: 4,
-                        roll_point: 0
-                    }, {
-                        player: "2",
-                        roll_code:0,
-                        roll_point:0
-                    });
+                player: "1",
+                roll_code: 4,
+                roll_point: 0
+            }, {
+                player: "2",
+                roll_code:0,
+                roll_point:0
+            });
+            console.log("the game round is " + gameRoundIs); // WILL NEED THIS LATER TO DO FINAL ROUND STUFF
             // ceeLoGame.disableButtons();
             // ceeLoGame.player1first();
 
         } else {
+            let playerScores = JSON.parse(localStorage.getItem("highscores")),
+                player1Data = playerScores[0],
+                player2Data = playerScores[1];
+
             ceeLoGame.compareRoundData(player1Data, player2Data);
             // ceeLoGame.disableButtons();
             // ceeLoGame.player2first();
@@ -606,10 +611,15 @@ let ceeLoGame = {
                 roll_code: 1,
                 roll_point: 0
             });
+            console.log("the game round is " + gameRoundIs); // WILL NEED THIS LATER TO DO FINAL ROUND STUFF
             // ceeLoGame.disableButtons();
             // ceeLoGame.player2first();
 
         } else {
+            let playerScores = JSON.parse(localStorage.getItem("highscores")),
+                player1Data = playerScores[0],
+                player2Data = playerScores[1];
+
             ceeLoGame.compareRoundData(player1Data, player2Data);
             // ceeLoGame.disableButtons();
             // ceeLoGame.player1first();
@@ -717,18 +727,22 @@ let ceeLoGame = {
                 ceeLoGame.tieRoll();
 
             } else if (player1Data.roll_point > player2Data.roll_point) {
-                ceeLoGame.player1first();
+                console.log("player 1 goes first");
+                ceeLoGame.disableButtons();
 
             } else {
-                ceeLoGame.player2first();
+                console.log("player 2 goes first");
+                ceeLoGame.disableButtons();
 
             }
 
         } else if (player1Data.roll_code > player2Data.roll_code) {
-            ceeLoGame.player1first();
+            console.log("player 1 goes first");
+            ceeLoGame.disableButtons();
 
         } else {
-            ceeLoGame.player2first();
+            console.log("player 2 goes first");
+            ceeLoGame.disableButtons();
 
         }
     },
