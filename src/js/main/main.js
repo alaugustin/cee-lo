@@ -427,14 +427,14 @@ let ceeLoGame = {
         let populateLScore = () => {
             ceeLoGame.config.highScores.push({ "player": playerNumber, "roll_code": rollCode, "roll_point": rollPoint });
 
+            if (ceeLoGame.config.highScores.length > 2) {
+                ceeLoGame.config.highScores.shift();
+            }
+
             localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
-
-
 
             if (gameRoundIs == 1) {
                 console.log("do placement round stuff | player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs + ". " + "The roll code is: " + rollCode + " The roll point is: " + rollPoint);
-
-
 
                 if (rollCode == 1) {
                     ceeLoGame.the123Roll(playerNumber);
@@ -575,8 +575,8 @@ let ceeLoGame = {
                 roll_point: 0
             }, {
                 player: "2",
-                roll_code:0,
-                roll_point:0
+                roll_code: 0,
+                roll_point: 0
             });
             console.log("the game round is " + gameRoundIs); // WILL NEED THIS LATER TO DO FINAL ROUND STUFF
 
