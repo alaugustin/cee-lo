@@ -333,7 +333,12 @@ let ceeLoGame = {
             rollPoint = 3;
 
             if (array456string === "4,5,6") {
+                if (gameRoundIs == 2) {
                 scoreBoard.innerHTML = "You win";
+                } else {
+                    scoreBoard.innerHTML = "Go first";
+                }
+
                 ceeLoGame.storePlayerScore(playerNumber, printRoll);
                 ceeLoGame.advancePlayer();
 
@@ -396,7 +401,11 @@ let ceeLoGame = {
             rollPoint = 0;
 
             if (array123string === "1,2,3") {
+                if (gameRoundIs == 2) {
                 scoreBoard.innerHTML = "You loose";
+                } else {
+                    scoreBoard.innerHTML = "Go last";
+                }
                 ceeLoGame.storePlayerScore(playerNumber, printRoll);
                 ceeLoGame.advancePlayer();
 
@@ -624,7 +633,7 @@ let ceeLoGame = {
         gameRoundIs++;
         ceeLoGame.config.resetButtonPress;
         localStorage.clear();
-        console.log(gameRoundIs)
+        console.log("the game Round Is now " + gameRoundIs)
 
     },
 
@@ -636,7 +645,7 @@ let ceeLoGame = {
         gameRoundIs++;
         ceeLoGame.config.resetButtonPress;
         localStorage.clear();
-        console.log(gameRoundIs)
+        console.log("the game Round Is now " + gameRoundIs)
 
     },
 
