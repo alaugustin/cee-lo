@@ -434,7 +434,7 @@ let ceeLoGame = {
         console.log("storePlayerScore() executed");
 
         let populateLScore = () => {
-            ceeLoGame.config.highScores.push({ "player": playerNumber, "roll_code": rollCode, "roll_point": rollPoint });
+            ceeLoGame.config.highScores.push({ "player": playerNumber, "roll_code": rollCode, "roll_point": rollPoint, "game_round": gameRoundIs });
 
             if (ceeLoGame.config.highScores.length > 2) {
                 ceeLoGame.config.highScores.shift();
@@ -531,11 +531,13 @@ let ceeLoGame = {
             ceeLoGame.compareRoundData({
                 player: "1",
                 roll_code: 4,
-                roll_point: 0
+                roll_point: 0,
+                game_round: gameRoundIs
             }, {
                 player: "2",
                 roll_code: 0,
-                roll_point: 0
+                roll_point: 0,
+                game_round: gameRoundIs
             });
             console.log("the game round is " + gameRoundIs); // WILL NEED THIS LATER TO DO FINAL ROUND STUFF
 
@@ -558,13 +560,14 @@ let ceeLoGame = {
             ceeLoGame.compareRoundData({
                 player: "1",
                 roll_code: 0,
-                roll_point: 0
+                roll_point: 0,
+                game_round: gameRoundIs
             }, {
                 player: "2",
                 roll_code: 1,
-                roll_point: 0
+                roll_point: 0,
+                game_round: gameRoundIs
             });
-            console.log("the game round is " + gameRoundIs); // WILL NEED THIS LATER TO DO FINAL ROUND STUFF
 
         } else {
             let playerScores = JSON.parse(localStorage.getItem("highscores")),
@@ -600,27 +603,33 @@ let ceeLoGame = {
     },
 
     compareRoundData: (player1Data, player2Data) => {
+        console.log('player 1 gameRoundIs ' + player1Data.game_round)
+        console.log('player 2 gameRoundIs ' + player2Data.game_round)
         if (player1Data.roll_code == player2Data.roll_code) {
             if (player1Data.roll_point == player2Data.roll_point) {
                 ceeLoGame.tieRoll();
 
             } else if (player1Data.roll_point > player2Data.roll_point) {
                 ceeLoGame.disableButtons();
-                ceeLoGame.player1first();
+                // ceeLoGame.player1first();
+                console.log("player 1 goes first");
 
             } else {
                 ceeLoGame.disableButtons();
-                ceeLoGame.player2first();
+                // ceeLoGame.player2first();
+                console.log("player 2 goes first");
 
             }
 
         } else if (player1Data.roll_code > player2Data.roll_code) {
             ceeLoGame.disableButtons();
-            ceeLoGame.player1first();
+            // ceeLoGame.player1first();
+            console.log("player 1 goes first");
 
         } else {
             ceeLoGame.disableButtons();
-            ceeLoGame.player2first();
+            // ceeLoGame.player2first();
+            console.log("player 2 goes first");
 
         }
     },
