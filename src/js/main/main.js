@@ -334,7 +334,7 @@ let ceeLoGame = {
 
             if (array456string === "4,5,6") {
                 if (gameRoundIs == 2) {
-                scoreBoard.innerHTML = "You win";
+                    scoreBoard.innerHTML = "You win";
                 } else {
                     scoreBoard.innerHTML = "Go first";
                 }
@@ -402,7 +402,7 @@ let ceeLoGame = {
 
             if (array123string === "1,2,3") {
                 if (gameRoundIs == 2) {
-                scoreBoard.innerHTML = "You loose";
+                    scoreBoard.innerHTML = "You loose";
                 } else {
                     scoreBoard.innerHTML = "Go last";
                 }
@@ -490,7 +490,7 @@ let ceeLoGame = {
 
 
 
-
+    // A   T E S T   E N T R Y   T H A T    W I L L   B E   D E L E T E D   L A T E R
 
 
 
