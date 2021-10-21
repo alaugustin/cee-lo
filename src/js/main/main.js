@@ -251,9 +251,9 @@ let ceeLoGame = {
 
     // -------------------- RESET DICE NUMBERS --------------------
     resetDie: () => {
-        document.getElementById("die1").innerHTML = 4;
-        document.getElementById("die2").innerHTML = 5;
-        document.getElementById("die3").innerHTML = 6;
+        document.getElementById("die1").innerHTML = "Prepare";
+        document.getElementById("die2").innerHTML = "To";
+        document.getElementById("die3").innerHTML = "Roll";
 
     },
 
