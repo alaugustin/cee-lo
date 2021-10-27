@@ -271,33 +271,30 @@ let ceeLoGame = {
             rollArray_sort = rollArray.sort(),
             rollArray_string = rollArray_sort.toString();
 
-        // console.log("ceeLo() - Player " + playerNumber + " rolled " + rollArray_string + ' in round ' + gameRoundIs);
-
-
         // 456
-        if (rollArray_sort === "4,5,6") {
-            console.log("4 5 6 rolled")
+        if (rollArray_string === "4,5,6") {
+            console.log("4 5 6 rolled - Player " + playerNumber + " rolled " + rollArray_string + ' in round ' + gameRoundIs);
         }
         // 123
-        if (rollArray_sort === "1,2,3") {
-            console.log("1 2 3 rolled")
+        if (rollArray_string === "1,2,3") {
+            console.log("1 2 3 rolled - Player " + playerNumber + " rolled " + rollArray_string + ' in round ' + gameRoundIs);
         }
         // TRIPS
         if (a === b && b === c) {
-            console.log("Trips rolled")
+            console.log("Trips rolled - Player " + playerNumber + " rolled " + rollArray_string + ' in round ' + gameRoundIs);
         }
         // POINT
         if (a === b) {
             rollPoint = c;
-            console.log("Player rolled " + rollPoint)
+            console.log("Player " + playerNumber + " rolled " + rollArray_string + " in round " + gameRoundIs + " - roll point is " + rollPoint);
 
         } else if (a === c) {
             rollPoint = b;
-            console.log("Player rolled " + rollPoint)
+            console.log("Player " + playerNumber + " rolled " + rollArray_string + " in round " + gameRoundIs + " - roll point is " + rollPoint);
 
         } else if (b === c) {
             rollPoint = a;
-            console.log("Player rolled " + rollPoint)
+            console.log("Player " + playerNumber + " rolled " + rollArray_string + " in round " + gameRoundIs + " - roll point is " + rollPoint);
         } else {
             console.log("Roll again")
         };
@@ -595,38 +592,37 @@ let ceeLoGame = {
 
             } else if (player1Data.roll_point > player2Data.roll_point) {
                 ceeLoGame.disableButtons();
-                // ceeLoGame.player1first();
-                console.log("player 1 goes first");
+                ceeLoGame.player1first();
 
             } else {
                 ceeLoGame.disableButtons();
-                // ceeLoGame.player2first();
-                console.log("player 2 goes first");
+                ceeLoGame.player2first();
 
             }
 
         } else if (player1Data.roll_code > player2Data.roll_code) {
             ceeLoGame.disableButtons();
-            // ceeLoGame.player1first();
-            console.log("player 1 goes first");
+            ceeLoGame.player1first();
+
 
         } else {
             ceeLoGame.disableButtons();
-            // ceeLoGame.player2first();
-            console.log("player 2 goes first");
+            ceeLoGame.player2first();
 
         }
     },
+
+    // -------------------- PLACEMENT ROUND --------------------
 
     player1first: () => {
         scoreBoard.innerHTML = "player 1️⃣ goes first";
         scoreBoard.classList.add("alert-primary");
         console.log("player 1 goes first");
-        ceeLoGame.disablePlayer2();
-        gameRoundIs++;
-        ceeLoGame.config.resetButtonPress;
-        localStorage.clear();
-        console.log("the game Round Is now " + gameRoundIs)
+        // ceeLoGame.disablePlayer2();
+        // gameRoundIs++;
+        // ceeLoGame.config.resetButtonPress;
+        // localStorage.clear();
+        // console.log("the game Round Is now " + gameRoundIs)
 
     },
 
@@ -634,11 +630,11 @@ let ceeLoGame = {
         scoreBoard.innerHTML = "player 2️⃣ goes first";
         scoreBoard.classList.add("alert-primary");
         console.log("player 2 goes first");
-        ceeLoGame.disablePlayer1();
-        gameRoundIs++;
-        ceeLoGame.config.resetButtonPress;
-        localStorage.clear();
-        console.log("the game Round Is now " + gameRoundIs)
+        // ceeLoGame.disablePlayer1();
+        // gameRoundIs++;
+        // ceeLoGame.config.resetButtonPress;
+        // localStorage.clear();
+        // console.log("the game Round Is now " + gameRoundIs)
 
     },
 
@@ -648,16 +644,6 @@ let ceeLoGame = {
         console.log("tie roll start over");
 
     },
-
-
-
-
-
-
-
-
-
-
 
     // -------------------- WIN/LOSS --------------------
     winConditon: () => {
