@@ -46,11 +46,6 @@ let ceeLoGame = {
 
 
 
-
-
-
-
-
     // -------------------- GAME ROUNDS --------------------
     gameRound: () => {
         switch (ceeLoGame.config.roundNum) {
@@ -109,13 +104,6 @@ let ceeLoGame = {
 
 
 
-
-
-
-
-
-
-
     // -------------------- onDomReady() --------------------
     onDomReady: () => {
         let howManyPlayers = ceeLoGame.config.playerArray.length;
@@ -124,12 +112,6 @@ let ceeLoGame = {
         scoreBoard.innerHTML = "Please press start";
 
     },
-
-
-
-
-
-
 
 
 
@@ -145,12 +127,6 @@ let ceeLoGame = {
         ceeLoGame.gameRound();
 
     },
-
-
-
-
-
-
 
 
 
@@ -173,12 +149,6 @@ let ceeLoGame = {
 
 
 
-
-
-
-
-
-
     // -------------------- INIT GAME --------------------
     initCLgame: () => {
         for (let i = 0; i < ceeLoGame.config.rollButtonArray.length; i++) {
@@ -186,12 +156,6 @@ let ceeLoGame = {
 
         };
     },
-
-
-
-
-
-
 
 
 
@@ -225,12 +189,6 @@ let ceeLoGame = {
 
 
 
-
-
-
-
-
-
     // -------------------- PRINT DICE NUMBERS --------------------
     printDice: (a, b, c) => {
         document.getElementById("die1").innerHTML = a;
@@ -243,12 +201,6 @@ let ceeLoGame = {
 
 
 
-
-
-
-
-
-
     // -------------------- RESET DICE NUMBERS --------------------
     resetDie: () => {
         document.getElementById("die1").innerHTML = "Prepare";
@@ -256,12 +208,6 @@ let ceeLoGame = {
         document.getElementById("die3").innerHTML = "Roll";
 
     },
-
-
-
-
-
-
 
 
 
@@ -337,12 +283,12 @@ let ceeLoGame = {
                     scoreBoard.innerHTML = "You win";
                 } else {
                     scoreBoard.innerHTML = "Go first";
-                }
+        }
 
                 ceeLoGame.storePlayerScore(playerNumber, printRoll);
                 ceeLoGame.advancePlayer();
 
-            } else {
+        } else {
                 trips(playerNumber);
 
             };
