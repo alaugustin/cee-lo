@@ -332,87 +332,9 @@ let ceeLoGame = {
         console.log("Rollpoint: " + rollPoint);
         console.log("----- ----- -----");
 
-        // // TRIPS CONDITION --------------------
-        // let trips = (playerNumber) => {
-        //     rollCode = 3;
+        ceeLoGame.config.highScores.push({ "player": playerNumber, "roll_code": rollCode, "roll_point": rollPoint, "game_round": gameRoundIs });
+        localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
 
-        //     if (a === b && b === c) {
-        //         rollPoint = a;
-        //         scoreBoard.innerHTML = "Trips - " + a + b + c;
-        //         ceeLoGame.storePlayerScore(playerNumber, printRoll);
-        //         ceeLoGame.advancePlayer();
-
-        //     } else {
-        //         point(playerNumber);
-
-        //     };
-        // };
-
-        // // POINT CONDITION --------------------
-        // let point = (playerNumber) => {
-        //     rollCode = 2;
-
-        //     if (a === b) {
-        //         rollPoint = c;
-        //         scoreBoard.innerHTML = "Points - " + c;
-        //         ceeLoGame.storePlayerScore(playerNumber, printRoll);
-        //         ceeLoGame.advancePlayer();
-
-        //     } else if (a === c) {
-        //         rollPoint = b;
-        //         scoreBoard.innerHTML = "Points - " + b;
-        //         ceeLoGame.storePlayerScore(playerNumber, printRoll);
-        //         ceeLoGame.advancePlayer();
-
-        //     } else if (b === c) {
-        //         rollPoint = a;
-        //         scoreBoard.innerHTML = "Points - " + a;
-        //         ceeLoGame.storePlayerScore(playerNumber, printRoll);
-        //         ceeLoGame.advancePlayer();
-
-        //     } else {
-        //         oneTwoThree(playerNumber);
-
-        //     };
-        // };
-
-        // // 1 2 3 CONDITION --------------------
-        // let oneTwoThree = (playerNumber) => {
-        //     let array123 = [a, b, c],
-        //         array123sort = array123.sort(),
-        //         array123string = array123sort.toString();
-        //     rollCode = 1;
-        //     rollPoint = 0;
-
-        //     if (array123string === "1,2,3") {
-        //         if (gameRoundIs == 2) {
-        //             scoreBoard.innerHTML = "You loose";
-        //         } else {
-        //             scoreBoard.innerHTML = "Go last";
-        //         }
-        //         ceeLoGame.storePlayerScore(playerNumber, printRoll);
-        //         ceeLoGame.advancePlayer();
-
-        //     } else {
-        //         rollCode = 0;
-        //         scoreBoard.innerHTML = "Roll again.";
-
-        //     };
-        // };
-        // fourFiveSix(playerNumber);
-
-    },
-
-
-
-
-
-    // -------------------- PLAYER SCORE --------------------
-    storePlayerScore: (rollPoint, playerNumber, rollArray_string, gameRoundIs) => {
-        console.log("storePlayerScore() executed. Rollpoint " + rollPoint);
-        console.log("storePlayerScore() executed. Player number " + playerNumber);
-        console.log("storePlayerScore() executed. Roll array " + rollArray_string);
-        console.log("storePlayerScore() executed. Game round is " + gameRoundIs);
 
         // let populateLScore = () => {
         //     ceeLoGame.config.highScores.push({ "player": playerNumber, "roll_code": rollCode, "roll_point": rollPoint, "game_round": gameRoundIs });
