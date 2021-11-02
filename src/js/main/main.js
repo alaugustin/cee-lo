@@ -262,9 +262,10 @@ let ceeLoGame = {
 
         // 456
         let fourFiveSix = () => {
-            rollCode = 4;
 
             if (rollArray_string === "4,5,6") {
+                rollCode = 4;
+                rollPoint = 100;
                 ceeLoGame.storePlayerScore(rollPoint, playerNumber, rollArray_string, gameRoundIs, rollCode);
             } else {
                 oneTwoThree();
@@ -273,9 +274,10 @@ let ceeLoGame = {
 
         // 123
         let oneTwoThree = () => {
-            rollCode = 2;
 
             if (rollArray_string === "1,2,3") {
+                rollCode = 2;
+                rollPoint = 0;
                 ceeLoGame.storePlayerScore(rollPoint, playerNumber, rollArray_string, gameRoundIs, rollCode);
             } else {
                 trips();
@@ -285,9 +287,10 @@ let ceeLoGame = {
 
         // TRIPS
         let trips = () => {
-            rollCode = 3;
 
             if (a === b && b === c) {
+                rollCode = 3;
+                rollPoint = a;
                 ceeLoGame.storePlayerScore(rollPoint, playerNumber, rollArray_string, gameRoundIs, rollCode);
             } else {
                 point();
@@ -296,17 +299,19 @@ let ceeLoGame = {
 
         // POINT
         let point = () => {
-            rollCode = 1;
 
             if (a === b) {
+                rollCode = 1;
                 rollPoint = c;
                 ceeLoGame.storePlayerScore(rollPoint, playerNumber, rollArray_string, gameRoundIs, rollCode);
 
             } else if (a === c) {
+                rollCode = 1;
                 rollPoint = b;
                 ceeLoGame.storePlayerScore(rollPoint, playerNumber, rollArray_string, gameRoundIs, rollCode);
 
             } else if (b === c) {
+                rollCode = 1;
                 rollPoint = a;
                 ceeLoGame.storePlayerScore(rollPoint, playerNumber, rollArray_string, gameRoundIs, rollCode);
             } else {
@@ -322,7 +327,8 @@ let ceeLoGame = {
 
 
     // -------------------- PLAYER SCORE --------------------
-    storePlayerScore: (rollPoint, playerNumber, rollArray_string, gameRoundIs, rollCode) => {
+    storePlayerScore: (rollPoint, playerNumber, gameRoundIs, rollCode) => {
+        console.log("💡 see local storage in Application tab of dev tools for roll info");
         console.log("storePlayerScore() executed.");
         console.log("----- ----- -----");
         console.log("Game round is: " + gameRoundIs);
@@ -339,7 +345,7 @@ let ceeLoGame = {
 
         localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
 
-
+        console.log("advance to next player =======>");
         // let populateLScore = () => {
         //     ceeLoGame.config.highScores.push({ "player": playerNumber, "roll_code": rollCode, "roll_point": rollPoint, "game_round": gameRoundIs });
 
