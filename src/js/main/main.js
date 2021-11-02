@@ -431,67 +431,64 @@ let ceeLoGame = {
 
 
 
-
-
-
-
-
-
     // -------------------- PLAYER SCORE --------------------
-    storePlayerScore: (playerNumber, printRoll) => {
-        console.log("storePlayerScore() executed");
+    storePlayerScore: (rollPoint, playerNumber, rollArray_string, gameRoundIs) => {
+        console.log("storePlayerScore() executed. Rollpoint " + rollPoint);
+        console.log("storePlayerScore() executed. Player number " + playerNumber);
+        console.log("storePlayerScore() executed. Roll array " + rollArray_string);
+        console.log("storePlayerScore() executed. Game round is " + gameRoundIs);
 
-        let populateLScore = () => {
-            ceeLoGame.config.highScores.push({ "player": playerNumber, "roll_code": rollCode, "roll_point": rollPoint, "game_round": gameRoundIs });
+        // let populateLScore = () => {
+        //     ceeLoGame.config.highScores.push({ "player": playerNumber, "roll_code": rollCode, "roll_point": rollPoint, "game_round": gameRoundIs });
 
-            if (ceeLoGame.config.highScores.length > 2) {
-                ceeLoGame.config.highScores.shift();
-            }
+        //     if (ceeLoGame.config.highScores.length > 2) {
+        //         ceeLoGame.config.highScores.shift();
+        //     }
 
-            localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
+        //     localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
 
-            if (gameRoundIs == 1) {
-                console.log("do placement round stuff | player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs + ". " + "The roll code is: " + rollCode + " The roll point is: " + rollPoint);
+        //     if (gameRoundIs == 1) {
+        //         console.log("do placement round stuff | player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs + ". " + "The roll code is: " + rollCode + " The roll point is: " + rollPoint);
 
-                if (rollCode == 1) {
-                    ceeLoGame.the123Roll(playerNumber);
+        //         if (rollCode == 1) {
+        //             ceeLoGame.the123Roll(playerNumber);
 
-                } else if (rollCode == 4) {
-                    ceeLoGame.the456Roll(playerNumber);
+        //         } else if (rollCode == 4) {
+        //             ceeLoGame.the456Roll(playerNumber);
 
-                } else {
-                    if (ceeLoGame.config.highScores.length == 2) {
-                        ceeLoGame.playerPosition();
-                        ceeLoGame.advancePlayer();
+        //         } else {
+        //             if (ceeLoGame.config.highScores.length == 2) {
+        //                 ceeLoGame.playerPosition();
+        //                 ceeLoGame.advancePlayer();
 
-                    }
-                }
-            }
+        //             }
+        //         }
+        //     }
 
-            if (gameRoundIs == 2) {
-                console.log("do final round stuff | player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs + ". " + "The roll code is: " + rollCode + " The roll point is: " + rollPoint);
-                if (rollCode == 1) {
-                    ceeLoGame.the123Roll(playerNumber);
+        //     if (gameRoundIs == 2) {
+        //         console.log("do final round stuff | player " + playerNumber + " rolled " + printRoll() + " in round " + gameRoundIs + ". " + "The roll code is: " + rollCode + " The roll point is: " + rollPoint);
+        //         if (rollCode == 1) {
+        //             ceeLoGame.the123Roll(playerNumber);
 
-                } else if (rollCode == 4) {
-                    ceeLoGame.the456Roll(playerNumber);
+        //         } else if (rollCode == 4) {
+        //             ceeLoGame.the456Roll(playerNumber);
 
-                } else {
-                    if (ceeLoGame.config.highScores.length == 2) {
-                        ceeLoGame.determineWinner();
+        //         } else {
+        //             if (ceeLoGame.config.highScores.length == 2) {
+        //                 ceeLoGame.determineWinner();
 
-                    } else {
-                        ceeLoGame.advancePlayer();
+        //             } else {
+        //                 ceeLoGame.advancePlayer();
 
-                    }
-                }
-            }
-        };
+        //             }
+        //         }
+        //     }
+        // };
 
-        if (rollCode == 4 || rollCode == 3 || rollCode == 2 || rollCode == 1) {
-            populateLScore();
+        // if (rollCode == 4 || rollCode == 3 || rollCode == 2 || rollCode == 1) {
+        //     populateLScore();
 
-        };
+        // };
     },
 
 
