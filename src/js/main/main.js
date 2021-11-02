@@ -333,6 +333,10 @@ let ceeLoGame = {
         console.log("----- ----- -----");
 
         ceeLoGame.config.highScores.push({ "player": playerNumber, "roll_code": rollCode, "roll_point": rollPoint, "game_round": gameRoundIs });
+        if (ceeLoGame.config.highScores.length > 2) {
+            ceeLoGame.config.highScores.shift();
+        }
+
         localStorage.setItem("highscores", JSON.stringify(ceeLoGame.config.highScores));
 
 
