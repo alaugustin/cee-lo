@@ -271,33 +271,60 @@ let ceeLoGame = {
             rollArray_sort = rollArray.sort(),
             rollArray_string = rollArray_sort.toString();
 
+
         // 456
-        if (rollArray_string === "4,5,6") {
-            console.log("4 5 6 rolled - Player " + playerNumber + " rolled " + rollArray_string + ' in round ' + gameRoundIs);
+        let fourFiveSix = () => {
+            if (rollArray_string === "4,5,6") {
+                console.log("4 5 6 rolled - Player " + playerNumber + " rolled " + rollArray_string + ' in round ' + gameRoundIs);
+                ceeLoGame.storePlayerScore();
+            } else {
+                oneTwoThree();
+            }
         }
+
         // 123
-        if (rollArray_string === "1,2,3") {
-            console.log("1 2 3 rolled - Player " + playerNumber + " rolled " + rollArray_string + ' in round ' + gameRoundIs);
+        let oneTwoThree = () => {
+            if (rollArray_string === "1,2,3") {
+                // console.log("1 2 3 rolled - Player " + playerNumber + " rolled " + rollArray_string + ' in round ' + gameRoundIs);
+                ceeLoGame.storePlayerScore();
+            } else {
+                trips();
+            }
         }
+
+
         // TRIPS
-        if (a === b && b === c) {
-            console.log("Trips rolled - Player " + playerNumber + " rolled " + rollArray_string + ' in round ' + gameRoundIs);
+        let trips = () => {
+            if (a === b && b === c) {
+                // console.log("Trips rolled - Player " + playerNumber + " rolled " + rollArray_string + ' in round ' + gameRoundIs);
+                ceeLoGame.storePlayerScore();
+            } else {
+                point();
+            }
         }
+
         // POINT
-        if (a === b) {
-            rollPoint = c;
-            console.log("Player " + playerNumber + " rolled " + rollArray_string + " in round " + gameRoundIs + " - roll point is " + rollPoint);
+        let point = () => {
+            if (a === b) {
+                rollPoint = c;
+                // console.log("Player " + playerNumber + " rolled " + rollArray_string + " in round " + gameRoundIs + " - roll point is " + rollPoint);
+                ceeLoGame.storePlayerScore(rollPoint, playerNumber, rollArray_string, gameRoundIs);
 
-        } else if (a === c) {
-            rollPoint = b;
-            console.log("Player " + playerNumber + " rolled " + rollArray_string + " in round " + gameRoundIs + " - roll point is " + rollPoint);
+            } else if (a === c) {
+                rollPoint = b;
+                // console.log("Player " + playerNumber + " rolled " + rollArray_string + " in round " + gameRoundIs + " - roll point is " + rollPoint);
+                ceeLoGame.storePlayerScore(rollPoint, playerNumber, rollArray_string, gameRoundIs);
 
-        } else if (b === c) {
-            rollPoint = a;
-            console.log("Player " + playerNumber + " rolled " + rollArray_string + " in round " + gameRoundIs + " - roll point is " + rollPoint);
-        } else {
-            console.log("Roll again")
-        };
+            } else if (b === c) {
+                rollPoint = a;
+                // console.log("Player " + playerNumber + " rolled " + rollArray_string + " in round " + gameRoundIs + " - roll point is " + rollPoint);
+                ceeLoGame.storePlayerScore(rollPoint, playerNumber, rollArray_string, gameRoundIs);
+            } else {
+                console.log("Roll again")
+            };
+        }
+        fourFiveSix();
+
 
 
 
