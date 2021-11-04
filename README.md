@@ -203,7 +203,7 @@ Code review tasks
 #### Sprint 5_1
 
 <ol>
-  <li>Integrate Tailwind</li>
+  <li>Integrate Tailwind (slight deviation 😉)</li>
 </ol>
 <!-- CONTRIBUTING
 ## Contributing
