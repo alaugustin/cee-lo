@@ -656,11 +656,11 @@ let ceeLoGame = {
     eventHandlers: () => {
 
         // TESTING BUTTON *************************
-        let testButton = document.getElementById("testButton");
-        testButton.addEventListener("click", () => {
-            // console.log(this);
-            ceeLoGame.gameRound();
-        });
+        // let testButton = document.getElementById("testButton");
+        // testButton.addEventListener("click", () => {
+        //     // console.log(this);
+        //     ceeLoGame.gameRound();
+        // });
 
         // console.log(testButton);
         //*************************
