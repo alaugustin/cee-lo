@@ -327,7 +327,7 @@ let ceeLoGame = {
 
 
     // -------------------- PLAYER SCORE --------------------
-    storePlayerScore: (rollPoint, playerNumber, gameRoundIs, rollCode) => {
+    storePlayerScore: (rollPoint, playerNumber, gameRoundIs, rollCode, rollArray_string) => {
         console.log("💡 see local storage in Application tab of dev tools for roll info");
         console.log("storePlayerScore() executed.");
         console.log("----- ----- -----");
