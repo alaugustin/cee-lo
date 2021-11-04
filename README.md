@@ -77,7 +77,7 @@ An HTML, JS version of the dice game.
         <li>
             <a href="#sprint-5">Sprint 5</a>
             <ol>
-                <li><a href="#sprint-5.1">Sprint 5.1</a></li>
+                <li><a href="#sprint-5_1">Sprint 5.1</a></li>
             </ol>
         </li>
       </ol>
@@ -200,7 +200,7 @@ Code review tasks
   <li>Determine winner</li>
 </ol>
 
-## Sprint 5.1
+#### Sprint 5_1
 
 <ol>
   <li>Integrate Tailwind</li>
