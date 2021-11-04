@@ -74,7 +74,12 @@ An HTML, JS version of the dice game.
         <li><a href="#sprint-2">Sprint 2</a></li>
         <li><a href="#sprint-3">Sprint 3</a></li>
         <li><a href="#sprint-4">Sprint 4</a></li>
-        <li><a href="#sprint-5">Sprint 5</a></li>
+        <li>
+            <a href="#sprint-5">Sprint 5</a>
+            <ol>
+                <li><a href="#sprint-5.1">Sprint 5.1</a></li>
+            </ol>
+        </li>
       </ol>
     </li>
     <!-- <li><a href="#contributing">Contributing</a></li>
@@ -193,6 +198,12 @@ Code review tasks
 
 <ol>
   <li>Determine winner</li>
+</ol>
+
+## Sprint 5.1
+
+<ol>
+  <li>Integrate Tailwind</li>
 </ol>
 <!-- CONTRIBUTING
 ## Contributing
