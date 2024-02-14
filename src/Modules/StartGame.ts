@@ -1,21 +1,22 @@
-import { EnterPlayers } from "./EnterPlayers";
-import { RollForPosition } from "./RollForPosition";
-import { PlayersRoll } from "./PlayersRoll";
-import { CompareScores } from "./CompareScores";
-import { ShowWinner } from "./ShowWinner";
+import { PlayerSignIn } from "./PlayerSignIn";
+import { threeDbuttonStyling } from "./Global";
 
 const startButton = document.getElementById('startButton');
+const startScreenHolder = document.getElementById('startScreen');
+const playerSignInHolder = document.getElementById('playerSignIn');
+
+threeDbuttonStyling.map(
+  (styleClass) => {
+    startButton?.classList.add(styleClass);
+  }
+);
 
 const startGame = () => {
-  console.log('startButton clicked')
+  startScreenHolder?.classList.add('hidden');
+  playerSignInHolder?.classList.remove('hidden');
+  PlayerSignIn();  
 }
 
 export function StartGame() {
-  startButton.addEventListener("click", startGame);
-
-  EnterPlayers('testing -');
-  RollForPosition('testing -');
-  PlayersRoll('testing -');
-  CompareScores('testing -');
-  ShowWinner('testing -');
+  startButton?.addEventListener("click", startGame);
 };

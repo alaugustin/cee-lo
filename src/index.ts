@@ -8,28 +8,16 @@ const ceeLo = {
     Date: '2021',
   },
 
-  // GLOBAL VARIABLES --------------------
-  globalVar: {
-    currentYear: new Date().getFullYear(),
-  },
-
   // -------------------- INITIALIZATION --------------------
   init: function () {
     // CALL DOM INVOKING FUNCTIONS HERE --------------------
     ceeLo.onDomReady();
-    ceeLo.eventHandlers();
   },
 
   onDomReady: () => {
-    console.log(`onDomReady code here`);
-    console.log(ceeLo.globalVar);
-
+    console.log(ceeLo);
+    
     StartGame();
-  },
-
-  // -------------------- HANDLE ALL PAGE LEVEL EVENTS --------------------
-  eventHandlers: () => {
-    console.log(`eventHandlers code here`);
   },
 };
 
