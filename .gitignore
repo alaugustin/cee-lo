@@ -1,2 +1,4 @@
-/dist
 /~old
+/dist
+/node_modules
+/src/css/style.css
