@@ -1,3 +1,3 @@
-export function CompareScores() {
-  console.log(`compareScores code here`);
+export function CompareScores(foo: string) {
+  console.log(`${foo} compareScores code here`);
 }

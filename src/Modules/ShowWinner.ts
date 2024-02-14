@@ -1,3 +1,3 @@
-export function ShowWinner() {
-  console.log(`showWinner code here`);
+export function ShowWinner(foo: string) {
+  console.log(`${foo} showWinner code here`);
 }

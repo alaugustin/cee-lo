@@ -1,3 +1,3 @@
-export function RollForPosition() {
-  console.log(`rollForPosition code here`);
+export function RollForPosition(foo: string) {
+  console.log(`${foo} rollForPosition code here`);
 };

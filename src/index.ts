@@ -1,9 +1,4 @@
 import { StartGame } from "./Modules/StartGame";
-import { EnterPlayers } from "./Modules/EnterPlayers";
-import { RollForPosition } from "./Modules/RollForPosition";
-import { PlayersRoll } from "./Modules/PlayersRoll";
-import { CompareScores } from "./Modules/CompareScores";
-import { ShowWinner } from "./Modules/ShowWinner";
 
 const ceeLo = {
   projectData: {
@@ -30,11 +25,6 @@ const ceeLo = {
     console.log(ceeLo.globalVar);
 
     StartGame();
-    EnterPlayers();
-    RollForPosition();
-    PlayersRoll();
-    CompareScores();
-    ShowWinner();
   },
 
   // -------------------- HANDLE ALL PAGE LEVEL EVENTS --------------------

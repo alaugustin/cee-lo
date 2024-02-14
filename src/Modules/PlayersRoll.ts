@@ -1,3 +1,3 @@
-export function PlayersRoll() {
-  console.log(`playersRoll code here`);
+export function PlayersRoll(foo: string) {
+  console.log(`${foo} playersRoll code here`);
 }
