@@ -5,38 +5,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-  <div>
-    <h1>Cee-Lo Game</h1>
+  <div class="text-5xl">
+    <h1>Cee-Lo</h1>
   </div>
 
-  <div>
-    <h2>Start Screen</h2>
-    <h3>Press Start Button</h3>
-    <button id="startButton">start</button>
+  <div id="startScreen" class="border-solid border-2 border-sky-500">
+    <h2 class="text-4xl">Start Screen</h2>
+    <h3 class="text-3xl">Press Start Button</h3>
+    <button id="startButton">START</button>
   </div>
 
-  <div class="hidden">
-    <h2>Enter Players</h2>
+  <div id="playerSignIn" class="hidden border-solid border-2 border-sky-500">
+    <h2 class="text-4xl">Enter Player Name</h2>
+    <input id="nameInput" type="text" />
+    <button id="playButton">PLAY</button>
   </div>
 
-  <div class="hidden">
-    <h2>Roll for Position</h2>
+  <div class="hidden border-solid border-2 border-sky-500">
+    <h2 class="text-4xl">Roll for Position</h2>
   </div>
 
-  <div class="hidden">
-    <h2>Players Roll</h2>
+  <div class="hidden border-solid border-2 border-sky-500">
+    <h2 class="text-4xl">Players Roll</h2>
   </div>
 
-  <div class="hidden">
-    <h2>Compare Scores</h2>
+  <div class="hidden border-solid border-2 border-sky-500">
+    <h2 class="text-4xl">Compare Scores</h2>
   </div>
 
-  <div class="hidden">
-    <h2>Show Winner</h2>
+  <div class="hidden border-solid border-2 border-sky-500">
+    <h2 class="text-4xl">Show Winner</h2>
   </div>
 </body>
 
