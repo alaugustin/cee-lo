@@ -1,3 +1,4 @@
+
 # These are some examples of commonly ignored file patterns.
 # You should customize this list as applicable to your project.
 # Learn more about .gitignore:
@@ -50,3 +51,7 @@ Thumbs.db
 
 # Project ignores
 ._*
+/~old
+/dist
+/node_modules
+/src/css/style.css
