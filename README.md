@@ -67,7 +67,7 @@ An HTML, JS version of the dice game.
       </ul>
     </li> -->
     <li><a href="#built-with">Built With</a></li>
-    <li>
+<!--     <li>
       <a href="#roadmap">Roadmap</a>
       <ol>
         <li><a href="#sprint-1">Sprint 1</a></li>
@@ -76,7 +76,7 @@ An HTML, JS version of the dice game.
         <li><a href="#sprint-4">Sprint 4</a></li>
         <li><a href="#sprint-5">Sprint 5</a></li>
       </ol>
-    </li>
+    </li> -->
     <!-- <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li> -->
@@ -105,7 +105,8 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 
 <!--This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.-->
 
-- [JavaScript](https://en.wikipedia.org/wiki/ECMAScript)
+- [Webpack](https://webpack.js.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [HTML](https://en.wikipedia.org/wiki/HTML)
 
 <!-- GETTING STARTED
@@ -147,11 +148,11 @@ Use this space to show useful examples of how a project can be used. Additional 
 _For more examples, please refer to the [Documentation](https://example.com)_
  -->
 
-<!-- ROADMAP -->
+<!-- ROADMAP --
 
 ## Roadmap
 
-<!--See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).-->
+<!--See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).--
 
 ### Sprint 1
 
