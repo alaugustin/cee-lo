@@ -1,6 +1,5 @@
 import { CreatePlayer } from "../../Classes/CreatePlayers";
 import { RollForPosition } from "../RollForPosition/RollForPosition";
-// import Ro
 
 const scoreBoardHolder = document.getElementById('scoreBoard');
 let scoreBoardPlayerName: NodeListOf<HTMLHeadingElement> | undefined = scoreBoardHolder?.querySelectorAll('h4');
@@ -18,5 +17,5 @@ export function PopulatePositioninBoard(players: string[]) {
     Number(scoreBoardRollPointsSpan[index].innerHTML = player.rollPoints.toString());
   });
 
-  RollForPosition("testing -");
+  RollForPosition();
 }
