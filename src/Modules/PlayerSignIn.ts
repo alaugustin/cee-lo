@@ -1,5 +1,4 @@
-
-import { PopulatePositioninBoard } from "./RollForPosition/PopulatePositioninBoard";
+import { PopulatePlayerBoard } from "./RollForPosition/PopulatePlayerBoard";
 
 const playerSignInInput = document.getElementById("nameInput");
 const playButton = document.getElementById("playButton");
@@ -9,7 +8,7 @@ const rollForPositionHolder = document.getElementById('rollForPosition');
 const logPlayer = (event: any) => {
   let { value } = event.target.parentElement.children[1];
 
-  PopulatePositioninBoard(
+  PopulatePlayerBoard(
     ["The House",
     value ? value : "Nameless Ned"]
   );
