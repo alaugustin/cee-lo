@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const stylesHandler = 'style-loader';
 
 module.exports = {
   mode: 'development',
@@ -7,6 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: './js/main.bundle.js',
+    clean: true
   },
   devServer: {
     static: {
@@ -23,6 +25,10 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/i,
+        use: [stylesHandler, 'css-loader', 'postcss-loader'],
+      },
     ],
   },
   resolve: {
@@ -30,7 +36,6 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html',
       template: 'src/index.html'
     })
   ]
