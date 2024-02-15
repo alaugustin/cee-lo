@@ -1,5 +1,6 @@
 import { CreatePlayer } from "../../Classes/CreatePlayers";
 import { RollForPosition } from "./RollForPosition";
+import { ScoreboardCard } from "../../Templates/Templates";
 
 const scoreBoardHolder: HTMLElement | null = document.getElementById('scoreBoardHolder');
 
@@ -14,14 +15,7 @@ export function PopulatePlayerBoard(players: string[]) {
     player.rollPoints = 0;
 
     return (
-      scoreBoardHolder.innerHTML += `
-        <div>
-          <h3>Player ${index + 1}</h3>
-          <h4>${player.name}</h4>
-          <p>Roll Points: <span>${player.rollPoints}</span></p>
-          <button class="border-solid border-2">ROLL</button>
-        </div>
-      `
+      scoreBoardHolder.innerHTML += ScoreboardCard(index, player.name, player.rollPoints)
     );
   });
 
