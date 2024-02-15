@@ -14,7 +14,6 @@ export function PopulatePlayerBoard(players: string[]) {
     player.rollPosition = index;
     player.rollPoints = 0;
 
-
     return (
       scoreBoardHolder.innerHTML += ScoreboardCard(index, player.name, player.rollPoints)
     );
