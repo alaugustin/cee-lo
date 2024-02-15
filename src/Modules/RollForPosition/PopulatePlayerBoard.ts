@@ -14,10 +14,10 @@ export function PopulatePlayerBoard(players: string[]) {
     player.rollPosition = index;
     player.rollPoints = 0;
 
+    RollForPosition(player);
+
     return (
       scoreBoardHolder.innerHTML += ScoreboardCard(index, player.name, player.rollPoints)
     );
   });
-
-  RollForPosition();
 }
