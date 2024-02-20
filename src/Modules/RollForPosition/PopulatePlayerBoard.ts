@@ -1,4 +1,4 @@
-import { CreatePlayer } from "../../Classes/CreatePlayers";
+import { PlayerObj } from "../../Classes/CreatePlayers";
 import { RollForPosition } from "./RollForPosition";
 import { ScoreboardCard } from "../../Templates/Templates";
 
@@ -8,11 +8,13 @@ export function PopulatePlayerBoard(players: string[]) {
   const reversedPlayersArray: string[] = players.reverse();
 
   reversedPlayersArray.forEach((playerName: string, index: number) => {
-    let player = new CreatePlayer();
+    let player: PlayerObj = new PlayerObj();
 
     player.name = playerName;
     player.rollPosition = index;
     player.rollPoints = 0;
+    player.wins = null;
+    player.losses = null;
 
     return (
       scoreBoardHolder.innerHTML += ScoreboardCard(index, player.name, player.rollPoints)
