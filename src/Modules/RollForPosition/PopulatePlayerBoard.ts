@@ -5,12 +5,12 @@ import { ScoreboardCard } from "../../Templates/Templates";
 const scoreBoardHolder: HTMLElement | null = document.getElementById('scoreBoardHolder');
 
 export function PopulatePlayerBoard(players: string[]) {
-  const reversedPlayersArray = players.reverse();
+  const reversedPlayersArray: string[] = players.reverse();
 
-  reversedPlayersArray.forEach((element: string, index: number) => {
+  reversedPlayersArray.forEach((playerName: string, index: number) => {
     let player = new CreatePlayer();
 
-    player.name = element;
+    player.name = playerName;
     player.rollPosition = index;
     player.rollPoints = 0;
 

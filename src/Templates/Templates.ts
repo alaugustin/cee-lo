@@ -3,9 +3,9 @@ import { threeDbuttonStyling, threeDbuttonStylingDisabled } from "../Modules/Glo
 export function ScoreboardCard(index: number, name: string, rollPoints: number) {
   const commonClass: string = "flex flex-col";
 
-  const cardAlignmentClass = index === 0 ? "items-end pr-2" : "items-start pl-2";
+  const cardAlignmentClass: string = index === 0 ? "items-end pr-2" : "items-start pl-2";
   const buttonStyling = index === 0 ? threeDbuttonStyling.join(' ') : threeDbuttonStylingDisabled.join(' ');
-  const buttonDisabledAttribute = index !== 0 ? 'disabled' : '';
+  const buttonDisabledAttribute: string = index !== 0 ? 'disabled' : '';
 
   return `
     <div class="${commonClass} ${cardAlignmentClass}">

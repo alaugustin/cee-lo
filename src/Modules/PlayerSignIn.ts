@@ -1,9 +1,9 @@
 import { PopulatePlayerBoard } from "./RollForPosition/PopulatePlayerBoard";
 
-const playerSignInInput = document.getElementById("nameInput");
-const playButton = document.getElementById("playButton");
-const playerSignInHolder = document.getElementById('playerSignIn');
-const rollForPositionHolder = document.getElementById('rollForPosition');
+const playerSignInInput: HTMLElement = document.getElementById("nameInput");
+const playButton: HTMLElement = document.getElementById("playButton");
+const playerSignInHolder: HTMLElement = document.getElementById('playerSignIn');
+const scoreboardHolder: HTMLElement = document.getElementById('scoreboard');
 
 const logPlayer = (event: any) => {
   let { value } = event.target.parentElement.children[1];
@@ -14,7 +14,7 @@ const logPlayer = (event: any) => {
   );
 
   playerSignInHolder?.classList.add('hidden');
-  rollForPositionHolder?.classList.remove('hidden');
+  scoreboardHolder?.classList.remove('hidden');
 };
 
 export function PlayerSignIn() {
