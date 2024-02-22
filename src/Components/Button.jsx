@@ -1,7 +1,7 @@
-function Button({ label }) {
+function Button({ label, clickFunction }) {
   return (
     <>
-      <button className="border-solid border-2 border-sky-700">{label}</button>
+      <button className="border-solid border-2 border-sky-700" onClick={clickFunction}>{label}</button>
     </>
   );
 }

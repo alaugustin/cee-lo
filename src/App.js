@@ -9,9 +9,9 @@ const sectionBorderClasses = 'border-solid border-2 border-sky-500';
 function ceeLo() {
   return (
     <>
-      <div className={`${sectionHolderClasses} + ${sectionBorderClasses}`}>
+      <header className={`${sectionHolderClasses} + ${sectionBorderClasses}`}>
         <Typography tagType='h1' label='Welcome to Cee-Lo!' />
-      </div>
+      </header>
 
       <StartScreen sectionClasses={`${sectionHolderClasses} ${sectionBorderClasses}`} />
 
@@ -19,21 +19,7 @@ function ceeLo() {
 
       <Gameboard sectionClasses={`${sectionHolderClasses} ${sectionBorderClasses}`} />
 
-      {/* <div className='hidden border-solid border-2 border-sky-500'>
-        <h2 className='text-4xl'>Roll for Position</h2>
-      </div>
-
-      <div className='hidden border-solid border-2 border-sky-500'>
-        <h2 className='text-4xl'>Players Roll</h2>
-      </div>
-
-      <div className='hidden border-solid border-2 border-sky-500'>
-        <h2 className='text-4xl'>Compare Scores</h2>
-      </div>
-
-      <div className='hidden border-solid border-2 border-sky-500'>
-        <h2 className='text-4xl'>Show Winner</h2>
-      </div> */}
+      <footer>Footer here</footer>
     </>
   );
 }
