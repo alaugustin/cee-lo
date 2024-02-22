@@ -1,7 +1,7 @@
-import {React} from 'react';
+import { React } from 'react';
 import Typography from '../../Components/Typography';
 
-function Gameboard({sectionClasses}) {
+function Gameboard({ sectionClasses }) {
   return (
     <>
       <section id="gameBoard" className={`${sectionClasses} hidden`}>

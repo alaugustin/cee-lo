@@ -1,4 +1,4 @@
-import React from 'react';
+import { React } from 'react';
 import Button from '../../Components/Button';
 import Gameboard from '../Gameboard/Gameboard';
 import Typography from '../../Components/Typography';
