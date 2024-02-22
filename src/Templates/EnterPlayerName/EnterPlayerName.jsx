@@ -1,5 +1,7 @@
-import Button from "../../Components/Button";
-import Typography from "../../Components/Typography";
+import React from 'react';
+import Button from '../../Components/Button';
+import Gameboard from '../Gameboard/Gameboard';
+import Typography from '../../Components/Typography';
 
 const inputClasses = 'border-solid border-2 border-sky-500';
 
@@ -16,6 +18,9 @@ function EnterPlayerName({ sectionClasses }) {
 
         <Button label='PLAY' />
       </section>
+
+
+      <Gameboard sectionClasses={sectionClasses} />
     </>
   );
 }

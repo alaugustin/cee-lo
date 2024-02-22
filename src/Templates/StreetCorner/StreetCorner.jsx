@@ -1,16 +1,14 @@
-import EnterPlayerName from "../EnterPlayerName/EnterPlayerName";
-import Gameboard from "../Gameboard/Gameboard";
-import StartScreen from "../StartScreen/StartScreen";
+import { React } from 'react';
+import EnterPlayerName from '../EnterPlayerName/EnterPlayerName';
+import StartScreen from '../StartScreen/StartScreen';
 
-function Streetcorner({globalClasses}) {
+function Streetcorner({ globalClasses }) {
 
   return (
     <>
       <StartScreen sectionClasses={globalClasses} />
 
       <EnterPlayerName sectionClasses={globalClasses} />
-
-      <Gameboard sectionClasses={globalClasses} />
     </>
   );
 }

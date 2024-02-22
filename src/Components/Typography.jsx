@@ -1,5 +1,6 @@
-function Typography({ tagType, label }) {
+import { React } from 'react';
 
+function Typography({ tagType, label }) {
   let typographyObj;
 
   switch (tagType) {
