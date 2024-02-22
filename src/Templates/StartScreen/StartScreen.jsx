@@ -1,5 +1,5 @@
-import Button from "../Components/Button";
-import Typography from "../Components/Typography";
+import Button from "../../Components/Button";
+import Typography from "../../Components/Typography";
 
 function startGame() {
   const startScreen = document.getElementById('startScreen');
