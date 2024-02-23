@@ -36,76 +36,67 @@ export const populateDieBoard = (
 
 export const getRollType = (rollPointHolder: HTMLElement, die1: number, die2: number, die3: number) => {
   const diceArray = [die1, die2, die3];
+
   let rollArray = diceArray,
     rollArray_sort = rollArray.sort(),
     rollArray_string = rollArray_sort.toString();
 
-  let fourFiveSix = () => {
-    if (rollArray_string === "4,5,6") {
-      const rollCode = 4;
-      const rollPoint = 100;
-      rollPointHolder.innerHTML = rollPoint.toString();
-      // ceeLoGame.storePlayerScore(rollPoint, playerNumber, rollArray_string, gameRoundIs, rollCode);
-      console.log("4,5,6", `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
+  const processFourFiveSix = () => {
+    const rollCode = 3;
+    const rollPoint = 100;
 
-    } else {
-      oneTwoThree();
-    }
-  }
+    rollPointHolder.innerHTML = rollPoint.toString();
+
+    console.log("4,5,6", `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
+  };
+
+  const fourFiveSix = () => {
+    rollArray_string === "4,5,6" ? processFourFiveSix() : oneTwoThree();
+  };
+
+  const processOneTwoThree = () => {
+    const rollCode = 0;
+    const rollPoint = 0;
+
+    rollPointHolder.innerHTML = rollPoint.toString();
+
+    console.log("1,2,3", `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
+  };
 
   // 123
-  let oneTwoThree = () => {
+  const oneTwoThree = () => {
+    rollArray_string === "1,2,3" ? processOneTwoThree() : trips();
+  };
 
-    if (rollArray_string === "1,2,3") {
-      const rollCode = 2;
-      const rollPoint = 0;
-      rollPointHolder.innerHTML = rollPoint.toString();
-      // ceeLoGame.storePlayerScore(rollPoint, playerNumber, rollArray_string, gameRoundIs, rollCode);
-      console.log("1,2,3", `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
-    } else {
-      trips();
-    }
-  }
+  const processTrips = () => {
+    const rollCode = 2;
+    const rollPoint = die1;
+
+    rollPointHolder.innerHTML = rollPoint.toString();
+
+    console.log("trips", `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
+  };
 
   // TRIPS
-  let trips = () => {
-    if (die1 === die2 && die2 === die3) {
-      const rollCode = 3;
-      const rollPoint = die1;
-      // ceeLoGame.storePlayerScore(rollPoint, playerNumber, rollArray_string, gameRoundIs, rollCode);
-      rollPointHolder.innerHTML = rollPoint.toString();
-      console.log("trips", `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
-    } else {
-      point();
-    }
-  }
+  const trips = () => {
+    (die1 === die2 && die2 === die3) ? processTrips() : point();
+  };
 
   // POINT
-  let point = () => {
-    if (die1 === die2) {
-      const rollCode = 1;
-      const rollPoint = die3;
-      rollPointHolder.innerHTML = rollPoint.toString();
-      // ceeLoGame.storePlayerScore(rollPoint, playerNumber, rollArray_string, gameRoundIs, rollCode);
-      console.log('point', `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
-    } else if (die1 === die3) {
-      const rollCode = 1;
-      const rollPoint = die2;
-      rollPointHolder.innerHTML = rollPoint.toString();
-      // ceeLoGame.storePlayerScore(rollPoint, playerNumber, rollArray_string, gameRoundIs, rollCode);
-      console.log('point', `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
+  const point = () => {
+    const rollCode = 1;
+    let rollPoint = 0;
 
-    } else if (die2 === die3) {
-      const rollCode = 1;
-      const rollPoint = die1;
-      rollPointHolder.innerHTML = rollPoint.toString();
-      // ceeLoGame.storePlayerScore(rollPoint, playerNumber, rollArray_string, gameRoundIs, rollCode);
-      console.log('point', `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
-    } else {
-      const rollPoint = 0;
-      rollPointHolder.innerHTML = rollPoint.toString();
-      console.log("Roll again")
-    };
-  }
+    if (die1 === die2 || die1 === die3 || die2 === die3) {
+      rollPoint = die1 === die2 ? die3 : die1 === die3 ? die2 : die1;
+    }
+
+    rollPointHolder.innerHTML = rollPoint.toString();
+
+    rollPoint === 0 ?
+      console.log('roll again', `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`) :
+      console.log('points roll', `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
+  };
+
   fourFiveSix();
 }
