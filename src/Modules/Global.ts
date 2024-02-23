@@ -40,6 +40,17 @@ export const populateDieBoard = (
   getRollType(rollPointHolder, die1, die2, die3);
 }
 
+export const rollTypeTreatment = (rollType: string, rollPoint: number, rollArray_string: string, rollCode: number, rollPointHolder: HTMLElement) => {
+  console.log(
+    rollType,
+    `rollPoint, ${rollPoint},
+      rollArray_string, ${rollArray_string},
+      rollCode, ${rollCode}`
+  );
+
+  rollPointHolder.innerHTML = rollPoint.toString();
+}
+
 export const getRollType = (rollPointHolder: HTMLElement, die1: number, die2: number, die3: number) => {
   const diceArray = [die1, die2, die3];
   const rollArray = diceArray,
@@ -51,9 +62,7 @@ export const getRollType = (rollPointHolder: HTMLElement, die1: number, die2: nu
     const rollCode = 3;
     const rollPoint = 100;
 
-    rollPointHolder.innerHTML = rollPoint.toString();
-
-    console.log('4,5,6', `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
+    rollTypeTreatment('4,5,6', rollPoint, rollArray_string, rollCode, rollPointHolder);
   };
 
   const fourFiveSix = () => {
@@ -65,9 +74,7 @@ export const getRollType = (rollPointHolder: HTMLElement, die1: number, die2: nu
     const rollCode = 0;
     const rollPoint = 0;
 
-    rollPointHolder.innerHTML = rollPoint.toString();
-
-    console.log('1,2,3', `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
+    rollTypeTreatment('1,2,3', rollPoint, rollArray_string, rollCode, rollPointHolder);
   };
 
   const oneTwoThree = () => {
@@ -79,9 +86,7 @@ export const getRollType = (rollPointHolder: HTMLElement, die1: number, die2: nu
     const rollCode = 2;
     const rollPoint = die1;
 
-    rollPointHolder.innerHTML = rollPoint.toString();
-
-    console.log('trips', `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
+    rollTypeTreatment('Trips', rollPoint, rollArray_string, rollCode, rollPointHolder);
   };
 
   const trips = () => {
@@ -97,11 +102,8 @@ export const getRollType = (rollPointHolder: HTMLElement, die1: number, die2: nu
       rollPoint = die1 === die2 ? die3 : die1 === die3 ? die2 : die1;
     }
 
-    rollPointHolder.innerHTML = rollPoint.toString();
-
     rollPoint === 0 ?
-      console.log('roll again', `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`) :
-      console.log('points roll', `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
+      rollTypeTreatment('Roll again', rollPoint, rollArray_string, rollCode, rollPointHolder) : rollTypeTreatment('points roll', rollPoint, rollArray_string, rollCode, rollPointHolder);
   };
 
   fourFiveSix();
