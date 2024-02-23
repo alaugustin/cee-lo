@@ -1,6 +1,6 @@
-import { PlayerObj } from "../../Classes/CreatePlayers";
-import { RollForPosition } from "./RollForPosition";
-import { ScoreboardCard } from "../../Templates/Templates";
+import { PlayerObj } from '../../Classes/CreatePlayers';
+import { RollForPosition } from './RollForPosition';
+import { ScoreboardCard } from '../../Templates/Templates';
 
 const scoreBoardHolder: HTMLElement | null = document.getElementById('scoreBoardHolder');
 
@@ -8,7 +8,7 @@ export function PopulatePlayerBoard(players: string[]) {
   const reversedPlayersArray: string[] = players.reverse();
 
   reversedPlayersArray.forEach((playerName: string, index: number) => {
-    let player: PlayerObj = new PlayerObj();
+    const player: PlayerObj = new PlayerObj();
 
     player.name = playerName;
     player.rollPosition = index;

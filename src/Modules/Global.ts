@@ -1,6 +1,6 @@
-export const threeDbuttonStyling = ['bg-blue-500', 'hover:bg-blue-400', 'text-white', 'font-bold', 'py-2', 'px-4', 'border-b-4', 'border-blue-700', 'hover:border-blue-500', 'rounded'];
+export const threeDbuttonStyling:string[] = ['bg-blue-500', 'hover:bg-blue-400', 'text-white', 'font-bold', 'py-2', 'px-4', 'border-b-4', 'border-blue-700', 'hover:border-blue-500', 'rounded'];
 
-export const threeDbuttonStylingDisabled = ['bg-slate-500', 'text-white', 'font-bold', 'py-2', 'px-4', 'border-b-4', 'border-slate-700', 'rounded'];
+export const threeDbuttonStylingDisabled:string[] = ['bg-slate-500', 'text-white', 'font-bold', 'py-2', 'px-4', 'border-b-4', 'border-slate-700', 'rounded'];
 
 export const boldTreatment = (optClass: string | null) => {
   if (optClass === null) {
@@ -40,7 +40,13 @@ export const populateDieBoard = (
   getRollType(rollPointHolder, die1, die2, die3);
 }
 
-export const rollTypeTreatment = (rollType: string, rollPoint: number, rollArray_string: string, rollCode: number, rollPointHolder: HTMLElement) => {
+export const rollTypeTreatment = (
+  rollType: string,
+  rollPoint: number,
+  rollArray_string: string,
+  rollCode: number,
+  rollPointHolder: HTMLElement
+) => {
   console.log(
     rollType,
     `rollPoint, ${rollPoint},
@@ -51,7 +57,12 @@ export const rollTypeTreatment = (rollType: string, rollPoint: number, rollArray
   rollPointHolder.innerHTML = rollPoint.toString();
 }
 
-export const getRollType = (rollPointHolder: HTMLElement, die1: number, die2: number, die3: number) => {
+export const getRollType = (
+  rollPointHolder: HTMLElement,
+  die1: number,
+  die2: number,
+  die3: number
+) => {
   const diceArray = [die1, die2, die3];
   const rollArray = diceArray,
     rollArray_sort = rollArray.sort(),
