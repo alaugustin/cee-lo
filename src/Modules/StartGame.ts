@@ -1,5 +1,4 @@
-import { PlayerSignIn } from "./PlayerSignIn";
-import { threeDbuttonStyling } from "./Global";
+import { PlayerSignIn } from './PlayerSignIn';
 
 const startButton: HTMLElement = document.getElementById('startButton');
 const startScreenHolder: HTMLElement = document.getElementById('startScreen');
@@ -13,5 +12,5 @@ const startGame = () => {
 }
 
 export function StartGame() {
-  startButton?.addEventListener("click", startGame);
-};
+  startButton?.addEventListener('click', startGame);
+}

@@ -1,16 +1,16 @@
-import { PopulatePlayerBoard } from "./RollForPosition/PopulatePlayerBoard";
+import { PopulatePlayerBoard } from './RollForPosition/PopulatePlayerBoard';
 
-const playerSignInInput: HTMLElement = document.getElementById("nameInput");
-const playButton: HTMLElement = document.getElementById("playButton");
+const playerSignInInput: HTMLElement = document.getElementById('nameInput');
+const playButton: HTMLElement = document.getElementById('playButton');
 const playerSignInHolder: HTMLElement = document.getElementById('playerSignIn');
 const scoreboardHolder: HTMLElement = document.getElementById('scoreboard');
 
 const logPlayer = (event: any) => {
-  let { value } = event.target.parentElement.children[1];
+  const { value } = event.target.parentElement.children[1];
 
   PopulatePlayerBoard(
-    ["The House",
-    value ? value : "Nameless Ned"]
+    ['The House',
+    value ? value : 'Nameless Ned']
   );
 
   playerSignInHolder?.classList.add('hidden');
@@ -19,5 +19,5 @@ const logPlayer = (event: any) => {
 
 export function PlayerSignIn() {
   playerSignInInput?.focus();
-  playButton?.addEventListener("click", logPlayer);
-};
+  playButton?.addEventListener('click', logPlayer);
+}

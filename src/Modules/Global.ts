@@ -2,14 +2,22 @@ export const threeDbuttonStyling = ['bg-blue-500', 'hover:bg-blue-400', 'text-wh
 
 export const threeDbuttonStylingDisabled = ['bg-slate-500', 'text-white', 'font-bold', 'py-2', 'px-4', 'border-b-4', 'border-slate-700', 'rounded'];
 
+export const boldTreatment = (optClass: string | null) => {
+  if (optClass === null) {
+    return 'font-bold';
+  } else {
+    return `font-bold ${optClass}`;
+  }
+};
+
 export const RollDice = (event: Event | any) => {
-  let sides = 6,
+  const sides = 6,
     a = Math.floor(Math.random() * sides) + 1,
     b = Math.floor(Math.random() * sides) + 1,
     c = Math.floor(Math.random() * sides) + 1;
 
-  let dieHolders = event.target.parentElement.childNodes[9].children;
-  let rollPointHolder = event.target.parentElement.childNodes[5].children[0];
+  const dieHolders = event.target.parentElement.childNodes[9].children;
+  const rollPointHolder = event.target.parentElement.childNodes[5].children[0];
 
   populateDieBoard(dieHolders, rollPointHolder, a, b, c);
 };
@@ -21,8 +29,6 @@ export const populateDieBoard = (
   die2: number,
   die3: number
 ) => {
-  // let diceArray = [die1, die2, die3];
-
   Array.from(dieHolders).forEach((holder, index) => {
     const spanElement = holder.querySelector('span') as HTMLElement | null;
 
@@ -36,53 +42,53 @@ export const populateDieBoard = (
 
 export const getRollType = (rollPointHolder: HTMLElement, die1: number, die2: number, die3: number) => {
   const diceArray = [die1, die2, die3];
-
-  let rollArray = diceArray,
+  const rollArray = diceArray,
     rollArray_sort = rollArray.sort(),
     rollArray_string = rollArray_sort.toString();
 
+  // ------- 456
   const processFourFiveSix = () => {
     const rollCode = 3;
     const rollPoint = 100;
 
     rollPointHolder.innerHTML = rollPoint.toString();
 
-    console.log("4,5,6", `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
+    console.log('4,5,6', `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
   };
 
   const fourFiveSix = () => {
-    rollArray_string === "4,5,6" ? processFourFiveSix() : oneTwoThree();
+    rollArray_string === '4,5,6' ? processFourFiveSix() : oneTwoThree();
   };
 
+  // ------- 123
   const processOneTwoThree = () => {
     const rollCode = 0;
     const rollPoint = 0;
 
     rollPointHolder.innerHTML = rollPoint.toString();
 
-    console.log("1,2,3", `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
+    console.log('1,2,3', `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
   };
 
-  // 123
   const oneTwoThree = () => {
-    rollArray_string === "1,2,3" ? processOneTwoThree() : trips();
+    rollArray_string === '1,2,3' ? processOneTwoThree() : trips();
   };
 
+  // ------- TRIPS
   const processTrips = () => {
     const rollCode = 2;
     const rollPoint = die1;
 
     rollPointHolder.innerHTML = rollPoint.toString();
 
-    console.log("trips", `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
+    console.log('trips', `rollPoint, ${rollPoint}, rollArray_string, ${rollArray_string}, rollCode, ${rollCode}`);
   };
 
-  // TRIPS
   const trips = () => {
     (die1 === die2 && die2 === die3) ? processTrips() : point();
   };
 
-  // POINT
+  // ------- POINT
   const point = () => {
     const rollCode = 1;
     let rollPoint = 0;
