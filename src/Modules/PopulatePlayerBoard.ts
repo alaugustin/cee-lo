@@ -1,9 +1,9 @@
-import { PlayerObj } from '../../Classes/CreatePlayers';
-import { ScoreboardCard } from '../../Templates/Templates';
-import { PlayersRoll } from '../PlayersRoll';
-import { CompareScores } from '../CompareScores';
-import { ShowWinner } from '../ShowWinner';
-import { RollDice } from '../Global';
+import { PlayerObj } from '../Classes/CreatePlayers';
+import { ScoreboardCard } from '../Templates/Templates';
+import { PlayersRoll } from './PlayersRoll';
+import { CompareScores } from './CompareScores';
+import { ShowWinner } from './ShowWinner';
+import { RollDice } from './Global';
 
 const scoreBoardHolder: HTMLElement | null = document.getElementById('scoreBoardHolder');
 
