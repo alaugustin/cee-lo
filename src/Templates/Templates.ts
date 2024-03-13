@@ -2,7 +2,7 @@ import { boldTreatment } from '../Modules/Global';
 import { threeDbuttonStyling, threeDbuttonStylingDisabled } from '../Modules/Global';
 
 export function ScoreboardCard(index: number, name: string, rollPoints: number) {
-  const commonClass: string = 'flex flex-col';
+  const commonClass: string = 'playerColumn flex flex-col';
   const cardAlignmentClass: string = index === 0 ? 'items-end pr-2' : 'items-start pl-2';
   const buttonStyling = index === 0 ? threeDbuttonStyling.join(' ') : threeDbuttonStylingDisabled.join(' ');
   const buttonDisabledAttribute: string = index !== 0 ? 'disabled' : '';
@@ -12,7 +12,7 @@ export function ScoreboardCard(index: number, name: string, rollPoints: number) 
     <div class="${commonClass} ${cardAlignmentClass}">
       <h3 class="text-3xl">Player ${index + 1}</h3>
       <h4 class="text-2xl">${name}</h4>
-      <p>Roll Points: <span class="${boldTreatment('text-2xl')}">${rollPoints}</span></p>
+      <p>Roll Points: <span class="rollPointHolder ${boldTreatment('text-2xl')}">${rollPoints}</span></p>
       <button class="${buttonStyling}" ${buttonDisabledAttribute}>ROLL</button>
       <div class="diceHolder flex flex-row">
         <div class="${boldTreatment(null)}">

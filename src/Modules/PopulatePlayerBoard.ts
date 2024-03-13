@@ -1,9 +1,6 @@
 import { PlayerObj } from '../Classes/CreatePlayers';
 import { ScoreboardCard } from '../Templates/Templates';
-import { PlayersRoll } from './PlayersRoll';
-import { CompareScores } from './CompareScores';
-import { ShowWinner } from './ShowWinner';
-import { RollDice } from './Global';
+import { PlayerRoll } from './PlayersRoll';
 
 const scoreBoardHolder: HTMLElement | null = document.getElementById('scoreBoardHolder');
 
@@ -16,6 +13,7 @@ export function PopulatePlayerBoard(players: string[]) {
 
     player.name = playerName;
     player.rollPosition = index;
+    player.rollCode = null;
     player.rollPoints = 0;
     player.wins = null;
     player.losses = null;
@@ -27,18 +25,5 @@ export function PopulatePlayerBoard(players: string[]) {
     );
   });
 
-  const scoreboardButtons: NodeListOf<Element> = document.querySelectorAll('#scoreBoardHolder button');
-
-  console.log(playerDataArray);
-
-  scoreboardButtons.forEach((button: HTMLElement) => {
-    button.addEventListener('click', (event: Event | any) => {
-
-      RollDice(event);
-    });
-  });
-
-  PlayersRoll('testing -');
-  CompareScores('testing -');
-  ShowWinner('testing -');
+  PlayerRoll(playerDataArray);
 }
