@@ -3,7 +3,7 @@ import { PopulatePlayerBoard } from './PopulatePlayerBoard';
 const playerSignInInput: HTMLElement = document.getElementById('nameInput');
 const playButton: HTMLElement = document.getElementById('playButton');
 const playerSignInHolder: HTMLElement = document.getElementById('playerSignIn');
-const scoreboardHolder: HTMLElement = document.getElementById('scoreboard');
+const gameBoardHolder: HTMLElement = document.getElementById('gameboard');
 
 const logPlayer = (event: any) => {
   const { value } = event.target.parentElement.children[1];
@@ -14,7 +14,7 @@ const logPlayer = (event: any) => {
   );
 
   playerSignInHolder?.classList.add('hidden');
-  scoreboardHolder?.classList.remove('hidden');
+  gameBoardHolder?.classList.remove('hidden');
 };
 
 export function PlayerSignIn() {
