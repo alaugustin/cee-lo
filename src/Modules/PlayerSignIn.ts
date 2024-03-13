@@ -1,4 +1,4 @@
-import { PopulatePlayerBoard } from './RollForPosition/PopulatePlayerBoard';
+import { PopulatePlayerBoard } from './PopulatePlayerBoard';
 
 const playerSignInInput: HTMLElement = document.getElementById('nameInput');
 const playButton: HTMLElement = document.getElementById('playButton');
