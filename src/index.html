@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <div class="text-5xl">
+    <h1>Cee-Lo</h1>
+  </div>
+
+  <div id="startScreen"
+    class="border-solid border-2 border-sky-500 flex flex-col justify-center items-center">
+    <h2 class="text-4xl">Start Screen</h2>
+    <h3 class="text-3xl">Press Start Button</h3>
+    <button id="startButton" class="border-solid border-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">START</button>
+  </div>
+
+  <div id="playerSignIn"
+    class="hidden border-solid border-2 border-sky-500 flex flex-col justify-center items-center">
+    <h2 class="text-4xl">Enter Player Name</h2>
+    <input id="nameInput" type="text" />
+    <button id="playButton" class="border-solid border-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">PLAY</button>
+  </div>
+
+  <div id="gameboard"
+    class="hidden border-solid border-2 border-sky-500 flex flex-col justify-center items-center">
+    <h2 class="text-4xl">Roll for Position</h2>
+    <div id="scoreBoardHolder" class="flex flex-row"></div>
+  </div>
+
+  <div
+    class="hidden border-solid border-2 border-sky-500 flex flex-col justify-center items-center">
+    <h2 class="text-4xl">Players Roll</h2>
+  </div>
+
+  <div
+    class="hidden border-solid border-2 border-sky-500 flex flex-col justify-center items-center">
+    <h2 class="text-4xl">Compare Scores</h2>
+  </div>
+
+  <div
+    class="hidden border-solid border-2 border-sky-500 flex flex-col justify-center items-center">
+    <h2 class="text-4xl">Show Winner</h2>
+  </div>
+</body>
+
+</html>
