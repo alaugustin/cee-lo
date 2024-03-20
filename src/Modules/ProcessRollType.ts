@@ -1,9 +1,23 @@
-const nextPlayer = () => {
-  console.log('another player is in the game');
+import { ThreeDbuttonStyling, ThreeDbuttonStylingDisabled, ButtonEnableDisable } from './Global';
+
+const nextPlayer = (currentPlayerData: any) => {
+  const currentPlayerButtonPosition = currentPlayerData.rollPosition -1;
+  const currentPlayerButton = document.querySelectorAll('.playerColumn button')[currentPlayerButtonPosition];
+  const nextPlayerButtonPosition = currentPlayerData.rollPosition;
+  const nextPlayerButton = document.querySelectorAll('.playerColumn button')[nextPlayerButtonPosition];
+
+  ButtonEnableDisable(currentPlayerButton, ThreeDbuttonStylingDisabled);
+  ButtonEnableDisable(nextPlayerButton, ThreeDbuttonStyling);
 }
 
 const compareScores = () => {
   console.log('last player. compare scores now');
+
+  document.querySelectorAll('.playerColumn button').forEach((button: Element) => {
+    button.setAttribute('disabled', 'disabled');
+    button.className = '';
+    button.classList.add(...ThreeDbuttonStylingDisabled);
+  });
 }
 
 const isLastPlayer = (
@@ -13,7 +27,7 @@ const isLastPlayer = (
   if (currentPlayerData.rollPosition === playersLength) {
     compareScores();
   }else {
-    nextPlayer();
+    nextPlayer(currentPlayerData);
   }
 }
 
@@ -28,21 +42,13 @@ export const ProcessRollType = (
 ) => {
   console.log('---------- ---------- ---------- ---------- ----------');
   console.log(`rollType, ${rollType}`);
-  console.log(`rollPoint, ${rollPoint}`);
   console.log(`rollArray_string, ${rollArray_string}`);
-  console.log(`rollCode, ${rollCode}`);
-  console.log(`players in game, ${playersLength}`);
 
-
+  // ----- relevant code below -----
   currentPlayerData.rollCode = rollCode;
   currentPlayerData.rollPoints = rollPoint;
-  console.log('currentPlayerData', currentPlayerData);
-  console.log('currentPlayer roll position', currentPlayerData.rollPosition);
 
   rollPointHolder.innerHTML = rollPoint.toString();
 
   isLastPlayer(currentPlayerData, playersLength);
-
-
-
 }
