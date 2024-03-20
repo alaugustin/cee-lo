@@ -1,6 +1,6 @@
 import { RollHandler } from './RollHandler';
 
-export function PlayerRoll(playersData: any[]) {
+export function PlayerRoll(playersData: any[], playersLength: number) {
   const gameBoardButtons: NodeListOf<Element> = document.querySelectorAll('#scoreBoardHolder button');
 
   gameBoardButtons.forEach((button: HTMLElement, index: number) => {
@@ -28,9 +28,8 @@ export function PlayerRoll(playersData: any[]) {
         }
       });
 
-      console.log('---------- ---------- ---------- ---------- ----------');
       // PROCESS ROLL TYPES
-      RollHandler(rollArray_string, rollPointHolder, currentPlayerData, die1, die2, die3);
+      RollHandler(playersLength, rollArray_string, rollPointHolder, currentPlayerData, die1, die2, die3);
 
     });
   });

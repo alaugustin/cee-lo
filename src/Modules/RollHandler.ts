@@ -1,12 +1,20 @@
-import { rollTypeTreatment } from './Global';
+import { ProcessRollType } from './ProcessRollType';
 
-export function RollHandler(rollArray_string: string, rollPointHolder: HTMLElement, currentPlayerData: any, die1: number, die2: number, die3: number) {
+export function RollHandler(
+  playersLength: number,
+  rollArray_string: string,
+  rollPointHolder: HTMLElement,
+  currentPlayerData: any,
+  die1: number,
+  die2: number,
+  die3: number
+) {
   // ------- 456
   const processFourFiveSix = () => {
     const rollCode = 3;
     const rollPoint = 100;
 
-    rollTypeTreatment('4,5,6', rollPoint, rollArray_string, rollCode, rollPointHolder, currentPlayerData);
+    ProcessRollType('4,5,6', rollPoint, rollArray_string, rollCode, rollPointHolder, currentPlayerData, playersLength);
   };
 
   const fourFiveSix = () => {
@@ -18,7 +26,7 @@ export function RollHandler(rollArray_string: string, rollPointHolder: HTMLEleme
     const rollCode = 0;
     const rollPoint = -100;
 
-    rollTypeTreatment('1,2,3', rollPoint, rollArray_string, rollCode, rollPointHolder, currentPlayerData);
+    ProcessRollType('1,2,3', rollPoint, rollArray_string, rollCode, rollPointHolder, currentPlayerData, playersLength);
   };
 
   const oneTwoThree = () => {
@@ -30,7 +38,7 @@ export function RollHandler(rollArray_string: string, rollPointHolder: HTMLEleme
     const rollCode = 2;
     const rollPoint = die1;
 
-    rollTypeTreatment('Trips', rollPoint, rollArray_string, rollCode, rollPointHolder, currentPlayerData);
+    ProcessRollType('Trips', rollPoint, rollArray_string, rollCode, rollPointHolder, currentPlayerData, playersLength);
   };
 
   const trips = () => {
@@ -53,8 +61,8 @@ export function RollHandler(rollArray_string: string, rollPointHolder: HTMLEleme
     }
 
     rollPoint === 0 ?
-      rollTypeTreatment('Roll again', rollPoint, rollArray_string, rollCode, rollPointHolder, currentPlayerData) :
-      rollTypeTreatment('points roll', rollPoint, rollArray_string, rollCode, rollPointHolder, currentPlayerData);
+      console.log('Roll again') :
+      ProcessRollType('points roll', rollPoint, rollArray_string, rollCode, rollPointHolder, currentPlayerData, playersLength);
   };
 
   fourFiveSix();

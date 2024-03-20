@@ -14,7 +14,7 @@ export function GameBoard(players: string[]) {
     const player: PlayerObj = new PlayerObj();
 
     player.name = playerName;
-    player.rollPosition = index;
+    player.rollPosition = index + 1;
     player.rollCode = null;
     player.rollPoints = 0;
     player.wins = null;
@@ -27,7 +27,7 @@ export function GameBoard(players: string[]) {
     );
   });
 
-  PlayerRoll(playerDataArray);
+  PlayerRoll(playerDataArray, playerDataArray.length);
   CompareScores('testing -');
   ShowWinner('testing -');
 }

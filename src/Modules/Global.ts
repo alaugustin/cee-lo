@@ -9,24 +9,3 @@ export const boldTreatment = (optClass: string | null) => {
     return `font-bold ${optClass}`;
   }
 };
-
-export const rollTypeTreatment = (
-  rollType: string,
-  rollPoint: number,
-  rollArray_string: string,
-  rollCode: number,
-  rollPointHolder: HTMLElement,
-  currentPlayerData: any
-) => {
-  console.log(`rollType, ${rollType}`);
-  console.log(`rollPoint, ${rollPoint}`);
-  console.log(`rollArray_string, ${rollArray_string}`);
-  console.log(`rollCode, ${rollCode}`);
-
-
-  currentPlayerData.rollCode = rollCode;
-  currentPlayerData.rollPoints = rollPoint;
-  console.log('currentPlayerData', currentPlayerData);
-
-  rollPointHolder.innerHTML = rollPoint.toString();
-}
