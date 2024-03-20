@@ -13,7 +13,7 @@ export function PlayerRoll(playersData: any[], playersLength: number) {
         die3 = Math.floor(Math.random() * sides) + 1;
 
       const parentElement = event.target.closest('.playerColumn');
-      const dieHolders = parentElement.querySelectorAll('.diceHolder > div');
+      const dieHolders = parentElement.querySelectorAll('.diceHolder > div');const rollTypeHolder = parentElement.querySelector('.rollTypeHolder');
       const rollPointHolder = parentElement.querySelector('.rollPointHolder');
       const diceArray = [die1, die2, die3];
       const rollArray = diceArray,
@@ -29,7 +29,7 @@ export function PlayerRoll(playersData: any[], playersLength: number) {
       });
 
       // PROCESS ROLL TYPES
-      RollHandler(playersLength, rollArray_string, rollPointHolder, currentPlayerData, die1, die2, die3);
+      RollHandler(playersLength, rollArray_string, rollTypeHolder,rollPointHolder, currentPlayerData, die1, die2, die3);
 
     });
   });

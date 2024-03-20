@@ -1,4 +1,6 @@
-import { ThreeDbuttonStyling, ThreeDbuttonStylingDisabled, ButtonEnableDisable } from './Global';
+import { ThreeDbuttonStyling, ThreeDbuttonStylingDisabled, ButtonEnableDisable} from './Global';
+
+const playerArray: any[] = [];
 
 const nextPlayer = (currentPlayerData: any) => {
   const currentPlayerButtonPosition = currentPlayerData.rollPosition -1;
@@ -10,14 +12,17 @@ const nextPlayer = (currentPlayerData: any) => {
   ButtonEnableDisable(nextPlayerButton, ThreeDbuttonStyling);
 }
 
-const compareScores = () => {
-  console.log('last player. compare scores now');
+const compareScores = (playerArray: any[]) => {
+  const playerButton = document.querySelectorAll('.playerColumn button');
 
-  document.querySelectorAll('.playerColumn button').forEach((button: Element) => {
+  playerButton.forEach((button: Element) => {
     button.setAttribute('disabled', 'disabled');
     button.className = '';
     button.classList.add(...ThreeDbuttonStylingDisabled);
   });
+
+  console.log('last player. compare scores now');
+  console.log(playerArray);
 }
 
 const isLastPlayer = (
@@ -25,7 +30,7 @@ const isLastPlayer = (
   playersLength: number
 ) => {
   if (currentPlayerData.rollPosition === playersLength) {
-    compareScores();
+    compareScores(playerArray);
   }else {
     nextPlayer(currentPlayerData);
   }
@@ -34,21 +39,23 @@ const isLastPlayer = (
 export const ProcessRollType = (
   rollType: string,
   rollPoint: number,
-  rollArray_string: string,
+  rollArray_string: string, // CAN BE RMOVED
   rollCode: number,
+  rollTypeHolder: HTMLElement,
   rollPointHolder: HTMLElement,
   currentPlayerData: any,
   playersLength: number
 ) => {
-  console.log('---------- ---------- ---------- ---------- ----------');
-  console.log(`rollType, ${rollType}`);
   console.log(`rollArray_string, ${rollArray_string}`);
 
   // ----- relevant code below -----
   currentPlayerData.rollCode = rollCode;
   currentPlayerData.rollPoints = rollPoint;
 
+  rollTypeHolder.innerHTML = rollType;
   rollPointHolder.innerHTML = rollPoint.toString();
 
   isLastPlayer(currentPlayerData, playersLength);
+
+  playerArray.push(currentPlayerData);
 }
