@@ -1,22 +1,16 @@
-import { PlayerSignIn } from "./PlayerSignIn";
-import { threeDbuttonStyling } from "./Global";
+import { PlayerSignIn } from './PlayerSignIn';
 
-const startButton = document.getElementById('startButton');
-const startScreenHolder = document.getElementById('startScreen');
-const playerSignInHolder = document.getElementById('playerSignIn');
-
-threeDbuttonStyling.map(
-  (styleClass) => {
-    startButton?.classList.add(styleClass);
-  }
-);
+const startButton: HTMLElement = document.getElementById('startButton');
+const startScreenHolder: HTMLElement = document.getElementById('startScreen');
+const playerSignInHolder: HTMLElement = document.getElementById('playerSignIn');
 
 const startGame = () => {
   startScreenHolder?.classList.add('hidden');
   playerSignInHolder?.classList.remove('hidden');
-  PlayerSignIn();  
+
+  PlayerSignIn();
 }
 
 export function StartGame() {
-  startButton?.addEventListener("click", startGame);
-};
+  startButton?.addEventListener('click', startGame);
+}

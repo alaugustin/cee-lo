@@ -1,4 +1,4 @@
-import { StartGame } from "./Modules/StartGame";
+import { StartGame } from './Modules/StartGame';
 
 const ceeLo = {
   projectData: {
@@ -16,7 +16,7 @@ const ceeLo = {
 
   onDomReady: () => {
     console.log(ceeLo);
-    
+
     StartGame();
   },
 };
