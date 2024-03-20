@@ -1,4 +1,4 @@
-import { PopulatePlayerBoard } from './PopulatePlayerBoard';
+import { GameBoard } from './GameBoard';
 
 const playerSignInInput: HTMLElement = document.getElementById('nameInput');
 const playButton: HTMLElement = document.getElementById('playButton');
@@ -8,7 +8,7 @@ const gameBoardHolder: HTMLElement = document.getElementById('gameboard');
 const logPlayer = (event: any) => {
   const { value } = event.target.parentElement.children[1];
 
-  PopulatePlayerBoard(
+  GameBoard(
     ['The House',
     value ? value : 'Nameless Ned']
   );

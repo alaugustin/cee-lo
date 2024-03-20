@@ -1,10 +1,12 @@
 import { PlayerObj } from '../Classes/CreatePlayers';
 import { ScoreboardCard } from '../Templates/Templates';
 import { PlayerRoll } from './PlayersRoll';
+import { CompareScores } from './CompareScores';
+import { ShowWinner } from './ShowWinner';
 
 const scoreBoardHolder: HTMLElement | null = document.getElementById('scoreBoardHolder');
 
-export function PopulatePlayerBoard(players: string[]) {
+export function GameBoard(players: string[]) {
   const reversedPlayersArray: string[] = players.reverse();
   const playerDataArray: any[] = [];
 
@@ -26,4 +28,8 @@ export function PopulatePlayerBoard(players: string[]) {
   });
 
   PlayerRoll(playerDataArray);
+  CompareScores('testing -');
+  ShowWinner('testing -');
 }
+
+

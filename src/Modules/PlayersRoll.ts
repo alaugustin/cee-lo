@@ -1,5 +1,3 @@
-import { CompareScores } from './CompareScores';
-import { ShowWinner } from './ShowWinner';
 import { rollTypeTreatment } from './Global';
 
 export function PlayerRoll(playersData: any[]) {
@@ -93,6 +91,3 @@ export function PlayerRoll(playersData: any[]) {
     });
   });
 }
-
-CompareScores('testing -');
-ShowWinner('testing -');
