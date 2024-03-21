@@ -1,6 +1,7 @@
 import { PlayerObj } from '../Classes/CreatePlayers';
 import { ScoreboardCard } from '../Templates/Templates';
 import { PlayerRoll } from './PlayersRoll';
+import { GlobalGameData } from './Global';
 
 const scoreBoardHolder: HTMLElement | null = document.getElementById('scoreBoardHolder');
 
@@ -25,6 +26,8 @@ export function GameBoard(players: string[]) {
       scoreBoardHolder.innerHTML += ScoreboardCard(index, player.name, player.rollPoints, player.rollType)
     );
   });
+
+  GlobalGameData.playerData = playerDataArray;
 
   PlayerRoll(playerDataArray, playerDataArray.length);
 }
