@@ -1,5 +1,6 @@
 import { ThreeDbuttonStylingDisabled } from './Global';
 import { ShowWinner } from './ShowWinner';
+import { GlobalGameData } from './Global';
 
 export function CompareScores(playerDataArray: any[]) {
   const playerButton = document.querySelectorAll('.playerColumn button');
@@ -34,7 +35,7 @@ export function CompareScores(playerDataArray: any[]) {
     }
   }
 
-  console.log(playerDataArray);
+  console.log(GlobalGameData);
 }
 
 ShowWinner('testing -');
