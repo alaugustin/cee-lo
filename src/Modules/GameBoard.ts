@@ -1,8 +1,6 @@
 import { PlayerObj } from '../Classes/CreatePlayers';
 import { ScoreboardCard } from '../Templates/Templates';
 import { PlayerRoll } from './PlayersRoll';
-import { CompareScores } from './CompareScores';
-import { ShowWinner } from './ShowWinner';
 
 const scoreBoardHolder: HTMLElement | null = document.getElementById('scoreBoardHolder');
 
@@ -29,8 +27,4 @@ export function GameBoard(players: string[]) {
   });
 
   PlayerRoll(playerDataArray, playerDataArray.length);
-  CompareScores('testing -');
-  ShowWinner('testing -');
 }
-
-

@@ -29,8 +29,7 @@ export function PlayerRoll(playersData: any[], playersLength: number) {
       });
 
       // PROCESS ROLL TYPES
-      RollHandler(playersLength, rollArray_string, rollTypeHolder,rollPointHolder, currentPlayerData, die1, die2, die3);
-
+      RollHandler(playersData, playersLength, rollArray_string, rollTypeHolder,rollPointHolder, currentPlayerData, die1, die2, die3);
     });
   });
 }
