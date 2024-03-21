@@ -8,7 +8,8 @@
     "dev-server": "npx webpack serve --live-reload",
     "build": "npx webpack",
     "start": "webpack serve --mode=development --open",
-    "build-tailwind": "npx tailwindcss -i ./src/input.css -o ./dist/css/style.css --watch"
+    "build-tailwind": "npx tailwindcss -i ./src/input.css -o ./dist/css/style.css --watch",
+    "lint": "npx eslint src/**/**"
   },
   "repository": {
     "type": "git",
@@ -21,8 +22,8 @@
   },
   "homepage": "https://github.com/alaugustin/cee-lo#readme",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.0.2",
-    "@typescript-eslint/parser": "^7.0.2",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
     "css-loader": "^6.10.0",
     "eslint": "^8.34.0",
     "html-webpack-plugin": "^5.6.0",
