@@ -16,7 +16,7 @@ export function RollHandler(
     const rollCode = 3;
     const rollPoint = 100;
 
-    ProcessRollType('4,5,6', playersData, rollPoint, rollArray_string, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
+    ProcessRollType('4,5,6', playersData, rollPoint, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
   };
 
   const fourFiveSix = () => {
@@ -28,7 +28,7 @@ export function RollHandler(
     const rollCode = 0;
     const rollPoint = -100;
 
-    ProcessRollType('1,2,3', playersData, rollPoint, rollArray_string, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
+    ProcessRollType('1,2,3', playersData, rollPoint, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
   };
 
   const oneTwoThree = () => {
@@ -40,7 +40,7 @@ export function RollHandler(
     const rollCode = 2;
     const rollPoint = die1;
 
-    ProcessRollType('Trips', playersData, rollPoint, rollArray_string, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
+    ProcessRollType('Trips', playersData, rollPoint, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
   };
 
   const trips = () => {
@@ -64,7 +64,7 @@ export function RollHandler(
 
     rollPoint === 0 ?
       console.log('Roll again') :
-      ProcessRollType('Points Roll', playersData, rollPoint, rollArray_string, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
+      ProcessRollType('Points Roll', playersData, rollPoint, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
   };
 
   fourFiveSix();

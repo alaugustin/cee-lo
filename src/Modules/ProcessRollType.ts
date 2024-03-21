@@ -4,7 +4,6 @@ export const ProcessRollType = (
   rollType: string,
   playerData: any[],
   rollPoint: number,
-  rollArray_string: string, // CAN BE RMOVED
   rollCode: number,
   rollTypeHolder: HTMLElement,
   rollPointHolder: HTMLElement,
@@ -19,6 +18,4 @@ export const ProcessRollType = (
   rollPointHolder.innerHTML = rollPoint.toString();
 
   IsLastPlayer(currentPlayerData, playersLength, playerData);
-
-  //console.log(`rollArray_string, ${rollArray_string}`); // TODO: REMOVE THIS LINE
 }
