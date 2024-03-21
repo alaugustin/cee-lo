@@ -1,6 +1,7 @@
-import { CompareScores } from "./CompareScores";
+import { CompareScores } from './CompareScores';
+import { ShowWinner } from './ShowWinner';
 
-export let GlobalGameData = {
+export const GlobalGameData = {
   gameRound: '',
   gameRounds: '',
   playerData: {},
@@ -49,4 +50,21 @@ export const IsLastPlayer = (
   } else {
     NextPlayer(currentPlayerData);
   }
+}
+
+export const AdvanceGameRound = (winningPlayer: any) => {
+  const { gameRounds } = GlobalGameData;
+
+  GlobalGameData.gameRound += 1;
+
+  if (GlobalGameData.gameRound === gameRounds) {
+    console.log('last round. show winner');
+    ShowWinner('testing -');
+    console.log(GlobalGameData.playerData);
+  } else {
+    console.log('next round');
+    console.log(GlobalGameData.playerData);
+  }
+
+  console.log(winningPlayer);
 }
