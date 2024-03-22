@@ -1,4 +1,5 @@
 import { ProcessRollType } from './ProcessRollType';
+import { DisableAllButtons } from './Global';
 
 export function RollHandler(
   playersData: any[],
@@ -16,7 +17,9 @@ export function RollHandler(
     const rollCode = 3;
     const rollPoint = 100;
 
+    DisableAllButtons();
     ProcessRollType('4,5,6', playersData, rollPoint, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
+    console.log(currentPlayerData);
   };
 
   const fourFiveSix = () => {
@@ -28,7 +31,9 @@ export function RollHandler(
     const rollCode = 0;
     const rollPoint = -100;
 
+    DisableAllButtons();
     ProcessRollType('1,2,3', playersData, rollPoint, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
+    console.log(currentPlayerData);
   };
 
   const oneTwoThree = () => {

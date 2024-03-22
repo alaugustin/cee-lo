@@ -1,16 +1,10 @@
-import { AdvanceGameRound, ThreeDbuttonStylingDisabled } from './Global';
-import { GlobalGameData } from './Global';
+import { AdvanceGameRound, DisableAllButtons } from './Global';
 
 export function CompareScores(playerDataArray: any[]) {
-  const playerButton = document.querySelectorAll('.playerColumn button');
   const player1 = playerDataArray[0];
   const player2 = playerDataArray[1];
 
-  playerButton.forEach((button: Element) => {
-    button.setAttribute('disabled', 'disabled');
-    button.className = '';
-    button.classList.add(...ThreeDbuttonStylingDisabled);
-  });
+  DisableAllButtons();
 
   if (player1.rollCode > player2.rollCode) {
     console.log('player 1 wins by type');
@@ -34,6 +28,4 @@ export function CompareScores(playerDataArray: any[]) {
       console.log(playerDataArray);
     }
   }
-
-  console.log(GlobalGameData);
 }

@@ -30,6 +30,16 @@ export const ButtonEnableDisable = (button: Element, buttonStyles: string[]) => 
   }
 };
 
+export const DisableAllButtons = () => {
+  const playerButtons = document.querySelectorAll('.playerColumn button');
+
+  playerButtons.forEach((button: Element) => {
+    button.setAttribute('disabled', 'disabled');
+    button.className = '';
+    button.classList.add(...ThreeDbuttonStylingDisabled);
+  });
+};
+
 const NextPlayer = (currentPlayerData: any) => {
   const currentPlayerButtonPosition = currentPlayerData.rollPosition - 1;
   const currentPlayerButton = document.querySelectorAll('.playerColumn button')[currentPlayerButtonPosition];

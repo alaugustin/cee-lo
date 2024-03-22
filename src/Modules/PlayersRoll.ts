@@ -1,5 +1,4 @@
 import { RollHandler } from './RollHandler';
-import { GlobalGameData } from './Global';
 
 export function PlayerRoll(playersData: any[], playersLength: number) {
   const gameBoardButtons: NodeListOf<Element> = document.querySelectorAll('#scoreBoardHolder button');
@@ -34,6 +33,4 @@ export function PlayerRoll(playersData: any[], playersLength: number) {
       RollHandler(playersData, playersLength, rollArray_string, rollTypeHolder,rollPointHolder, currentPlayerData, die1, die2, die3);
     });
   });
-
-  console.log(GlobalGameData);
 }
