@@ -1,4 +1,5 @@
 import { RollHandler } from './RollHandler';
+import { GlobalGameData } from './Global';
 
 export function PlayerRoll(playersData: any[], playersLength: number) {
   const gameBoardButtons: NodeListOf<Element> = document.querySelectorAll('#scoreBoardHolder button');
@@ -7,14 +8,15 @@ export function PlayerRoll(playersData: any[], playersLength: number) {
     const currentPlayerData = playersData[index];
 
     button.addEventListener('click', (event: Event | any) => {
+      const parentElement = event.target.closest('.playerColumn');
+      const dieHolders = parentElement.querySelectorAll('.diceHolder > div');const rollTypeHolder = parentElement.querySelector('.rollTypeHolder');
+      const rollPointHolder = parentElement.querySelector('.rollPointHolder');
+
       const sides = 6,
         die1 = Math.floor(Math.random() * sides) + 1,
         die2 = Math.floor(Math.random() * sides) + 1,
         die3 = Math.floor(Math.random() * sides) + 1;
 
-      const parentElement = event.target.closest('.playerColumn');
-      const dieHolders = parentElement.querySelectorAll('.diceHolder > div');const rollTypeHolder = parentElement.querySelector('.rollTypeHolder');
-      const rollPointHolder = parentElement.querySelector('.rollPointHolder');
       const diceArray = [die1, die2, die3];
       const rollArray = diceArray,
         rollArray_sort = rollArray.sort(),
@@ -32,4 +34,6 @@ export function PlayerRoll(playersData: any[], playersLength: number) {
       RollHandler(playersData, playersLength, rollArray_string, rollTypeHolder,rollPointHolder, currentPlayerData, die1, die2, die3);
     });
   });
+
+  console.log(GlobalGameData);
 }

@@ -53,15 +53,17 @@ export const IsLastPlayer = (
 }
 
 export const AdvanceGameRound = (winningPlayer: any) => {
-  const winnerHolder = document.getElementById('winnerName');
+  const winnerHolder = document.getElementById('winnerHolder');
+  const winnerNameHolder = document.getElementById('winnerName');
   const roundOrGameStrHolder = document.getElementById('roundOrGame');
   const { gameRounds } = GlobalGameData;
 
   GlobalGameData.gameRound += 1;
 
   const roundOrGame = (playType: string) => {
-    winnerHolder.innerText = winningPlayer.name;
+    winnerNameHolder.innerText = winningPlayer.name;
     roundOrGameStrHolder.innerText = playType;
+    winnerHolder.classList.remove('hidden');
   }
 
   if (GlobalGameData.gameRound === gameRounds) {
