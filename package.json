@@ -9,7 +9,8 @@
     "build": "npx webpack",
     "start": "webpack serve --mode=development --open",
     "build-tailwind": "npx tailwindcss -i ./src/input.css -o ./dist/css/style.css --watch",
-    "lint": "npx eslint src/**/**"
+    "lint": "npx eslint src/**/**",
+    "lint-fix": "npx eslint src/**/** --fix"
   },
   "repository": {
     "type": "git",
