@@ -62,18 +62,24 @@ export const IsLastPlayer = (
   }
 }
 
-export const AdvanceGameRound = (winningPlayer: any) => {
-  const winnerHolder = document.getElementById('winnerHolder');
+export const HideShowWinnerHolder = (winnerName: string) => {
   const winnerNameHolder = document.getElementById('winnerName');
+  const winnerHolder = document.getElementById('winnerHolder');
+
+  winnerNameHolder.innerText = winnerName;
+  winnerHolder.classList.remove('hidden');
+};
+
+export const AdvanceGameRound = (winningPlayer: any) => {
   const roundOrGameStrHolder = document.getElementById('roundOrGame');
   const { gameRounds } = GlobalGameData;
 
   GlobalGameData.gameRound += 1;
 
   const roundOrGame = (playType: string) => {
-    winnerNameHolder.innerText = winningPlayer.name;
     roundOrGameStrHolder.innerText = playType;
-    winnerHolder.classList.remove('hidden');
+
+    HideShowWinnerHolder(winningPlayer.name);
   }
 
   if (GlobalGameData.gameRound === gameRounds) {

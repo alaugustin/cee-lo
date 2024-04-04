@@ -1,4 +1,4 @@
-import { GlobalGameData, IsLastPlayer } from './Global';
+import { GlobalGameData, HideShowWinnerHolder, IsLastPlayer } from './Global';
 
 export const ProcessRollType = (
   rollType: string,
@@ -21,10 +21,6 @@ export const ProcessRollType = (
     console.log('Game round: ', GlobalGameData.gameRound, 'of ', GlobalGameData.gameRounds);
   };
 
-  const displayWinner = (winnerName: string) => {
-    console.log(winnerName, 'Wins !!!');
-  };
-
   const handleLossData = (playerData: { losses: number; rollPosition: number; }) => {
     console.log(playerData);
 
@@ -34,7 +30,7 @@ export const ProcessRollType = (
 
   const handleWinData = (playerData: { name: string; wins: number; rollPosition: number; }) => {
     console.log(playerData);
-    displayWinner(playerData.name);
+    HideShowWinnerHolder(playerData.name);
 
     playerData.wins += 1;
     playerData.rollPosition = 1;
