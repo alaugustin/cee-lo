@@ -15,11 +15,10 @@ export function RollHandler(
   // ------- 456
   const processFourFiveSix = () => {
     const rollCode = 3;
-    const rollPoint = 100;
+    const rollPoint = 10;
 
     DisableAllButtons();
     ProcessRollType('4,5,6', playersData, rollPoint, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
-    console.log(currentPlayerData);
   };
 
   const fourFiveSix = () => {
@@ -29,11 +28,10 @@ export function RollHandler(
   // ------- 123
   const processOneTwoThree = () => {
     const rollCode = 0;
-    const rollPoint = -100;
+    const rollPoint = 0;
 
     DisableAllButtons();
     ProcessRollType('1,2,3', playersData, rollPoint, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
-    console.log(currentPlayerData);
   };
 
   const oneTwoThree = () => {

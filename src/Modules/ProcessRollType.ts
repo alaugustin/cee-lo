@@ -1,4 +1,4 @@
-import { IsLastPlayer } from './Global';
+import { GlobalGameData, IsLastPlayer } from './Global';
 
 export const ProcessRollType = (
   rollType: string,
@@ -10,32 +10,68 @@ export const ProcessRollType = (
   currentPlayerData: any,
   playersLength: number
 ) => {
-  // ----- relevant code below -----
   currentPlayerData.rollCode = rollCode;
   currentPlayerData.rollPoints = rollPoint;
 
   rollTypeHolder.innerHTML = rollType;
   rollPointHolder.innerHTML = rollPoint.toString();
 
+
+  const localGlobalData = () => {
+    console.log('Game round: ', GlobalGameData.gameRound, 'of ', GlobalGameData.gameRounds);
+  };
+
+  const displayWinner = (winnerName: string) => {
+    console.log(winnerName, 'Wins !!!');
+  };
+
+  const handleLossData = (playerData: { losses: number; rollPosition: number; }) => {
+    console.log(playerData);
+
+    playerData.losses += 1;
+    playerData.rollPosition = 2;
+  };
+
+  const handleWinData = (playerData: { name: string; wins: number; rollPosition: number; }) => {
+    console.log(playerData);
+    displayWinner(playerData.name);
+
+    playerData.wins += 1;
+    playerData.rollPosition = 1;
+  };
+
   switch (rollType) {
     case '4,5,6':
-      // code block
-      console.log('do 4,5,6 stuff');
-      console.log('populate roll code on current player and game board', rollCode);
-      console.log('populate roll point on current player and game board', rollPoint);
-      console.log('increase current player win by 1', currentPlayerData);
-      console.log('alert player win');
+      localGlobalData();
+
+      GlobalGameData.playerData.forEach((player: any) => {
+        if (player.name !== currentPlayerData.name) {
+          handleLossData(player);
+
+        } else {
+          handleWinData(player);
+
+        }
+      });
+      console.log(playerData);
       break;
     case '1,2,3':
-        // code block
-      console.log('do 1,2,3 stuff');
-      console.log('populate roll code on other player and game board', rollCode);
-      console.log('populate roll point on other player and game board', rollPoint);
-      console.log('increase other player win by 1');
-      console.log('alert player loss');
+      localGlobalData();
+
+      GlobalGameData.playerData.forEach((player: any) => {
+        if (player.name !== currentPlayerData.name) {
+          handleWinData(player);
+
+        } else {
+          handleLossData(player);
+
+        }
+      });
+      console.log(playerData);
       break;
     default:
-    // code block
-    IsLastPlayer(currentPlayerData, playersLength, playerData);
+
+      // code block
+      IsLastPlayer(currentPlayerData, playersLength, playerData);
   }
 }
