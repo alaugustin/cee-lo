@@ -1,4 +1,4 @@
-import { AdvanceGameRound, DisableAllButtons } from './Global';
+import { AdvanceGameRound, DisableAllButtons, GlobalGameData } from './Global';
 
 export function CompareScores(playerDataArray: any[]) {
   const player1 = playerDataArray[0];
@@ -25,7 +25,9 @@ export function CompareScores(playerDataArray: any[]) {
       AdvanceGameRound(player2);
     } else {
       console.log('tie - roll again, stay in same round');
-      console.log(playerDataArray);
+      console.log('first player rolls again');
+      console.log('Game round: ', GlobalGameData.gameRound);
+      console.log('Player data: ', playerDataArray);
     }
   }
 }

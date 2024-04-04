@@ -10,27 +10,27 @@
 </head>
 
 <body>
-  <div class="text-5xl">
+  <div class="text-5xl text-center py-6 mb-4">
     <h1>Cee-Lo</h1>
   </div>
 
   <div id="startScreen"
-    class="border-solid border-2 border-sky-500 flex flex-col justify-center items-center">
-    <h2 class="text-4xl">Start Screen</h2>
+    class="max-w-3xl mx-auto py-6 border-solid border-2 border-sky-500 flex flex-col justify-center items-center">
+    <h2 class="text-4xl mb-4">Start Screen</h2>
     <h3 class="text-3xl">Press Start Button</h3>
-    <button id="startButton" class="border-solid border-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">START</button>
+    <button id="startButton" class="max-w-3xl mx-auto mt-4 border-solid border-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">START</button>
   </div>
 
   <div id="playerSignIn"
-    class="hidden border-solid border-2 border-sky-500 flex flex-col justify-center items-center">
-    <h2 class="text-4xl">Enter Player Name</h2>
+    class="hidden max-w-3xl mx-auto py-6 border-solid border-2 border-sky-500 flex flex-col justify-center items-center">
+    <h2 class="text-4xl mb-4">Enter Player Name</h2>
     <input id="nameInput" type="text" maxlength="13"/>
-    <button id="playButton" class="border-solid border-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">PLAY</button>
+    <button id="playButton" class="max-w-3xl mx-auto mt-4 border-solid border-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">PLAY</button>
   </div>
 
   <div id="gameboard"
-    class="hidden border-solid border-2 border-sky-500 flex flex-col justify-center items-center">
-    <h2 class="text-4xl">Roll for Position</h2>
+    class="hidden max-w-3xl mx-auto py-6 border-solid border-2 border-sky-500 flex flex-col justify-center items-center">
+    <h2 class="text-4xl mb-4">Roll for Position</h2>
     <div id="scoreBoardHolder" class="flex flex-row"></div>
     <div id="winnerHolder" class="hidden flex flex-row">
       <span id="winnerName"></span>&nbsp;wins this&nbsp;<span id="roundOrGame"></span>

@@ -78,13 +78,15 @@ export const AdvanceGameRound = (winningPlayer: any) => {
 
   if (GlobalGameData.gameRound === gameRounds) {
     console.log('last round. show winner');
-    console.log(GlobalGameData.playerData);
+    console.log('Player data is: ', GlobalGameData.playerData);
+    console.log('Going into game round: ', GlobalGameData.gameRound);
 
     roundOrGame('game');
     ShowWinner('testing -');
   } else {
-    console.log('next round');
-    console.log(GlobalGameData.playerData);
+    console.log('go to next round');
+    console.log('Player data is: ', GlobalGameData.playerData);
+    console.log('Going into game round: ', GlobalGameData.gameRound);
 
     roundOrGame('round');
   }
