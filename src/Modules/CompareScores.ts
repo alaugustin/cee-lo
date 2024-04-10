@@ -1,8 +1,19 @@
 import { AdvanceGameRound, DisableAllButtons, GlobalGameData } from './Global';
 
-const processPlayerWin = (playerToProcess: { wins: number; }) => {
-  playerToProcess.wins += 1;
-  AdvanceGameRound(playerToProcess);
+const processPlayerWin = (
+  winningPlayer: {
+    wins: number;
+    name: any;
+    rollPosition: number;
+  },
+  opposingPlayer: {
+    rollPosition: number;
+  }) => {
+  winningPlayer.wins += 1;
+  winningPlayer.rollPosition = 1;
+  opposingPlayer.rollPosition = 2;
+
+  AdvanceGameRound(winningPlayer);
 };
 
 export function CompareScores(playerDataArray: any[]) {
@@ -12,18 +23,22 @@ export function CompareScores(playerDataArray: any[]) {
   DisableAllButtons();
 
   if (player1.rollCode > player2.rollCode) {
-    console.log('player 1 wins by type');
-    processPlayerWin(player1);
+    console.log(`${player1.name} wins by type`);
+    processPlayerWin(player1, player2);
+
   } else if (player1.rollCode < player2.rollCode) {
-    console.log('player 2 wins by type');
-    processPlayerWin(player2);
+    console.log(`${player1.name} wins by type`);
+    processPlayerWin(player2, player1);
+
   } else {
     if (player1.rollPoints > player2.rollPoints) {
-      console.log('player 1 wins by points');
-      processPlayerWin(player1);
+      console.log(`${player1.name} wins by points`);
+      processPlayerWin(player1, player2);
+
     } else if (player1.rollPoints < player2.rollPoints) {
-      console.log('player 2 wins by points');
-      processPlayerWin(player2);
+      console.log(`${player2.name} wins by points`);
+      processPlayerWin(player2, player1);
+
     } else {
       console.log('tie - roll again, stay in same round');
       console.log('first player rolls again');
