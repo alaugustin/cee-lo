@@ -1,4 +1,4 @@
-import { GlobalGameData, HideShowWinnerHolder, IsLastPlayer } from './Global';
+import { GlobalGameData, HideShowWinnerHolder, IsLastPlayer, RoundOrGame } from './Global';
 
 export const ProcessRollType = (
   rollType: string,
@@ -15,7 +15,6 @@ export const ProcessRollType = (
 
   rollTypeHolder.innerHTML = rollType;
   rollPointHolder.innerHTML = rollPoint.toString();
-
 
   const localGlobalData = () => {
     console.log('Game round: ', GlobalGameData.gameRound, 'of ', GlobalGameData.gameRounds);
@@ -43,10 +42,9 @@ export const ProcessRollType = (
       GlobalGameData.playerData.forEach((player: any) => {
         if (player.name !== currentPlayerData.name) {
           handleLossData(player);
-
         } else {
           handleWinData(player);
-
+          RoundOrGame('round'); // TODO: develop condition for round or game
         }
       });
       console.log(playerData);
@@ -57,17 +55,14 @@ export const ProcessRollType = (
       GlobalGameData.playerData.forEach((player: any) => {
         if (player.name !== currentPlayerData.name) {
           handleWinData(player);
-
+          RoundOrGame('round'); // TODO: develop condition for round or game
         } else {
           handleLossData(player);
-
         }
       });
       console.log(playerData);
       break;
     default:
-
-      // code block
       IsLastPlayer(currentPlayerData, playersLength, playerData);
   }
 }

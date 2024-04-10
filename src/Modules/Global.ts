@@ -70,30 +70,30 @@ export const HideShowWinnerHolder = (winnerName: string) => {
   winnerHolder.classList.remove('hidden');
 };
 
-export const AdvanceGameRound = (winningPlayer: any) => {
+export const RoundOrGame = (playType: string) => {
   const roundOrGameStrHolder = document.getElementById('roundOrGame');
+
+  roundOrGameStrHolder.innerText = playType;
+}
+
+export const AdvanceGameRound = (winningPlayer: any) => {
   const { gameRounds } = GlobalGameData;
 
   GlobalGameData.gameRound += 1;
-
-  const roundOrGame = (playType: string) => {
-    roundOrGameStrHolder.innerText = playType;
-
-    HideShowWinnerHolder(winningPlayer.name);
-  }
+  HideShowWinnerHolder(winningPlayer.name);
 
   if (GlobalGameData.gameRound === gameRounds) {
     console.log('last round. show winner');
     console.log('Player data is: ', GlobalGameData.playerData);
     console.log('Going into game round: ', GlobalGameData.gameRound);
 
-    roundOrGame('game');
+    RoundOrGame('game');
     ShowWinner('testing -');
   } else {
     console.log('go to next round');
     console.log('Player data is: ', GlobalGameData.playerData);
     console.log('Going into game round: ', GlobalGameData.gameRound);
 
-    roundOrGame('round');
+    RoundOrGame('round');
   }
 }
