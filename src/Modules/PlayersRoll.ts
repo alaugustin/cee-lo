@@ -7,14 +7,31 @@ export function PlayerRoll(playersData: any[], playersLength: number) {
     const currentPlayerData = playersData[index];
 
     button.addEventListener('click', (event: Event | any) => {
+      const parentElement = event.target.closest('.playerColumn');
+      const dieHolders = parentElement.querySelectorAll('.diceHolder > div');
+      const rollTypeHolder = parentElement.querySelector('.rollTypeHolder');
+      const rollPointHolder = parentElement.querySelector('.rollPointHolder');
+
       const sides = 6,
         die1 = Math.floor(Math.random() * sides) + 1,
         die2 = Math.floor(Math.random() * sides) + 1,
         die3 = Math.floor(Math.random() * sides) + 1;
 
-      const parentElement = event.target.closest('.playerColumn');
-      const dieHolders = parentElement.querySelectorAll('.diceHolder > div');
-      const rollPointHolder = parentElement.querySelector('.rollPointHolder');
+      // TRIPS CONDITION
+      // die1 = 3,
+      // die2 = 3,
+      // die3 = 3;
+
+      // 123 CONDITION
+      // die1 = 1,
+      // die2 = 2,
+      // die3 = 3;
+
+      // 456 CONDITION
+      // die1 = 4,
+      // die2 = 5,
+      // die3 = 6;
+
       const diceArray = [die1, die2, die3];
       const rollArray = diceArray,
         rollArray_sort = rollArray.sort(),
@@ -29,8 +46,7 @@ export function PlayerRoll(playersData: any[], playersLength: number) {
       });
 
       // PROCESS ROLL TYPES
-      RollHandler(playersLength, rollArray_string, rollPointHolder, currentPlayerData, die1, die2, die3);
-
+      RollHandler(playersData, playersLength, rollArray_string, rollTypeHolder, rollPointHolder, currentPlayerData, die1, die2, die3);
     });
   });
 }

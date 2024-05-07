@@ -1,8 +1,7 @@
 import { PlayerObj } from '../Classes/CreatePlayers';
 import { ScoreboardCard } from '../Templates/Templates';
 import { PlayerRoll } from './PlayersRoll';
-import { CompareScores } from './CompareScores';
-import { ShowWinner } from './ShowWinner';
+import { GlobalGameData } from './Global';
 
 const scoreBoardHolder: HTMLElement | null = document.getElementById('scoreBoardHolder');
 
@@ -15,6 +14,7 @@ export function GameBoard(players: string[]) {
 
     player.name = playerName;
     player.rollPosition = index + 1;
+    player.rollType = '';
     player.rollCode = null;
     player.rollPoints = 0;
     player.wins = null;
@@ -23,13 +23,11 @@ export function GameBoard(players: string[]) {
     playerDataArray.push(player);
 
     return (
-      scoreBoardHolder.innerHTML += ScoreboardCard(index, player.name, player.rollPoints)
+      scoreBoardHolder.innerHTML += ScoreboardCard(index, player.name, player.rollPoints, player.rollType)
     );
   });
 
+  GlobalGameData.playerData = playerDataArray;
+
   PlayerRoll(playerDataArray, playerDataArray.length);
-  CompareScores('testing -');
-  ShowWinner('testing -');
 }
-
-

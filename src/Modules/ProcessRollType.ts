@@ -1,54 +1,68 @@
-import { ThreeDbuttonStyling, ThreeDbuttonStylingDisabled, ButtonEnableDisable } from './Global';
-
-const nextPlayer = (currentPlayerData: any) => {
-  const currentPlayerButtonPosition = currentPlayerData.rollPosition -1;
-  const currentPlayerButton = document.querySelectorAll('.playerColumn button')[currentPlayerButtonPosition];
-  const nextPlayerButtonPosition = currentPlayerData.rollPosition;
-  const nextPlayerButton = document.querySelectorAll('.playerColumn button')[nextPlayerButtonPosition];
-
-  ButtonEnableDisable(currentPlayerButton, ThreeDbuttonStylingDisabled);
-  ButtonEnableDisable(nextPlayerButton, ThreeDbuttonStyling);
-}
-
-const compareScores = () => {
-  console.log('last player. compare scores now');
-
-  document.querySelectorAll('.playerColumn button').forEach((button: Element) => {
-    button.setAttribute('disabled', 'disabled');
-    button.className = '';
-    button.classList.add(...ThreeDbuttonStylingDisabled);
-  });
-}
-
-const isLastPlayer = (
-  currentPlayerData: any,
-  playersLength: number
-) => {
-  if (currentPlayerData.rollPosition === playersLength) {
-    compareScores();
-  }else {
-    nextPlayer(currentPlayerData);
-  }
-}
+import { GlobalGameData, HideShowWinnerHolder, IsLastPlayer, RoundOrGame } from './Global';
 
 export const ProcessRollType = (
   rollType: string,
+  playerData: any[],
   rollPoint: number,
-  rollArray_string: string,
   rollCode: number,
+  rollTypeHolder: HTMLElement,
   rollPointHolder: HTMLElement,
   currentPlayerData: any,
   playersLength: number
 ) => {
-  console.log('---------- ---------- ---------- ---------- ----------');
-  console.log(`rollType, ${rollType}`);
-  console.log(`rollArray_string, ${rollArray_string}`);
-
-  // ----- relevant code below -----
   currentPlayerData.rollCode = rollCode;
   currentPlayerData.rollPoints = rollPoint;
 
+  rollTypeHolder.innerHTML = rollType;
   rollPointHolder.innerHTML = rollPoint.toString();
 
-  isLastPlayer(currentPlayerData, playersLength);
+  const localGlobalData = () => {
+    console.log('Game round: ', GlobalGameData.gameRound, 'of ', GlobalGameData.gameRounds);
+  };
+
+  const handleLossData = (playerData: { losses: number; rollPosition: number; }) => {
+    console.log(playerData);
+
+    playerData.losses += 1;
+    playerData.rollPosition = 2;
+  };
+
+  const handleWinData = (playerData: { name: string; wins: number; rollPosition: number; }) => {
+    console.log(playerData);
+    HideShowWinnerHolder(playerData.name);
+
+    playerData.wins += 1;
+    playerData.rollPosition = 1;
+  };
+
+  switch (rollType) {
+    case '4,5,6':
+      localGlobalData();
+
+      GlobalGameData.playerData.forEach((player: any) => {
+        if (player.name !== currentPlayerData.name) {
+          handleLossData(player);
+        } else {
+          handleWinData(player);
+          RoundOrGame('round'); // TODO: develop condition for round or game
+        }
+      });
+      console.log(playerData);
+      break;
+    case '1,2,3':
+      localGlobalData();
+
+      GlobalGameData.playerData.forEach((player: any) => {
+        if (player.name !== currentPlayerData.name) {
+          handleWinData(player);
+          RoundOrGame('round'); // TODO: develop condition for round or game
+        } else {
+          handleLossData(player);
+        }
+      });
+      console.log(playerData);
+      break;
+    default:
+      IsLastPlayer(currentPlayerData, playersLength, playerData);
+  }
 }

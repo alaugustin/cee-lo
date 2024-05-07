@@ -7,10 +7,17 @@ const gameBoardHolder: HTMLElement = document.getElementById('gameboard');
 
 const logPlayer = (event: any) => {
   const { value } = event.target.parentElement.children[1];
+  const playerNames = value.split(' ');
+
+  playerNames.forEach((name: string, index: string | number) => {
+    playerNames[index] = name.charAt(0).toUpperCase() + name.slice(1);
+  });
+
+  const uppercasePlayerNames = playerNames.join(' ');
 
   GameBoard(
     ['The House',
-    value ? value : 'Nameless Ned']
+      uppercasePlayerNames ? uppercasePlayerNames : 'Nameless Ned']
   );
 
   playerSignInHolder?.classList.add('hidden');

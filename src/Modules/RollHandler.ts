@@ -1,8 +1,11 @@
 import { ProcessRollType } from './ProcessRollType';
+import { DisableAllButtons } from './Global';
 
 export function RollHandler(
+  playersData: any[],
   playersLength: number,
   rollArray_string: string,
+  rollTypeHolder: HTMLElement,
   rollPointHolder: HTMLElement,
   currentPlayerData: any,
   die1: number,
@@ -12,9 +15,10 @@ export function RollHandler(
   // ------- 456
   const processFourFiveSix = () => {
     const rollCode = 3;
-    const rollPoint = 100;
+    const rollPoint = 10;
 
-    ProcessRollType('4,5,6', rollPoint, rollArray_string, rollCode, rollPointHolder, currentPlayerData, playersLength);
+    DisableAllButtons();
+    ProcessRollType('4,5,6', playersData, rollPoint, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
   };
 
   const fourFiveSix = () => {
@@ -24,9 +28,10 @@ export function RollHandler(
   // ------- 123
   const processOneTwoThree = () => {
     const rollCode = 0;
-    const rollPoint = -100;
+    const rollPoint = 0;
 
-    ProcessRollType('1,2,3', rollPoint, rollArray_string, rollCode, rollPointHolder, currentPlayerData, playersLength);
+    DisableAllButtons();
+    ProcessRollType('1,2,3', playersData, rollPoint, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
   };
 
   const oneTwoThree = () => {
@@ -38,7 +43,7 @@ export function RollHandler(
     const rollCode = 2;
     const rollPoint = die1;
 
-    ProcessRollType('Trips', rollPoint, rollArray_string, rollCode, rollPointHolder, currentPlayerData, playersLength);
+    ProcessRollType('Trips', playersData, rollPoint, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
   };
 
   const trips = () => {
@@ -62,7 +67,7 @@ export function RollHandler(
 
     rollPoint === 0 ?
       console.log('Roll again') :
-      ProcessRollType('points roll', rollPoint, rollArray_string, rollCode, rollPointHolder, currentPlayerData, playersLength);
+      ProcessRollType('Points Roll', playersData, rollPoint, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
   };
 
   fourFiveSix();

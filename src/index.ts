@@ -6,6 +6,10 @@ const ceeLo = {
     author: 'Al Augustin',
     project: 'Cee-Lo web dice game',
     Date: '2021',
+    globalGameData: {
+      gameRound: 0,
+      gameRounds: 3,
+    }
   },
 
   // -------------------- INITIALIZATION --------------------
@@ -15,9 +19,9 @@ const ceeLo = {
   },
 
   onDomReady: () => {
-    console.log(ceeLo);
+    const { globalGameData } = ceeLo.projectData;
 
-    StartGame();
+    StartGame(globalGameData);
   },
 };
 
