@@ -1,4 +1,4 @@
-import { RollHandler } from './RollHandler';
+import { RollHandler } from '../RollHandler/RollHandler';
 
 export function PlayerRoll(playersData: any[], playersLength: number) {
   const gameBoardButtons: NodeListOf<Element> = document.querySelectorAll('#scoreBoardHolder button');

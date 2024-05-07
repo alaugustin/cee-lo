@@ -1,4 +1,4 @@
-import { GameBoard } from './GameBoard';
+import { GameBoard } from '../GameBoard/GameBoard';
 
 const playerSignInInput: HTMLElement = document.getElementById('nameInput');
 const playButton: HTMLElement = document.getElementById('playButton');

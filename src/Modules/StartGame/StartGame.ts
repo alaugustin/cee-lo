@@ -1,5 +1,5 @@
-import { PlayerSignIn } from './PlayerSignIn';
-import { GlobalGameData as GameData  } from './Global';
+import { PlayerSignIn } from '../PlayerSignIn/PlayerSignIn';
+import { GlobalGameData as GameData  } from '../Global';
 
 const startButton: HTMLElement = document.getElementById('startButton');
 const startScreenHolder: HTMLElement = document.getElementById('startScreen');

@@ -1,4 +1,4 @@
-import { StartGame } from './Modules/StartGame';
+import { StartGame } from './Modules/StartGame/StartGame';
 
 const ceeLo = {
   projectData: {

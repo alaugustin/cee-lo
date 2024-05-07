@@ -1,4 +1,4 @@
-import { GlobalGameData, HideShowWinnerHolder, IsLastPlayer, RoundOrGame } from './Global';
+import { GlobalGameData, HideShowWinnerHolder, IsLastPlayer, RoundOrGame } from '../Global';
 
 export const ProcessRollType = (
   rollType: string,

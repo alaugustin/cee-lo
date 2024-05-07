@@ -1,7 +1,7 @@
-import { PlayerObj } from '../Classes/CreatePlayers';
-import { ScoreboardCard } from '../Templates/Templates';
-import { PlayerRoll } from './PlayersRoll';
-import { GlobalGameData } from './Global';
+import { PlayerObj } from '../../Classes/CreatePlayers';
+import { ScoreboardCard } from '../../Templates/Templates';
+import { PlayerRoll } from '../PlayersRoll/PlayersRoll';
+import { GlobalGameData } from '../Global';
 
 const scoreBoardHolder: HTMLElement | null = document.getElementById('scoreBoardHolder');
 

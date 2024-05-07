@@ -1,4 +1,4 @@
-import { AdvanceGameRound, DisableAllButtons, GlobalGameData } from './Global';
+import { AdvanceGameRound, DisableAllButtons, GlobalGameData } from '../Global';
 
 const processPlayerWin = (
   winningPlayer: {

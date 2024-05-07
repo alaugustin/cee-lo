@@ -1,5 +1,5 @@
-import { ProcessRollType } from './ProcessRollType';
-import { DisableAllButtons } from './Global';
+import { ProcessRollType } from '../ProcessRollType/ProcessRollType';
+import { DisableAllButtons } from '../Global';
 
 export function RollHandler(
   playersData: any[],
