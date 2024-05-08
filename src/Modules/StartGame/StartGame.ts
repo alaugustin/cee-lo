@@ -6,7 +6,7 @@ const startButton: HTMLElement = document.getElementById('startButton');
 const startScreenHolder: HTMLElement = document.getElementById('startScreen');
 const playerSignInHolder: HTMLElement = document.getElementById('playerSignIn');
 
-const startGame = (data: any) => {
+const INSERT_COIN = (data: any) => {
   startScreenHolder?.classList.add('hidden');
   playerSignInHolder?.classList.remove('hidden');
 
@@ -19,5 +19,5 @@ const startGame = (data: any) => {
 }
 
 export function StartGame(dataInput: IStartGameProps) {
-  startButton?.addEventListener('click', startGame.bind(null, dataInput));
+  startButton?.addEventListener('click', INSERT_COIN.bind(null, dataInput));
 }

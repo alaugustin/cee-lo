@@ -1,6 +1,7 @@
 import { RollHandler } from '../RollHandler/RollHandler';
+import { IPlayersRollProps } from './PlayersRoll.d';
 
-export function PlayerRoll(playersData: any[], playersLength: number) {
+export function PlayerRoll({ playersData, playersLength }: IPlayersRollProps) {
   const gameBoardButtons: NodeListOf<Element> = document.querySelectorAll('#scoreBoardHolder button');
 
   gameBoardButtons.forEach((button: HTMLElement, index: number) => {

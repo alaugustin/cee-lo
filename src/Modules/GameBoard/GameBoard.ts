@@ -33,5 +33,5 @@ export function GameBoard(players: IGameBoardProps) {
 
   GlobalGameData.playerData = playerDataArray;
 
-  PlayerRoll(playerDataArray, playerDataArray.length);
+  PlayerRoll({ playersData: playerDataArray, playersLength: playerDataArray.length });
 }

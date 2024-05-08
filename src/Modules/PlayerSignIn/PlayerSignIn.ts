@@ -5,7 +5,7 @@ const playButton: HTMLElement = document.getElementById('playButton');
 const playerSignInHolder: HTMLElement = document.getElementById('playerSignIn');
 const gameBoardHolder: HTMLElement = document.getElementById('gameboard');
 
-const logPlayer = (event: any) => {
+const LOG_PLAYER = (event: any) => {
   const { value } = event.target.parentElement.children[1];
   const playerNames = value.split(' ');
 
@@ -26,5 +26,5 @@ const logPlayer = (event: any) => {
 
 export function PlayerSignIn() {
   playerSignInInput?.focus();
-  playButton?.addEventListener('click', logPlayer);
+  playButton?.addEventListener('click', LOG_PLAYER);
 }
