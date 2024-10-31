@@ -2,12 +2,12 @@ import { ProcessRollType } from '../GameStep2_inGame/ProcessRollType/ProcessRoll
 import { DisableAllButtons } from '../Global';
 
 export function RollHandler(
-  playersData: any[],
+  playersData: Array<Record<string, unknown>>,
   playersLength: number,
   rollArray_string: string,
   rollTypeHolder: HTMLElement,
   rollPointHolder: HTMLElement,
-  currentPlayerData: any,
+  currentPlayerData: Record<string, unknown>,
   die1: number,
   die2: number,
   die3: number

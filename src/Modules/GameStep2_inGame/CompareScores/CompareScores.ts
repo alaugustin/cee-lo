@@ -16,6 +16,7 @@ const processPlayerWin = (
 
   AdvanceGameRound(winningPlayer);
 };
+
 export function CompareScores(playerDataArray: ICompareScoresProps[]) {
   const player1 = { ...playerDataArray[0], wins: 0, rollPosition: 1 };
   const player2 = { ...playerDataArray[1], wins: 0, rollPosition: 2 };

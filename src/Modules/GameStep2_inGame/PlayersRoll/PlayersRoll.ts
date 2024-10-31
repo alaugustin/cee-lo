@@ -38,7 +38,7 @@ export function PlayerRoll({ playersData, playersLength }: IPlayersRollProps) {
         rollArray_sort = rollArray.sort(),
         rollArray_string = rollArray_sort.toString();
 
-      Array.from(dieHolders).forEach((holder: any, index) => {
+      Array.from(dieHolders).forEach((holder: Element, index: number) => {
         const spanElement = holder.querySelector('span') as HTMLElement | null;
 
         if (spanElement) {

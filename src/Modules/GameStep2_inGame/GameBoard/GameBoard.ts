@@ -4,7 +4,6 @@ import { PlayerRoll } from '../PlayersRoll/PlayersRoll';
 import { GlobalGameData } from '../../Global';
 import { IGameBoardProps } from './GameBoard.d';
 
-
 const scoreBoardHolder: HTMLElement | null = document.getElementById('scoreBoardHolder');
 
 export function GameBoard(players: IGameBoardProps) {
