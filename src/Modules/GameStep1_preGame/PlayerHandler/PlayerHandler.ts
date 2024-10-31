@@ -1,11 +1,13 @@
 import { InGame } from '../../GameStep2_inGame/InGame';
 import { ToggleGameScreen } from '../../Global';
+import {IPlayerHandlerProps} from './PlayerHandler.d'
 
-export function PlayerHandler(event: any) {
-  const { value } = event.target.parentElement.children[1];
+export function PlayerHandler(event: IPlayerHandlerProps) {
+  const inputElement = event.target.parentElement.children[1] as HTMLInputElement;
+  const { value } = inputElement;
   const playerNames = value.split(' ');
 
-  playerNames.forEach((name: string, index: string | number) => {
+  playerNames.forEach((name, index) => {
     playerNames[index] = name.charAt(0).toUpperCase() + name.slice(1);
   });
 
@@ -19,4 +21,5 @@ export function PlayerHandler(event: any) {
   InGame(playerArray);
 
   ToggleGameScreen('playerSignIn', true);
+
 }
