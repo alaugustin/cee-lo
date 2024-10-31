@@ -1,4 +1,4 @@
-import { CompareScores } from './CompareScores/CompareScores';
+import { CompareScores } from './GameStep2_inGame/CompareScores/CompareScores';
 import { ShowWinner } from './ShowWinner';
 
 export const GlobalGameData = {
