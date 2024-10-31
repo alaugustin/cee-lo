@@ -1,4 +1,4 @@
-import { ProcessRollType } from '../ProcessRollType/ProcessRollType';
+import { ProcessRollType } from '../GameStep2_inGame/ProcessRollType/ProcessRollType';
 import { DisableAllButtons } from '../Global';
 
 export function RollHandler(

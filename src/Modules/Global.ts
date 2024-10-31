@@ -1,4 +1,4 @@
-import { CompareScores } from './CompareScores/CompareScores';
+import { CompareScores } from './GameStep2_inGame/CompareScores/CompareScores';
 import { ShowWinner } from './ShowWinner';
 
 export const GlobalGameData = {
@@ -96,4 +96,16 @@ export const AdvanceGameRound = (winningPlayer: any) => {
 
     RoundOrGame('round');
   }
+}
+
+// TODO: REMOVE ANYTHING THAT  IS NOT BEING USED ABOVE
+export const HideGameScreen = (screenName: string) => {
+  document.getElementById(screenName).classList.add('hidden')
+}
+export const ShowGameScreen = (screenName: string) => {
+  document.getElementById(screenName).classList.remove('hidden')
+}
+
+export const ToggleGameScreen = (screenName: string, shouldHide: boolean) => {
+  document.getElementById(screenName)?.classList[shouldHide ? 'add' : 'remove']('hidden');
 }

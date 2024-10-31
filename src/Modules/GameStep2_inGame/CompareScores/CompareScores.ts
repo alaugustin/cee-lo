@@ -1,4 +1,4 @@
-import { AdvanceGameRound, DisableAllButtons, GlobalGameData } from '../Global';
+import { AdvanceGameRound, DisableAllButtons, GlobalGameData } from '../../Global';
 import { ICompareScoresProps } from './CompareScores.d';
 
 const processPlayerWin = (
