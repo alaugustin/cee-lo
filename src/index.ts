@@ -20,9 +20,13 @@ const ceeLo = {
   },
 
   onDomReady: () => {
-    const {preGameData} = ceeLo.projectData;
-
-    PreGame(preGameData);
+    const { preGameData } = ceeLo.projectData;
+    PreGame({
+      data: ceeLo.projectData,
+      startButton: preGameData.startButton,
+      playerSignInInput: preGameData.playerSignInInput as HTMLInputElement,
+      playButton: preGameData.playButton
+    });
   },
 };
 
