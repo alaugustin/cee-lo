@@ -2,7 +2,6 @@ import { PlayerObj } from '../../../Classes/CreatePlayers';
 import { ScoreboardCard } from '../../../Templates/Templates';
 import { PlayerRoll } from '../PlayersRoll/PlayersRoll';
 import { GlobalGameData } from '../../Global';
-import { TheRollHandler } from '../RollHandler/RollHandler';
 import { IGameBoardProps } from './GameBoard.d';
 
 
@@ -11,7 +10,7 @@ const scoreBoardHolder: HTMLElement | null = document.getElementById('scoreBoard
 export function GameBoard(players: IGameBoardProps) {
   const playerDataArray: PlayerObj[] = [];
 
-  players.forEach((playerName: string, index: number) => {
+  players.forEach((playerName, index) => {
     const player: PlayerObj = new PlayerObj();
 
     player.name = playerName;

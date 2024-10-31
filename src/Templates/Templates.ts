@@ -9,7 +9,7 @@ export function ScoreboardCard(index: number, name: string, rollPoints: number, 
   const dieStyling: string = BoldTreatment('text-3xl');
 
   return `
-    <div class="${commonClass} ${cardAlignmentClass}">
+    <div id="player${index + 1}" class="${commonClass} ${cardAlignmentClass}">
       <h3 class="text-3xl">Player ${index + 1}</h3>
       <h4 class="text-2xl">${name}</h4>
       <p>Roll Type: <span class="rollTypeHolder ${BoldTreatment('text-2xl')}">${rollType}</span></p>
