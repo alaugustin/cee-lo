@@ -1,7 +1,8 @@
 import { ToggleGameScreen } from '../Global';
 import { PlayerHandler } from './PlayerHandler/PlayerHandler';
+import { IPreGameProps } from './PreGame.d';
 
-export function PreGame(data: any) {
+export function PreGame(data: IPreGameProps) {
   ToggleGameScreen('startScreen', false); // show start screen
 
   data.startButton.addEventListener('click', () => {
