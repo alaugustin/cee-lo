@@ -7,11 +7,11 @@ export function PlayerRoll({ playersData, playersLength }: IPlayersRollProps) {
   gameBoardButtons.forEach((button: HTMLElement, index: number) => {
     const currentPlayerData = playersData[index];
 
-    button.addEventListener('click', (event: Event | any) => {
-      const parentElement = event.target.closest('.playerColumn');
-      const dieHolders = parentElement.querySelectorAll('.diceHolder > div');
-      const rollTypeHolder = parentElement.querySelector('.rollTypeHolder');
-      const rollPointHolder = parentElement.querySelector('.rollPointHolder');
+    button.addEventListener('click', (event: MouseEvent) => {
+      const parentElement = (event.target as HTMLElement).closest('.playerColumn');
+      const dieHolders = parentElement?.querySelectorAll('.diceHolder > div');
+      const rollTypeHolder = parentElement?.querySelector('.rollTypeHolder');
+      const rollPointHolder = parentElement?.querySelector('.rollPointHolder');
 
       const sides = 6,
         die1 = Math.floor(Math.random() * sides) + 1,
@@ -38,7 +38,7 @@ export function PlayerRoll({ playersData, playersLength }: IPlayersRollProps) {
         rollArray_sort = rollArray.sort(),
         rollArray_string = rollArray_sort.toString();
 
-      Array.from(dieHolders).forEach((holder: Element, index: number) => {
+      Array.from(dieHolders || []).forEach((holder, index) => {
         const spanElement = holder.querySelector('span') as HTMLElement | null;
 
         if (spanElement) {
@@ -47,7 +47,7 @@ export function PlayerRoll({ playersData, playersLength }: IPlayersRollProps) {
       });
 
       // PROCESS ROLL TYPES
-      RollHandler(playersData, playersLength, rollArray_string, rollTypeHolder, rollPointHolder, currentPlayerData, die1, die2, die3);
-    });
-  });
-}
+      if (rollTypeHolder && rollPointHolder) {
+        RollHandler(playersData, playersLength, rollArray_string, rollTypeHolder as HTMLElement, rollPointHolder as HTMLElement, currentPlayerData, die1, die2, die3);
+      }
+    });  });}
