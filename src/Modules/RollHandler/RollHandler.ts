@@ -18,7 +18,16 @@ export function RollHandler(
     const rollPoint = 10;
 
     DisableAllButtons();
-    ProcessRollType('4,5,6', playersData, rollPoint, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
+    ProcessRollType({
+      rollType: '4,5,6',
+      playerData: playersData,
+      rollPoint: rollPoint,
+      rollCode: rollCode,
+      rollTypeHolder: rollTypeHolder,
+      rollPointHolder: rollPointHolder,
+      currentPlayerData: currentPlayerData,
+      playersLength: playersLength
+    });
   };
 
   const fourFiveSix = () => {
@@ -31,7 +40,16 @@ export function RollHandler(
     const rollPoint = 0;
 
     DisableAllButtons();
-    ProcessRollType('1,2,3', playersData, rollPoint, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
+    ProcessRollType({
+      rollType: '1,2,3',
+      playerData: playersData,
+      rollPoint: rollPoint,
+      rollCode: rollCode,
+      rollTypeHolder: rollTypeHolder,
+      rollPointHolder: rollPointHolder,
+      currentPlayerData: currentPlayerData,
+      playersLength: playersLength
+    });
   };
 
   const oneTwoThree = () => {
@@ -43,7 +61,16 @@ export function RollHandler(
     const rollCode = 2;
     const rollPoint = die1;
 
-    ProcessRollType('Trips', playersData, rollPoint, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
+    ProcessRollType({
+      rollType: 'Trips',
+      playerData: playersData,
+      rollPoint: rollPoint,
+      rollCode: rollCode,
+      rollTypeHolder: rollTypeHolder,
+      rollPointHolder: rollPointHolder,
+      currentPlayerData: currentPlayerData,
+      playersLength: playersLength
+    });
   };
 
   const trips = () => {
@@ -67,7 +94,16 @@ export function RollHandler(
 
     rollPoint === 0 ?
       console.log('Roll again') :
-      ProcessRollType('Points Roll', playersData, rollPoint, rollCode, rollTypeHolder, rollPointHolder, currentPlayerData, playersLength);
+      ProcessRollType({
+        rollType: 'Points Roll',
+        playerData: playersData,
+        rollPoint: rollPoint,
+        rollCode: rollCode,
+        rollTypeHolder: rollTypeHolder,
+        rollPointHolder: rollPointHolder,
+        currentPlayerData: currentPlayerData,
+        playersLength: playersLength
+      });
   };
 
   fourFiveSix();

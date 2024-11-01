@@ -62,12 +62,9 @@ export const IsLastPlayer = (
   }
 }
 
-export const HideShowWinnerHolder = (winnerName: string) => {
+export const PopulateWinnerName = (winnerName: string) => {
   const winnerNameHolder = document.getElementById('winnerName');
-  const winnerHolder = document.getElementById('winnerHolder');
-
   winnerNameHolder.innerText = winnerName;
-  winnerHolder.classList.remove('hidden');
 };
 
 export const RoundOrGame = (playType: string) => {
@@ -80,7 +77,7 @@ export const AdvanceGameRound = (winningPlayer: any) => {
   const { gameRounds } = GlobalGameData;
 
   GlobalGameData.gameRound += 1;
-  HideShowWinnerHolder(winningPlayer.name);
+  PopulateWinnerName(winningPlayer.name);
 
   if (GlobalGameData.gameRound === gameRounds) {
     console.log('last round. show winner');
@@ -99,13 +96,17 @@ export const AdvanceGameRound = (winningPlayer: any) => {
 }
 
 // TODO: REMOVE ANYTHING THAT  IS NOT BEING USED ABOVE
-export const HideGameScreen = (screenName: string) => {
-  document.getElementById(screenName).classList.add('hidden')
-}
-export const ShowGameScreen = (screenName: string) => {
-  document.getElementById(screenName).classList.remove('hidden')
-}
-
 export const ToggleGameScreen = (screenName: string, shouldHide: boolean) => {
   document.getElementById(screenName)?.classList[shouldHide ? 'add' : 'remove']('hidden');
+}
+
+export const AutoRollPlayer = (player: string) => {
+  const button = document.querySelector(`${player} button`);
+  button.classList.add(...ThreeDbuttonStylingDisabled);
+
+  setInterval(function () {
+    if (button instanceof HTMLElement) {
+      button.click();
+    }
+  }, 750);
 }

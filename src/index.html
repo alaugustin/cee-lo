@@ -18,23 +18,37 @@
     class="hidden max-w-3xl mx-auto py-6 border-solid border-2 border-sky-500 flex flex-col justify-center items-center">
     <h2 class="text-4xl mb-4">Start Screen</h2>
     <h3 class="text-3xl">Press Start Button</h3>
-    <button id="startButton" class="max-w-3xl mx-auto mt-4 border-solid border-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">START</button>
+    <button id="startButton"
+      class="max-w-3xl mx-auto mt-4 border-solid border-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">START</button>
   </div>
 
   <div id="playerSignIn"
     class="hidden max-w-3xl mx-auto py-6 border-solid border-2 border-sky-500 flex flex-col justify-center items-center">
     <h2 class="text-4xl mb-4">Enter Player Name</h2>
-    <input id="nameInput" type="text" maxlength="13"/>
-    <button id="playButton" class="max-w-3xl mx-auto mt-4 border-solid border-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">PLAY</button>
+    <input id="nameInput" type="text" maxlength="13" />
+    <button id="playButton"
+      class="max-w-3xl mx-auto mt-4 border-solid border-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">PLAY
+      GAME</button>
   </div>
 
   <div id="gameboard"
     class="hidden max-w-3xl mx-auto py-6 border-solid border-2 border-sky-500 flex flex-col justify-center items-center">
     <h2 class="text-4xl mb-4">Roll for Position</h2>
     <div id="scoreBoardHolder" class="flex flex-row"></div>
-    <div id="winnerHolder" class="hidden flex flex-row">
-      <span id="winnerName"></span>&nbsp;wins this&nbsp;<span id="roundOrGame"></span>
-    </div>
+  </div>
+
+  <div id="endScreen"
+    class="max-w-3xl mx-auto py-6 border-solid border-2 border-sky-500 flex flex-col justify-center items-center hidden">
+    <h2 class="text-4xl mb-4"><span id="winnerName"></span>&nbsp;wins
+      this&nbsp;<span id="roundOrGame"></span></h2>
+    <p id="gameWinnerHolder">winner</p>
+    <p id="gameLossHolder">loser</p>
+    <!-- <div id="winnerHolder" class="hidden flex flex-row">
+
+    </div> -->
+    <button id="resetButton"
+      class="max-w-3xl mx-auto mt-4 border-solid border-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">RESET
+      GAME</button>
   </div>
 </body>
 

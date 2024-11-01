@@ -48,6 +48,18 @@ export function PlayerRoll({ playersData, playersLength }: IPlayersRollProps) {
 
       // PROCESS ROLL TYPES
       if (rollTypeHolder && rollPointHolder) {
-        RollHandler(playersData, playersLength, rollArray_string, rollTypeHolder as HTMLElement, rollPointHolder as HTMLElement, currentPlayerData, die1, die2, die3);
+        RollHandler(
+          playersData,
+          playersLength,
+          rollArray_string,
+          rollTypeHolder as HTMLElement,
+          rollPointHolder as HTMLElement,
+          currentPlayerData,
+          die1,
+          die2,
+          die3
+        );
       }
-    });  });}
+    });
+  });
+}

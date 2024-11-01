@@ -1,7 +1,7 @@
 import { PlayerObj } from '../../../Classes/CreatePlayers';
 import { ScoreboardCard } from '../../../Templates/Templates';
 import { PlayerRoll } from '../PlayersRoll/PlayersRoll';
-import { GlobalGameData } from '../../Global';
+import { GlobalGameData, AutoRollPlayer } from '../../Global';
 import { IGameBoardProps } from './GameBoard.d';
 
 const scoreBoardHolder: HTMLElement | null = document.getElementById('scoreBoardHolder');
@@ -34,30 +34,5 @@ export function GameBoard(players: IGameBoardProps) {
 
   PlayerRoll({ playersData: playerDataArray, playersLength: playerDataArray.length });
 
-  const button = document.querySelector('#player1 button');
-  console.log(button);
-
-  setInterval(function () {
-    if (button instanceof HTMLElement) {
-      button.click();
-    }
-  }, 1000);
-
-  console.log(`
-    - player 2 button roll
-      • 456: player immediately wins
-      • trips: store point to compare player 1 point and player 2 point
-      • points: store point to compare player 1 point and player 2 point
-      • 123: player 1 instant loss
-  `);
-
-  // TheRollHandler(1, true);
-
-  // TheRollHandler(2, false);
-
-  // HideGameScreen('gameboard');
-
-  // PostGame();
-
-
+  AutoRollPlayer('#player1');
 }

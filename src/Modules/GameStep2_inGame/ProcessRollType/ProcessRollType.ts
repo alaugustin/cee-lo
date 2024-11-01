@@ -1,15 +1,17 @@
-import { GlobalGameData, HideShowWinnerHolder, IsLastPlayer, RoundOrGame } from '../../Global';
+import { GlobalGameData, PopulateWinnerName, IsLastPlayer, RoundOrGame } from '../../Global';
+import { ToggleGameScreen } from '../../Global';
+import { IProcessRollTypeProps } from './ProcessRollType.d';
 
-export const ProcessRollType = (
-  rollType: string,
-  playerData: any[],
-  rollPoint: number,
-  rollCode: number,
-  rollTypeHolder: HTMLElement,
-  rollPointHolder: HTMLElement,
-  currentPlayerData: any,
-  playersLength: number
-) => {
+export const ProcessRollType = ({
+    rollType,
+    playerData,
+    rollPoint,
+    rollCode,
+    rollTypeHolder,
+    rollPointHolder,
+    currentPlayerData,
+    playersLength
+  }: IProcessRollTypeProps) => {
   currentPlayerData.rollCode = rollCode;
   currentPlayerData.rollPoints = rollPoint;
 
@@ -21,15 +23,12 @@ export const ProcessRollType = (
   };
 
   const handleLossData = (playerData: { losses: number; rollPosition: number; }) => {
-    console.log(playerData);
-
     playerData.losses += 1;
     playerData.rollPosition = 2;
   };
 
   const handleWinData = (playerData: { name: string; wins: number; rollPosition: number; }) => {
-    console.log(playerData);
-    HideShowWinnerHolder(playerData.name);
+    PopulateWinnerName(playerData.name);
 
     playerData.wins += 1;
     playerData.rollPosition = 1;
@@ -43,24 +42,26 @@ export const ProcessRollType = (
         if (player.name !== currentPlayerData.name) {
           handleLossData(player);
         } else {
+          ToggleGameScreen('gameboard', true);
           handleWinData(player);
           RoundOrGame('round'); // TODO: develop condition for round or game
+          ToggleGameScreen('endScreen', false);
         }
       });
-      console.log(playerData);
       break;
     case '1,2,3':
       localGlobalData();
 
       GlobalGameData.playerData.forEach((player: any) => {
         if (player.name !== currentPlayerData.name) {
+          ToggleGameScreen('gameboard', true);
           handleWinData(player);
           RoundOrGame('round'); // TODO: develop condition for round or game
+          ToggleGameScreen('endScreen', false);
         } else {
           handleLossData(player);
         }
       });
-      console.log(playerData);
       break;
     default:
       IsLastPlayer(currentPlayerData, playersLength, playerData);
