@@ -1,17 +1,20 @@
 import { GlobalGameData, PopulateWinnerName, IsLastPlayer, RoundOrGame } from '../../Global';
-import { ToggleGameScreen } from '../../Global';
+import { ToggleGameScreen, UpdatePlayerHolder } from '../../Global';
 import { IProcessRollTypeProps } from './ProcessRollType.d';
 
+const gameWinnerHolder = document.getElementById('gameWinnerHolder');
+const gameLossHolder = document.getElementById('gameLossHolder');
+
 export const ProcessRollType = ({
-    rollType,
-    playerData,
-    rollPoint,
-    rollCode,
-    rollTypeHolder,
-    rollPointHolder,
-    currentPlayerData,
-    playersLength
-  }: IProcessRollTypeProps) => {
+  rollType,
+  playerData,
+  rollPoint,
+  rollCode,
+  rollTypeHolder,
+  rollPointHolder,
+  currentPlayerData,
+  playersLength
+}: IProcessRollTypeProps) => {
   currentPlayerData.rollCode = rollCode;
   currentPlayerData.rollPoints = rollPoint;
 
@@ -34,18 +37,32 @@ export const ProcessRollType = ({
     playerData.rollPosition = 1;
   };
 
+  const handlePlayerWin = (playerData: { name: string; wins: number; rollPosition: number; rollPoints: number }) => {
+    ToggleGameScreen('gameboard', true);
+    handleWinData(playerData);
+    UpdatePlayerHolder(gameWinnerHolder, playerData);
+    RoundOrGame('round'); // TODO: develop condition for round or game
+    ToggleGameScreen('endScreen', false);
+
+  }
+
+  const handlePlayerLoss = (playerData: { name: string; wins: number; rollPosition: number; losses: number; rollPoints: number }) => {
+    handleLossData(playerData);
+    UpdatePlayerHolder(gameLossHolder, playerData);
+
+  }
+
   switch (rollType) {
     case '4,5,6':
       localGlobalData();
 
       GlobalGameData.playerData.forEach((player: any) => {
         if (player.name !== currentPlayerData.name) {
-          handleLossData(player);
+          handlePlayerLoss(player);
+
         } else {
-          ToggleGameScreen('gameboard', true);
-          handleWinData(player);
-          RoundOrGame('round'); // TODO: develop condition for round or game
-          ToggleGameScreen('endScreen', false);
+          handlePlayerWin(player);
+
         }
       });
       break;
@@ -54,12 +71,11 @@ export const ProcessRollType = ({
 
       GlobalGameData.playerData.forEach((player: any) => {
         if (player.name !== currentPlayerData.name) {
-          ToggleGameScreen('gameboard', true);
-          handleWinData(player);
-          RoundOrGame('round'); // TODO: develop condition for round or game
-          ToggleGameScreen('endScreen', false);
+          handlePlayerWin(player);
+
         } else {
-          handleLossData(player);
+          handlePlayerLoss(player);
+
         }
       });
       break;

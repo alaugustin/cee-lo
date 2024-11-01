@@ -110,3 +110,7 @@ export const AutoRollPlayer = (player: string) => {
     }
   }, 750);
 }
+
+export const UpdatePlayerHolder = (playerHolder: HTMLElement, playerData: { name: string; rollPoints: number }) => {
+  playerHolder.innerText = `${playerData.name} rolled a ${playerData.rollPoints}`;
+};

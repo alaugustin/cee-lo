@@ -1,4 +1,4 @@
-import { AdvanceGameRound } from '../Global';
+import { AdvanceGameRound, UpdatePlayerHolder } from '../Global';
 
 const gameWinnerHolder = document.getElementById('gameWinnerHolder');
 const gameLossHolder = document.getElementById('gameLossHolder');
@@ -19,16 +19,11 @@ const processPlayerWin = (
   AdvanceGameRound(winningPlayer);
 };
 
-const funcNameTBD = (playerHolder: HTMLElement, playerData: { name: string; rollPoints: number }) => {
-  console.log(playerHolder);
-  playerHolder.innerText = `${playerData.name} rolled a ${playerData.rollPoints}`;
-};
-
 export function PostGame(playerWin: any, playerLoose: any) {
   processPlayerWin(playerWin, playerLoose);
 
-  funcNameTBD(gameWinnerHolder, playerWin);
-  funcNameTBD(gameLossHolder, playerLoose);
+  UpdatePlayerHolder(gameWinnerHolder, playerWin);
+  UpdatePlayerHolder(gameLossHolder, playerLoose);
 
   console.log(`${playerWin.name} wins by type`);
 }
