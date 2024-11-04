@@ -10,8 +10,8 @@ export function PlayerRoll({ playersData, playersLength }: IPlayersRollProps) {
     button.addEventListener('click', (event: MouseEvent) => {
       const parentElement = (event.target as HTMLElement).closest('.playerColumn');
       const dieHolders = parentElement?.querySelectorAll('.diceHolder > div');
-      const rollTypeHolder = parentElement?.querySelector('.rollTypeHolder');
-      const rollPointHolder = parentElement?.querySelector('.rollPointHolder');
+      const rollTypeHolder = parentElement?.querySelector('.rollTypeHolder') as HTMLElement | null;
+      const rollPointHolder = parentElement?.querySelector('.rollPointHolder') as HTMLElement | null;
 
       const sides = 6,
         die1 = Math.floor(Math.random() * sides) + 1,
@@ -48,17 +48,17 @@ export function PlayerRoll({ playersData, playersLength }: IPlayersRollProps) {
 
       // PROCESS ROLL TYPES
       if (rollTypeHolder && rollPointHolder) {
-        RollHandler(
+        RollHandler({
           playersData,
           playersLength,
           rollArray_string,
-          rollTypeHolder as HTMLElement,
-          rollPointHolder as HTMLElement,
+          rollTypeHolder,
+          rollPointHolder,
           currentPlayerData,
           die1,
           die2,
           die3
-        );
+        });
       }
     });
   });
