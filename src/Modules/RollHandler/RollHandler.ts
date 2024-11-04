@@ -1,17 +1,18 @@
 import { ProcessRollType } from '../GameStep2_inGame/ProcessRollType/ProcessRollType';
 import { DisableAllButtons } from '../Global';
+import { IRollHandlerProps } from './RollHandler.d';
 
-export function RollHandler(
-  playersData: Array<Record<string, unknown>>,
-  playersLength: number,
-  rollArray_string: string,
-  rollTypeHolder: HTMLElement,
-  rollPointHolder: HTMLElement,
-  currentPlayerData: Record<string, unknown>,
-  die1: number,
-  die2: number,
-  die3: number
-) {
+export function RollHandler({
+  playersData,
+  playersLength,
+  rollArray_string,
+  rollTypeHolder,
+  rollPointHolder,
+  currentPlayerData,
+  die1,
+  die2,
+  die3
+}: IRollHandlerProps) {
   // ------- 456
   const processFourFiveSix = () => {
     const rollCode = 3;
