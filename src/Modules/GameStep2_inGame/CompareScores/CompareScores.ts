@@ -1,5 +1,5 @@
 import { PostGame } from '../../GameStep3_postGame/PostGame';
-import { DisableAllButtons, GlobalGameData, ToggleGameScreen } from '../../Global';
+import { DisableAllButtons, ToggleGameScreen } from '../../Global';
 import { ICompareScoresProps } from './CompareScores.d';
 
 const determineWinner = (playerWin: ICompareScoresProps, playerLoss: ICompareScoresProps) => {

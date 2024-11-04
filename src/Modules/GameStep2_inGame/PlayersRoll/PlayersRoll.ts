@@ -1,13 +1,16 @@
 import { RollHandler } from '../../RollHandler/RollHandler';
 import { IPlayersRollProps } from './PlayersRoll.d';
 
-export function PlayerRoll({ playersData, playersLength }: IPlayersRollProps) {
+export function PlayerRoll({
+  playersData,
+  playersLength
+}: IPlayersRollProps) {
   const gameBoardButtons: NodeListOf<Element> = document.querySelectorAll('#scoreBoardHolder button');
 
-  gameBoardButtons.forEach((button: HTMLElement, index: number) => {
+  gameBoardButtons.forEach((button, index) => {
     const currentPlayerData = playersData[index];
 
-    button.addEventListener('click', (event: MouseEvent) => {
+    button.addEventListener('click', (event) => {
       const parentElement = (event.target as HTMLElement).closest('.playerColumn');
       const dieHolders = parentElement?.querySelectorAll('.diceHolder > div');
       const rollTypeHolder = parentElement?.querySelector('.rollTypeHolder') as HTMLElement | null;

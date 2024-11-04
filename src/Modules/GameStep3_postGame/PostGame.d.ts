@@ -1,17 +1,2 @@
-export interface IPostGameProps {
-  playerWin: {
-    name: string;
-    rollPoints: number;
-    wins: number;
-    rollPosition: number
-  },
-  playerLoose: {
-    name: string;
-    rollPoints: number;
-    rollPosition: number
-  }
-}
-
-export interface IGameWinnerHolderProps {
-  gameWinnerHolder: HTMLElement;
-}
+export interface IPlayerWinProps { playerWin: any; }
+export interface IPlayerLooseProps { playerLoose: any; }
