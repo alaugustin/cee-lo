@@ -73,7 +73,7 @@ export const RoundOrGame = (playType: string) => {
   roundOrGameStrHolder.innerText = playType;
 }
 
-export const AdvanceGameRound = (winningPlayer: any) => {
+export const AdvanceGameRound = (winningPlayer: { name: string }) => {
   const { gameRounds } = GlobalGameData;
 
   GlobalGameData.gameRound += 1;
