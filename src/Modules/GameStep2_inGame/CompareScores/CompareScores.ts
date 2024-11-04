@@ -14,13 +14,13 @@ export function CompareScores(playerDataArray: ICompareScoresProps[]) {
 
   DisableAllButtons();
 
-  console.log(`
-    - player 2 button roll
-      • 456: player immediately wins
-      • trips: store point to compare player 1 point and player 2 point
-      • points: store point to compare player 1 point and player 2 point
-      • 123: player 1 instant loss
-  `);
+  // console.log(`
+  //   - player 2 button roll
+  //     • 456: player immediately wins
+  //     • trips: store point to compare player 1 point and player 2 point
+  //     • points: store point to compare player 1 point and player 2 point
+  //     • 123: player 1 instant loss
+  // `);
 
   if (player1.rollCode > player2.rollCode) {
     determineWinner(player1, player2);
@@ -37,9 +37,9 @@ export function CompareScores(playerDataArray: ICompareScoresProps[]) {
 
     } else {
       console.log('tie - roll again, stay in same round');
-      console.log('first player rolls again');
-      console.log('Game round: ', GlobalGameData.gameRound);
-      console.log('Player data: ', playerDataArray);
+      // console.log('first player rolls again');
+      // console.log('Game round: ', GlobalGameData.gameRound);
+      // console.log('Player data: ', playerDataArray);
     }
   }
 }

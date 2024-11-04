@@ -80,16 +80,16 @@ export const AdvanceGameRound = (winningPlayer: { name: string }) => {
   PopulateWinnerName(winningPlayer.name);
 
   if (GlobalGameData.gameRound === gameRounds) {
-    console.log('last round. show winner');
-    console.log('Player data is: ', GlobalGameData.playerData);
-    console.log(`Game round: ${GlobalGameData.gameRound} of ${GlobalGameData.gameRounds}`);
+    // console.log('last round. show winner');
+    // console.log('Player data is: ', GlobalGameData.playerData);
+    // console.log(`Game round: ${GlobalGameData.gameRound} of ${GlobalGameData.gameRounds}`);
 
     RoundOrGame('game');
     ShowWinner('testing -');
   } else {
-    console.log('go to next round');
-    console.log('Player data is: ', GlobalGameData.playerData);
-    console.log(`Going into game round: ${GlobalGameData.gameRound} of ${GlobalGameData.gameRounds}`);
+    // console.log('go to next round');
+    // console.log('Player data is: ', GlobalGameData.playerData);
+    // console.log(`Going into game round: ${GlobalGameData.gameRound} of ${GlobalGameData.gameRounds}`);
 
     RoundOrGame('round');
   }
