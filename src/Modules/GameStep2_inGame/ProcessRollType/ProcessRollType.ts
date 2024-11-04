@@ -37,19 +37,17 @@ export const ProcessRollType = ({
     playerData.rollPosition = 1;
   };
 
-  const handlePlayerWin = (playerData: { name: string; wins: number; rollPosition: number; rollPoints: number }) => {
+  const handlePlayerWin = (playerData: { name: string; wins: number; rollPosition: number; rollPoints: number; rollCode: number }) => {
     ToggleGameScreen('gameboard', true);
     handleWinData(playerData);
     UpdatePlayerHolder(gameWinnerHolder, playerData);
     RoundOrGame('round'); // TODO: develop condition for round or game
     ToggleGameScreen('endScreen', false);
-
   }
 
-  const handlePlayerLoss = (playerData: { name: string; wins: number; rollPosition: number; losses: number; rollPoints: number }) => {
+  const handlePlayerLoss = (playerData: { name: string; wins: number; rollPosition: number; losses: number; rollPoints: number; rollCode: number }) => {
     handleLossData(playerData);
     UpdatePlayerHolder(gameLossHolder, playerData);
-
   }
 
   switch (rollType) {
