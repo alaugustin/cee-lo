@@ -9,7 +9,7 @@ export function PlayerHandler(event: IPlayerHandlerProps) {
     .map(name => name.charAt(0).toUpperCase() + name.slice(1))
     .join(' ');
 
-  const playerArray = ['🖥️ The House', playerNames || 'Nameless Ned'];
+  const playerArray = ['The House', playerNames || 'Nameless Ned'];
 
   InGame(playerArray);
   ToggleGameScreen('playerSignIn', true);

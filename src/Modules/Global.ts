@@ -112,12 +112,23 @@ export const AutoRollPlayer = (player: string) => {
 }
 
 export const UpdatePlayerHolder = (playerHolder: HTMLElement, playerData: { name: string; rollPoints: number; rollCode: number; }) => {
-  playerHolder.innerText = `${playerData.name} rolled a ${playerData.rollPoints}`;
+  const roll456string = `${playerData.name} rolled 456`;
+  const roll123string = `${playerData.name} rolled 123`;
+  const bankBrokenString = 'You beat the bank';
 
-  console.log(playerData);
-  console.log(`
-    playerData.name: ${playerData.name}
-    playerData.rollPoints: ${playerData.rollPoints}
-    playerData.rollCode: ${playerData.rollCode}
-  `);
+  if (playerData.rollCode === null) {
+    playerHolder.innerText = '';
+  } else if (playerData.rollCode === 3) {
+    playerHolder.innerText = playerData.name === 'The House'
+      ? `${roll456string}. Pay on your way out!`
+      : `${roll456string}. ${bankBrokenString}!`;
+  } else if (playerData.rollCode === 2) {
+    playerHolder.innerText = `${playerData.name} rolled trips ${playerData.rollPoints}`;
+  } else if (playerData.rollCode === 0) {
+    playerHolder.innerText = playerData.name === 'The House'
+      ? `${roll123string}. ${bankBrokenString}!`
+      : `${roll123string}. Better luck next time!`;
+  } else {
+    playerHolder.innerText = `${playerData.name} rolled ${playerData.rollPoints}`;
+  }
 };
