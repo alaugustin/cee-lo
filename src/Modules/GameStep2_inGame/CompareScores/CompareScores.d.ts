@@ -3,6 +3,7 @@ export interface ICompareScoresProps {
   rollCode: number;
   rollPoints: number;
   rollPosition: number;
-  wins: number;
-  losses: number;
+  win: number;
+  loss: number;
+  tie: number;
 }

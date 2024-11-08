@@ -39,13 +39,21 @@
 
   <div id="endScreen"
     class="max-w-3xl mx-auto py-6 border-solid border-2 border-sky-500 flex flex-col justify-center items-center hidden">
-    <h2 class="text-4xl mb-4"><span id="winnerName"></span>&nbsp;wins
-      this&nbsp;<span id="roundOrGame"></span></h2>
-    <p id="gameWinnerHolder">winner</p>
-    <p id="gameLossHolder">loser</p>
-    <!-- <div id="winnerHolder" class="hidden flex flex-row">
 
-    </div> -->
+    <div id="winLossHolder" class="flex flex-col justify-center items-center">
+      <h2 class="text-4xl mb-4"><span id="winnerName"></span>&nbsp;wins
+        this&nbsp;<span id="roundOrGame"></span></h2>
+      <p id="gameWinnerHolder">winner</p>
+      <p id="gameLossHolder">loser</p>
+    </div>
+
+    <div id="tieHolder" class="flex flex-col justify-center items-center hidden">
+      <h2 class="text-4xl mb-4">Tie Game. Keep your cash!</h2>
+      <p id="computerName">UNCHANGED_CPU_DATA</p>
+      <p>tied</p>
+      <p id="playerName"> UNCHANGED_PLR_DATA</p>
+    </div>
+
     <button id="resetButton"
       class="max-w-3xl mx-auto mt-4 border-solid border-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">RESET
       GAME</button>
