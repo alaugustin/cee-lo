@@ -1,5 +1,4 @@
 import { CompareScores } from './GameStep2_inGame/CompareScores/CompareScores';
-import { ShowWinner } from './ShowWinner';
 
 export const GlobalGameData = {
   gameRound: '',
@@ -81,21 +80,13 @@ export const AdvanceGameRound = (winningPlayer: { name: string }) => {
 
   if (GlobalGameData.gameRound === gameRounds) {
     // console.log('last round. show winner');
-    // console.log('Player data is: ', GlobalGameData.playerData);
-    // console.log(`Game round: ${GlobalGameData.gameRound} of ${GlobalGameData.gameRounds}`);
-
     RoundOrGame('game');
-    ShowWinner('testing -');
   } else {
     // console.log('go to next round');
-    // console.log('Player data is: ', GlobalGameData.playerData);
-    // console.log(`Going into game round: ${GlobalGameData.gameRound} of ${GlobalGameData.gameRounds}`);
-
     RoundOrGame('round');
   }
 }
 
-// TODO: REMOVE ANYTHING THAT  IS NOT BEING USED ABOVE
 export const ToggleGameScreen = (screenName: string, shouldHide: boolean) => {
   document.getElementById(screenName)?.classList[shouldHide ? 'add' : 'remove']('hidden');
 }

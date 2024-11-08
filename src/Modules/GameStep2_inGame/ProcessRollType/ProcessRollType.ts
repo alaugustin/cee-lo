@@ -38,9 +38,6 @@ export const ProcessRollType = ({
   };
 
   const handlePlayerResult = (playerData: { name: string; win: number; loss: number; tie: number; rollPosition: number; rollPoints: number; rollCode: number }, isWin: boolean) => {
-    console.log(isWin ? 'win' : 'loss');
-    console.log(playerData);
-
     if (isWin) {
       ToggleGameScreen('gameboard', true);
       handleWinData(playerData);

@@ -8,10 +8,19 @@ const determineWinner = (playerWin: ICompareScoresProps, playerLoss: ICompareSco
   ToggleGameScreen('endScreen', false);
 }
 
+const computerNameHolder = document.getElementById('computerName') as HTMLElement | null;
+const playerNameHolder = document.getElementById('playerName') as HTMLElement | null;
+
 const handleTieEvent = (player: ICompareScoresProps) => {
+  ToggleGameScreen('winLossHolder', true);
+
   player.tie += 1;
-  console.log('tie - no winner');
-  console.log(player);
+
+  (player.name === 'The House') ?
+    computerNameHolder.innerText = player.name :
+    playerNameHolder.innerText = player.name;
+
+  ToggleGameScreen('tieHolder', false);
 }
 
 export function CompareScores(playerDataArray: ICompareScoresProps[]) {
