@@ -17,8 +17,9 @@ export function GameBoard(players: IGameBoardProps) {
     player.rollType = '';
     player.rollCode = null;
     player.rollPoints = 0;
-    player.wins = null;
-    player.losses = null;
+    player.win = 0;
+    player.loss = 0;
+    player.tie = 0;
 
     playerDataArray.push(player);
 

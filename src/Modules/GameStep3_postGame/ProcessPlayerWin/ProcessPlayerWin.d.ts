@@ -1,5 +1,5 @@
 export interface IPlayerProps {
-  wins: number;
+  win: number;
   name: string;
   rollPosition: number;
 }

@@ -6,7 +6,7 @@ export function ProcessPlayerWin(
   winningPlayer: IPlayerProps,
   opposingPlayer: IOpposingPlayerProps
 ): void {
-  winningPlayer.wins += 1;
+  winningPlayer.win += 1;
   winningPlayer.rollPosition = 1;
   opposingPlayer.rollPosition = 2;
 
