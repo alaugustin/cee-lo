@@ -68,7 +68,6 @@ export const PopulateWinnerName = (winnerName: string) => {
 
 export const RoundOrGame = (playType: string) => {
   const roundOrGameStrHolder = document.getElementById('roundOrGame');
-
   roundOrGameStrHolder.innerText = playType;
 }
 

@@ -7,13 +7,13 @@ export function PreGame(data: IPreGameProps) {
 
   data.startButton.addEventListener('click', () => {
     ToggleGameScreen('startScreen', true);
-    ToggleGameScreen('playerSignIn', false);
 
     setTimeout(() => {
       data.playerSignInInput.focus();
     }, 0);
-  }
-  );
+
+    ToggleGameScreen('playerSignIn', false);
+  });
 
   setTimeout(() => {
     data.playerSignInInput.focus();

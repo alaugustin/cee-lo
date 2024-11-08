@@ -1,4 +1,4 @@
-import { RollHandler } from '../../RollHandler/RollHandler';
+import { RollHandler } from '../RollHandler/RollHandler';
 import { IPlayersRollProps } from './PlayersRoll.d';
 
 export function PlayerRoll({

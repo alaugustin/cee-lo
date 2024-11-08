@@ -47,7 +47,6 @@ export function CompareScores(playerDataArray: ICompareScoresProps[]) {
       handleTieEvent(player1);
       handleTieEvent(player2);
       ToggleGameScreen('endScreen', false);
-
     }
   }
 }
