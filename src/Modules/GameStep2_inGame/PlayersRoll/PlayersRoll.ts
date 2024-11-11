@@ -15,6 +15,10 @@ export function PlayerRoll({
       const dieHolders = parentElement?.querySelectorAll('.diceHolder > div');
       const rollTypeHolder = parentElement?.querySelector('.rollTypeHolder') as HTMLElement | null;
       const rollPointHolder = parentElement?.querySelector('.rollPointHolder') as HTMLElement | null;
+      const currentPlayerName = parentElement.querySelector('h4').innerText;
+      const rollAnnounceHolder = document.getElementById('rollAnnounce') as HTMLElement | null;
+
+      rollAnnounceHolder.innerText = `${currentPlayerName} Rolls`;
 
       const sides = 6,
         die1 = Math.floor(Math.random() * sides) + 1,

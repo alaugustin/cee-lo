@@ -33,7 +33,10 @@ export function GameBoard(players: IGameBoardProps) {
 
   GlobalGameData.playerData = playerDataArray;
 
-  PlayerRoll({ playersData: playerDataArray, playersLength: playerDataArray.length });
+  PlayerRoll({
+    playersData: playerDataArray,
+    playersLength: playerDataArray.length
+  });
 
   AutoRollPlayer('#player1'); // auto roll player 1
   console.log('auto roll player 1');
