@@ -1,17 +1,7 @@
 import { DisableAllButtons, ToggleGameScreen } from '../../Global';
 import { DetermineWinner } from './DetermineWinner/DetermineWinner';
+import { HandleTieEvent } from './HandleTieEvent/HandleTieEvent';
 import { ICompareScoresProps } from './CompareScores.d';
-
-const computerNameHolder = document.getElementById('computerName') as HTMLElement | null;
-const playerNameHolder = document.getElementById('playerName') as HTMLElement | null;
-
-const handleTieEvent = (player: ICompareScoresProps) => {
-  player.tie += 1;
-
-  (player.name === 'The House') ?
-    computerNameHolder.innerText = player.name :
-    playerNameHolder.innerText = player.name;
-}
 
 export function CompareScores(playerDataArray: ICompareScoresProps[]) {
   const player1 = { ...playerDataArray[0], win: 0, rollPosition: 1 };
@@ -36,11 +26,11 @@ export function CompareScores(playerDataArray: ICompareScoresProps[]) {
       setTimeout(() => {
         ToggleGameScreen('gameboard', true);
         ToggleGameScreen('winLossHolder', true);
-        handleTieEvent(player1);
+        HandleTieEvent(player1);
 
         ToggleGameScreen('tieHolder', false);
         ToggleGameScreen('endScreen', false);
-        handleTieEvent(player2);
+        HandleTieEvent(player2);
       }, 750);
     }
   }
