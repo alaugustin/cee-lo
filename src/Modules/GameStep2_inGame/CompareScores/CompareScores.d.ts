@@ -6,4 +6,7 @@ export interface ICompareScoresProps {
   win: number;
   loss: number;
   tie: number;
+  playerWin: boolean;
+  playerLoss: boolean;
+  playerLoose: boolean;
 }
