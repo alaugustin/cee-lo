@@ -1,27 +1,7 @@
-import { PostGame } from '../../GameStep3_postGame/PostGame';
 import { DisableAllButtons, ToggleGameScreen } from '../../Global';
+import { DetermineWinner } from './DetermineWinner/DetermineWinner';
+import { HandleTieEvent } from './HandleTieEvent/HandleTieEvent';
 import { ICompareScoresProps } from './CompareScores.d';
-
-const determineWinner = (playerWin: ICompareScoresProps, playerLoss: ICompareScoresProps) => {
-  ToggleGameScreen('gameboard', true);
-  PostGame(playerWin, playerLoss);
-  ToggleGameScreen('endScreen', false);
-}
-
-const computerNameHolder = document.getElementById('computerName') as HTMLElement | null;
-const playerNameHolder = document.getElementById('playerName') as HTMLElement | null;
-
-const handleTieEvent = (player: ICompareScoresProps) => {
-  ToggleGameScreen('winLossHolder', true);
-
-  player.tie += 1;
-
-  (player.name === 'The House') ?
-    computerNameHolder.innerText = player.name :
-    playerNameHolder.innerText = player.name;
-
-  ToggleGameScreen('tieHolder', false);
-}
 
 export function CompareScores(playerDataArray: ICompareScoresProps[]) {
   const player1 = { ...playerDataArray[0], win: 0, rollPosition: 1 };
@@ -30,23 +10,28 @@ export function CompareScores(playerDataArray: ICompareScoresProps[]) {
   DisableAllButtons();
 
   if (player1.rollCode > player2.rollCode) {
-    determineWinner(player1, player2);
+    DetermineWinner(player1, player2);
 
   } else if (player1.rollCode < player2.rollCode) {
-    determineWinner(player2, player1);
+    DetermineWinner(player2, player1);
 
   } else {
     if (player1.rollPoints > player2.rollPoints) {
-      determineWinner(player1, player2);
+      DetermineWinner(player1, player2);
 
     } else if (player1.rollPoints < player2.rollPoints) {
-      determineWinner(player2, player1);
+      DetermineWinner(player2, player1);
 
     } else {
-      ToggleGameScreen('gameboard', true);
-      handleTieEvent(player1);
-      handleTieEvent(player2);
-      ToggleGameScreen('endScreen', false);
+      setTimeout(() => {
+        ToggleGameScreen('gameboard', true);
+        ToggleGameScreen('winLossHolder', true);
+        HandleTieEvent(player1);
+
+        ToggleGameScreen('tieHolder', false);
+        ToggleGameScreen('endScreen', false);
+        HandleTieEvent(player2);
+      }, 750);
     }
   }
 }

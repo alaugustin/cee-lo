@@ -4,7 +4,7 @@ import { PlayerRoll } from '../PlayersRoll/PlayersRoll';
 import { GlobalGameData, AutoRollPlayer } from '../../Global';
 import { IGameBoardProps } from './GameBoard.d';
 
-const scoreBoardHolder: HTMLElement | null = document.getElementById('scoreBoardHolder');
+const scoreBoardHolder = document.getElementById('scoreBoardHolder') as HTMLElement | null;
 
 export function GameBoard(players: IGameBoardProps) {
   const playerDataArray: PlayerObj[] = [];
@@ -33,7 +33,10 @@ export function GameBoard(players: IGameBoardProps) {
 
   GlobalGameData.playerData = playerDataArray;
 
-  PlayerRoll({ playersData: playerDataArray, playersLength: playerDataArray.length });
+  PlayerRoll({
+    playersData: playerDataArray,
+    playersLength: playerDataArray.length
+  });
 
   AutoRollPlayer('#player1'); // auto roll player 1
   console.log('auto roll player 1');

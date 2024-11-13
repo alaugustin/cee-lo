@@ -1,4 +1,5 @@
 import { RollHandler } from '../RollHandler/RollHandler';
+import { UpdateRollAnnouncement } from './UpdateRollAnnouncement/UpdateRollAnnouncement';
 import { IPlayersRollProps } from './PlayersRoll.d';
 
 export function PlayerRoll({
@@ -15,6 +16,17 @@ export function PlayerRoll({
       const dieHolders = parentElement?.querySelectorAll('.diceHolder > div');
       const rollTypeHolder = parentElement?.querySelector('.rollTypeHolder') as HTMLElement | null;
       const rollPointHolder = parentElement?.querySelector('.rollPointHolder') as HTMLElement | null;
+      const currentPlayerName = parentElement.querySelector('h4').innerText;
+      const rollAnnouncePlayer = document.getElementById('currentPlayerName') as HTMLElement | null;
+      const rollAnnounceAction = document.getElementById('currentPlayerAction') as HTMLElement | null;
+      const presentlyRolling = 'Rolls' as string;
+
+      UpdateRollAnnouncement(
+        rollAnnouncePlayer,
+        rollAnnounceAction,
+        currentPlayerName,
+        presentlyRolling
+      );
 
       const sides = 6,
         die1 = Math.floor(Math.random() * sides) + 1,
