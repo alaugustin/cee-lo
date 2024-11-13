@@ -1,1 +1,1 @@
-export interface IInGameProps {}
+export interface IInGameProps { playerArray: string[]; }

@@ -8,6 +8,6 @@ export function PlayerHandler(event: IPlayerHandlerProps) {
 
   const playerArray = ['The House', constructedPlayerName || 'Nameless Ned'];
 
-  InGame(playerArray);
+  InGame({playerArray});
   ToggleGameScreen('playerSignIn', true);
 }
