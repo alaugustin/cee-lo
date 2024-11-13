@@ -18,7 +18,10 @@ export const BoldTreatment = (optClass: string | null) => {
   }
 };
 
-export const ButtonEnableDisable = (button: Element, buttonStyles: string[]) => {
+export const ButtonEnableDisable = (
+  button: Element,
+  buttonStyles: string[]
+) => {
   button.className = '';
   button.classList.add(...buttonStyles);
 
@@ -86,7 +89,10 @@ export const AdvanceGameRound = (winningPlayer: { name: string }) => {
   }
 }
 
-export const ToggleGameScreen = (screenName: string, shouldHide: boolean) => {
+export const ToggleGameScreen = (
+  screenName: string,
+  shouldHide: boolean
+) => {
   document.getElementById(screenName)?.classList[shouldHide ? 'add' : 'remove']('hidden');
 }
 
@@ -101,7 +107,14 @@ export const AutoRollPlayer = (player: string) => {
   }, 750);
 }
 
-export const UpdatePlayerHolder = (playerHolder: HTMLElement, playerData: { name: string; rollPoints: number; rollCode: number; }) => {
+export const UpdatePlayerHolder = (
+  playerHolder: HTMLElement,
+  playerData: {
+    name: string;
+    rollPoints: number;
+    rollCode: number;
+  }
+) => {
   const roll456string = `${playerData.name} rolled 456`;
   const roll123string = `${playerData.name} rolled 123`;
   const bankBrokenString = 'You beat the bank';

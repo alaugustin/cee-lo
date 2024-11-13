@@ -25,19 +25,36 @@ export const ProcessRollType = ({
     console.log('Game round: ', GlobalGameData.gameRound, 'of ', GlobalGameData.gameRounds);
   };
 
-  const handleLossData = (playerData: { loss: number; rollPosition: number; }) => {
+  const handleLossData = (
+    playerData: {
+      loss: number;
+      rollPosition: number;
+    }) => {
     playerData.loss += 1;
     playerData.rollPosition = 2;
   };
 
-  const handleWinData = (playerData: { name: string; win: number; rollPosition: number; }) => {
+  const handleWinData = (
+    playerData: {
+      name: string;
+      win: number; rollPosition: number;
+    }) => {
     PopulateWinnerName(playerData.name);
 
     playerData.win += 1;
     playerData.rollPosition = 1;
   };
 
-  const handlePlayerResult = (playerData: { name: string; win: number; loss: number; tie: number; rollPosition: number; rollPoints: number; rollCode: number }, isWin: boolean) => {
+  const handlePlayerResult = (
+    playerData: {
+      name: string;
+      win: number;
+      loss: number;
+      tie: number;
+      rollPosition: number;
+      rollPoints: number;
+      rollCode: number
+    }, isWin: boolean) => {
     if (isWin) {
       ToggleGameScreen('gameboard', true);
       handleWinData(playerData);

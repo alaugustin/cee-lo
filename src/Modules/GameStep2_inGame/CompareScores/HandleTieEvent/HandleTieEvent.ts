@@ -4,7 +4,10 @@ import { ICompareScoresProps } from '../CompareScores.d';
 const computerNameHolder = document.getElementById('computerName') as HTMLElement | null;
 const playerNameHolder = document.getElementById('playerName') as HTMLElement | null;
 
-const tieNameConstructor = (holderName: HTMLElement, player: ICompareScoresProps) => {
+const tieNameConstructor = (
+  holderName: HTMLElement,
+  player: ICompareScoresProps
+) => {
   holderName.innerText = player.name
 }
 
