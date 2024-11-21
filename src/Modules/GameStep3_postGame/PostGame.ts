@@ -4,6 +4,7 @@ import { IPostGameProps } from './PostGame.d';
 
 const gameWinnerHolder = document.getElementById('gameWinnerHolder') as HTMLElement;
 const gameLossHolder = document.getElementById('gameLossHolder') as HTMLElement;
+const newGameButton = document.getElementById('newGameButton') as HTMLElement;
 
 export function PostGame(
   playerWin: IPostGameProps,
@@ -23,4 +24,8 @@ export function PostGame(
   });
 
   console.log(playerWin, playerLoose);
+
+  newGameButton.addEventListener('click', () => {
+    window.location.reload();
+  });
 }
