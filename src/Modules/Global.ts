@@ -135,3 +135,23 @@ export const UpdatePlayerHolder = (
     playerHolder.innerText = `${playerData.name} rolled ${playerData.rollPoints}`;
   }
 };
+
+export const WLTBoardSetZeros = (parentName: { wltBoard: HTMLElement }) => {
+  const wltDataCols = parentName.wltBoard.querySelectorAll('td');
+
+  wltDataCols.forEach((element: Element) => {
+    element.innerHTML = '0';
+  });
+}
+
+export const PopulateWLTBoard = (playerData: {
+  wltBoard: HTMLElement;
+  win: number;
+  loss: number;
+}, isWin: boolean) => {
+  WLTBoardSetZeros(playerData);
+
+  isWin ?
+    playerData.wltBoard.querySelector('.win').innerHTML = playerData.win.toString() :
+    playerData.wltBoard.querySelector('.loss').innerHTML = playerData.loss.toString();
+};

@@ -1,4 +1,4 @@
-import { GlobalGameData, PopulateWinnerName, IsLastPlayer, RoundOrGame } from '../../Global';
+import { GlobalGameData, PopulateWinnerName, IsLastPlayer, RoundOrGame, PopulateWLTBoard } from '../../Global';
 import { ToggleGameScreen, UpdatePlayerHolder } from '../../Global';
 import { IProcessRollTypeProps, IPlayerWinDataProps, IPlayerLossDataProps, IPlayerResultData } from './ProcessRollType.d';
 
@@ -35,6 +35,8 @@ export const ProcessRollType = ({
   const handleLossData = (playerData: IPlayerLossDataProps) => {
     playerData.loss += 1;
     playerData.rollPosition = 2;
+
+    PopulateWLTBoard(playerData, false);
   };
 
   const handleWinData = (playerData: IPlayerWinDataProps) => {
@@ -42,9 +44,11 @@ export const ProcessRollType = ({
 
     playerData.win += 1;
     playerData.rollPosition = 1;
+
+    PopulateWLTBoard(playerData, true);
   };
 
-  const handlePlayerResult = (playerData: IPlayerResultData, isWin: boolean) => {
+  const handlePlayerResult = (playerData: IPlayerResultData & { wltBoard: HTMLElement }, isWin: boolean) => {
     if (isWin) {
       ToggleGameScreen('gameboard', true);
       handleWinData(playerData);
