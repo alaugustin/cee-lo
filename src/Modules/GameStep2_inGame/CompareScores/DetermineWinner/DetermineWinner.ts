@@ -7,9 +7,10 @@ export function DetermineWinner(
   playerLoss: ICompareScoresProps
 ) {
   setTimeout(() => {
-    console.log('DetermineWinner()');
     ToggleGameScreen('gameboard', true);
+
     PostGame(playerWin, playerLoss);
+
     ToggleGameScreen('endScreen', false);
   }, 750);
 }

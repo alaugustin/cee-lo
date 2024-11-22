@@ -1,5 +1,10 @@
 import { CompareScores } from './GameStep2_inGame/CompareScores/CompareScores';
 
+const playerButtons = document.querySelectorAll('.playerColumn button');
+const winnerNameHolder = document.getElementById('winnerName');
+const roundOrGameStrHolder = document.getElementById('roundOrGame');
+const newGameButton = document.getElementById('newGameButton') as HTMLElement;
+
 export const GlobalGameData = {
   gameRound: '',
   gameRounds: '',
@@ -33,8 +38,6 @@ export const ButtonEnableDisable = (
 };
 
 export const DisableAllButtons = () => {
-  const playerButtons = document.querySelectorAll('.playerColumn button');
-
   playerButtons.forEach((button: Element) => {
     button.setAttribute('disabled', 'disabled');
     button.className = '';
@@ -65,12 +68,10 @@ export const IsLastPlayer = (
 };
 
 export const PopulateWinnerName = (winnerName: string) => {
-  const winnerNameHolder = document.getElementById('winnerName');
   winnerNameHolder.innerText = winnerName;
 };
 
 export const RoundOrGame = (playType: string) => {
-  const roundOrGameStrHolder = document.getElementById('roundOrGame');
   roundOrGameStrHolder.innerText = playType;
 };
 
@@ -108,7 +109,6 @@ export const AutoRollPlayer = (player: string) => {
 };
 
 export const NewGameButtonEventHandler = () => {
-  const newGameButton = document.getElementById('newGameButton') as HTMLElement;
   newGameButton.addEventListener('click', () => {
     window.location.reload();
   });
