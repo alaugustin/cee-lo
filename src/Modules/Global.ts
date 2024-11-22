@@ -4,6 +4,7 @@ const playerButtons = document.querySelectorAll('.playerColumn button');
 const winnerNameHolder = document.getElementById('winnerName');
 const roundOrGameStrHolder = document.getElementById('roundOrGame');
 const newGameButton = document.getElementById('newGameButton') as HTMLElement;
+const playAgainButton = document.getElementById('playAgainButton') as HTMLElement;
 
 export const GlobalGameData = {
   gameRound: '',
@@ -114,6 +115,14 @@ export const NewGameButtonEventHandler = () => {
   });
 };
 
+export const PlayAgainButtonEventHandler = () => {
+  playAgainButton.addEventListener('click', () => {
+    ToggleGameScreen('gameboard', false);
+    console.log('PlayAgainButtonEventHandler()');
+    ToggleGameScreen('endScreen', true);
+  });
+};
+
 export const UpdatePlayerHolder = (
   playerHolder: HTMLElement,
   playerData: {
@@ -127,6 +136,7 @@ export const UpdatePlayerHolder = (
   const bankBrokenString = 'You beat the bank';
 
   NewGameButtonEventHandler();
+  PlayAgainButtonEventHandler();
 
   if (playerData.rollCode === null) {
     playerHolder.innerText = '';

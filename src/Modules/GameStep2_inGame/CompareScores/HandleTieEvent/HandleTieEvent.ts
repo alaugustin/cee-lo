@@ -1,6 +1,6 @@
 
 import { ICompareScoresProps } from '../CompareScores.d';
-import { WLTBoardSetZeros, NewGameButtonEventHandler } from '../../../Global';
+import { WLTBoardSetZeros, NewGameButtonEventHandler, PlayAgainButtonEventHandler } from '../../../Global';
 
 const computerNameHolder = document.getElementById('computerName') as HTMLElement | null;
 const playerNameHolder = document.getElementById('playerName') as HTMLElement | null;
@@ -16,6 +16,7 @@ export function HandleTieEvent(params: ICompareScoresProps) {
   const tieElement = params.wltBoard.querySelector('.tie');
 
   NewGameButtonEventHandler();
+  PlayAgainButtonEventHandler();
 
   params.tie += 1;
 

@@ -1,12 +1,18 @@
 import { BoldTreatment } from '../Modules/Global';
 import { ThreeDbuttonStyling, ThreeDbuttonStylingDisabled } from '../Modules/Global';
 
-export function ScoreboardCard(index: number, name: string, rollPoints: number, rollType: string) {
-  const commonClass: string = 'playerColumn flex flex-col';
+const commonClass: string = 'playerColumn flex flex-col';
+const dieStyling: string = BoldTreatment('text-3xl');
+
+export function ScoreboardCard(
+  index: number,
+  name: string,
+  rollPoints: number,
+  rollType: string
+) {
   const cardAlignmentClass: string = index === 0 ? 'items-end pr-2' : 'items-start pl-2';
   const buttonStyling = index === 0 ? ThreeDbuttonStyling.join(' ') : ThreeDbuttonStylingDisabled.join(' ');
   const buttonDisabledAttribute: string = index !== 0 ? 'disabled' : '';
-  const dieStyling: string = BoldTreatment('text-3xl');
 
   return `
     <div id="player${index + 1}" class="${commonClass} ${cardAlignmentClass}">
