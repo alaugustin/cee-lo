@@ -12,8 +12,13 @@ const tieNameConstructor = (
 }
 
 export function HandleTieEvent(params: ICompareScoresProps) {
-  console.log(params);
+  const tieElement = params.wltBoard.querySelector('.tie');
+
   params.tie += 1;
+
+  if (tieElement instanceof HTMLElement) {
+    tieElement.innerText = params.tie.toString();
+  }
 
   (params.name === 'The House') ?
     tieNameConstructor(computerNameHolder, params) :

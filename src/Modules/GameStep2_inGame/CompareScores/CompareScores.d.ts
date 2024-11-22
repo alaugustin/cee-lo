@@ -9,4 +9,5 @@ export interface ICompareScoresProps {
   playerWin: boolean;
   playerLoss: boolean;
   playerLoose: boolean;
+  wltBoard: HTMLElement;
 }
