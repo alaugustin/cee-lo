@@ -1,5 +1,11 @@
 import { CompareScores } from './GameStep2_inGame/CompareScores/CompareScores';
 
+const playerButtons = document.querySelectorAll('.playerColumn button');
+const winnerNameHolder = document.getElementById('winnerName');
+const roundOrGameStrHolder = document.getElementById('roundOrGame');
+const newGameButton = document.getElementById('newGameButton') as HTMLElement;
+const playAgainButton = document.getElementById('playAgainButton') as HTMLElement;
+
 export const GlobalGameData = {
   gameRound: '',
   gameRounds: '',
@@ -33,8 +39,6 @@ export const ButtonEnableDisable = (
 };
 
 export const DisableAllButtons = () => {
-  const playerButtons = document.querySelectorAll('.playerColumn button');
-
   playerButtons.forEach((button: Element) => {
     button.setAttribute('disabled', 'disabled');
     button.className = '';
@@ -50,7 +54,7 @@ const NextPlayer = (currentPlayerData: any) => {
 
   ButtonEnableDisable(currentPlayerButton, ThreeDbuttonStylingDisabled);
   ButtonEnableDisable(nextPlayerButton, ThreeDbuttonStyling);
-}
+};
 
 export const IsLastPlayer = (
   currentPlayerData: any,
@@ -62,17 +66,15 @@ export const IsLastPlayer = (
   } else {
     NextPlayer(currentPlayerData);
   }
-}
+};
 
 export const PopulateWinnerName = (winnerName: string) => {
-  const winnerNameHolder = document.getElementById('winnerName');
   winnerNameHolder.innerText = winnerName;
 };
 
 export const RoundOrGame = (playType: string) => {
-  const roundOrGameStrHolder = document.getElementById('roundOrGame');
   roundOrGameStrHolder.innerText = playType;
-}
+};
 
 export const AdvanceGameRound = (winningPlayer: { name: string }) => {
   const { gameRounds } = GlobalGameData;
@@ -87,14 +89,14 @@ export const AdvanceGameRound = (winningPlayer: { name: string }) => {
     // console.log('go to next round');
     RoundOrGame('round');
   }
-}
+};
 
 export const ToggleGameScreen = (
   screenName: string,
   shouldHide: boolean
 ) => {
   document.getElementById(screenName)?.classList[shouldHide ? 'add' : 'remove']('hidden');
-}
+};
 
 export const AutoRollPlayer = (player: string) => {
   const button = document.querySelector(`${player} button`);
@@ -105,7 +107,21 @@ export const AutoRollPlayer = (player: string) => {
       button.click();
     }
   }, 750);
-}
+};
+
+export const NewGameButtonEventHandler = () => {
+  newGameButton.addEventListener('click', () => {
+    window.location.reload();
+  });
+};
+
+export const PlayAgainButtonEventHandler = () => {
+  playAgainButton.addEventListener('click', () => {
+    ToggleGameScreen('gameboard', false);
+    console.log('PlayAgainButtonEventHandler()');
+    ToggleGameScreen('endScreen', true);
+  });
+};
 
 export const UpdatePlayerHolder = (
   playerHolder: HTMLElement,
@@ -118,6 +134,9 @@ export const UpdatePlayerHolder = (
   const roll456string = `${playerData.name} rolled 456`;
   const roll123string = `${playerData.name} rolled 123`;
   const bankBrokenString = 'You beat the bank';
+
+  NewGameButtonEventHandler();
+  PlayAgainButtonEventHandler();
 
   if (playerData.rollCode === null) {
     playerHolder.innerText = '';
@@ -134,4 +153,24 @@ export const UpdatePlayerHolder = (
   } else {
     playerHolder.innerText = `${playerData.name} rolled ${playerData.rollPoints}`;
   }
+};
+
+export const WLTBoardSetZeros = (parentName: { wltBoard: HTMLElement }) => {
+  const wltDataCols = parentName.wltBoard.querySelectorAll('td');
+
+  wltDataCols.forEach((element: Element) => {
+    element.innerHTML = '0';
+  });
+};
+
+export const PopulateWLTBoard = (playerData: {
+  wltBoard: HTMLElement;
+  win: number;
+  loss: number;
+}, isWin: boolean) => {
+  WLTBoardSetZeros(playerData);
+
+  isWin ?
+    playerData.wltBoard.querySelector('.win').innerHTML = playerData.win.toString() :
+    playerData.wltBoard.querySelector('.loss').innerHTML = playerData.loss.toString();
 };

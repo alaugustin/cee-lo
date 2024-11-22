@@ -21,6 +21,4 @@ export function PostGame(
     rollPoints: playerLoose.rollPoints,
     rollCode: playerLoose.rollCode
   });
-
-  console.log(playerWin, playerLoose);
 }
