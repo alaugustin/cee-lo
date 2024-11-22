@@ -47,39 +47,13 @@
 
 # cee-lo
 
-An HTML, JS version of the dice game.
+A TypeScript version of the popular dice game.
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <!-- <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li> -->
     <li><a href="#built-with">Built With</a></li>
-<!--     <li>
-      <a href="#roadmap">Roadmap</a>
-      <ol>
-        <li><a href="#sprint-1">Sprint 1</a></li>
-        <li><a href="#sprint-2">Sprint 2</a></li>
-        <li><a href="#sprint-3">Sprint 3</a></li>
-        <li><a href="#sprint-4">Sprint 4</a></li>
-        <li><a href="#sprint-5">Sprint 5</a></li>
-      </ol>
-    </li> -->
-    <!-- <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li> -->
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
@@ -107,6 +81,7 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 
 - [Webpack](https://webpack.js.org/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 - [HTML](https://en.wikipedia.org/wiki/HTML)
 
 <!-- GETTING STARTED
@@ -194,8 +169,8 @@ Code review tasks
 
 <ol>
   <li>Determine winner</li>
-</ol>
-<!-- CONTRIBUTING
+</ol> -->
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -205,7 +180,6 @@ Contributions are what make the open source community such an amazing place to b
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-   -->
 
 <!-- LICENSE
 ## License
@@ -213,13 +187,11 @@ Contributions are what make the open source community such an amazing place to b
 Distributed under the MIT License. See `LICENSE` for more information.
 -->
 
-<!-- CONTACT
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+<!--Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
 -->
+Project Link: [alaugustin/cee-lo/](https://github.com/alaugustin/cee-lo/tree/dev)
 
 <!-- ACKNOWLEDGEMENTS -->
 
@@ -227,6 +199,8 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 - [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 - [Convert JSON Data Dynamically to HTML Table using JavaScript](https://www.encodedna.com/javascript/practice-ground/default.htm?pg=convert_json_to_table_javascript)
+- [Cee-lo Rules](https://en.wikipedia.org/wiki/Cee-lo#Rules)
+- [How To Play Cee-Lo](https://gathertogethergames.com/ceelo)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links

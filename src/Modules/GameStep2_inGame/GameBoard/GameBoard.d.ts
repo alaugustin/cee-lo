@@ -1,0 +1,2 @@
+export type IGameBoardProps = string[];
+

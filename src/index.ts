@@ -1,11 +1,16 @@
-import { StartGame } from './Modules/StartGame';
+import { PreGame } from './Modules/GameStep1_preGame/PreGame';
 
 const ceeLo = {
   projectData: {
     version: '1.1',
     author: 'Al Augustin',
     project: 'Cee-Lo web dice game',
-    Date: '2021',
+    date: '2024',
+    preGameData: {
+      startButton: document.getElementById('startButton'),
+      playButton: document.getElementById('playButton'),
+      playerSignInInput: document.getElementById('nameInput')
+    },
   },
 
   // -------------------- INITIALIZATION --------------------
@@ -15,9 +20,13 @@ const ceeLo = {
   },
 
   onDomReady: () => {
-    console.log(ceeLo);
-
-    StartGame();
+    const { preGameData } = ceeLo.projectData;
+    PreGame({
+      data: ceeLo.projectData,
+      startButton: preGameData.startButton,
+      playerSignInInput: preGameData.playerSignInInput as HTMLInputElement,
+      playButton: preGameData.playButton
+    });
   },
 };
 

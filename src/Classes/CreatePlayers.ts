@@ -4,8 +4,10 @@ class CreatePlayer {
 
 export class PlayerObj extends CreatePlayer {
   rollPosition: number;
+  rollType: string;
   rollPoints: number;
   rollCode: number;
-  wins: number;
-  losses: number
+  win: number;
+  loss: number
+  tie: number;
 }
