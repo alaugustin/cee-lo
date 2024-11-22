@@ -50,7 +50,7 @@ const NextPlayer = (currentPlayerData: any) => {
 
   ButtonEnableDisable(currentPlayerButton, ThreeDbuttonStylingDisabled);
   ButtonEnableDisable(nextPlayerButton, ThreeDbuttonStyling);
-}
+};
 
 export const IsLastPlayer = (
   currentPlayerData: any,
@@ -62,7 +62,7 @@ export const IsLastPlayer = (
   } else {
     NextPlayer(currentPlayerData);
   }
-}
+};
 
 export const PopulateWinnerName = (winnerName: string) => {
   const winnerNameHolder = document.getElementById('winnerName');
@@ -72,7 +72,7 @@ export const PopulateWinnerName = (winnerName: string) => {
 export const RoundOrGame = (playType: string) => {
   const roundOrGameStrHolder = document.getElementById('roundOrGame');
   roundOrGameStrHolder.innerText = playType;
-}
+};
 
 export const AdvanceGameRound = (winningPlayer: { name: string }) => {
   const { gameRounds } = GlobalGameData;
@@ -87,14 +87,14 @@ export const AdvanceGameRound = (winningPlayer: { name: string }) => {
     // console.log('go to next round');
     RoundOrGame('round');
   }
-}
+};
 
 export const ToggleGameScreen = (
   screenName: string,
   shouldHide: boolean
 ) => {
   document.getElementById(screenName)?.classList[shouldHide ? 'add' : 'remove']('hidden');
-}
+};
 
 export const AutoRollPlayer = (player: string) => {
   const button = document.querySelector(`${player} button`);
@@ -105,7 +105,14 @@ export const AutoRollPlayer = (player: string) => {
       button.click();
     }
   }, 750);
-}
+};
+
+export const NewGameButtonEventHandler = () => {
+  const newGameButton = document.getElementById('newGameButton') as HTMLElement;
+  newGameButton.addEventListener('click', () => {
+    window.location.reload();
+  });
+};
 
 export const UpdatePlayerHolder = (
   playerHolder: HTMLElement,
@@ -118,6 +125,8 @@ export const UpdatePlayerHolder = (
   const roll456string = `${playerData.name} rolled 456`;
   const roll123string = `${playerData.name} rolled 123`;
   const bankBrokenString = 'You beat the bank';
+
+  NewGameButtonEventHandler();
 
   if (playerData.rollCode === null) {
     playerHolder.innerText = '';
@@ -142,7 +151,7 @@ export const WLTBoardSetZeros = (parentName: { wltBoard: HTMLElement }) => {
   wltDataCols.forEach((element: Element) => {
     element.innerHTML = '0';
   });
-}
+};
 
 export const PopulateWLTBoard = (playerData: {
   wltBoard: HTMLElement;
