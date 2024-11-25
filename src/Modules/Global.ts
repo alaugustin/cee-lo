@@ -7,6 +7,8 @@ const newGameButton = document.getElementById('newGameButton') as HTMLElement;
 const playAgainButton = document.getElementById('playAgainButton') as HTMLElement;
 const announcePlayerNameHolder = document.getElementById('currentPlayerName') as HTMLElement;
 const announcePlayerActionHolder = document.getElementById('currentPlayerAction') as HTMLElement;
+const gameWinnerHolder = document.getElementById('gameWinnerHolder');
+const gameLossHolder = document.getElementById('gameLossHolder');
 const rollTypeHolders = '.rollTypeHolder';
 const rollPointHolders = '.rollPointHolder';
 const diceHolders = '.diceHolder > div > span';
@@ -120,7 +122,10 @@ export const NewGameButtonEventHandler = () => {
   });
 };
 
-export const AnnouncePlayer = (playerName: string, playerAction: string) =>{
+export const AnnouncePlayer = (
+  playerName: string,
+  playerAction: string
+) => {
   announcePlayerNameHolder.innerText = playerName;
   announcePlayerActionHolder.innerText = playerAction;
 }
@@ -150,7 +155,8 @@ export const PlayAgainButtonEventHandler = () => {
     console.log('456 and 123 infinite loop');
     console.log('autoroll computer player and start game flow');
     // ToggleGameScreen('endScreen', true);
-  });};
+  });
+};
 
 export const UpdatePlayerHolder = (
   playerHolder: HTMLElement,
@@ -203,3 +209,40 @@ export const PopulateWLTBoard = (playerData: {
     playerData.wltBoard.querySelector('.win').innerHTML = playerData.win.toString() :
     playerData.wltBoard.querySelector('.loss').innerHTML = playerData.loss.toString();
 };
+
+interface IPlayerDataProps {
+  name: string;
+  win: number;
+  loss: number;
+  rollPosition: number;
+  wltBoard: HTMLElement;
+}
+
+export const HandlePlayerResult = (playerData: any, isWin: any) => {
+  const handleLossData = (playerData: IPlayerDataProps) => {
+    playerData.loss += 1;
+    playerData.rollPosition = 2;
+
+    PopulateWLTBoard(playerData, false);
+  };
+
+  const handleWinData = (playerData: IPlayerDataProps) => {
+    PopulateWinnerName(playerData.name);
+
+    playerData.win += 1;
+    playerData.rollPosition = 1;
+
+    PopulateWLTBoard(playerData, true);
+  };
+
+  if (isWin) {
+    ToggleGameScreen('gameboard', true);
+    handleWinData(playerData);
+    UpdatePlayerHolder(gameWinnerHolder, playerData);
+    RoundOrGame('round'); // TODO: develop condition for round or game
+    ToggleGameScreen('endScreen', false);
+  } else {
+    handleLossData(playerData);
+    UpdatePlayerHolder(gameLossHolder, playerData);
+  }
+}

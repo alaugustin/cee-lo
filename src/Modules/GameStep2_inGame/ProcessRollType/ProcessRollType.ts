@@ -1,4 +1,4 @@
-import { GlobalGameData, PopulateWinnerName, IsLastPlayer, RoundOrGame, PopulateWLTBoard } from '../../Global';
+import { GlobalGameData, PopulateWinnerName, IsLastPlayer, RoundOrGame, PopulateWLTBoard, HandlePlayerResult } from '../../Global';
 import { ToggleGameScreen, UpdatePlayerHolder } from '../../Global';
 import { IProcessRollTypeProps, IPlayerWinDataProps, IPlayerLossDataProps, IPlayerResultData } from './ProcessRollType.d';
 
@@ -32,45 +32,16 @@ export const ProcessRollType = ({
     console.log('Game round: ', GlobalGameData.gameRound, 'of ', GlobalGameData.gameRounds);
   };
 
-  const handleLossData = (playerData: IPlayerLossDataProps) => {
-    playerData.loss += 1;
-    playerData.rollPosition = 2;
-
-    PopulateWLTBoard(playerData, false);
-  };
-
-  const handleWinData = (playerData: IPlayerWinDataProps) => {
-    PopulateWinnerName(playerData.name);
-
-    playerData.win += 1;
-    playerData.rollPosition = 1;
-
-    PopulateWLTBoard(playerData, true);
-  };
-
-  const handlePlayerResult = (playerData: IPlayerResultData & { wltBoard: HTMLElement }, isWin: boolean) => {
-    if (isWin) {
-      ToggleGameScreen('gameboard', true);
-      handleWinData(playerData);
-      UpdatePlayerHolder(gameWinnerHolder, playerData);
-      RoundOrGame('round'); // TODO: develop condition for round or game
-      ToggleGameScreen('endScreen', false);
-    } else {
-      handleLossData(playerData);
-      UpdatePlayerHolder(gameLossHolder, playerData);
-    }
-  };
-
   switch (rollType) {
     case '4,5,6':
       localGlobalData();
       GlobalGameData.playerData.forEach(player => {
         if (player.name !== currentPlayerData.name) {
           player.rollType = null;
-          handlePlayerResult(player, false);
+          HandlePlayerResult(player, false);
         } else {
           player.rollType = rollType;
-          handlePlayerResult(player, true);
+          HandlePlayerResult(player, true);
         }
       });
       break;
@@ -79,10 +50,10 @@ export const ProcessRollType = ({
       GlobalGameData.playerData.forEach(player => {
         if (player.name !== currentPlayerData.name) {
           player.rollType = null;
-          handlePlayerResult(player, true);
+          HandlePlayerResult(player, true);
         } else {
           player.rollType = null;
-          handlePlayerResult(player, false);
+          HandlePlayerResult(player, false);
         }
       });
       break;
