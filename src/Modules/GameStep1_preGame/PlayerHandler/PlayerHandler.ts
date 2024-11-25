@@ -1,5 +1,5 @@
-import { InGame } from '../../GameStep2_inGame/InGame';
 import { ToggleGameScreen } from '../../Global';
+import { InGame } from '../../GameStep2_inGame/InGame';
 import { IPlayerHandlerProps } from './PlayerHandler.d';
 
 export function PlayerHandler(event: IPlayerHandlerProps) {

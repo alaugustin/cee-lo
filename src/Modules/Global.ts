@@ -5,6 +5,11 @@ const winnerNameHolder = document.getElementById('winnerName');
 const roundOrGameStrHolder = document.getElementById('roundOrGame');
 const newGameButton = document.getElementById('newGameButton') as HTMLElement;
 const playAgainButton = document.getElementById('playAgainButton') as HTMLElement;
+const announcePlayerNameHolder = document.getElementById('currentPlayerName') as HTMLElement;
+const announcePlayerActionHolder = document.getElementById('currentPlayerAction') as HTMLElement;
+const rollTypeHolders = '.rollTypeHolder';
+const rollPointHolders = '.rollPointHolder';
+const diceHolders = '.diceHolder > div > span';
 
 export const GlobalGameData = {
   gameRound: '',
@@ -115,13 +120,37 @@ export const NewGameButtonEventHandler = () => {
   });
 };
 
+export const AnnouncePlayer = (playerName: string, playerAction: string) =>{
+  announcePlayerNameHolder.innerText = playerName;
+  announcePlayerActionHolder.innerText = playerAction;
+}
+
+export const ClearGameValues = (selectors: string[]) => {
+  selectors.forEach(selector => {
+    document.querySelectorAll(selector).forEach(element => {
+      element.innerHTML = selector.includes('diceHolder') ? '-' : '';
+    });
+  });
+};
+
 export const PlayAgainButtonEventHandler = () => {
   playAgainButton.addEventListener('click', () => {
     ToggleGameScreen('gameboard', false);
-    console.log('PlayAgainButtonEventHandler()');
-    ToggleGameScreen('endScreen', true);
-  });
-};
+
+    AnnouncePlayer('Please', 'Roll');
+
+    ClearGameValues([
+      rollTypeHolders,
+      rollPointHolders,
+      diceHolders
+    ]);
+
+    console.log('update gameboard WLT table for points');
+    console.log('no issue with trips');
+    console.log('456 and 123 infinite loop');
+    console.log('autoroll computer player and start game flow');
+    // ToggleGameScreen('endScreen', true);
+  });};
 
 export const UpdatePlayerHolder = (
   playerHolder: HTMLElement,

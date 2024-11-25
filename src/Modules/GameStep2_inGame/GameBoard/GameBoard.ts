@@ -1,7 +1,7 @@
+import { GlobalGameData, AutoRollPlayer } from '../../Global';
 import { PlayerObj } from '../../../Classes/CreatePlayers';
 import { ScoreboardCard } from '../../../Templates/Templates';
 import { PlayerRoll } from '../PlayersRoll/PlayersRoll';
-import { GlobalGameData, AutoRollPlayer } from '../../Global';
 import { IGameBoardProps } from './GameBoard.d';
 
 const scoreBoardHolder = document.getElementById('scoreBoardHolder') as HTMLElement | null;

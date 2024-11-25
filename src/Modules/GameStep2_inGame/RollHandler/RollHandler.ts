@@ -1,5 +1,5 @@
-import { ProcessRollType } from '../../GameStep2_inGame/ProcessRollType/ProcessRollType';
 import { DisableAllButtons } from '../../Global';
+import { ProcessRollType } from '../../GameStep2_inGame/ProcessRollType/ProcessRollType';
 import { IRollHandlerProps } from './RollHandler.d';
 
 export function RollHandler({
