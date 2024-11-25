@@ -4,7 +4,10 @@ import {
   IIsLastPlayer,
   IToggleGameScreen,
   IAnnouncePlayer,
-  IPlayerDataProps
+  IPlayerDataProps,
+  IUpdatePlayerHolderProps,
+  IWLTBoardSetZerosProps,
+  IPlayerResultHandler
 } from './Global.d'
 
 const playerButtons = document.querySelectorAll('.playerColumn button');
@@ -107,7 +110,9 @@ export const ToggleGameScreen: IToggleGameScreen = (
   screenName,
   shouldHide
 ) => {
-  document.getElementById(screenName)?.classList[shouldHide ? 'add' : 'remove']('hidden');
+  document.getElementById(screenName)?.classList[
+    shouldHide ? 'add' : 'remove'
+  ]('hidden');
 };
 
 export const AutoRollPlayer = (player: string) => {
@@ -163,7 +168,7 @@ export const PlayAgainButtonEventHandler = () => {
   });
 };
 
-export const UpdatePlayerHolder = (
+export const UpdatePlayerHolder: IUpdatePlayerHolderProps = (
   playerHolder: HTMLElement,
   playerData: {
     name: string;
@@ -195,10 +200,6 @@ export const UpdatePlayerHolder = (
   }
 };
 
-interface IWLTBoardSetZerosProps {
-  wltBoard: HTMLElement;
-}
-
 export const WLTBoardSetZeros = (parentName: IWLTBoardSetZerosProps) => {
   const wltDataCols = parentName.wltBoard.querySelectorAll('td');
 
@@ -207,15 +208,9 @@ export const WLTBoardSetZeros = (parentName: IWLTBoardSetZerosProps) => {
   });
 };
 
-interface IPopulateWLTBoardProps {
-  wltBoard: HTMLElement;
-  win: number;
-  loss: number;
-}
-
-export const PopulateWLTBoard = (
-  playerData: IPopulateWLTBoardProps,
-  isWin: boolean
+export const PopulateWLTBoard: IPlayerResultHandler = (
+  playerData,
+  isWin
 ) => {
   WLTBoardSetZeros(playerData);
 
@@ -224,9 +219,9 @@ export const PopulateWLTBoard = (
     playerData.wltBoard.querySelector('.loss').innerHTML = playerData.loss.toString();
 };
 
-export const HandlePlayerResult = (
-  playerData: IPlayerDataProps,
-  isWin: boolean
+export const HandlePlayerResult: IPlayerResultHandler = (
+  playerData,
+  isWin
 ) => {
   const handleLossData = (playerData: IPlayerDataProps) => {
     playerData.loss += 1;

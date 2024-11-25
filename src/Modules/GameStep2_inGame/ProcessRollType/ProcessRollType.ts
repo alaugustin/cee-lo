@@ -1,9 +1,5 @@
-import { GlobalGameData, PopulateWinnerName, IsLastPlayer, RoundOrGame, PopulateWLTBoard, HandlePlayerResult } from '../../Global';
-import { ToggleGameScreen, UpdatePlayerHolder } from '../../Global';
-import { IProcessRollTypeProps, IPlayerWinDataProps, IPlayerLossDataProps, IPlayerResultData } from './ProcessRollType.d';
-
-const gameWinnerHolder = document.getElementById('gameWinnerHolder');
-const gameLossHolder = document.getElementById('gameLossHolder');
+import { GlobalGameData, IsLastPlayer, HandlePlayerResult } from '../../Global';
+import { IProcessRollTypeProps } from './ProcessRollType.d';
 
 export const ProcessRollType = ({
   rollType,

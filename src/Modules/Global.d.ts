@@ -1,3 +1,13 @@
+export interface IPlayerDataProps {
+  name: string;
+  win: number;
+  loss: number;
+  rollPosition: number;
+  wltBoard: HTMLElement;
+  rollPoints: number;
+  rollCode: number;
+}
+
 export interface IButtonEnableDisableProps {
   (
     button: Element,
@@ -27,12 +37,24 @@ export interface IAnnouncePlayer {
   ): void
 }
 
-export interface IPlayerDataProps {
-  name: string;
-  win: number;
-  loss: number;
-  rollPosition: number;
+export interface IUpdatePlayerHolderProps {
+  (
+    playerHolder: HTMLElement,
+    playerData: {
+      name: string;
+      rollPoints: number;
+      rollCode: number;
+    }
+  ): void
+}
+
+export interface IWLTBoardSetZerosProps {
   wltBoard: HTMLElement;
-  rollPoints: number;
-  rollCode: number;
+}
+
+export interface IPlayerResultHandler {
+  (
+    playerData: IPlayerDataProps,
+    isWin: boolean
+  ): void
 }
