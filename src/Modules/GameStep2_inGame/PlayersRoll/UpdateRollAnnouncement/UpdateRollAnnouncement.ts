@@ -7,7 +7,10 @@ export function UpdateRollAnnouncement(
   playerName: string,
   action: string
 ): IUpdateRollAnnouncementProps | void {
-  if (playerElement.innerText !== playerName || actionElement.innerText !== action) {
+  if (
+    playerElement.innerText !== playerName ||
+    actionElement.innerText !== action
+  ) {
     AnnouncePlayer(playerName, action);
   }
 }
