@@ -1,4 +1,11 @@
 import { CompareScores } from './GameStep2_inGame/CompareScores/CompareScores';
+import {
+  IButtonEnableDisableProps,
+  IIsLastPlayer,
+  IToggleGameScreen,
+  IAnnouncePlayer,
+  IPlayerDataProps
+} from './Global.d'
 
 const playerButtons = document.querySelectorAll('.playerColumn button');
 const winnerNameHolder = document.getElementById('winnerName');
@@ -31,11 +38,6 @@ export const GlobalGameData = {
   playerData: [] as any[],
 };
 
-interface IButtonEnableDisableProps {(
-  button: Element,
-  buttonStyles: string[]
-): void}
-
 export const ButtonEnableDisable: IButtonEnableDisableProps = (
   button,
   buttonStyles
@@ -67,12 +69,6 @@ const NextPlayer = (currentPlayerData: any) => {
   ButtonEnableDisable(currentPlayerButton, ThreeDbuttonStylingDisabled);
   ButtonEnableDisable(nextPlayerButton, ThreeDbuttonStyling);
 };
-
-interface IIsLastPlayer {(
-  currentPlayerData: any,
-  playersLength: number,
-  playerDataArray: any[]
-): void}
 
 export const IsLastPlayer: IIsLastPlayer = (
   currentPlayerData,
@@ -107,11 +103,6 @@ export const AdvanceGameRound = (winningPlayer: { name: string }) => {
   }
 };
 
-interface IToggleGameScreen {(
-  screenName: string,
-  shouldHide: boolean
-): void}
-
 export const ToggleGameScreen: IToggleGameScreen = (
   screenName,
   shouldHide
@@ -135,11 +126,6 @@ export const NewGameButtonEventHandler = () => {
     window.location.reload();
   });
 };
-
-interface IAnnouncePlayer {(
-  playerName: string,
-  playerAction: string
-): void}
 
 export const AnnouncePlayer: IAnnouncePlayer = (
   playerName,
@@ -209,7 +195,11 @@ export const UpdatePlayerHolder = (
   }
 };
 
-export const WLTBoardSetZeros = (parentName: { wltBoard: HTMLElement }) => {
+interface IWLTBoardSetZerosProps {
+  wltBoard: HTMLElement;
+}
+
+export const WLTBoardSetZeros = (parentName: IWLTBoardSetZerosProps) => {
   const wltDataCols = parentName.wltBoard.querySelectorAll('td');
 
   wltDataCols.forEach((element: Element) => {
@@ -217,27 +207,22 @@ export const WLTBoardSetZeros = (parentName: { wltBoard: HTMLElement }) => {
   });
 };
 
-export const PopulateWLTBoard = (playerData: {
+interface IPopulateWLTBoardProps {
   wltBoard: HTMLElement;
   win: number;
   loss: number;
-}, isWin: boolean) => {
+}
+
+export const PopulateWLTBoard = (
+  playerData: IPopulateWLTBoardProps,
+  isWin: boolean
+) => {
   WLTBoardSetZeros(playerData);
 
   isWin ?
     playerData.wltBoard.querySelector('.win').innerHTML = playerData.win.toString() :
     playerData.wltBoard.querySelector('.loss').innerHTML = playerData.loss.toString();
 };
-
-interface IPlayerDataProps {
-  name: string;
-  win: number;
-  loss: number;
-  rollPosition: number;
-  wltBoard: HTMLElement;
-  rollPoints: number;
-  rollCode: number;
-}
 
 export const HandlePlayerResult = (
   playerData: IPlayerDataProps,
