@@ -31,9 +31,14 @@ export const GlobalGameData = {
   playerData: [] as any[],
 };
 
-export const ButtonEnableDisable = (
+interface IButtonEnableDisableProps {(
   button: Element,
   buttonStyles: string[]
+): void}
+
+export const ButtonEnableDisable: IButtonEnableDisableProps = (
+  button,
+  buttonStyles
 ) => {
   button.className = '';
   button.classList.add(...buttonStyles);
@@ -63,10 +68,16 @@ const NextPlayer = (currentPlayerData: any) => {
   ButtonEnableDisable(nextPlayerButton, ThreeDbuttonStyling);
 };
 
-export const IsLastPlayer = (
+interface IIsLastPlayer {(
   currentPlayerData: any,
   playersLength: number,
   playerDataArray: any[]
+): void}
+
+export const IsLastPlayer: IIsLastPlayer = (
+  currentPlayerData,
+  playersLength,
+  playerDataArray
 ) => {
   if (currentPlayerData.rollPosition === playersLength) {
     CompareScores(playerDataArray);
@@ -90,17 +101,20 @@ export const AdvanceGameRound = (winningPlayer: { name: string }) => {
   PopulateWinnerName(winningPlayer.name);
 
   if (GlobalGameData.gameRound === gameRounds) {
-    // console.log('last round. show winner');
     RoundOrGame('game');
   } else {
-    // console.log('go to next round');
     RoundOrGame('round');
   }
 };
 
-export const ToggleGameScreen = (
+interface IToggleGameScreen {(
   screenName: string,
   shouldHide: boolean
+): void}
+
+export const ToggleGameScreen: IToggleGameScreen = (
+  screenName,
+  shouldHide
 ) => {
   document.getElementById(screenName)?.classList[shouldHide ? 'add' : 'remove']('hidden');
 };
@@ -122,9 +136,14 @@ export const NewGameButtonEventHandler = () => {
   });
 };
 
-export const AnnouncePlayer = (
+interface IAnnouncePlayer {(
   playerName: string,
   playerAction: string
+): void}
+
+export const AnnouncePlayer: IAnnouncePlayer = (
+  playerName,
+  playerAction
 ) => {
   announcePlayerNameHolder.innerText = playerName;
   announcePlayerActionHolder.innerText = playerAction;
@@ -216,9 +235,14 @@ interface IPlayerDataProps {
   loss: number;
   rollPosition: number;
   wltBoard: HTMLElement;
+  rollPoints: number;
+  rollCode: number;
 }
 
-export const HandlePlayerResult = (playerData: any, isWin: any) => {
+export const HandlePlayerResult = (
+  playerData: IPlayerDataProps,
+  isWin: boolean
+) => {
   const handleLossData = (playerData: IPlayerDataProps) => {
     playerData.loss += 1;
     playerData.rollPosition = 2;

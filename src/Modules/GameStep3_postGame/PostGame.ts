@@ -16,6 +16,7 @@ export function PostGame(
     rollPoints: playerWin.rollPoints,
     rollCode: playerWin.rollCode
   });
+
   UpdatePlayerHolder(gameLossHolder, {
     name: playerLoose.name,
     rollPoints: playerLoose.rollPoints,
