@@ -1,14 +1,13 @@
+import { GlobalGameData, AutoRollPlayer } from '../../Global';
 import { PlayerObj } from '../../../Classes/CreatePlayers';
 import { ScoreboardCard } from '../../../Templates/Templates';
 import { PlayerRoll } from '../PlayersRoll/PlayersRoll';
-import { GlobalGameData, AutoRollPlayer } from '../../Global';
 import { IGameBoardProps } from './GameBoard.d';
 
 const scoreBoardHolder = document.getElementById('scoreBoardHolder') as HTMLElement | null;
+const playerDataArray: PlayerObj[] = [];
 
 export function GameBoard(players: IGameBoardProps) {
-  const playerDataArray: PlayerObj[] = [];
-
   players.forEach((playerName, index) => {
     const player: PlayerObj = new PlayerObj();
 

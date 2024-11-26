@@ -1,5 +1,5 @@
-import { GameBoard } from './GameBoard/GameBoard';
 import { ToggleGameScreen } from '../Global';
+import { GameBoard } from './GameBoard/GameBoard';
 import { IInGameProps } from './InGame.d';
 
 export function InGame(playerArrayProps: IInGameProps) {
