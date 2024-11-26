@@ -45,6 +45,6 @@
     "lodash": "^4.17.21",
     "postcss": "^8.4.35",
     "postcss-loader": "^8.1.0",
-    "style-loader": "^3.3.2"
+    "style-loader": "^4.0.0"
   }
 }
