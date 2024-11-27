@@ -15,9 +15,6 @@ const tieNameConstructor = (
 export function HandleTieEvent(params: ICompareScoresProps) {
   const tieElement = params.wltBoard.querySelector('.tie');
 
-  NewGameButtonEventHandler();
-  PlayAgainButtonEventHandler();
-
   params.tie += 1;
 
   if (tieElement instanceof HTMLElement) {
@@ -28,4 +25,6 @@ export function HandleTieEvent(params: ICompareScoresProps) {
   (params.name === 'The House') ?
     tieNameConstructor(computerNameHolder, params) :
     tieNameConstructor(playerNameHolder, params);
+
+  NewGameButtonEventHandler();
 }
