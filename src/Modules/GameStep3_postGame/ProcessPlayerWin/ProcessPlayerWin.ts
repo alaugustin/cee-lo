@@ -1,5 +1,8 @@
 import { AdvanceGameRound } from '../../Global';
-import { IPlayerProps, IOpposingPlayerProps } from './ProcessPlayerWin.d';
+import {
+  IPlayerProps,
+  IOpposingPlayerProps
+} from './ProcessPlayerWin.d';
 
 export function ProcessPlayerWin(
   winningPlayer: IPlayerProps,
