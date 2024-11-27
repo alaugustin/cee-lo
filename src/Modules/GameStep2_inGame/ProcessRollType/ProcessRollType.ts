@@ -1,4 +1,8 @@
-import { GlobalGameData, IsLastPlayer, HandlePlayerResult } from '../../Global';
+import {
+  GlobalGameData,
+  IsLastPlayer,
+  HandlePlayerResult
+} from '../../Global';
 import { IProcessRollTypeProps } from './ProcessRollType.d';
 
 export const ProcessRollType = ({

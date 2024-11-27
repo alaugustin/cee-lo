@@ -1,9 +1,10 @@
-import { UpdatePlayerHolder } from '../Global';
+import {
+  UpdatePlayerHolder,
+  GameWinnerHolder,
+  GameLossHolder
+} from '../Global';
 import { ProcessPlayerWin } from './ProcessPlayerWin/ProcessPlayerWin';
 import { IPostGameProps } from './PostGame.d';
-
-const gameWinnerHolder = document.getElementById('gameWinnerHolder') as HTMLElement;
-const gameLossHolder = document.getElementById('gameLossHolder') as HTMLElement;
 
 export function PostGame(
   playerWin: IPostGameProps,
@@ -11,13 +12,13 @@ export function PostGame(
 ) {
   ProcessPlayerWin(playerWin, playerLoose)
 
-  UpdatePlayerHolder(gameWinnerHolder, {
+  UpdatePlayerHolder(GameWinnerHolder, {
     name: playerWin.name,
     rollPoints: playerWin.rollPoints,
     rollCode: playerWin.rollCode
   });
 
-  UpdatePlayerHolder(gameLossHolder, {
+  UpdatePlayerHolder(GameLossHolder, {
     name: playerLoose.name,
     rollPoints: playerLoose.rollPoints,
     rollCode: playerLoose.rollCode

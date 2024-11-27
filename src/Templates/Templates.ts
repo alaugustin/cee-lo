@@ -1,4 +1,8 @@
-import { BoldTreatment, ThreeDbuttonStyling, ThreeDbuttonStylingDisabled } from '../Modules/Global';
+import {
+  BoldTreatment,
+  ThreeDbuttonStyling,
+  ThreeDbuttonStylingDisabled
+} from '../Modules/Global';
 
 const commonClass: string = 'playerColumn flex flex-col';
 const dieStyling: string = BoldTreatment('text-3xl');
