@@ -13,7 +13,6 @@ const tieNameConstructor = (
 }
 
 export function HandleTieEvent(params: ICompareScoresProps) {
-  const tieElement = params.wltBoard.querySelector('.tie');
 
   params.tie += 1;
 
