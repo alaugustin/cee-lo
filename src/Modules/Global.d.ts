@@ -48,10 +48,6 @@ export interface IUpdatePlayerHolderProps {
   ): void
 }
 
-export interface IWLTBoardSetZerosProps {
-  wltBoard: HTMLElement;
-}
-
 export interface IPlayerResultHandler {
   (
     playerData: IPlayerDataProps,

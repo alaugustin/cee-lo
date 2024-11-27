@@ -19,18 +19,6 @@ export function ScoreboardCard(
       <h4 class="text-2xl">${name}</h4>
       <p>Roll Type: <span class="rollTypeHolder ${BoldTreatment('text-2xl')}">${rollType}</span></p>
       <p>Roll Points: <span class="rollPointHolder ${BoldTreatment('text-2xl')}">${rollPoints}</span></p>
-      <table border="1">
-        <tr>
-          <th>Win</th>
-          <th class="px-3">Loss</th>
-          <th>Tie</th>
-        </tr>
-        <tr>
-          <td class="win">-</td>
-          <td class="loss px-3">-</td>
-          <td class="tie">-</td>
-        </tr>
-      </table>
       <button class="${buttonStyling}" ${buttonDisabledAttribute}>ROLL</button>
       <div class="diceHolder flex flex-row">
         <div class="${BoldTreatment(null)}">

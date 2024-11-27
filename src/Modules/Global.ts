@@ -175,25 +175,7 @@ export const UpdatePlayerHolder: IUpdatePlayerHolderProps = (
   }
 
   NewGameButtonEventHandler();
-};
 
-export const WLTBoardSetZeros = (parentName: IWLTBoardSetZerosProps) => {
-  const wltDataCols = parentName.wltBoard.querySelectorAll('td');
-
-  wltDataCols.forEach((element: Element) => {
-    element.innerHTML = '0';
-  });
-};
-
-export const PopulateWLTBoard: IPlayerResultHandler = (
-  playerData,
-  isWin
-) => {
-  WLTBoardSetZeros(playerData);
-
-  isWin ?
-    playerData.wltBoard.querySelector('.win').innerHTML = playerData.win.toString() :
-    playerData.wltBoard.querySelector('.loss').innerHTML = playerData.loss.toString();
 };
 
 export const HandlePlayerResult: IPlayerResultHandler = (
@@ -203,8 +185,6 @@ export const HandlePlayerResult: IPlayerResultHandler = (
   const handleLossData = (playerData: IPlayerDataProps) => {
     playerData.loss += 1;
     playerData.rollPosition = 2;
-
-    PopulateWLTBoard(playerData, false);
   };
 
   const handleWinData = (playerData: IPlayerDataProps) => {
@@ -212,8 +192,6 @@ export const HandlePlayerResult: IPlayerResultHandler = (
 
     playerData.win += 1;
     playerData.rollPosition = 1;
-
-    PopulateWLTBoard(playerData, true);
   };
 
   if (isWin) {

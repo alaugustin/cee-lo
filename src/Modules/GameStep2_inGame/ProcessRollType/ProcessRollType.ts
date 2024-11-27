@@ -11,12 +11,6 @@ export const ProcessRollType = ({
   currentPlayerData,
   playersLength
 }: IProcessRollTypeProps) => {
-  const playerBoard = document?.querySelectorAll('.playerColumn table');
-
-  playerData.forEach((player, index) => {
-    const wltRow = playerBoard[index].childNodes[1].childNodes[2];
-    player.wltBoard = wltRow;
-  });
 
   currentPlayerData.rollCode = rollCode;
   currentPlayerData.rollPoints = rollPoint;
