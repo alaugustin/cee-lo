@@ -180,7 +180,6 @@ export const UpdatePlayerHolder: IUpdatePlayerHolderProps = (
   }
 
   NewGameButtonEventHandler();
-
 };
 
 export const HandlePlayerResult: IPlayerResultHandler = (

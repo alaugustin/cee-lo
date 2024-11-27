@@ -25,6 +25,15 @@ export function PreGame(data: IPreGameProps) {
     playerSignInInput.focus();
   }, 0);
 
+  playerSignInInput.addEventListener('keyup', function () {
+    const currentValueLength = playerSignInInput.value.length;
+    const regEx1 = /[^a-zA-Z\s]+/;
+
+    if (currentValueLength > 0) {
+      playerSignInInput.value = playerSignInInput.value.replace(regEx1, '');
+    }
+  });
+
   playButton.addEventListener('click', (event: any) => {
     PlayerHandler(event);
   });
