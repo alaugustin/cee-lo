@@ -1,16 +1,25 @@
 import { CompareScores } from './GameStep2_inGame/CompareScores/CompareScores';
+import {
+  IButtonEnableDisableProps,
+  IIsLastPlayer,
+  IToggleGameScreen,
+  IAnnouncePlayer,
+  IPlayerDataProps,
+  IUpdatePlayerHolderProps,
+  IPlayerResultHandler
+} from './Global.d'
 
 const playerButtons = document.querySelectorAll('.playerColumn button');
 const winnerNameHolder = document.getElementById('winnerName');
 const roundOrGameStrHolder = document.getElementById('roundOrGame');
 const newGameButton = document.getElementById('newGameButton') as HTMLElement;
-const playAgainButton = document.getElementById('playAgainButton') as HTMLElement;
-
-export const GlobalGameData = {
-  gameRound: '',
-  gameRounds: '',
-  playerData: [] as any[],
-};
+const announcePlayerNameHolder = document.getElementById('currentPlayerName') as HTMLElement;
+const announcePlayerActionHolder = document.getElementById('currentPlayerAction') as HTMLElement;
+const gameWinnerHolder = document.getElementById('gameWinnerHolder');
+const gameLossHolder = document.getElementById('gameLossHolder');
+const rollTypeHolders = '.rollTypeHolder';
+const rollPointHolders = '.rollPointHolder';
+const diceHolders = '.diceHolder > div > span';
 
 export const ThreeDbuttonStyling: string[] = ['bg-blue-500', 'hover:bg-blue-400', 'text-white', 'font-bold', 'py-2', 'px-4', 'border-b-4', 'border-blue-700', 'hover:border-blue-500', 'rounded'];
 
@@ -24,9 +33,15 @@ export const BoldTreatment = (optClass: string | null) => {
   }
 };
 
-export const ButtonEnableDisable = (
-  button: Element,
-  buttonStyles: string[]
+export const GlobalGameData = {
+  gameRound: '',
+  gameRounds: '',
+  playerData: [] as any[],
+};
+
+export const ButtonEnableDisable: IButtonEnableDisableProps = (
+  button,
+  buttonStyles
 ) => {
   button.className = '';
   button.classList.add(...buttonStyles);
@@ -56,10 +71,10 @@ const NextPlayer = (currentPlayerData: any) => {
   ButtonEnableDisable(nextPlayerButton, ThreeDbuttonStyling);
 };
 
-export const IsLastPlayer = (
-  currentPlayerData: any,
-  playersLength: number,
-  playerDataArray: any[]
+export const IsLastPlayer: IIsLastPlayer = (
+  currentPlayerData,
+  playersLength,
+  playerDataArray
 ) => {
   if (currentPlayerData.rollPosition === playersLength) {
     CompareScores(playerDataArray);
@@ -83,19 +98,19 @@ export const AdvanceGameRound = (winningPlayer: { name: string }) => {
   PopulateWinnerName(winningPlayer.name);
 
   if (GlobalGameData.gameRound === gameRounds) {
-    // console.log('last round. show winner');
     RoundOrGame('game');
   } else {
-    // console.log('go to next round');
     RoundOrGame('round');
   }
 };
 
-export const ToggleGameScreen = (
-  screenName: string,
-  shouldHide: boolean
+export const ToggleGameScreen: IToggleGameScreen = (
+  screenName,
+  shouldHide
 ) => {
-  document.getElementById(screenName)?.classList[shouldHide ? 'add' : 'remove']('hidden');
+  document.getElementById(screenName)?.classList[
+    shouldHide ? 'add' : 'remove'
+  ]('hidden');
 };
 
 export const AutoRollPlayer = (player: string) => {
@@ -115,15 +130,23 @@ export const NewGameButtonEventHandler = () => {
   });
 };
 
-export const PlayAgainButtonEventHandler = () => {
-  playAgainButton.addEventListener('click', () => {
-    ToggleGameScreen('gameboard', false);
-    console.log('PlayAgainButtonEventHandler()');
-    ToggleGameScreen('endScreen', true);
+export const AnnouncePlayer: IAnnouncePlayer = (
+  playerName,
+  playerAction
+) => {
+  announcePlayerNameHolder.innerText = playerName;
+  announcePlayerActionHolder.innerText = playerAction;
+}
+
+export const ClearGameValues = (selectors: string[]) => {
+  selectors.forEach(selector => {
+    document.querySelectorAll(selector).forEach(element => {
+      element.innerHTML = selector.includes('diceHolder') ? '-' : '';
+    });
   });
 };
 
-export const UpdatePlayerHolder = (
+export const UpdatePlayerHolder: IUpdatePlayerHolderProps = (
   playerHolder: HTMLElement,
   playerData: {
     name: string;
@@ -134,9 +157,6 @@ export const UpdatePlayerHolder = (
   const roll456string = `${playerData.name} rolled 456`;
   const roll123string = `${playerData.name} rolled 123`;
   const bankBrokenString = 'You beat the bank';
-
-  NewGameButtonEventHandler();
-  PlayAgainButtonEventHandler();
 
   if (playerData.rollCode === null) {
     playerHolder.innerText = '';
@@ -153,24 +173,35 @@ export const UpdatePlayerHolder = (
   } else {
     playerHolder.innerText = `${playerData.name} rolled ${playerData.rollPoints}`;
   }
+
+  NewGameButtonEventHandler();
+
 };
 
-export const WLTBoardSetZeros = (parentName: { wltBoard: HTMLElement }) => {
-  const wltDataCols = parentName.wltBoard.querySelectorAll('td');
+export const HandlePlayerResult: IPlayerResultHandler = (
+  playerData,
+  isWin
+) => {
+  const handleLossData = (playerData: IPlayerDataProps) => {
+    playerData.loss += 1;
+    playerData.rollPosition = 2;
+  };
 
-  wltDataCols.forEach((element: Element) => {
-    element.innerHTML = '0';
-  });
-};
+  const handleWinData = (playerData: IPlayerDataProps) => {
+    PopulateWinnerName(playerData.name);
 
-export const PopulateWLTBoard = (playerData: {
-  wltBoard: HTMLElement;
-  win: number;
-  loss: number;
-}, isWin: boolean) => {
-  WLTBoardSetZeros(playerData);
+    playerData.win += 1;
+    playerData.rollPosition = 1;
+  };
 
-  isWin ?
-    playerData.wltBoard.querySelector('.win').innerHTML = playerData.win.toString() :
-    playerData.wltBoard.querySelector('.loss').innerHTML = playerData.loss.toString();
-};
+  if (isWin) {
+    ToggleGameScreen('gameboard', true);
+    handleWinData(playerData);
+    UpdatePlayerHolder(gameWinnerHolder, playerData);
+    RoundOrGame('round'); // TODO: develop condition for round or game
+    ToggleGameScreen('endScreen', false);
+  } else {
+    handleLossData(playerData);
+    UpdatePlayerHolder(gameLossHolder, playerData);
+  }
+}

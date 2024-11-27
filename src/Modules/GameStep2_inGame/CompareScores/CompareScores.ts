@@ -1,4 +1,4 @@
-import { DisableAllButtons, ToggleGameScreen } from '../../Global';
+import { DisableAllButtons, ToggleGameScreen, HandlePlayerResult } from '../../Global';
 import { DetermineWinner } from './DetermineWinner/DetermineWinner';
 import { HandleTieEvent } from './HandleTieEvent/HandleTieEvent';
 import { ICompareScoresProps } from './CompareScores.d';
@@ -12,15 +12,27 @@ export function CompareScores(playerDataArray: ICompareScoresProps[]) {
   if (player1.rollCode > player2.rollCode) {
     DetermineWinner(player1, player2);
 
+    HandlePlayerResult(player1, true);
+    HandlePlayerResult(player2, false);
+
   } else if (player1.rollCode < player2.rollCode) {
     DetermineWinner(player2, player1);
+
+    HandlePlayerResult(player1, false);
+    HandlePlayerResult(player2, true);
 
   } else {
     if (player1.rollPoints > player2.rollPoints) {
       DetermineWinner(player1, player2);
 
+      HandlePlayerResult(player1, true);
+      HandlePlayerResult(player2, false);
+
     } else if (player1.rollPoints < player2.rollPoints) {
       DetermineWinner(player2, player1);
+
+      HandlePlayerResult(player1, false);
+      HandlePlayerResult(player2, true);
 
     } else {
       setTimeout(() => {

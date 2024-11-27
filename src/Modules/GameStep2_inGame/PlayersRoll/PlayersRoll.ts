@@ -9,7 +9,7 @@ export function PlayerRoll({
   playersData,
   playersLength
 }: IPlayersRollProps) {
-  const gameBoardButtons: NodeListOf<Element> = document.querySelectorAll('#scoreBoardHolder button');
+  const gameBoardButtons = document.querySelectorAll('#scoreBoardHolder button') as NodeListOf<Element>;
 
   gameBoardButtons.forEach((button, index) => {
     const currentPlayerData = playersData[index];
