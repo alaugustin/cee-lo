@@ -1,9 +1,10 @@
+import {
+  RollAnnouncePlayer,
+  RollAnnounceAction
+} from '../../Global';
 import { RollHandler } from '../RollHandler/RollHandler';
 import { UpdateRollAnnouncement } from './UpdateRollAnnouncement/UpdateRollAnnouncement';
 import { IPlayersRollProps } from './PlayersRoll.d';
-
-const rollAnnouncePlayer = document.getElementById('currentPlayerName') as HTMLElement | null;
-const rollAnnounceAction = document.getElementById('currentPlayerAction') as HTMLElement | null;
 
 export function PlayerRoll({
   playersData,
@@ -23,8 +24,8 @@ export function PlayerRoll({
       const presentlyRolling = 'Rolls' as string;
 
       UpdateRollAnnouncement(
-        rollAnnouncePlayer,
-        rollAnnounceAction,
+        RollAnnouncePlayer,
+        RollAnnounceAction,
         currentPlayerName,
         presentlyRolling
       );
