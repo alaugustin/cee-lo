@@ -6,7 +6,6 @@ import {
   IAnnouncePlayer,
   IPlayerDataProps,
   IUpdatePlayerHolderProps,
-  IWLTBoardSetZerosProps,
   IPlayerResultHandler
 } from './Global.d'
 
@@ -14,7 +13,6 @@ const playerButtons = document.querySelectorAll('.playerColumn button');
 const winnerNameHolder = document.getElementById('winnerName');
 const roundOrGameStrHolder = document.getElementById('roundOrGame');
 const newGameButton = document.getElementById('newGameButton') as HTMLElement;
-const playAgainButton = document.getElementById('playAgainButton') as HTMLElement;
 const announcePlayerNameHolder = document.getElementById('currentPlayerName') as HTMLElement;
 const announcePlayerActionHolder = document.getElementById('currentPlayerAction') as HTMLElement;
 const gameWinnerHolder = document.getElementById('gameWinnerHolder');
@@ -148,26 +146,6 @@ export const ClearGameValues = (selectors: string[]) => {
   });
 };
 
-export const PlayAgainButtonEventHandler = () => {
-  playAgainButton.addEventListener('click', () => {
-    ToggleGameScreen('gameboard', false);
-
-    AnnouncePlayer('Please', 'Roll');
-
-    ClearGameValues([
-      rollTypeHolders,
-      rollPointHolders,
-      diceHolders
-    ]);
-
-    console.log('update gameboard WLT table for points');
-    console.log('no issue with trips');
-    console.log('456 and 123 infinite loop');
-    console.log('autoroll computer player and start game flow');
-    // ToggleGameScreen('endScreen', true);
-  });
-};
-
 export const UpdatePlayerHolder: IUpdatePlayerHolderProps = (
   playerHolder: HTMLElement,
   playerData: {
@@ -179,9 +157,6 @@ export const UpdatePlayerHolder: IUpdatePlayerHolderProps = (
   const roll456string = `${playerData.name} rolled 456`;
   const roll123string = `${playerData.name} rolled 123`;
   const bankBrokenString = 'You beat the bank';
-
-  NewGameButtonEventHandler();
-  PlayAgainButtonEventHandler();
 
   if (playerData.rollCode === null) {
     playerHolder.innerText = '';
@@ -198,25 +173,9 @@ export const UpdatePlayerHolder: IUpdatePlayerHolderProps = (
   } else {
     playerHolder.innerText = `${playerData.name} rolled ${playerData.rollPoints}`;
   }
-};
 
-export const WLTBoardSetZeros = (parentName: IWLTBoardSetZerosProps) => {
-  const wltDataCols = parentName.wltBoard.querySelectorAll('td');
+  NewGameButtonEventHandler();
 
-  wltDataCols.forEach((element: Element) => {
-    element.innerHTML = '0';
-  });
-};
-
-export const PopulateWLTBoard: IPlayerResultHandler = (
-  playerData,
-  isWin
-) => {
-  WLTBoardSetZeros(playerData);
-
-  isWin ?
-    playerData.wltBoard.querySelector('.win').innerHTML = playerData.win.toString() :
-    playerData.wltBoard.querySelector('.loss').innerHTML = playerData.loss.toString();
 };
 
 export const HandlePlayerResult: IPlayerResultHandler = (
@@ -226,8 +185,6 @@ export const HandlePlayerResult: IPlayerResultHandler = (
   const handleLossData = (playerData: IPlayerDataProps) => {
     playerData.loss += 1;
     playerData.rollPosition = 2;
-
-    PopulateWLTBoard(playerData, false);
   };
 
   const handleWinData = (playerData: IPlayerDataProps) => {
@@ -235,8 +192,6 @@ export const HandlePlayerResult: IPlayerResultHandler = (
 
     playerData.win += 1;
     playerData.rollPosition = 1;
-
-    PopulateWLTBoard(playerData, true);
   };
 
   if (isWin) {
