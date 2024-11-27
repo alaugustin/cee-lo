@@ -1,4 +1,8 @@
-import { DisableAllButtons, ToggleGameScreen, HandlePlayerResult } from '../../Global';
+import {
+  DisableAllButtons,
+  ToggleGameScreen,
+  HandlePlayerResult
+} from '../../Global';
 import { DetermineWinner } from './DetermineWinner/DetermineWinner';
 import { HandleTieEvent } from './HandleTieEvent/HandleTieEvent';
 import { ICompareScoresProps } from './CompareScores.d';

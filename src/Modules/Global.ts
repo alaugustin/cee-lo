@@ -9,6 +9,14 @@ import {
   IPlayerResultHandler
 } from './Global.d'
 
+export const GameWinnerHolder = document.getElementById('gameWinnerHolder') as HTMLElement;
+export const GameLossHolder = document.getElementById('gameLossHolder') as HTMLElement;
+export const ComputerNameHolder = document.getElementById('computerName') as HTMLElement | null;
+export const PlayerNameHolder = document.getElementById('playerName') as HTMLElement | null;
+export const RollAnnouncePlayer = document.getElementById('currentPlayerName') as HTMLElement | null;
+export const RollAnnounceAction = document.getElementById('currentPlayerAction') as HTMLElement | null;
+export const ScoreBoardHolder = document.getElementById('scoreBoardHolder') as HTMLElement | null;
+
 const playerButtons = document.querySelectorAll('.playerColumn button');
 const winnerNameHolder = document.getElementById('winnerName');
 const roundOrGameStrHolder = document.getElementById('roundOrGame');
@@ -17,9 +25,6 @@ const announcePlayerNameHolder = document.getElementById('currentPlayerName') as
 const announcePlayerActionHolder = document.getElementById('currentPlayerAction') as HTMLElement;
 const gameWinnerHolder = document.getElementById('gameWinnerHolder');
 const gameLossHolder = document.getElementById('gameLossHolder');
-const rollTypeHolders = '.rollTypeHolder';
-const rollPointHolders = '.rollPointHolder';
-const diceHolders = '.diceHolder > div > span';
 
 export const ThreeDbuttonStyling: string[] = ['bg-blue-500', 'hover:bg-blue-400', 'text-white', 'font-bold', 'py-2', 'px-4', 'border-b-4', 'border-blue-700', 'hover:border-blue-500', 'rounded'];
 
@@ -175,7 +180,6 @@ export const UpdatePlayerHolder: IUpdatePlayerHolderProps = (
   }
 
   NewGameButtonEventHandler();
-
 };
 
 export const HandlePlayerResult: IPlayerResultHandler = (

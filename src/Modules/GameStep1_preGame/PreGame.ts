@@ -3,23 +3,38 @@ import { PlayerHandler } from './PlayerHandler/PlayerHandler';
 import { IPreGameProps } from './PreGame.d';
 
 export function PreGame(data: IPreGameProps) {
+  const {
+    startButton,
+    playerSignInInput,
+    playButton
+  } = data;
+
   ToggleGameScreen('startScreen', false); // show start screen
 
-  data.startButton.addEventListener('click', () => {
+  startButton.addEventListener('click', () => {
     ToggleGameScreen('startScreen', true);
 
     setTimeout(() => {
-      data.playerSignInInput.focus();
+      playerSignInInput.focus();
     }, 0);
 
     ToggleGameScreen('playerSignIn', false);
   });
 
   setTimeout(() => {
-    data.playerSignInInput.focus();
+    playerSignInInput.focus();
   }, 0);
 
-  data.playButton.addEventListener('click', (event: any) => {
+  playerSignInInput.addEventListener('keyup', function () {
+    const currentValueLength = playerSignInInput.value.length;
+    const regEx1 = /[^a-zA-Z\s]+/;
+
+    if (currentValueLength > 0) {
+      playerSignInInput.value = playerSignInInput.value.replace(regEx1, '');
+    }
+  });
+
+  playButton.addEventListener('click', (event: any) => {
     PlayerHandler(event);
   });
 }
