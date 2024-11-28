@@ -37,4 +37,16 @@ export function PreGame(data: IPreGameProps) {
   playButton.addEventListener('click', (event: any) => {
     PlayerHandler(event);
   });
+
+  document.addEventListener('keydown', function (event: KeyboardEvent) {
+    if (event.keyCode === 13) {
+      const target = event.target as HTMLElement;
+      PlayerHandler({
+        event,
+        target,
+        name: '',
+        index: 0
+      });
+    }
+  });
 }

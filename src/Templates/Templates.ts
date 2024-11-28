@@ -5,7 +5,7 @@ import {
 } from '../Modules/Global';
 
 const commonClass: string = 'playerColumn flex flex-col';
-const dieStyling: string = BoldTreatment('text-3xl');
+const dieStyling: string = BoldTreatment('text-xs');
 
 export function ScoreboardCard(
   index: number,
@@ -16,6 +16,7 @@ export function ScoreboardCard(
   const cardAlignmentClass: string = index === 0 ? 'items-end pr-2' : 'items-start pl-2';
   const buttonStyling = index === 0 ? ThreeDbuttonStyling.join(' ') : ThreeDbuttonStylingDisabled.join(' ');
   const buttonDisabledAttribute: string = index !== 0 ? 'disabled' : '';
+  const columnStyling: string = 'flex flex-col w-16 items-center justify-center';
 
   return `
     <div id="player${index + 1}" class="${commonClass} ${cardAlignmentClass}">
@@ -25,16 +26,22 @@ export function ScoreboardCard(
       <p>Roll Points: <span class="rollPointHolder ${BoldTreatment('text-2xl')}">${rollPoints}</span></p>
       <button class="${buttonStyling}" ${buttonDisabledAttribute}>ROLL</button>
       <div class="diceHolder flex flex-row">
-        <div class="${BoldTreatment(null)}">
-          Die 1: <span class="die1 ${dieStyling}">-</span>
+        <div class="${BoldTreatment(null)} ${columnStyling}">
+          Die 1:
+          <span class="die1 ${dieStyling}">-</span>
+          <span class="die1 icon"></span>
         </div>
 
-        <div class="${BoldTreatment('px-2')}">
-          Die 2: <span class="die2 ${dieStyling}">-</span>
+        <div class="${BoldTreatment('px-2')} ${columnStyling}">
+          Die 2:
+          <span class="die2 ${dieStyling}">-</span>
+          <span class="die2 icon"></span>
         </div>
 
-        <div class="${BoldTreatment(null)}">
-          Die 3: <span class="die3 ${dieStyling}">-</span>
+        <div class="${BoldTreatment(null)} ${columnStyling}">
+          Die 3:
+          <span class="die3 ${dieStyling}">-</span>
+          <span class="die3 icon"></span>
         </div>
       </div>
     </div>
