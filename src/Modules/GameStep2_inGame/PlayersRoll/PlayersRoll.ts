@@ -35,7 +35,7 @@ let die1Icon = null;
 let die2Icon = null;
 let die3Icon = null;
 
-export function PlayerRoll({
+export function PlayersRoll({
   playersData,
   playersLength
 }: IPlayersRollProps) {
@@ -96,7 +96,7 @@ export function PlayerRoll({
 
         const populateDiceData = (element: HTMLElement, die1Data: number, die2Data: number, die3Data: number) => {
           if (element) {
-            spanElement.innerHTML = String([die1Data, die2Data, die3Data][index]);
+            element.innerHTML = String([die1Data, die2Data, die3Data][index]);
           }
         }
 

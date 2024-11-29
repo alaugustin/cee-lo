@@ -1,7 +1,8 @@
 import {
   BoldTreatment,
   ThreeDbuttonStyling,
-  ThreeDbuttonStylingDisabled
+  ThreeDbuttonStylingDisabled,
+  HeaderTextSize
 } from '../Modules/Global';
 
 const flexCol = 'flex flex-col' as string;
@@ -22,8 +23,8 @@ export function ScoreboardCard(
 
   return `
     <div id="player${playerIndex}" class="${commonClass} ${cardAlignmentClass}">
-      <h3 class="text-3xl">Player ${playerIndex}</h3>
-      <h4 class="text-2xl">${name}</h4>
+      <h3 class="${HeaderTextSize(3)}">Player ${playerIndex}</h3>
+      <h4 class="${HeaderTextSize(2)}">${name}</h4>
       <p>Roll Type: <span class="rollTypeHolder ${BoldTreatment('text-2xl')}">${rollType}</span></p>
       <p>Roll Points: <span class="rollPointHolder ${BoldTreatment('text-2xl')}">${rollPoints}</span></p>
       <button class="${buttonStyling}" ${buttonDisabledAttribute}>ROLL</button>

@@ -52,6 +52,14 @@ export const BoldTreatment = (optClass: string | null) => {
   }
 };
 
+export const HeaderTextSize = (fontSize: number | null) => {
+  if (fontSize === null) {
+    return 'text-xl';
+  } else {
+    return `text-${fontSize}xl`;
+  }
+};
+
 export const GlobalGameData = {
   gameRound: '',
   gameRounds: '',
