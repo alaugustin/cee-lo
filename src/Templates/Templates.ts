@@ -4,8 +4,10 @@ import {
   ThreeDbuttonStylingDisabled
 } from '../Modules/Global';
 
-const commonClass: string = 'playerColumn flex flex-col';
-const dieStyling: string = BoldTreatment('text-xs');
+const flexCol = 'flex flex-col' as string;
+const commonClass = `playerColumn ${flexCol}` as string;
+const dieStyling = BoldTreatment('text-xs') as string;
+const columnStyling = `${flexCol} w-16 items-center justify-center` as string;
 
 export function ScoreboardCard(
   index: number,
@@ -13,34 +15,31 @@ export function ScoreboardCard(
   rollPoints: number,
   rollType: string
 ) {
-  const cardAlignmentClass: string = index === 0 ? 'items-end pr-2' : 'items-start pl-2';
-  const buttonStyling = index === 0 ? ThreeDbuttonStyling.join(' ') : ThreeDbuttonStylingDisabled.join(' ');
-  const buttonDisabledAttribute: string = index !== 0 ? 'disabled' : '';
-  const columnStyling: string = 'flex flex-col w-16 items-center justify-center';
+  const cardAlignmentClass = index === 0 ? 'items-end pr-2' : 'items-start pl-2' as string;
+  const buttonStyling = index === 0 ? ThreeDbuttonStyling.join(' ') : ThreeDbuttonStylingDisabled.join(' ') as string;
+  const buttonDisabledAttribute = index !== 0 ? 'disabled' : '' as string;
+  const playerIndex = index + 1;
 
   return `
-    <div id="player${index + 1}" class="${commonClass} ${cardAlignmentClass}">
-      <h3 class="text-3xl">Player ${index + 1}</h3>
+    <div id="player${playerIndex}" class="${commonClass} ${cardAlignmentClass}">
+      <h3 class="text-3xl">Player ${playerIndex}</h3>
       <h4 class="text-2xl">${name}</h4>
       <p>Roll Type: <span class="rollTypeHolder ${BoldTreatment('text-2xl')}">${rollType}</span></p>
       <p>Roll Points: <span class="rollPointHolder ${BoldTreatment('text-2xl')}">${rollPoints}</span></p>
       <button class="${buttonStyling}" ${buttonDisabledAttribute}>ROLL</button>
-      <div class="diceHolder flex flex-row">
+      <div class="diceHolder pt-2 flex flex-row">
         <div class="${BoldTreatment(null)} ${columnStyling}">
-          Die 1:
-          <span class="die1 ${dieStyling}">-</span>
+          <span class="die1 ${dieStyling}"></span>
           <span class="die1 icon"></span>
         </div>
 
         <div class="${BoldTreatment('px-2')} ${columnStyling}">
-          Die 2:
-          <span class="die2 ${dieStyling}">-</span>
+          <span class="die2 ${dieStyling}"></span>
           <span class="die2 icon"></span>
         </div>
 
         <div class="${BoldTreatment(null)} ${columnStyling}">
-          Die 3:
-          <span class="die3 ${dieStyling}">-</span>
+          <span class="die3 ${dieStyling}"></span>
           <span class="die3 icon"></span>
         </div>
       </div>
