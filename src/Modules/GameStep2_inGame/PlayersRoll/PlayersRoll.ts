@@ -88,13 +88,21 @@ export function PlayersRoll({
         const spanElement = holder.querySelector('span') as HTMLElement | null;
         const spanElementIcon = holder.querySelector('span.icon') as HTMLElement | null;
 
-        const getDieIcon = (value: number, isOutline: boolean = true) => {
+        const getDieIcon = (
+          value: number,
+          isOutline: boolean = true
+        ) => {
           const iconNumber = value >= 1 && value <= 6 ? value : 1;
           const iconType = isOutline ? 'OutlineSvg' : 'Svg';
           return eval(`dieIcon${iconNumber}${iconType}`);
         };
 
-        const populateDiceData = (element: HTMLElement, die1Data: number, die2Data: number, die3Data: number) => {
+        const populateDiceData = (
+          element: HTMLElement,
+          die1Data: number,
+          die2Data: number,
+          die3Data: number
+        ) => {
           if (element) {
             element.innerHTML = String([die1Data, die2Data, die3Data][index]);
           }
