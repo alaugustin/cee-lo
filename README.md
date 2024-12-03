@@ -54,6 +54,8 @@ A TypeScript version of the popular dice game.
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#built-with">Built With</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#game-rules">Game Rules</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
@@ -97,23 +99,39 @@ This is an example of how to list things you need to use the software and how to
   ```sh
   npm install npm@latest -g
   ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```JS
-   const API_KEY = 'ENTER YOUR API';
-   ```
 -->
+## Installation
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/alaugustin/cee-lo.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd cee-lo
+    ```
+3. Install dependencies (requires Node.js and NPM):
+    ```bash
+    npm install
+    ```
+4. Build the project:
+    ```bash
+    npm run build
+    ```
+5. Open `dist/index.html` in your browser to view the project.
+
+## Game Rules
+
+### 4-5-6
+The highest possible roll. If a player rolls 4–5–6 they automatically win.
+### Triple
+Rolling three same numbers is known as rolling a trip. Higher trips beat lower trips, so 4–4–4 is better than 3–3–3. Any trips beats any established point.
+### Pair + Value
+Rolling a pair, and another number, establishes the singleton as a "point". A higher point beats a lower point, so 2–2–6 is better than 5–5–2.
+### 1-2-3
+The lowest possible roll. If a player rolls 1–2–3 they automatically lose.
+### Indeterminate
+Any combination that does not result in a triple, sequential (4-5-6 win or 1-2-3 loss), or points (pair + value) is considered an indeterminate outcome and requires a re-roll.
 
 <!-- USAGE EXAMPLES
 ## Usage
@@ -127,49 +145,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-<!--See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).--
-
-### Sprint 1
-
-<ol>
-  <li>Move legacy code into JS template</li>
-</ol>
-
-#### Sprint 1.1
-
-Code review tasks
-
-<ol>
-  <li>add single quotes to define undefined variables</li>
-  <li>change var to let/const</li>
-  <li>remove unnecessary context var from non-global variables</li>
-  <li>add default case to switch statement</li>
-  <li>use event listener for rest and start button element.</li>
-</ol>
-
-### Sprint 2
-
-<ol>
-  <li>Score storage function</li>
-</ol>
-
-### Sprint 3
-
-<ol>
-  <li>Compare roll function</li>
-</ol>
-
-### Sprint 4
-
-<ol>
-  <li>Determine which player will roll first</li>
-</ol>
-
-### Sprint 5
-
-<ol>
-  <li>Determine winner</li>
-</ol> -->
+<!--See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).-->
 
 ## Contributing
 
