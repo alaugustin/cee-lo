@@ -3,7 +3,7 @@ import { ProcessPlayerWin } from './ProcessPlayerWin/ProcessPlayerWin';
 import {
   GameWinnerHolder,
   GameLossHolder
-} from '../Global_HTMLElements';
+} from '../GlobalHTMLElements';
 import { IPostGameProps } from './PostGame.d';
 
 export function PostGame(

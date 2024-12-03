@@ -1,7 +1,7 @@
 import {
   RollAnnouncePlayer,
   RollAnnounceAction,
-} from '../../Global_HTMLElements';
+} from '../../GlobalHTMLElements';
 import { RollHandler } from '../RollHandler/RollHandler';
 import { UpdateRollAnnouncement } from './UpdateRollAnnouncement/UpdateRollAnnouncement';
 import {

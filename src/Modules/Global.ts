@@ -6,7 +6,7 @@ import {
   AnnouncePlayerActionHolder,
   GameWinnerHolder,
   GameLossHolder
-} from './Global_HTMLElements';
+} from './GlobalHTMLElements';
 import {
   PopulateWinnerName,
   RoundOrGame,

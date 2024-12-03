@@ -1,7 +1,7 @@
 import {
   WinnerNameHolder,
   RoundOrGameStrHolder
-} from "./Global_HTMLElements";
+} from "./GlobalHTMLElements";
 import { IToggleGameScreen } from "./Global.d";
 
 export const BoldTreatment = (optClass: string | null) => {

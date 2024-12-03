@@ -3,7 +3,7 @@ import {
   StartButton,
   PlayButton,
   PlayerSignInInput
-} from './Modules/Global_HTMLElements';
+} from './Modules/GlobalHTMLElements';
 
 const ceeLo = {
   projectData: {

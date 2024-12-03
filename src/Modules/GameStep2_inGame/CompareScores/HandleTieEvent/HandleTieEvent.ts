@@ -2,7 +2,7 @@ import { NewGameButtonEventHandler } from '../../../Global';
 import {
   ComputerNameHolder,
   PlayerNameHolder
-} from '../../../Global_HTMLElements';
+} from '../../../GlobalHTMLElements';
 import { ICompareScoresProps } from '../CompareScores.d';
 
 const tieNameConstructor = (
