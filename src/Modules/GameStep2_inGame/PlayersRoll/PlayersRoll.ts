@@ -1,12 +1,43 @@
 import {
   RollAnnouncePlayer,
-  RollAnnounceAction
-} from '../../Global';
+  RollAnnounceAction,
+} from '../../GlobalHTMLElements';
 import { RollHandler } from '../RollHandler/RollHandler';
 import { UpdateRollAnnouncement } from './UpdateRollAnnouncement/UpdateRollAnnouncement';
+import {
+  DieIcon1OutlineSvg,
+  DieIcon1Svg,
+  DieIcon2OutlineSvg,
+  DieIcon2Svg,
+  DieIcon3OutlineSvg,
+  DieIcon3Svg,
+  DieIcon4OutlineSvg,
+  DieIcon4Svg,
+  DieIcon5OutlineSvg,
+  DieIcon5Svg,
+  DieIcon6OutlineSvg,
+  DieIcon6Svg
+} from '../../../assets/Icons';
 import { IPlayersRollProps } from './PlayersRoll.d';
 
-export function PlayerRoll({
+const dieIcon1Svg = DieIcon1Svg;
+const dieIcon2Svg = DieIcon2Svg;
+const dieIcon3Svg = DieIcon3Svg;
+const dieIcon4Svg = DieIcon4Svg;
+const dieIcon5Svg = DieIcon5Svg;
+const dieIcon6Svg = DieIcon6Svg;
+const dieIcon1OutlineSvg = DieIcon1OutlineSvg;
+const dieIcon2OutlineSvg = DieIcon2OutlineSvg;
+const dieIcon3OutlineSvg = DieIcon3OutlineSvg;
+const dieIcon4OutlineSvg = DieIcon4OutlineSvg;
+const dieIcon5OutlineSvg = DieIcon5OutlineSvg;
+const dieIcon6OutlineSvg = DieIcon6OutlineSvg;
+
+let die1Icon = null;
+let die2Icon = null;
+let die3Icon = null;
+
+export function PlayersRoll({
   playersData,
   playersLength
 }: IPlayersRollProps) {
@@ -57,10 +88,34 @@ export function PlayerRoll({
 
       Array.from(dieHolders || []).forEach((holder, index) => {
         const spanElement = holder.querySelector('span') as HTMLElement | null;
+        const spanElementIcon = holder.querySelector('span.icon') as HTMLElement | null;
 
-        if (spanElement) {
-          spanElement.innerHTML = String([die1, die2, die3][index]);
+        const getDieIcon = (
+          value: number,
+          isOutline: boolean = true
+        ) => {
+          const iconNumber = value >= 1 && value <= 6 ? value : 1;
+          const iconType = isOutline ? 'OutlineSvg' : 'Svg';
+          return eval(`dieIcon${iconNumber}${iconType}`);
+        };
+
+        const populateDiceData = (
+          element: HTMLElement,
+          die1Data: number,
+          die2Data: number,
+          die3Data: number
+        ) => {
+          if (element) {
+            element.innerHTML = String([die1Data, die2Data, die3Data][index]);
+          }
         }
+
+        die1Icon = getDieIcon(die1, false);
+        die2Icon = getDieIcon(die2, false);
+        die3Icon = getDieIcon(die3);
+
+        populateDiceData(spanElement, die1, die2, die3);
+        populateDiceData(spanElementIcon, die1Icon, die2Icon, die3Icon);
       });
 
       // PROCESS ROLL TYPES

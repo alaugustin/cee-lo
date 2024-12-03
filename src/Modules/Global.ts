@@ -1,42 +1,29 @@
 import { CompareScores } from './GameStep2_inGame/CompareScores/CompareScores';
 import {
+  PlayerButtons,
+  NewGameButton,
+  AnnouncePlayerNameHolder,
+  AnnouncePlayerActionHolder,
+  GameWinnerHolder,
+  GameLossHolder
+} from './GlobalHTMLElements';
+import {
+  PopulateWinnerName,
+  RoundOrGame,
+  ToggleGameScreen
+} from './GlobalHelperFunc';
+import {
   IButtonEnableDisableProps,
   IIsLastPlayer,
-  IToggleGameScreen,
   IAnnouncePlayer,
   IPlayerDataProps,
   IUpdatePlayerHolderProps,
   IPlayerResultHandler
-} from './Global.d'
-
-export const GameWinnerHolder = document.getElementById('gameWinnerHolder') as HTMLElement;
-export const GameLossHolder = document.getElementById('gameLossHolder') as HTMLElement;
-export const ComputerNameHolder = document.getElementById('computerName') as HTMLElement | null;
-export const PlayerNameHolder = document.getElementById('playerName') as HTMLElement | null;
-export const RollAnnouncePlayer = document.getElementById('currentPlayerName') as HTMLElement | null;
-export const RollAnnounceAction = document.getElementById('currentPlayerAction') as HTMLElement | null;
-export const ScoreBoardHolder = document.getElementById('scoreBoardHolder') as HTMLElement | null;
-
-const playerButtons = document.querySelectorAll('.playerColumn button');
-const winnerNameHolder = document.getElementById('winnerName');
-const roundOrGameStrHolder = document.getElementById('roundOrGame');
-const newGameButton = document.getElementById('newGameButton') as HTMLElement;
-const announcePlayerNameHolder = document.getElementById('currentPlayerName') as HTMLElement;
-const announcePlayerActionHolder = document.getElementById('currentPlayerAction') as HTMLElement;
-const gameWinnerHolder = document.getElementById('gameWinnerHolder');
-const gameLossHolder = document.getElementById('gameLossHolder');
+} from './Global.d';
 
 export const ThreeDbuttonStyling: string[] = ['bg-blue-500', 'hover:bg-blue-400', 'text-white', 'font-bold', 'py-2', 'px-4', 'border-b-4', 'border-blue-700', 'hover:border-blue-500', 'rounded'];
 
 export const ThreeDbuttonStylingDisabled: string[] = ['bg-slate-500', 'text-white', 'font-bold', 'py-2', 'px-4', 'border-b-4', 'border-slate-700', 'rounded'];
-
-export const BoldTreatment = (optClass: string | null) => {
-  if (optClass === null) {
-    return 'font-bold';
-  } else {
-    return `font-bold ${optClass}`;
-  }
-};
 
 export const GlobalGameData = {
   gameRound: '',
@@ -59,7 +46,7 @@ export const ButtonEnableDisable: IButtonEnableDisableProps = (
 };
 
 export const DisableAllButtons = () => {
-  playerButtons.forEach((button: Element) => {
+  PlayerButtons.forEach((button: Element) => {
     button.setAttribute('disabled', 'disabled');
     button.className = '';
     button.classList.add(...ThreeDbuttonStylingDisabled);
@@ -81,19 +68,26 @@ export const IsLastPlayer: IIsLastPlayer = (
   playersLength,
   playerDataArray
 ) => {
+  const nextPlayerButtonPosition = currentPlayerData.rollPosition;
+  const nextPlayerButton = document.querySelectorAll('.playerColumn button')[nextPlayerButtonPosition];
+
   if (currentPlayerData.rollPosition === playersLength) {
     CompareScores(playerDataArray);
   } else {
     NextPlayer(currentPlayerData);
+
+    playerDataArray.forEach((player) => {
+      if (player.name !== currentPlayerData.name && player.rollPoints === 0 && player.rollType === '') {
+        if (currentPlayerData.rollType === '4,5,6' || currentPlayerData.rollType === '1,2,3') {
+          if (currentPlayerData.rollType === '1,2,3') {
+            player.rollPoints = 1;
+          }
+          ButtonEnableDisable(nextPlayerButton, ThreeDbuttonStylingDisabled);
+          CompareScores(playerDataArray);
+        }
+      }
+    });
   }
-};
-
-export const PopulateWinnerName = (winnerName: string) => {
-  winnerNameHolder.innerText = winnerName;
-};
-
-export const RoundOrGame = (playType: string) => {
-  roundOrGameStrHolder.innerText = playType;
 };
 
 export const AdvanceGameRound = (winningPlayer: { name: string }) => {
@@ -109,15 +103,6 @@ export const AdvanceGameRound = (winningPlayer: { name: string }) => {
   }
 };
 
-export const ToggleGameScreen: IToggleGameScreen = (
-  screenName,
-  shouldHide
-) => {
-  document.getElementById(screenName)?.classList[
-    shouldHide ? 'add' : 'remove'
-  ]('hidden');
-};
-
 export const AutoRollPlayer = (player: string) => {
   const button = document.querySelector(`${player} button`);
   button.classList.add(...ThreeDbuttonStylingDisabled);
@@ -130,7 +115,7 @@ export const AutoRollPlayer = (player: string) => {
 };
 
 export const NewGameButtonEventHandler = () => {
-  newGameButton.addEventListener('click', () => {
+  NewGameButton.addEventListener('click', () => {
     window.location.reload();
   });
 };
@@ -139,8 +124,8 @@ export const AnnouncePlayer: IAnnouncePlayer = (
   playerName,
   playerAction
 ) => {
-  announcePlayerNameHolder.innerText = playerName;
-  announcePlayerActionHolder.innerText = playerAction;
+  AnnouncePlayerNameHolder.innerText = playerName;
+  AnnouncePlayerActionHolder.innerText = playerAction;
 }
 
 export const ClearGameValues = (selectors: string[]) => {
@@ -162,19 +147,20 @@ export const UpdatePlayerHolder: IUpdatePlayerHolderProps = (
   const roll456string = `${playerData.name} rolled 456`;
   const roll123string = `${playerData.name} rolled 123`;
   const bankBrokenString = 'You beat the bank';
+  const payOnWayOutString = 'Pay on your way out';
 
   if (playerData.rollCode === null) {
     playerHolder.innerText = '';
   } else if (playerData.rollCode === 3) {
     playerHolder.innerText = playerData.name === 'The House'
-      ? `${roll456string}. Pay on your way out!`
+      ? `${roll456string}. ${payOnWayOutString}!`
       : `${roll456string}. ${bankBrokenString}!`;
   } else if (playerData.rollCode === 2) {
     playerHolder.innerText = `${playerData.name} rolled trips ${playerData.rollPoints}`;
   } else if (playerData.rollCode === 0) {
     playerHolder.innerText = playerData.name === 'The House'
       ? `${roll123string}. ${bankBrokenString}!`
-      : `${roll123string}. Better luck next time!`;
+      : `${roll123string}. Better luck next time. ${payOnWayOutString}!`;
   } else {
     playerHolder.innerText = `${playerData.name} rolled ${playerData.rollPoints}`;
   }
@@ -201,11 +187,11 @@ export const HandlePlayerResult: IPlayerResultHandler = (
   if (isWin) {
     ToggleGameScreen('gameboard', true);
     handleWinData(playerData);
-    UpdatePlayerHolder(gameWinnerHolder, playerData);
-    RoundOrGame('round'); // TODO: develop condition for round or game
+    UpdatePlayerHolder(GameWinnerHolder, playerData);
+    RoundOrGame('round'); // todo: develop condition for round or game in ProcessRollType.ts
     ToggleGameScreen('endScreen', false);
   } else {
     handleLossData(playerData);
-    UpdatePlayerHolder(gameLossHolder, playerData);
+    UpdatePlayerHolder(GameLossHolder, playerData);
   }
 }

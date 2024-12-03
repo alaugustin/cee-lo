@@ -201,6 +201,7 @@ Project Link: [alaugustin/cee-lo/](https://github.com/alaugustin/cee-lo/tree/dev
 - [Convert JSON Data Dynamically to HTML Table using JavaScript](https://www.encodedna.com/javascript/practice-ground/default.htm?pg=convert_json_to_table_javascript)
 - [Cee-lo Rules](https://en.wikipedia.org/wiki/Cee-lo#Rules)
 - [How To Play Cee-Lo](https://gathertogethergames.com/ceelo)
+- [Icon Archive](https://www.iconarchive.com/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links
