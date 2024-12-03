@@ -1,8 +1,8 @@
 import {
   GlobalGameData,
-  AutoRollPlayer,
-  ScoreBoardHolder
+  AutoRollPlayer
 } from '../../Global';
+import { ScoreBoardHolder } from '../../Global_HTMLElements';
 import { PlayerObj } from '../../../Classes/CreatePlayers';
 import { ScoreboardCard } from '../../../Templates/Templates';
 import { PlayersRoll } from '../PlayersRoll/PlayersRoll';

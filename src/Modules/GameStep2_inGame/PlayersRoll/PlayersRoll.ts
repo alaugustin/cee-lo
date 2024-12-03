@@ -1,6 +1,10 @@
 import {
   RollAnnouncePlayer,
   RollAnnounceAction,
+} from '../../Global_HTMLElements';
+import { RollHandler } from '../RollHandler/RollHandler';
+import { UpdateRollAnnouncement } from './UpdateRollAnnouncement/UpdateRollAnnouncement';
+import {
   DieIcon1OutlineSvg,
   DieIcon1Svg,
   DieIcon2OutlineSvg,
@@ -13,9 +17,7 @@ import {
   DieIcon5Svg,
   DieIcon6OutlineSvg,
   DieIcon6Svg
-} from '../../Global';
-import { RollHandler } from '../RollHandler/RollHandler';
-import { UpdateRollAnnouncement } from './UpdateRollAnnouncement/UpdateRollAnnouncement';
+} from '../../../assets/Icons';
 import { IPlayersRollProps } from './PlayersRoll.d';
 
 const dieIcon1Svg = DieIcon1Svg;

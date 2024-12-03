@@ -1,9 +1,9 @@
+import { UpdatePlayerHolder } from '../Global';
+import { ProcessPlayerWin } from './ProcessPlayerWin/ProcessPlayerWin';
 import {
-  UpdatePlayerHolder,
   GameWinnerHolder,
   GameLossHolder
-} from '../Global';
-import { ProcessPlayerWin } from './ProcessPlayerWin/ProcessPlayerWin';
+} from '../Global_HTMLElements';
 import { IPostGameProps } from './PostGame.d';
 
 export function PostGame(
