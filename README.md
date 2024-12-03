@@ -46,13 +46,13 @@
 -->
 
 # cee-lo
-
 A TypeScript version of the popular dice game.
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
+    <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#built-with">Built With</a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#game-rules">Game Rules</a></li>
@@ -60,25 +60,10 @@ A TypeScript version of the popular dice game.
   </ol>
 </details>
 
-<!-- ABOUT THE PROJECT
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
-
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
- -->
+Cee-lo is a gambling game played with three six-sided dice with one central player (the bank) making individual bets with each player, or as a winner-take-all game.
 
 ## Built With
-
 <!--This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.-->
 
 - [Webpack](https://webpack.js.org/)
@@ -100,8 +85,8 @@ This is an example of how to list things you need to use the software and how to
   npm install npm@latest -g
   ```
 -->
-## Installation
 
+## Installation
 1. Clone the repository:
     ```bash
     git clone https://github.com/alaugustin/cee-lo.git
@@ -121,7 +106,6 @@ This is an example of how to list things you need to use the software and how to
 5. Open `dist/index.html` in your browser to view the project.
 
 ## Game Rules
-
 ### 4-5-6
 The highest possible roll. If a player rolls 4–5–6 they automatically win.
 ### Triple
@@ -142,7 +126,6 @@ _For more examples, please refer to the [Documentation](https://example.com)_
  -->
 
 <!-- ROADMAP --
-
 ## Roadmap
 
 <!--See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).-->
@@ -164,15 +147,11 @@ Distributed under the MIT License. See `LICENSE` for more information.
 -->
 
 ## Contact
-
 <!--Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
 -->
-Project Link: [alaugustin/cee-lo/](https://github.com/alaugustin/cee-lo/tree/dev)
-
-<!-- ACKNOWLEDGEMENTS -->
+Project Link: [cee-lo](https://github.com/alaugustin/cee-lo/tree/dev)
 
 ## Acknowledgements
-
 - [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 - [Convert JSON Data Dynamically to HTML Table using JavaScript](https://www.encodedna.com/javascript/practice-ground/default.htm?pg=convert_json_to_table_javascript)
 - [Cee-lo Rules](https://en.wikipedia.org/wiki/Cee-lo#Rules)
