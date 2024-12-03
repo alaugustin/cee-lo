@@ -103,10 +103,25 @@ export const IsLastPlayer: IIsLastPlayer = (
   playersLength,
   playerDataArray
 ) => {
+  const nextPlayerButtonPosition = currentPlayerData.rollPosition;
+  const nextPlayerButton = document.querySelectorAll('.playerColumn button')[nextPlayerButtonPosition];
+
   if (currentPlayerData.rollPosition === playersLength) {
     CompareScores(playerDataArray);
   } else {
     NextPlayer(currentPlayerData);
+
+    playerDataArray.forEach((player) => {
+      if (player.name !== currentPlayerData.name && player.rollPoints === 0 && player.rollType === '') {
+        if (currentPlayerData.rollType === '4,5,6' || currentPlayerData.rollType === '1,2,3') {
+          if (currentPlayerData.rollType === '1,2,3') {
+            player.rollPoints = 1;
+          }
+          ButtonEnableDisable(nextPlayerButton, ThreeDbuttonStylingDisabled);
+          CompareScores(playerDataArray);
+        }
+      }
+    });
   }
 };
 
@@ -224,7 +239,7 @@ export const HandlePlayerResult: IPlayerResultHandler = (
     ToggleGameScreen('gameboard', true);
     handleWinData(playerData);
     UpdatePlayerHolder(gameWinnerHolder, playerData);
-    RoundOrGame('round'); // TODO: develop condition for round or game
+    RoundOrGame('round'); // todo: develop condition for round or game in ProcessRollType.ts
     ToggleGameScreen('endScreen', false);
   } else {
     handleLossData(playerData);
