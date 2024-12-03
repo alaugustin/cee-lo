@@ -1,4 +1,4 @@
-import { ToggleGameScreen } from '../Global';
+import { ToggleGameScreen } from '../GlobalHelperFunc';
 import { GameBoard } from './GameBoard/GameBoard';
 import { IInGameProps } from './InGame.d';
 

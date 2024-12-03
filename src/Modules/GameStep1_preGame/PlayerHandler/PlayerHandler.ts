@@ -1,4 +1,4 @@
-import { ToggleGameScreen } from '../../Global';
+import { ToggleGameScreen } from '../../GlobalHelperFunc';
 import { InGame } from '../../GameStep2_inGame/InGame';
 import { IPlayerHandlerProps } from './PlayerHandler.d';
 

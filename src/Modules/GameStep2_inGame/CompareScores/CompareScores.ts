@@ -1,10 +1,10 @@
 import {
   DisableAllButtons,
-  ToggleGameScreen,
   HandlePlayerResult
 } from '../../Global';
 import { DetermineWinner } from './DetermineWinner/DetermineWinner';
 import { HandleTieEvent } from './HandleTieEvent/HandleTieEvent';
+import { ToggleGameScreen } from '../../GlobalHelperFunc';
 import { ICompareScoresProps } from './CompareScores.d';
 
 export function CompareScores(playerDataArray: ICompareScoresProps[]) {

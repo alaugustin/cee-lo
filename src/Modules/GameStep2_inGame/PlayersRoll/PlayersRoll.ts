@@ -1,6 +1,10 @@
 import {
   RollAnnouncePlayer,
   RollAnnounceAction,
+} from '../../GlobalHTMLElements';
+import { RollHandler } from '../RollHandler/RollHandler';
+import { UpdateRollAnnouncement } from './UpdateRollAnnouncement/UpdateRollAnnouncement';
+import {
   DieIcon1OutlineSvg,
   DieIcon1Svg,
   DieIcon2OutlineSvg,
@@ -13,9 +17,7 @@ import {
   DieIcon5Svg,
   DieIcon6OutlineSvg,
   DieIcon6Svg
-} from '../../Global';
-import { RollHandler } from '../RollHandler/RollHandler';
-import { UpdateRollAnnouncement } from './UpdateRollAnnouncement/UpdateRollAnnouncement';
+} from '../../../assets/Icons';
 import { IPlayersRollProps } from './PlayersRoll.d';
 
 const dieIcon1Svg = DieIcon1Svg;
@@ -35,7 +37,7 @@ let die1Icon = null;
 let die2Icon = null;
 let die3Icon = null;
 
-export function PlayerRoll({
+export function PlayersRoll({
   playersData,
   playersLength
 }: IPlayersRollProps) {
@@ -88,15 +90,23 @@ export function PlayerRoll({
         const spanElement = holder.querySelector('span') as HTMLElement | null;
         const spanElementIcon = holder.querySelector('span.icon') as HTMLElement | null;
 
-        const getDieIcon = (value: number, isOutline: boolean = true) => {
+        const getDieIcon = (
+          value: number,
+          isOutline: boolean = true
+        ) => {
           const iconNumber = value >= 1 && value <= 6 ? value : 1;
           const iconType = isOutline ? 'OutlineSvg' : 'Svg';
           return eval(`dieIcon${iconNumber}${iconType}`);
         };
 
-        const populateDiceData = (element: HTMLElement, die1Data: number, die2Data: number, die3Data: number) => {
+        const populateDiceData = (
+          element: HTMLElement,
+          die1Data: number,
+          die2Data: number,
+          die3Data: number
+        ) => {
           if (element) {
-            spanElement.innerHTML = String([die1Data, die2Data, die3Data][index]);
+            element.innerHTML = String([die1Data, die2Data, die3Data][index]);
           }
         }
 

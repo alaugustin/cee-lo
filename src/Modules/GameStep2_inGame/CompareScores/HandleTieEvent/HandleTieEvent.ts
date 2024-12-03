@@ -1,8 +1,8 @@
+import { NewGameButtonEventHandler } from '../../../Global';
 import {
-  NewGameButtonEventHandler,
   ComputerNameHolder,
   PlayerNameHolder
-} from '../../../Global';
+} from '../../../GlobalHTMLElements';
 import { ICompareScoresProps } from '../CompareScores.d';
 
 const tieNameConstructor = (

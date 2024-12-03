@@ -1,4 +1,4 @@
-import { ToggleGameScreen } from '../../../Global';
+import { ToggleGameScreen } from '../../../GlobalHelperFunc';
 import { PostGame } from '../../../GameStep3_postGame/PostGame';
 import { ICompareScoresProps } from '../CompareScores.d';
 
