@@ -70,20 +70,29 @@ export const IsLastPlayer: IIsLastPlayer = (
 ) => {
   const nextPlayerButtonPosition = currentPlayerData.rollPosition;
   const nextPlayerButton = document.querySelectorAll('.playerColumn button')[nextPlayerButtonPosition];
+  const playerButtons = document.querySelectorAll('.playerColumn button');
 
   if (currentPlayerData.rollPosition === playersLength) {
-    CompareScores(playerDataArray);
+    playerButtons.forEach((button) => {
+      button.setAttribute('disabled', 'disabled');
+      button.className = '';
+      ButtonEnableDisable(button, ThreeDbuttonStylingDisabled);
+    });
+
+    setTimeout(() => {
+      CompareScores(playerDataArray);
+    }, 750);
   } else {
     NextPlayer(currentPlayerData);
-
     playerDataArray.forEach((player) => {
       if (player.name !== currentPlayerData.name && player.rollPoints === 0 && player.rollType === '') {
         if (currentPlayerData.rollType === '4,5,6' || currentPlayerData.rollType === '1,2,3') {
-          if (currentPlayerData.rollType === '1,2,3') {
-            player.rollPoints = 1;
-          }
+          if (currentPlayerData.rollType === '1,2,3') { player.rollPoints = 1; }
+
           ButtonEnableDisable(nextPlayerButton, ThreeDbuttonStylingDisabled);
-          CompareScores(playerDataArray);
+          setTimeout(() => {
+            CompareScores(playerDataArray);
+          }, 750);
         }
       }
     });
