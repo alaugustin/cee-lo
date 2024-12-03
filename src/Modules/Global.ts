@@ -199,19 +199,20 @@ export const UpdatePlayerHolder: IUpdatePlayerHolderProps = (
   const roll456string = `${playerData.name} rolled 456`;
   const roll123string = `${playerData.name} rolled 123`;
   const bankBrokenString = 'You beat the bank';
+  const payOnWayOutString = 'Pay on your way out';
 
   if (playerData.rollCode === null) {
     playerHolder.innerText = '';
   } else if (playerData.rollCode === 3) {
     playerHolder.innerText = playerData.name === 'The House'
-      ? `${roll456string}. Pay on your way out!`
+      ? `${roll456string}. ${payOnWayOutString}!`
       : `${roll456string}. ${bankBrokenString}!`;
   } else if (playerData.rollCode === 2) {
     playerHolder.innerText = `${playerData.name} rolled trips ${playerData.rollPoints}`;
   } else if (playerData.rollCode === 0) {
     playerHolder.innerText = playerData.name === 'The House'
       ? `${roll123string}. ${bankBrokenString}!`
-      : `${roll123string}. Better luck next time!`;
+      : `${roll123string}. Better luck next time. ${payOnWayOutString}!`;
   } else {
     playerHolder.innerText = `${playerData.name} rolled ${playerData.rollPoints}`;
   }
