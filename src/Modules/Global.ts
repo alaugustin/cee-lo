@@ -1,5 +1,15 @@
 import { CompareScores } from './GameStep2_inGame/CompareScores/CompareScores';
 import {
+  PlayerButtons,
+  WinnerNameHolder,
+  RoundOrGameStrHolder,
+  NewGameButton,
+  AnnouncePlayerNameHolder,
+  AnnouncePlayerActionHolder,
+  GameWinnerHolder,
+  GameLossHolder
+} from './Global_HTMLElements';
+import {
   IButtonEnableDisableProps,
   IIsLastPlayer,
   IToggleGameScreen,
@@ -7,16 +17,7 @@ import {
   IPlayerDataProps,
   IUpdatePlayerHolderProps,
   IPlayerResultHandler
-} from './Global.d'
-
-const playerButtons = document.querySelectorAll('.playerColumn button');
-const winnerNameHolder = document.getElementById('winnerName');
-const roundOrGameStrHolder = document.getElementById('roundOrGame');
-const newGameButton = document.getElementById('newGameButton') as HTMLElement;
-const announcePlayerNameHolder = document.getElementById('currentPlayerName') as HTMLElement;
-const announcePlayerActionHolder = document.getElementById('currentPlayerAction') as HTMLElement;
-const gameWinnerHolder = document.getElementById('gameWinnerHolder');
-const gameLossHolder = document.getElementById('gameLossHolder');
+} from './Global.d';
 
 export const ThreeDbuttonStyling: string[] = ['bg-blue-500', 'hover:bg-blue-400', 'text-white', 'font-bold', 'py-2', 'px-4', 'border-b-4', 'border-blue-700', 'hover:border-blue-500', 'rounded'];
 
@@ -59,7 +60,7 @@ export const ButtonEnableDisable: IButtonEnableDisableProps = (
 };
 
 export const DisableAllButtons = () => {
-  playerButtons.forEach((button: Element) => {
+  PlayerButtons.forEach((button: Element) => {
     button.setAttribute('disabled', 'disabled');
     button.className = '';
     button.classList.add(...ThreeDbuttonStylingDisabled);
@@ -104,11 +105,11 @@ export const IsLastPlayer: IIsLastPlayer = (
 };
 
 export const PopulateWinnerName = (winnerName: string) => {
-  winnerNameHolder.innerText = winnerName;
+  WinnerNameHolder.innerText = winnerName;
 };
 
 export const RoundOrGame = (playType: string) => {
-  roundOrGameStrHolder.innerText = playType;
+  RoundOrGameStrHolder.innerText = playType;
 };
 
 export const AdvanceGameRound = (winningPlayer: { name: string }) => {
@@ -145,7 +146,7 @@ export const AutoRollPlayer = (player: string) => {
 };
 
 export const NewGameButtonEventHandler = () => {
-  newGameButton.addEventListener('click', () => {
+  NewGameButton.addEventListener('click', () => {
     window.location.reload();
   });
 };
@@ -154,8 +155,8 @@ export const AnnouncePlayer: IAnnouncePlayer = (
   playerName,
   playerAction
 ) => {
-  announcePlayerNameHolder.innerText = playerName;
-  announcePlayerActionHolder.innerText = playerAction;
+  AnnouncePlayerNameHolder.innerText = playerName;
+  AnnouncePlayerActionHolder.innerText = playerAction;
 }
 
 export const ClearGameValues = (selectors: string[]) => {
@@ -217,11 +218,11 @@ export const HandlePlayerResult: IPlayerResultHandler = (
   if (isWin) {
     ToggleGameScreen('gameboard', true);
     handleWinData(playerData);
-    UpdatePlayerHolder(gameWinnerHolder, playerData);
+    UpdatePlayerHolder(GameWinnerHolder, playerData);
     RoundOrGame('round'); // todo: develop condition for round or game in ProcessRollType.ts
     ToggleGameScreen('endScreen', false);
   } else {
     handleLossData(playerData);
-    UpdatePlayerHolder(gameLossHolder, playerData);
+    UpdatePlayerHolder(GameLossHolder, playerData);
   }
 }
