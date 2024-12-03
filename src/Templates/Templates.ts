@@ -1,9 +1,11 @@
 import {
-  BoldTreatment,
   ThreeDbuttonStyling,
-  ThreeDbuttonStylingDisabled,
-  HeaderTextSize
+  ThreeDbuttonStylingDisabled
 } from '../Modules/Global';
+import {
+  BoldTreatment,
+  HeaderTextSize
+} from '../Modules/GlobalHelperFunc';
 
 const flexCol = 'flex flex-col' as string;
 const commonClass = `playerColumn ${flexCol}` as string;

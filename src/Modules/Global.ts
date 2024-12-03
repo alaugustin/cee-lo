@@ -1,8 +1,6 @@
 import { CompareScores } from './GameStep2_inGame/CompareScores/CompareScores';
 import {
   PlayerButtons,
-  WinnerNameHolder,
-  RoundOrGameStrHolder,
   NewGameButton,
   AnnouncePlayerNameHolder,
   AnnouncePlayerActionHolder,
@@ -10,9 +8,13 @@ import {
   GameLossHolder
 } from './Global_HTMLElements';
 import {
+  PopulateWinnerName,
+  RoundOrGame,
+  ToggleGameScreen
+} from './GlobalHelperFunc';
+import {
   IButtonEnableDisableProps,
   IIsLastPlayer,
-  IToggleGameScreen,
   IAnnouncePlayer,
   IPlayerDataProps,
   IUpdatePlayerHolderProps,
@@ -22,22 +24,6 @@ import {
 export const ThreeDbuttonStyling: string[] = ['bg-blue-500', 'hover:bg-blue-400', 'text-white', 'font-bold', 'py-2', 'px-4', 'border-b-4', 'border-blue-700', 'hover:border-blue-500', 'rounded'];
 
 export const ThreeDbuttonStylingDisabled: string[] = ['bg-slate-500', 'text-white', 'font-bold', 'py-2', 'px-4', 'border-b-4', 'border-slate-700', 'rounded'];
-
-export const BoldTreatment = (optClass: string | null) => {
-  if (optClass === null) {
-    return 'font-bold';
-  } else {
-    return `font-bold ${optClass}`;
-  }
-};
-
-export const HeaderTextSize = (fontSize: number | null) => {
-  if (fontSize === null) {
-    return 'text-xl';
-  } else {
-    return `text-${fontSize}xl`;
-  }
-};
 
 export const GlobalGameData = {
   gameRound: '',
@@ -104,14 +90,6 @@ export const IsLastPlayer: IIsLastPlayer = (
   }
 };
 
-export const PopulateWinnerName = (winnerName: string) => {
-  WinnerNameHolder.innerText = winnerName;
-};
-
-export const RoundOrGame = (playType: string) => {
-  RoundOrGameStrHolder.innerText = playType;
-};
-
 export const AdvanceGameRound = (winningPlayer: { name: string }) => {
   const { gameRounds } = GlobalGameData;
 
@@ -123,15 +101,6 @@ export const AdvanceGameRound = (winningPlayer: { name: string }) => {
   } else {
     RoundOrGame('round');
   }
-};
-
-export const ToggleGameScreen: IToggleGameScreen = (
-  screenName,
-  shouldHide
-) => {
-  document.getElementById(screenName)?.classList[
-    shouldHide ? 'add' : 'remove'
-  ]('hidden');
 };
 
 export const AutoRollPlayer = (player: string) => {

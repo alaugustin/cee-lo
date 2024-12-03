@@ -1,4 +1,4 @@
-import { ToggleGameScreen } from '../Global';
+import { ToggleGameScreen } from '../GlobalHelperFunc';
 import { PlayerHandler } from './PlayerHandler/PlayerHandler';
 import { IPreGameProps } from './PreGame.d';
 
