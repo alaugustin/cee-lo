@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev-server": "npx webpack serve --live-reload",
-    "build": "npx webpack",
+    "build": "npx webpack && cp -r ./src/assets/img ./dist",
     "start": "webpack serve --mode=development --open",
     "build-tailwind": "npx tailwindcss -i ./src/input.css -o ./dist/css/style.css --watch",
     "lint": "npx eslint src/**/**",
