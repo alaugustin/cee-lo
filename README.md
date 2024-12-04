@@ -46,37 +46,24 @@
 -->
 
 # cee-lo
-
 A TypeScript version of the popular dice game.
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
+    <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#built-with">Built With</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#game-rules">Game Rules</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
-<!-- ABOUT THE PROJECT
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
-
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
- -->
+Cee-lo is a gambling game played with three six-sided dice with one central player (the bank) making individual bets with each player, or as a winner-take-all game.
 
 ## Built With
-
 <!--This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.-->
 
 - [Webpack](https://webpack.js.org/)
@@ -97,23 +84,38 @@ This is an example of how to list things you need to use the software and how to
   ```sh
   npm install npm@latest -g
   ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```JS
-   const API_KEY = 'ENTER YOUR API';
-   ```
 -->
+
+## Installation
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/alaugustin/cee-lo.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd cee-lo
+    ```
+3. Install dependencies (requires Node.js and NPM):
+    ```bash
+    npm install
+    ```
+4. Build the project:
+    ```bash
+    npm run build
+    ```
+5. Open `dist/index.html` in your browser to view the project.
+
+## Game Rules
+### 4-5-6
+The highest possible roll. If a player rolls 4–5–6 they automatically win.
+### Triple
+Rolling three same numbers is known as rolling a trip. Higher trips beat lower trips, so 4–4–4 is better than 3–3–3. Any trips beats any established point.
+### Pair + Value
+Rolling a pair, and another number, establishes the singleton as a "point". A higher point beats a lower point, so 2–2–6 is better than 5–5–2.
+### 1-2-3
+The lowest possible roll. If a player rolls 1–2–3 they automatically lose.
+### Indeterminate
+Any combination that does not result in a triple, sequential (4-5-6 win or 1-2-3 loss), or points (pair + value) is considered an indeterminate outcome and requires a re-roll.
 
 <!-- USAGE EXAMPLES
 ## Usage
@@ -124,52 +126,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
  -->
 
 <!-- ROADMAP --
-
 ## Roadmap
 
-<!--See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).--
-
-### Sprint 1
-
-<ol>
-  <li>Move legacy code into JS template</li>
-</ol>
-
-#### Sprint 1.1
-
-Code review tasks
-
-<ol>
-  <li>add single quotes to define undefined variables</li>
-  <li>change var to let/const</li>
-  <li>remove unnecessary context var from non-global variables</li>
-  <li>add default case to switch statement</li>
-  <li>use event listener for rest and start button element.</li>
-</ol>
-
-### Sprint 2
-
-<ol>
-  <li>Score storage function</li>
-</ol>
-
-### Sprint 3
-
-<ol>
-  <li>Compare roll function</li>
-</ol>
-
-### Sprint 4
-
-<ol>
-  <li>Determine which player will roll first</li>
-</ol>
-
-### Sprint 5
-
-<ol>
-  <li>Determine winner</li>
-</ol> -->
+<!--See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).-->
 
 ## Contributing
 
@@ -188,15 +147,11 @@ Distributed under the MIT License. See `LICENSE` for more information.
 -->
 
 ## Contact
-
 <!--Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
 -->
-Project Link: [alaugustin/cee-lo/](https://github.com/alaugustin/cee-lo/tree/dev)
-
-<!-- ACKNOWLEDGEMENTS -->
+Project Link: [cee-lo](https://github.com/alaugustin/cee-lo/tree/dev)
 
 ## Acknowledgements
-
 - [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 - [Convert JSON Data Dynamically to HTML Table using JavaScript](https://www.encodedna.com/javascript/practice-ground/default.htm?pg=convert_json_to_table_javascript)
 - [Cee-lo Rules](https://en.wikipedia.org/wiki/Cee-lo#Rules)
