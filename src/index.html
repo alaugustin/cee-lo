@@ -14,14 +14,14 @@
     <h1 class="text-center">Cee-Lo</h1>
   </div>
   <div id="startScreen"
-    class="hidden max-w-3xl mx-auto py-6 border-solid border-2 border-sky-500 flex flex-col justify-center items-center bg-white">
+    class="hidden max-w-3xl mx-auto py-6 border-solid border-2 border-sky-500 flex flex-col justify-center items-center bg-white rounded-lg min-h-[408px]">
     <h2 class="text-4xl mb-4 text-center">Start Screen</h2>
     <h3 class="text-3xl text-center">Press Start Button</h3>
     <button id="startButton"
       class="max-w-3xl mx-auto mt-4 border-solid border-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">START</button>
   </div>
   <div id="playerSignIn"
-    class="hidden max-w-3xl mx-auto py-6 border-solid border-2 border-sky-500 flex flex-col justify-center items-center bg-white">
+    class="hidden max-w-3xl mx-auto py-6 border-solid border-2 border-sky-500 flex flex-col justify-center items-center bg-white rounded-lg min-h-[408px]">
     <h2 class="text-4xl mb-4 text-center">Enter Player Name</h2>
     <input id="nameInput" type="text" maxlength="13" class="focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500" />
     <button id="playButton"
@@ -29,7 +29,7 @@
       GAME</button>
   </div>
   <div id="gameboard"
-    class="hidden max-w-3xl mx-auto py-6 border-solid border-2 border-sky-500 flex flex-col justify-center items-center bg-white">
+    class="hidden max-w-3xl mx-auto py-6 border-solid border-2 border-sky-500 flex flex-col justify-center items-center bg-white rounded-lg min-h-[408px]">
     <h2 id="rollAnnounce" class="text-4xl mb-4 text-center">
       <span id="currentPlayerName">Please</span>&nbsp;<span
         id="currentPlayerAction">Roll</span>
@@ -37,7 +37,7 @@
     <div id="scoreBoardHolder" class="flex flex-row"></div>
   </div>
   <div id="endScreen"
-    class="hidden max-w-3xl mx-auto py-6 border-solid border-2 border-sky-500 flex flex-col justify-center items-center bg-white">
+    class="hidden max-w-3xl mx-auto py-6 border-solid border-2 border-sky-500 flex flex-col justify-center items-center bg-white rounded-lg min-h-[408px]">
     <div id="winLossHolder" class="flex flex-col justify-center items-center">
       <h2 class="text-4xl mb-4 text-center"><span id="winnerName"></span>&nbsp;wins
         this&nbsp;<span id="roundOrGame"></span></h2>
@@ -45,7 +45,7 @@
       <p id="gameLossHolder" class="text-center px-2">loser</p>
     </div>
     <div id="tieHolder"
-      class="hidden flex flex-col justify-center items-center bg-white">
+      class="hidden flex flex-col justify-center items-center bg-white rounded-lg">
       <h2 class="text-4xl mb-4 text-center">Tie Game. Keep your cash!</h2>
       <p id="computerName">UNCHANGED_CPU_DATA</p>
       <p>tied</p>
