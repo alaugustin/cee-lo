@@ -10,7 +10,7 @@ import {
 const flexCol = 'flex flex-col' as string;
 const commonClass = `playerColumn ${flexCol}` as string;
 const dieStyling = BoldTreatment('text-xs') as string;
-const columnStyling = `${flexCol} w-16 items-center justify-center` as string;
+const columnStyling = `${flexCol} w-12 sm:w-16 items-center justify-center` as string;
 
 export function ScoreboardCard(
   index: number,
